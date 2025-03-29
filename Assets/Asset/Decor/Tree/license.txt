@@ -1,0 +1,11 @@
+Model Information:
+* title:	Japanese Maple
+* source:	https://sketchfab.com/3d-models/japanese-maple-003c6ab20e644655ba36fe54cb04765b
+* author:	endlessvoidmc (https://sketchfab.com/endlessvoidmc)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Japanese Maple" (https://sketchfab.com/3d-models/japanese-maple-003c6ab20e644655ba36fe54cb04765b) by endlessvoidmc (https://sketchfab.com/endlessvoidmc) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

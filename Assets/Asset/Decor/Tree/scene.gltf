@@ -1,0 +1,429 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 11684,
+      "max": [
+        41.71966552734375,
+        68.28688049316406,
+        35.985233306884766
+      ],
+      "min": [
+        -48.53842544555664,
+        11.644939422607422,
+        -30.4355411529541
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 140208,
+      "componentType": 5126,
+      "count": 11684,
+      "max": [
+        0.9998092651367188,
+        0.9999973177909851,
+        0.9996471405029297
+      ],
+      "min": [
+        -0.9998092651367188,
+        -0.9999973177909851,
+        -0.9996471405029297
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 11684,
+      "max": [
+        0.9882850050926208,
+        0.9912880063056946
+      ],
+      "min": [
+        0.45814061164855957,
+        0.4938058853149414
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 93472,
+      "componentType": 5126,
+      "count": 11684,
+      "max": [
+        0.9882850050926208,
+        0.9912880063056946
+      ],
+      "min": [
+        0.45814061164855957,
+        0.4938058853149414
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 11700,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 280416,
+      "componentType": 5126,
+      "count": 30453,
+      "max": [
+        36.951080322265625,
+        60.893096923828125,
+        28.28243637084961
+      ],
+      "min": [
+        -30.85421371459961,
+        0.0,
+        -24.372093200683594
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 645852,
+      "componentType": 5126,
+      "count": 30453,
+      "max": [
+        0.9997958540916443,
+        0.9999446868896484,
+        0.9999749064445496
+      ],
+      "min": [
+        -0.9997618198394775,
+        -0.9999911189079285,
+        -0.9998724460601807
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 186944,
+      "componentType": 5126,
+      "count": 30453,
+      "max": [
+        0.9922490119934082,
+        0.990801990032196
+      ],
+      "min": [
+        0.008472999557852745,
+        0.00855398178100586
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 430568,
+      "componentType": 5126,
+      "count": 30453,
+      "max": [
+        0.9922490119934082,
+        0.990801990032196
+      ],
+      "min": [
+        0.008472999557852745,
+        0.00855398178100586
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 46800,
+      "componentType": 5125,
+      "count": 151707,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "endlessvoidmc (https://sketchfab.com/endlessvoidmc)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/japanese-maple-003c6ab20e644655ba36fe54cb04765b",
+      "title": "Japanese Maple"
+    },
+    "generator": "Sketchfab-15.18.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 653628,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 674192,
+      "byteOffset": 653628,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1011288,
+      "byteOffset": 1327820,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 2339108,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Material_1_baseColor.png"
+    },
+    {
+      "uri": "textures/Material_1_metallicRoughness.png"
+    }
+  ],
+  "materials": [
+    {
+      "alphaMode": "MASK",
+      "doubleSided": true,
+      "name": "Material_1",
+      "occlusionTexture": {
+        "index": 1
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    },
+    {
+      "alphaMode": "MASK",
+      "doubleSided": true,
+      "name": "Material_0",
+      "occlusionTexture": {
+        "index": 1
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Object_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 2,
+            "TEXCOORD_1": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Object_1",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TEXCOORD_0": 7,
+            "TEXCOORD_1": 8
+          },
+          "indices": 9,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "root"
+    },
+    {
+      "children": [
+        3
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "GLTF_SceneRootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        0.03401466831564903,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.03401466831564903,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.03401466831564903,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "RootNode.0_3"
+    },
+    {
+      "children": [
+        5,
+        7
+      ],
+      "name": "japanese_maple_tree.1_2"
+    },
+    {
+      "children": [
+        6
+      ],
+      "matrix": [
+        1.4360263778858173,
+        0.0469051032144174,
+        -0.0068604998708446125,
+        0.0,
+        -0.046726731210206075,
+        1.4356308057995113,
+        0.034631959486886896,
+        0.0,
+        0.007985447575210457,
+        -0.034389991113162266,
+        1.4363745295585297,
+        0.0,
+        0.0,
+        -8.061548233032227,
+        0.0,
+        1.0
+      ],
+      "name": "japanese_maple_leaves.3_0"
+    },
+    {
+      "mesh": 0,
+      "name": "Object_6"
+    },
+    {
+      "children": [
+        8
+      ],
+      "matrix": [
+        1.6127915382385254,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.6127915382385254,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.6127915382385254,
+        0.0,
+        0.0,
+        -26.020687103271484,
+        0.0,
+        1.0
+      ],
+      "name": "japanese_maple_tree.2_1"
+    },
+    {
+      "mesh": 1,
+      "name": "Object_8"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    }
+  ]
+}
