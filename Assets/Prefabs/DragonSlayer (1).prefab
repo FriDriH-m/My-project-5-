@@ -108,6 +108,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3fba011bbae58d848898dee1b08c90c5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3146136457292319825}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3fba011bbae58d848898dee1b08c90c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8605432542354431149}
     - targetCorrespondingSourceObject: {fileID: -4202148855105533681, guid: 3fba011bbae58d848898dee1b08c90c5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 375258698282999678}
@@ -283,10 +286,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -8605432542354431149}
+        m_TargetAssemblyTypeName: GrabParenter, Assembly-CSharp
+        m_MethodName: OnGrab
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -8605432542354431149}
+        m_TargetAssemblyTypeName: GrabParenter, Assembly-CSharp
+        m_MethodName: OnUngrab
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -358,3 +385,15 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
+--- !u!114 &-8605432542354431149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6512476121007013074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c3ccf61048e0f4c87185fa278190ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
