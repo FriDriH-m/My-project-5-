@@ -7,6 +7,9 @@ TagManager:
   - Weapon
   - R_Hand
   - L_Hand
+  - Start_Weapon
+  - Secret_Weapon
+  - Box_Key
   layers:
   - Default
   - TransparentFX

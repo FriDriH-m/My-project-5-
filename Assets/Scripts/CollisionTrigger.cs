@@ -1,15 +1,12 @@
 using UnityEngine;
 
-public class Collisiontrigger : MonoBehaviour
+public class CollisionTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject GameObject;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("R_Hand") && !other.CompareTag("L_Hand"))
-        {
-            return;
-        }
-        GameObject.SetActive(false);
+        if (!other.CompareTag("R_Hand") && !other.CompareTag("L_Hand")) return;
+        else GameObject.SetActive(false);
     }
 }
