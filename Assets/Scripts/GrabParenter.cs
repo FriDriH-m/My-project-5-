@@ -8,6 +8,7 @@ public class GrabParenter : MonoBehaviour
     public void OnGrab(SelectEnterEventArgs args)
     {
         args.interactableObject.transform.SetParent(args.interactorObject.transform);
+        Debug.Log("1");
         if (args.interactableObject.transform.gameObject.CompareTag("Start_Weapon"))
         {
             train.SetActive(true);
