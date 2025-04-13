@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class IdleState : BaseState
 {
-    [SerializeField] GameObject player;
     public override void EnterState(EnemyStateManager manager)
     {
         manager.SetSpeed(0);

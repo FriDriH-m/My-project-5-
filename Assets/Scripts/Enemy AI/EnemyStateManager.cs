@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,13 +9,14 @@ public class EnemyStateManager : MonoBehaviour
     [SerializeField] public float walkSpeed;
     [SerializeField] public float agroDistance;
     [SerializeField] public float attackDistance;
+    private ZoneTriggerManager zoneManager;
     Transform target; // Цель преследования
 
     BaseState currentState;
-    public IdleState idleState = new IdleState();
-    public DefenceState defenceState = new DefenceState();
-    public AttackState attackState = new AttackState();
-    public AgroState agroState = new AgroState();
+    public IdleState idleState = new();
+    public DefenceState defenceState = new();
+    public AttackState attackState = new();
+    public AgroState agroState = new();
 
     public void SwitchState(BaseState newState) // Метод, задающий текущее состояние
     {
@@ -25,14 +27,10 @@ public class EnemyStateManager : MonoBehaviour
         currentState = newState;
         currentState.EnterState(this);
     }
-    public void SetSpeed(float speed)
-    {
-        navMeshAgent.speed = speed;
-    }
-    public void SetTarget(Transform newDestination)
-    {
-        target = newDestination;
-    }
+    public void SetSpeed(float speed) => navMeshAgent.speed = speed;
+
+    public void SetTarget(Transform newDestination) => target = newDestination;
+
     public float CheckDistance()
     {
         return (transform.position - target.transform.position).magnitude;
