@@ -12,7 +12,7 @@ public class ZoneTriggerManager : MonoBehaviour
 
     public void SetActiveZone(string zone)
     {
-        switch (zone.ToLower())
+        switch (zone)
         {
             case "top": top++; break;
             case "middle": middle++; break;
@@ -25,7 +25,7 @@ public class ZoneTriggerManager : MonoBehaviour
     }
     public void ResetZone(string zone)
     {
-        switch (zone.ToLower())
+        switch (zone)
         {
             case "top": top = 0; break;
             case "middle": middle = 0; break;
@@ -39,6 +39,6 @@ public class ZoneTriggerManager : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log($"top: {top} down: {down} middle: {middle} left: {left} right: {right}");
+        //Debug.Log($"top: {top} down: {down} middle: {middle} left: {left} right: {right}");
     }
 }

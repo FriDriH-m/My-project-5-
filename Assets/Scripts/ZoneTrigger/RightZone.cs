@@ -6,7 +6,6 @@ public class RightZone : MonoBehaviour
     private void Start()
     {
         manager = FindFirstObjectByType<ZoneTriggerManager>();
-
         if (manager == null)
         {
             Debug.LogError("ZoneTriggerManager не найден в сцене!");

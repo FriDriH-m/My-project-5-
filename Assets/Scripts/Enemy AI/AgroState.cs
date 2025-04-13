@@ -2,19 +2,18 @@ using UnityEngine;
 
 public class AgroState : BaseState
 {
-    ZoneTriggerManager zoneManager;
 
-    public override void EnterState(EnemyStateManager manager)
+    public override void EnterState(EnemyStateManager manager, ZoneTriggerManager zoneManager)
     {
         manager.SetSpeed(manager.walkSpeed);
     }
-    public override void ExitState(EnemyStateManager manager)
+    public override void ExitState(EnemyStateManager manager, ZoneTriggerManager zoneManager)
     {
 
     }
-    public override void UpdateState(EnemyStateManager manager)
+    public override void UpdateState(EnemyStateManager manager, ZoneTriggerManager zoneManager)
     {
-        if (zoneManager != null) { Debug.Log("null"); }
+
         if (zoneManager.summ != 0) manager.SwitchState(manager.defenceState);
         if (manager.CheckDistance() >= manager.agroDistance) manager.SwitchState(manager.idleState);
         if (manager.CheckDistance() <= manager.attackDistance) manager.SwitchState(manager.attackState);

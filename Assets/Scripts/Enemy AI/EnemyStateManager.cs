@@ -5,11 +5,14 @@ using UnityEngine.AI;
 public class EnemyStateManager : MonoBehaviour
 {
     [SerializeField] NavMeshAgent navMeshAgent;
-    [SerializeField] Transform player;
+    [SerializeField] public Transform player;
+    [SerializeField] public Transform enemy;
     [SerializeField] public float walkSpeed;
     [SerializeField] public float agroDistance;
     [SerializeField] public float attackDistance;
-    private ZoneTriggerManager zoneManager;
+    public Vector3 vectorToPlayer;
+    public Vector3 enemyForward;
+    ZoneTriggerManager zoneManager; // Менеджер зон, который отвечает за то, в какой зоне появился меч игрока
     Transform target; // Цель преследования
 
     BaseState currentState;
@@ -22,14 +25,21 @@ public class EnemyStateManager : MonoBehaviour
     {
         if (currentState != null)
         {
-            currentState.ExitState(this);
+            currentState.ExitState(this, zoneManager);
         }
         currentState = newState;
-        currentState.EnterState(this);
+        currentState.EnterState(this, zoneManager);
     }
     public void SetSpeed(float speed) => navMeshAgent.speed = speed;
 
     public void SetTarget(Transform newDestination) => target = newDestination;
+
+    public float CheckAngle() // проверяет угол между направлением взгляда врага и игрока
+    {
+        vectorToPlayer = (player.position - enemy.position).normalized;
+        enemyForward = enemy.forward.normalized;
+        return Vector3.Angle(vectorToPlayer, enemyForward);
+    }
 
     public float CheckDistance()
     {
@@ -37,6 +47,7 @@ public class EnemyStateManager : MonoBehaviour
     }
     private void Start()
     {
+        zoneManager = GetComponent<ZoneTriggerManager>();
         SwitchState(idleState); // Задается стандартное состояние
     }
 
@@ -44,6 +55,6 @@ public class EnemyStateManager : MonoBehaviour
     {
         SetTarget(player); // Задает значение target Transform player
         navMeshAgent.destination = target.position; // Постоянно обновляет позицию
-        currentState.UpdateState(this); // Вызывается метод Updatestate() текущего состояния
+        currentState.UpdateState(this, zoneManager); // Вызывается метод Updatestate() текущего состояния
     }
 }
