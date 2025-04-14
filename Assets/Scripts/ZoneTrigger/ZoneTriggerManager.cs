@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class ZoneTriggerManager : MonoBehaviour
     public int left = 0;
     public int right = 0;
     public int summ = 0;
+    public float playCount = 0;
 
     public void SetActiveZone(string zone)
     {

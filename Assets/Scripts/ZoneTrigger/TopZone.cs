@@ -7,17 +7,12 @@ public class TopZone : MonoBehaviour
     {
         manager = FindFirstObjectByType<ZoneTriggerManager>();
 
-        if (manager == null)
-        {
-            Debug.LogError("ZoneTriggerManager не найден в сцене!");
-        }
+        if (manager == null) Debug.LogError("ZoneTriggerManager не найден в сцене!");
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Weapon") && manager != null)
-        {
-            manager.SetActiveZone("top");
-        }
+        if (other.gameObject.CompareTag("Weapon") && manager != null) manager.SetActiveZone("top");
+
     }
     private void OnTriggerExit(Collider other)
     {

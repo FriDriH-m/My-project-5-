@@ -10,6 +10,8 @@ public class EnemyStateManager : MonoBehaviour
     [SerializeField] public float walkSpeed;
     [SerializeField] public float agroDistance;
     [SerializeField] public float attackDistance;
+    [SerializeField] public Animator animator;
+    public bool IsAnima = true;
     public Vector3 vectorToPlayer;
     public Vector3 enemyForward;
     ZoneTriggerManager zoneManager; // Менеджер зон, который отвечает за то, в какой зоне появился меч игрока
@@ -36,15 +38,31 @@ public class EnemyStateManager : MonoBehaviour
 
     public float CheckAngle() // проверяет угол между направлением взгляда врага и игрока
     {
-        vectorToPlayer = (player.position - enemy.position).normalized;
-        enemyForward = enemy.forward.normalized;
-        return Vector3.Angle(vectorToPlayer, enemyForward);
+        vectorToPlayer = (player.position - enemy.position);
+        vectorToPlayer.y = 0;
+        vectorToPlayer.Normalize();
+
+        enemyForward = enemy.forward;
+        enemyForward.y = 0;
+        enemyForward.Normalize();
+        return Vector3.SignedAngle(vectorToPlayer, enemyForward, Vector3.up);
     }
 
     public float CheckDistance()
     {
         return (transform.position - target.transform.position).magnitude;
     }
+
+    public int RandInt()
+    {
+        return Random.Range(0, 2);
+    }
+
+    public void EndAnimation() //ставит флаг если анимация заврешилась (Strafe анимации)
+    {
+        IsAnima = true;
+    }
+
     private void Start()
     {
         zoneManager = GetComponent<ZoneTriggerManager>();

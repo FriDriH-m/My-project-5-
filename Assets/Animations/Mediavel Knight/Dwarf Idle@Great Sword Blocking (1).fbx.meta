@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e000d6980c9b5c247be41c6a6401003f
+guid: d3d2fc242d23edf4d93418a5aa68bc06
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -31,11 +31,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Great Sword Strafe
+      name: Great Sword Blocking
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 33
+      lastFrame: 29
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -54,14 +54,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0.9941464
-        functionName: EndAnimation
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: fd293cb5b36e64640baaa9d96545ba2f, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
