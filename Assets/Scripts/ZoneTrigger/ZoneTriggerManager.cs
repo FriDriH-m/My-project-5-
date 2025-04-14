@@ -10,7 +10,6 @@ public class ZoneTriggerManager : MonoBehaviour
     public int left = 0;
     public int right = 0;
     public int summ = 0;
-    public float playCount = 0;
 
     public void SetActiveZone(string zone)
     {
@@ -37,10 +36,5 @@ public class ZoneTriggerManager : MonoBehaviour
             default: Debug.LogWarning($"Unknown zone: {zone}"); break;
         }
         summ--;
-    }
-
-    private void Update()
-    {
-        //Debug.Log($"top: {top} down: {down} middle: {middle} left: {left} right: {right}");
     }
 }

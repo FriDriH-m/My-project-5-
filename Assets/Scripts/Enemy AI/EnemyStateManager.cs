@@ -4,16 +4,20 @@ using UnityEngine.AI;
 
 public class EnemyStateManager : MonoBehaviour
 {
-    [SerializeField] NavMeshAgent navMeshAgent;
-    [SerializeField] public Transform player;
-    [SerializeField] public Transform enemy;
-    [SerializeField] public float walkSpeed;
-    [SerializeField] public float agroDistance;
-    [SerializeField] public float attackDistance;
-    [SerializeField] public Animator animator;
-    public bool IsAnima = true;
-    public Vector3 vectorToPlayer;
-    public Vector3 enemyForward;
+    [SerializeField] NavMeshAgent navMeshAgent; 
+    [SerializeField] public Transform player; // Transform игрока
+    [SerializeField] public Transform enemy; // Transform врага
+    [SerializeField] public float walkSpeed; // Скорость ходьбы врага
+    [SerializeField] public float agroDistance; // Дистанция агра врага
+    [SerializeField] public float attackDistance; // Дистанция атаки врага
+    [SerializeField] public float angleSpeed = 28f; // скорость Strafe врага
+    [SerializeField] public Animator animator; // Аниматор врага
+
+    public bool isAnimation = false; // Переменная для рандомного Strafe. Когда она false, рандомно выбирается следующая сторона Strafe
+    public bool isAnimationIdle = false;
+
+    public Vector3 vectorToPlayer; // Вектор от врага к игроку
+    public Vector3 enemyForward; // Вектор направления взгляда врага
     ZoneTriggerManager zoneManager; // Менеджер зон, который отвечает за то, в какой зоне появился меч игрока
     Transform target; // Цель преследования
 
@@ -55,12 +59,18 @@ public class EnemyStateManager : MonoBehaviour
 
     public int RandInt()
     {
-        return Random.Range(0, 2);
+        return Random.Range(0, 3);
     }
 
-    public void EndAnimation() //ставит флаг если анимация заврешилась (Strafe анимации)
+    public void EndAnimation() //ставит флаг если анимация заврешилась (Strafe анимации), используется Animation event
     {
-        IsAnima = true;
+        isAnimation = false;
+        isAnimationIdle = false;
+    }
+
+    public void EndAnimationMiddle()
+    {
+        zoneManager.middle = 0;
     }
 
     private void Start()
@@ -68,7 +78,6 @@ public class EnemyStateManager : MonoBehaviour
         zoneManager = GetComponent<ZoneTriggerManager>();
         SwitchState(idleState); // Задается стандартное состояние
     }
-
     private void Update()
     {
         SetTarget(player); // Задает значение target Transform player

@@ -20,7 +20,7 @@ public class DefenceState : BaseState
         if (zoneManager.top == 1) manager.animator.SetBool("top", true);
         else manager.animator.SetBool("top", false);
 
-        if (zoneManager.down == 1) manager.animator.SetBool("down", true);
+        if (zoneManager.down == 1) manager.animator.SetBool("down", true); 
         else manager.animator.SetBool("down", false);
 
         if (zoneManager.left == 1) manager.animator.SetBool("left", true);
@@ -29,7 +29,11 @@ public class DefenceState : BaseState
         if (zoneManager.right == 1) manager.animator.SetBool("right", true);
         else manager.animator.SetBool("right", false);
 
-        if (zoneManager.middle == 1) manager.animator.SetBool("middle", true);
+        if (zoneManager.middle == 1) 
+        {
+            manager.animator.SetBool("middle", true);
+            manager.enemy.position += new Vector3(0f, 0f, 1.4f);
+        }
         else manager.animator.SetBool("middle", false);
     }
 }
