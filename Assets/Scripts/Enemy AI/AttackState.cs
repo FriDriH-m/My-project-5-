@@ -23,42 +23,42 @@ public class AttackState : BaseState
             time = 0;
         }
 
-        if (manager.CheckAngle() > 20f) manager.enemy.Rotate(0, -40f, 0);
-        if (manager.CheckAngle() < -20f) manager.enemy.Rotate(0, 40f, 0);
+        if (manager.CheckAngle() > 1f) manager.enemy.Rotate(0, -2f, 0);
+        if (manager.CheckAngle() < -1f) manager.enemy.Rotate(0, 2f, 0);
 
-        //if (!manager.isAnimation)
-        //{
-        //    int randInt = manager.RandInt();
-        //    if (randInt == 1)
-        //    {
-        //        leftMove = true;
-        //        manager.animator.SetBool("StrafeL", true);
-        //        manager.animator.SetBool("StrafeR", false);
-        //        manager.isAnimation = true;
-        //    }
-        //    else if (randInt == 2)
-        //    {
-        //        leftMove = false;
-        //        manager.animator.SetBool("StrafeR", true);
-        //        manager.animator.SetBool("StrafeL", false);
-        //        manager.isAnimation = true;
-        //    }
-        //    else if (randInt == 0)
-        //    {
-        //        manager.animator.SetBool("StrafeR", false);
-        //        manager.animator.SetBool("StrafeL", false);
-        //        manager.isAnimation = true;
-        //        manager.isAnimationIdle = true;
-        //    }
-        //}
-        //if (manager.isAnimation && !manager.isAnimationIdle)
-        //{
-        //    if (leftMove)
-        //    {
-        //        manager.enemy.RotateAround(manager.player.position, Vector3.up, manager.angleSpeed * Time.deltaTime);
-        //    }
-        //    else manager.enemy.RotateAround(manager.player.position, Vector3.up, -1 * manager.angleSpeed * Time.deltaTime);
-        //}
+        if (!manager.isAnimation)
+        {
+            int randInt = manager.RandInt();
+            if (randInt == 1)
+            {
+                leftMove = true;
+                manager.animator.SetBool("StrafeL", true);
+                manager.animator.SetBool("StrafeR", false);
+                manager.isAnimation = true;
+            }
+            else if (randInt == 2)
+            {
+                leftMove = false;
+                manager.animator.SetBool("StrafeR", true);
+                manager.animator.SetBool("StrafeL", false);
+                manager.isAnimation = true;
+            }
+            else 
+            {
+                manager.animator.SetBool("StrafeR", false);
+                manager.animator.SetBool("StrafeL", false);
+                manager.isAnimation = true;
+                manager.isAnimationIdle = true;
+            }
+        }
+        if (manager.isAnimation && !manager.isAnimationIdle)
+        {
+            if (leftMove)
+            {
+                manager.enemy.RotateAround(manager.player.position, Vector3.up, manager.angleSpeed * Time.deltaTime);
+            }
+            else manager.enemy.RotateAround(manager.player.position, Vector3.up, -1 * manager.angleSpeed * Time.deltaTime);
+        }
 
         if (zoneManager.summ != 0) manager.SwitchState(manager.defenceState);
     }

@@ -15,6 +15,7 @@ public class EnemyStateManager : MonoBehaviour
 
     public bool isAnimation = false; // ѕеременна€ дл€ рандомного Strafe.  огда она false, рандомно выбираетс€ следующа€ сторона Strafe
     public bool isAnimationIdle = false;
+    public bool isAnimationDown = false;
 
     public Vector3 vectorToPlayer; // ¬ектор от врага к игроку
     public Vector3 enemyForward; // ¬ектор направлени€ взгл€да врага
@@ -59,7 +60,7 @@ public class EnemyStateManager : MonoBehaviour
 
     public int RandInt()
     {
-        return Random.Range(0, 3);
+        return Random.Range(0, 4);
     }
 
     public void EndAnimation() //ставит флаг если анимаци€ заврешилась (Strafe анимации), используетс€ Animation event
@@ -68,9 +69,15 @@ public class EnemyStateManager : MonoBehaviour
         isAnimationIdle = false;
     }
 
-    public void EndAnimationMiddle()
+    public void StartAnimationDown()
     {
-        zoneManager.middle = 0;
+        isAnimationDown = true;
+        zoneManager.down = 0;
+    }
+    public void Move()
+    {
+        Vector3 backPosition = enemy.position - enemy.forward * 10f;
+        enemy.position = Vector3.MoveTowards(enemy.position, backPosition, 10f * Time.deltaTime);
     }
 
     private void Start()

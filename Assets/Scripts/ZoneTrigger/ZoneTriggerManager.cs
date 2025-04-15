@@ -5,7 +5,6 @@ using UnityEngine;
 public class ZoneTriggerManager : MonoBehaviour
 {
     public int top = 0;
-    public int middle = 0;
     public int down = 0;
     public int left = 0;
     public int right = 0;
@@ -16,7 +15,6 @@ public class ZoneTriggerManager : MonoBehaviour
         switch (zone)
         {
             case "top": top++; break;
-            case "middle": middle++; break;
             case "down": down++; break;
             case "left": left++; break;
             case "right": right++; break;
@@ -29,7 +27,6 @@ public class ZoneTriggerManager : MonoBehaviour
         switch (zone)
         {
             case "top": top = 0; break;
-            case "middle": middle = 0; break;
             case "down": down = 0; break;
             case "left": left = 0; break;
             case "right": right = 0; break;
