@@ -10,6 +10,8 @@ TagManager:
   - Start_Weapon
   - Secret_Weapon
   - Box_Key
+  - Limbs
+  - Shield
   layers:
   - Default
   - TransparentFX

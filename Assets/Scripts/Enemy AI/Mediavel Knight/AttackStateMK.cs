@@ -1,0 +1,44 @@
+using UnityEngine;
+
+public class AttackState : BaseState
+{
+    float time = 0; // таймер
+    float time1 = 0; // таймер для ограничения strafe
+
+    public override void EnterState(EnemyStateManager manager, ZoneTriggerManager zoneManager)
+    {
+        //Debug.Log("attack");
+        manager.isAnimationIdle = true;
+        manager.SetSpeed(0);
+    }
+    public override void ExitState(EnemyStateManager manager, ZoneTriggerManager zoneManager)
+    {
+        manager.animator.SetBool("StrafeR", false); 
+        manager.animator.SetBool("StrafeL", false);
+    }
+    public override void UpdateState(EnemyStateManager manager, ZoneTriggerManager zoneManager)
+    {
+        time += Time.deltaTime;
+        if (time > 0.3f) // каждые 0.3 секунды обрабатывается эта ветка
+        {
+            if ((manager.CheckDistance() > manager.attackDistance) && !manager.isAttacking) manager.SwitchState(manager.agroState);
+            if (manager.CheckDistance() < manager.attackDistance - 1.2f) manager.SwitchState(manager.retreatState);
+            zoneManager.AttackAnimation();
+            time = 0;
+        }
+
+        time1 += Time.deltaTime;
+        if (time1 > 2f)
+        {
+            manager.isAnimationDown = false; // через две секунды после отскока назад может проигрываться strafe
+            time1 = 0;
+        }
+
+        if (manager.CheckAngle() > 1f) manager.enemy.Rotate(0, -2f, 0);
+        if (manager.CheckAngle() < -1f) manager.enemy.Rotate(0, 2f, 0);
+
+        zoneManager.StrafeAnimation();
+
+        if (zoneManager.top == 1 || zoneManager.left == 1 || zoneManager.right == 1 || zoneManager.down == 1) manager.SwitchState(manager.defenceState);
+    }
+}

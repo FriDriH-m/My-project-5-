@@ -1,0 +1,106 @@
+using Unity.XR.CoreUtils;
+using UnityEngine;
+
+public class WeaponDamage : MonoBehaviour
+{
+    [SerializeField] private float _mass = 1; // масса меча
+    [SerializeField] private Rigidbody _rigidBody; // rigidbody меча, чтобы вычислить его скорость
+    private Animator _animator;
+    private DamageCount _damageCount; // скрипт на враге с его здоровьем
+    public float speed = 0; // скорость меча
+    public float impuls = 0; // импыльс = скорость меча * массу меча
+    bool _touchSword = false; // было ли касание об меч врага
+    float _timeAfterSwrdTch = 0; // врем€, которое прошло после последнего касани€ с мечом
+
+
+    private void Awake()
+    {  
+        if (_rigidBody == null) _rigidBody = GetComponent<Rigidbody>();
+    }
+    private void FixedUpdate()
+    {
+        speed = _rigidBody.linearVelocity.magnitude;
+        impuls = _mass * speed;
+        if (_touchSword)
+        {
+            _timeAfterSwrdTch += Time.deltaTime;
+        }
+        if (_timeAfterSwrdTch > 0.4f)
+        {
+            _timeAfterSwrdTch = 0f;
+            _touchSword = false;
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        HitZone hitZone = collision.collider.GetComponentInParent<HitZone>();
+        _damageCount = collision.gameObject.GetComponent<DamageCount>();
+        _animator = collision.gameObject.GetComponent<Animator>();
+        float _instImpuls = impuls/2;
+
+        if (hitZone != null)
+        {
+            if (hitZone.zone == HitZone.ZoneType.Sword)
+            {
+                _touchSword = true;
+            }
+            if (hitZone.haveArmor)
+            {
+                _instImpuls *= 0.8f;
+            }
+            if (hitZone.zone == HitZone.ZoneType.Head)
+            {
+                _instImpuls *= 1.5f;
+                if (_touchSword)
+                {
+                    _instImpuls *= 0.2f;
+                }
+
+                if (_instImpuls > 20f)
+                {
+                    //Debug.Log("√ќЋќ¬ј \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    _damageCount.hitPoints -= _instImpuls;
+                    _animator.SetLayerWeight(2, 0.5f);
+                }
+            }
+            if (hitZone.zone == HitZone.ZoneType.Torso)
+            {
+                _instImpuls *= 1.2f;
+                if (_touchSword)
+                {
+                    _instImpuls *= 0.2f;
+                }
+
+                if (_instImpuls > 20f)
+                {
+                    //Debug.Log("“”Ћќ¬»ў≈ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    _damageCount.hitPoints -= _instImpuls;
+                    _animator.SetLayerWeight(1, 0.5f);
+                }
+            }
+            if (hitZone.zone == HitZone.ZoneType.Limbs)
+            {
+                _instImpuls *= 0.8f;
+                if (_touchSword)
+                {
+                    _instImpuls *= 0.2f;
+                }
+
+                if (_instImpuls > 20f)
+                {
+                    //Debug.Log(" ќЌ≈„Ќќ—“№ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    _damageCount.hitPoints -= _instImpuls;
+                }
+            }
+            if (hitZone.zone == HitZone.ZoneType.Shield)
+            {
+                _instImpuls *= 0.1f;
+                if (_instImpuls > 20f)
+                {
+                    //Debug.Log(" ќЌ≈„Ќќ—“№ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    _damageCount.hitPoints -= _instImpuls;
+                }
+            }
+        }
+    }
+}
