@@ -39,8 +39,17 @@ public class WeaponDamage : MonoBehaviour
         //_interactable.movementType = XRBaseInteractable.MovementType.VelocityTracking;
         HitZone hitZone = collision.collider.GetComponentInParent<HitZone>();
         _damageCount = collision.gameObject.GetComponent<DamageCount>();
+<<<<<<< Updated upstream
         _animator = collision.gameObject.GetComponent<Animator>();
         float _instImpuls = impuls*5;
+=======
+        if (!collision.gameObject.CompareTag("Golem"))
+        {
+            _animator = collision.gameObject.GetComponent<Animator>();
+        }
+        else { _animator = null; }  
+        float _instImpuls = impuls/2;
+>>>>>>> Stashed changes
 
         if (hitZone != null)
         {
@@ -64,8 +73,12 @@ public class WeaponDamage : MonoBehaviour
                 {
                     Debug.Log("√ŒÀŒ¬¿ \n·˚ÎÓ - " + _damageCount.hitPoints + " ÒÚ‡ÎÓ - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
-                    _animator.SetBool("HeadImpact", true);
-                    _animator.SetLayerWeight(2, 0.5f);
+                    if (_animator != null)
+                    {
+                        _animator.SetBool("HeadImpact", true);
+                        _animator.SetLayerWeight(2, 0.5f);
+                    }
+                    
                 }
             }
             if (hitZone.zone == HitZone.ZoneType.Torso)
@@ -80,8 +93,12 @@ public class WeaponDamage : MonoBehaviour
                 {
                     Debug.Log("“”ÀŒ¬»Ÿ≈ \n·˚ÎÓ - " + _damageCount.hitPoints + " ÒÚ‡ÎÓ - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
-                    _animator.SetBool("TorsoImpact", true);
-                    _animator.SetLayerWeight(1, 0.5f);
+                    if (_animator != null)
+                    {
+                        _animator.SetBool("TorsoImpact", true);
+                        _animator.SetLayerWeight(1, 0.5f);
+                    }
+                    
                 }
             }
             if (hitZone.zone == HitZone.ZoneType.Limbs)
