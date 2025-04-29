@@ -1,11 +1,13 @@
 using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class WeaponDamage : MonoBehaviour
 {
     [SerializeField] private float _mass = 1; // масса меча
     [SerializeField] private Rigidbody _rigidBody; // rigidbody меча, чтобы вычислить его скорость
     private Animator _animator;
+    private XRGrabInteractable _interactable;
     private DamageCount _damageCount; // скрипт на враге с его здоровьем
     public float speed = 0; // скорость меча
     public float impuls = 0; // импыльс = скорость меча * массу меча
@@ -15,6 +17,7 @@ public class WeaponDamage : MonoBehaviour
 
     private void Awake()
     {  
+        _interactable = GetComponent<XRGrabInteractable>();
         if (_rigidBody == null) _rigidBody = GetComponent<Rigidbody>();
     }
     private void FixedUpdate()
@@ -33,9 +36,13 @@ public class WeaponDamage : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+        //_interactable.movementType = XRBaseInteractable.MovementType.VelocityTracking;
         HitZone hitZone = collision.collider.GetComponentInParent<HitZone>();
         _damageCount = collision.gameObject.GetComponent<DamageCount>();
-        _animator = collision.gameObject.GetComponent<Animator>();
+        if (!collision.gameObject.CompareTag("Golem"))
+        {
+            _animator = collision.gameObject.GetComponent<Animator>();
+        }
         float _instImpuls = impuls/2;
 
         if (hitZone != null)
@@ -60,6 +67,7 @@ public class WeaponDamage : MonoBehaviour
                 {
                     //Debug.Log("√ќЋќ¬ј \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
+                    _animator.SetBool("HeadImpact", true);
                     _animator.SetLayerWeight(2, 0.5f);
                 }
             }
@@ -75,6 +83,7 @@ public class WeaponDamage : MonoBehaviour
                 {
                     //Debug.Log("“”Ћќ¬»ў≈ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
+                    _animator.SetBool("TorsoImpact", true);
                     _animator.SetLayerWeight(1, 0.5f);
                 }
             }
@@ -102,5 +111,9 @@ public class WeaponDamage : MonoBehaviour
                 }
             }
         }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        //_interactable.movementType = XRBaseInteractable.MovementType.Kinematic;
     }
 }

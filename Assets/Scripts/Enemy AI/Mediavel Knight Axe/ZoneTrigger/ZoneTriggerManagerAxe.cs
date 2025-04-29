@@ -13,7 +13,6 @@ public class ZoneTriggerManagerAxe : MonoBehaviour
     public int down = 0; // переменные = 1, когда оружие игрока заходит в зону защиты врага
 
     List<string> attackZone = new List<string> { "attackMiddle", "attack1", "attack2", "attack360" }; // список комбинаций атак
-    bool leftMove = false; // переменная, которая отвечает за направление движения врага при Strafe
 
     private void Start()
     {
