@@ -6091,8 +6091,8 @@ Transform:
   m_GameObject: {fileID: 512481212}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1095, y: -0.000000014901, z: -0.0000013927}
-  m_LocalScale: {x: 2.825, y: 1, z: 1}
+  m_LocalPosition: {x: 0.1095, y: 0.151, z: -0.0000013927}
+  m_LocalScale: {x: 2.825, y: 0.47883, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1182842247}
@@ -7674,8 +7674,8 @@ Transform:
   m_GameObject: {fileID: 753980444}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.001, y: 1.1256, z: -0.15}
-  m_LocalScale: {x: 1.2192, y: 0.50146663, z: 1.2192}
+  m_LocalPosition: {x: 0.001, y: 0.72088, z: -0.15}
+  m_LocalScale: {x: 1.2192, y: 0.7659903, z: 1.2192}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1182842247}
@@ -9524,8 +9524,8 @@ Transform:
   m_GameObject: {fileID: 1051841739}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.795, y: 2.0142, z: -0.066}
-  m_LocalScale: {x: 1.2302009, y: 0.53789836, z: 1.2302009}
+  m_LocalPosition: {x: 0.795, y: 2.097, z: -0.066}
+  m_LocalScale: {x: 1.2302009, y: 0.8564956, z: 1.2302009}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1182842247}
@@ -12845,9 +12845,9 @@ MonoBehaviour:
   m_AttachEaseInTime: 0.15
   m_MovementType: 0
   m_VelocityDamping: 1
-  m_VelocityScale: 1
+  m_VelocityScale: 0.3
   m_AngularVelocityDamping: 1
-  m_AngularVelocityScale: 1
+  m_AngularVelocityScale: 0.3
   m_TrackPosition: 1
   m_SmoothPosition: 0
   m_SmoothPositionAmount: 8

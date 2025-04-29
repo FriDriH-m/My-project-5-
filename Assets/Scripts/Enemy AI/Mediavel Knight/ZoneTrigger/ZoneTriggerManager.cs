@@ -182,7 +182,7 @@ public class ZoneTriggerManager : MonoBehaviour
             }
             else { manager.animator.SetBool("top", false); }
 
-            if (down == 1 && top != 1)
+            if (down == 1 && top != 1 && left != 1 && right != 1)
             {
                 manager.animator.SetBool("down", true);
                 defenceTime += Time.deltaTime;

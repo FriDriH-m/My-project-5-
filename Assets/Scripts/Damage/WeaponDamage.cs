@@ -39,11 +39,8 @@ public class WeaponDamage : MonoBehaviour
         //_interactable.movementType = XRBaseInteractable.MovementType.VelocityTracking;
         HitZone hitZone = collision.collider.GetComponentInParent<HitZone>();
         _damageCount = collision.gameObject.GetComponent<DamageCount>();
-        if (!collision.gameObject.CompareTag("Golem"))
-        {
-            _animator = collision.gameObject.GetComponent<Animator>();
-        }
-        float _instImpuls = impuls/2;
+        _animator = collision.gameObject.GetComponent<Animator>();
+        float _instImpuls = impuls*5;
 
         if (hitZone != null)
         {
@@ -63,9 +60,9 @@ public class WeaponDamage : MonoBehaviour
                     _instImpuls *= 0.2f;
                 }
 
-                if (_instImpuls > 20f)
+                if (_instImpuls > 1f)
                 {
-                    //Debug.Log("ÃÎËÎÂÀ \náûëî - " + _damageCount.hitPoints + " ñòàëî - " + (_damageCount.hitPoints - _instImpuls));
+                    Debug.Log("ÃÎËÎÂÀ \náûëî - " + _damageCount.hitPoints + " ñòàëî - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
                     _animator.SetBool("HeadImpact", true);
                     _animator.SetLayerWeight(2, 0.5f);
@@ -79,9 +76,9 @@ public class WeaponDamage : MonoBehaviour
                     _instImpuls *= 0.2f;
                 }
 
-                if (_instImpuls > 20f)
+                if (_instImpuls > 1f)
                 {
-                    //Debug.Log("ÒÓËÎÂÈÙÅ \náûëî - " + _damageCount.hitPoints + " ñòàëî - " + (_damageCount.hitPoints - _instImpuls));
+                    Debug.Log("ÒÓËÎÂÈÙÅ \náûëî - " + _damageCount.hitPoints + " ñòàëî - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
                     _animator.SetBool("TorsoImpact", true);
                     _animator.SetLayerWeight(1, 0.5f);
@@ -95,18 +92,18 @@ public class WeaponDamage : MonoBehaviour
                     _instImpuls *= 0.2f;
                 }
 
-                if (_instImpuls > 20f)
+                if (_instImpuls > 1f)
                 {
-                    //Debug.Log("ÊÎÍÅ×ÍÎÑÒÜ \náûëî - " + _damageCount.hitPoints + " ñòàëî - " + (_damageCount.hitPoints - _instImpuls));
+                    Debug.Log("ÊÎÍÅ×ÍÎÑÒÜ \náûëî - " + _damageCount.hitPoints + " ñòàëî - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
                 }
             }
             if (hitZone.zone == HitZone.ZoneType.Shield)
             {
                 _instImpuls *= 0.1f;
-                if (_instImpuls > 20f)
+                if (_instImpuls > 1f)
                 {
-                    //Debug.Log("ÊÎÍÅ×ÍÎÑÒÜ \náûëî - " + _damageCount.hitPoints + " ñòàëî - " + (_damageCount.hitPoints - _instImpuls));
+                    Debug.Log("ÊÎÍÅ×ÍÎÑÒÜ \náûëî - " + _damageCount.hitPoints + " ñòàëî - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
                 }
             }
