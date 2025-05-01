@@ -59,6 +59,7 @@ public class EnemyStateManagerG : MonoBehaviour
     {
         animator.SetBool("AttackLeft", false);
         animator.SetBool("AttackRight", false);
+        isAttacking = false;
     }
     public void RandomAttack() 
     {
