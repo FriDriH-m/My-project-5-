@@ -104,6 +104,7 @@ public class ZoneTriggerManager : MonoBehaviour
         animator.SetBool("attackRight", false);
         animator.SetBool("attackLeft", false);
         animator.SetBool("attackMiddle", false);
+        manager.isAttacking = false;
         if (_isCombinationAttack)
         {
             animator.SetBool(combinationAttack[Random.Range(0, 3)], true);
@@ -112,7 +113,7 @@ public class ZoneTriggerManager : MonoBehaviour
     }
     public void AttackAnimation()
     {
-        int chanceOfAttack = Random.Range(0, 15); // Шанс, что враг осмелится атаковать игрока
+        int chanceOfAttack = Random.Range(0, 10); // Шанс, что враг осмелится атаковать игрока
         _chanceOfCombination = Random.Range(0, 4); // шанс, что враг атакует комбинацией
         int randAttackInteger = Random.Range(0, 2); // рандомный выбор из доступных атак
 

@@ -10,7 +10,6 @@ public class GrabParenter : MonoBehaviour
     [SerializeField] LayerMask _layerMask;
     ConfigurableJoint configurableJoint;
     Rigidbody rb;
-    GameObject joint;
 
     Transform interactable;
     Transform interactor;

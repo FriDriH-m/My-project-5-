@@ -7,7 +7,7 @@ public class AttackLeftZone : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Weapon"))
         {
-            Debug.Log("Weapon detected in AttackLeftZone");
+            //Debug.Log("Weapon detected in AttackLeftZone");
             haveWeapon = true;
         }
     }

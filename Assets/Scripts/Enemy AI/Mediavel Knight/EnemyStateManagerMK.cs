@@ -102,7 +102,6 @@ public class EnemyStateManager : MonoBehaviour
     {
         animator.SetBool("HeadImpact", false);
         animator.SetBool("TorsoImpact", false);
-
     }
     private void Start()
     {
