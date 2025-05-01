@@ -63,7 +63,7 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0
-        functionName: ResetAttackAnimation
+        functionName: StartIdleAnimation
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 9dd9b7abe32dc204fac5b4e77ac31fa0, type: 3}
         floatParameter: 0

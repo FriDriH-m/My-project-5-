@@ -1,18 +1,17 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyStateManager : MonoBehaviour
 {
-    [SerializeField] NavMeshAgent navMeshAgent; 
-    [SerializeField] public Transform player; // Transform игрока
-    [SerializeField] public Transform enemy; // Transform врага
-    [SerializeField] public float walkSpeed; // Скорость ходьбы врага
-    [SerializeField] public float agroDistance; // Дистанция агра врага
-    [SerializeField] public float attackDistance; // Дистанция атаки врага
-    [SerializeField] public float angleSpeed = 28f; // скорость Strafe врага
-    [SerializeField] public Animator animator; // Аниматор врага
-    [SerializeField] public float retreatSpeed = 1f; // Дистанция Strafe врага
+    public NavMeshAgent navMeshAgent; 
+    public Transform player; // Transform игрока
+    public Transform enemy; // Transform врага
+    public float walkSpeed; // Скорость ходьбы врага
+    public float agroDistance; // Дистанция агра врага
+    public float attackDistance; // Дистанция атаки врага
+    public float angleSpeed = 28f; // скорость Strafe врага
+    public Animator animator; // Аниматор врага
+    public float retreatSpeed = 1f; // Дистанция Strafe врага
 
     public bool isAnimation = false; // Переменная для рандомного Strafe. Когда она false, рандомно выбирается следующая сторона Strafe
     public bool isAnimationIdle = false; // Переменная, чтобы враг не двигался, когда проигрывается анимация idle. Из-за рандомного Strafe
@@ -68,14 +67,14 @@ public class EnemyStateManager : MonoBehaviour
 
     public void StartAnimationDown() // срабатывает когда анимация при задевании зоны down начинается. Animation event
     {
-        if (!enemy.CompareTag("Shield"))
-        {
-            enemy.position = Vector3.MoveTowards(enemy.position, enemy.position - enemy.forward * 2f, 4f * Time.deltaTime); // плавно двигает врага на определенное расстояние
-            // второе значение верхней строчки не имеет значения, главное чтобы не было слишком маленьким или равным нулю. 
-            // все потому что оно проигрывается каждый кадр и дальность хода зависит от скорости передвижения, ведь анимация длится фикс-ое время и чем быстрее, тем дальше.
-        }
         isAnimationDown = true; 
     }
+    public void EndAnimationDown() // срабатывает когда анимация при задевании зоны down заканчивается. Animation event
+    {
+        zoneManager.defenseSide = "";
+        isAnimationDown = false;
+    }
+
     public void StartRetreatMove()
     {
         if (!isAttacking)
@@ -83,11 +82,7 @@ public class EnemyStateManager : MonoBehaviour
             enemy.position = Vector3.Lerp(enemy.position, enemy.position - enemy.forward * 2f, retreatSpeed * Time.deltaTime); // плавно двигает врага на определенное расстояние
         }
     }
-    public void EndAnimationDown() // срабатывает когда анимация при задевании зоны down заканчивается. Animation event
-    {
-        zoneManager.ResetZone("down");
-        isAnimationDown = false;
-    }
+
     public void StartAttackAnimation()
     {
         animator.SetBool("StrafeR", false);

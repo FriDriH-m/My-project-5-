@@ -1,20 +1,16 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ZoneTriggerManager : MonoBehaviour
 {
-    [SerializeField] Animator animator;
+    Animator animator;
     EnemyStateManager manager;
 
     public float defenceTime = 0; // время, в течение которого враг защищается от атаки игрока
     int _chanceOfCombination; // шанс комбинации атак
     bool _isCombinationAttack = false; // переменная = true, если враг использует комбинацию атак
 
-    public int top = 0; 
-    public int down = 0; // переменные = 1, когда оружие игрока заходит в зону защиты врага
-    public int left = 0;
-    public int right = 0; 
+    public string defenseSide = ""; // сторона, с которой враг защищается от атаки игрока
 
     private AttackMiddleZone attackMiddleZone; // ссылка на зону атаки 
     private AttackLeftZone attackLeftZone; // ссылка на зону атаки 
@@ -22,51 +18,14 @@ public class ZoneTriggerManager : MonoBehaviour
 
     List<string> activeAttackZone = new List<string>(); // список доступных зон атаки
     List<string> combinationAttack = new List<string> { "attackMiddle", "attackRight", "attackLeft" }; // список комбинаций атак
-    bool leftMove = false; // переменная, которая отвечает за направление движения врага при Strafe
 
     private void Start()
     {
+        animator = GetComponent<Animator>(); 
         manager = GetComponent<EnemyStateManager>();
         attackMiddleZone = FindFirstObjectByType<AttackMiddleZone>();
         attackLeftZone = FindFirstObjectByType<AttackLeftZone>();
         attackRightZone = FindFirstObjectByType<AttackRightZone>();
-    }
-    public void SetActiveZone(string zone) // в триггер зонах врага активируется, когда меч игрока входит в зону
-    {
-        switch (zone)
-        {
-            case "top": top = 1; 
-                break;
-            case "down": down = 1; 
-                break;
-            case "left": left = 1; 
-                break;
-            case "right": right = 1; 
-                break;
-            default: Debug.LogWarning($"Unknown zone: {zone}"); break;
-        }
-    }
-    public void ResetZone(string zone)
-    {
-        switch (zone)
-        {
-            case "top":
-                top = 0; 
-                break;
-            case "down":
-                down = 0; 
-                break;
-            case "left":
-                left = 0; 
-                break;
-            case "right":
-                right = 0; 
-                break;
-            default:
-                Debug.LogWarning($"Unknown zone: {zone}");
-                break;
-
-        }
     }
     public bool HasWeapon(Transform parent, string tag)
     {
@@ -99,7 +58,7 @@ public class ZoneTriggerManager : MonoBehaviour
             activeAttackZone.AddRange(new List<string> { "attackLeft", "attackRight", "attackMiddle"});
         }
     }
-    public void ResetAttackAnimation() // Animation event у idle анимации в начале
+    public void StartIdleAnimation() // Animation event у idle анимации в начале
     {
         animator.SetBool("attackRight", false);
         animator.SetBool("attackLeft", false);
@@ -113,7 +72,7 @@ public class ZoneTriggerManager : MonoBehaviour
     }
     public void AttackAnimation()
     {
-        int chanceOfAttack = Random.Range(0, 10); // Шанс, что враг осмелится атаковать игрока
+        int chanceOfAttack = Random.Range(0, 8); // Шанс, что враг осмелится атаковать игрока
         _chanceOfCombination = Random.Range(0, 4); // шанс, что враг атакует комбинацией
         int randAttackInteger = Random.Range(0, 2); // рандомный выбор из доступных атак
 
@@ -145,14 +104,12 @@ public class ZoneTriggerManager : MonoBehaviour
             int randInt = Random.Range(0, 3);
             if (randInt == 1)
             {
-                leftMove = true;
                 animator.SetBool("StrafeL", true);
                 animator.SetBool("StrafeR", false);
                 manager.isAnimation = true;
             }
             else if (randInt == 2)
             {
-                leftMove = false;
                 animator.SetBool("StrafeR", true);
                 animator.SetBool("StrafeL", false);
                 manager.isAnimation = true;
@@ -165,7 +122,7 @@ public class ZoneTriggerManager : MonoBehaviour
         }
         if ((animator.GetBool("StrafeL") || animator.GetBool("StrafeR")) && !manager.isAnimationIdle && !manager.isAttacking)
         {
-            if (leftMove)
+            if (animator.GetBool("StrafeL"))
             {
                 manager.enemy.RotateAround(manager.player.position, Vector3.up, manager.angleSpeed * Time.deltaTime);
             }
@@ -176,34 +133,41 @@ public class ZoneTriggerManager : MonoBehaviour
     {
         if (!manager.isAttacking)
         {
-            if (top == 1)
+            defenceTime += Time.deltaTime;
+            switch (defenseSide)
             {
-                manager.animator.SetBool("top", true);
-                defenceTime += Time.deltaTime;
+                case "":
+                    animator.SetBool("down", false);
+                    animator.SetBool("right", false);
+                    animator.SetBool("left", false);
+                    animator.SetBool("top", false);
+                    defenceTime = 0;
+                    break;
+                case "top":
+                    animator.SetBool("down", false);
+                    animator.SetBool("right", false);
+                    animator.SetBool("left", false);
+                    animator.SetBool("top", true);
+                    break;
+                case "left":
+                    animator.SetBool("down", false);
+                    animator.SetBool("right", false);
+                    animator.SetBool("top", false);
+                    animator.SetBool("left", true);
+                    break;
+                case "right":
+                    animator.SetBool("down", false);
+                    animator.SetBool("left", false);
+                    animator.SetBool("top", false);
+                    animator.SetBool("right", true);
+                    break;
+                case "down":
+                    animator.SetBool("right", false);
+                    animator.SetBool("left", false);
+                    animator.SetBool("top", false);
+                    animator.SetBool("down", true);
+                    break;
             }
-            else { manager.animator.SetBool("top", false); }
-
-            if (down == 1 && top != 1 && left != 1 && right != 1)
-            {
-                manager.animator.SetBool("down", true);
-                defenceTime += Time.deltaTime;
-                manager.StartAnimationDown();
-            }
-            else { manager.animator.SetBool("down", false); }
-
-            if (left == 1)
-            {
-                manager.animator.SetBool("left", true);
-                defenceTime += Time.deltaTime;
-            }
-            else { manager.animator.SetBool("left", false); }
-
-            if (right == 1)
-            {
-                manager.animator.SetBool("right", true);
-                defenceTime += Time.deltaTime;
-            }
-            else { manager.animator.SetBool("right", false); }
         }
     }
 }

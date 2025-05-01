@@ -9,21 +9,19 @@ public class LeftZone : MonoBehaviour
     {
         stateManager = GetComponentInParent<EnemyStateManager>();
         manager = GetComponentInParent<ZoneTriggerManager>();
-        if (manager == null)
-        {
-            Debug.Log("ZoneTriggerManager не найден в родительском объекте!");
-        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
         if (other.gameObject.CompareTag("Weapon") && !stateManager.isAttacking)
         {
-            manager.SetActiveZone("left");
+            manager.defenseSide = "left";
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Weapon") && manager != null)
+        if (other.gameObject.CompareTag("Weapon"))
         {
-            manager.ResetZone("left");
-            manager.defenceTime = 0;
+            manager.defenseSide = "";
         }
     }
 }

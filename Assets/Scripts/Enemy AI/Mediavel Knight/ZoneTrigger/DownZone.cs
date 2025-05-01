@@ -7,22 +7,14 @@ public class DownZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        manager = GetComponentInParent<ZoneTriggerManager>();
         stateManager = GetComponentInParent<EnemyStateManager>();
-        if (manager == null)
-        {
-            Debug.Log("ZoneTriggerManager не найден в родительском объекте!");
-        } 
+        manager = GetComponentInParent<ZoneTriggerManager>();
+    }
+    private void OnTriggerStay(Collider other)
+    {
         if (other.gameObject.CompareTag("Weapon") && !stateManager.isAttacking)
         {
-            manager.SetActiveZone("down");
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Weapon") && manager != null)
-        {
-            manager.defenceTime = 0;
+            manager.defenseSide = "down";
         }
     }
 }

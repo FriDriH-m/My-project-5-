@@ -18,7 +18,7 @@ public class RetreatState : BaseState
         if (manager.CheckAngle() < -1f) manager.enemy.Rotate(0, 2f, 0);
 
         if (manager.CheckDistance() >= manager.attackDistance) manager.SwitchState(manager.attackState);
-        if (zoneManager.top == 1 || zoneManager.left == 1 || zoneManager.right == 1 || zoneManager.down == 1) manager.SwitchState(manager.defenceState);
+        if (zoneManager.defenseSide != "") manager.SwitchState(manager.defenceState);
 
         manager.StartRetreatMove();
     }

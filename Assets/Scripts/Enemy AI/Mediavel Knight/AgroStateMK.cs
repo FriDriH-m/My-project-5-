@@ -5,6 +5,7 @@ public class AgroState : BaseState
 
     public override void EnterState(EnemyStateManager manager, ZoneTriggerManager zoneManager)
     {
+        Debug.Log("agro");
         manager.animator.SetBool("IsWalking", true);
         manager.SetSpeed(manager.walkSpeed);
     }
@@ -14,8 +15,7 @@ public class AgroState : BaseState
     }
     public override void UpdateState(EnemyStateManager manager, ZoneTriggerManager zoneManager)
     {
-        if (zoneManager == null) Debug.Log("нулл блядь");
-        if (zoneManager.top == 1 || zoneManager.left == 1 || zoneManager.right == 1 || zoneManager.down == 1)
+        if (zoneManager.defenseSide != "")
         {
             manager.SwitchState(manager.defenceState);
         }

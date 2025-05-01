@@ -19,8 +19,7 @@ public class AttackStateG : BaseStateG
         {
             if (manager.CheckDistance() > manager.attackDistance && !manager.isAttacking) manager.SwitchState(manager.agroState);
             manager.RandomAttack();
-            time = 0;
-            Debug.Log(manager.isAttacking);
+            time = 0;          
         }
         if (manager.CheckAngle() > 1f) manager.enemy.Rotate(0, -2f, 0);
         if (manager.CheckAngle() < -1f) manager.enemy.Rotate(0, 2f, 0);   

@@ -9,21 +9,19 @@ public class TopZone : MonoBehaviour
     {
         stateManager = GetComponentInParent<EnemyStateManager>();
         manager = GetComponentInParent<ZoneTriggerManager>();
-        if (manager == null)
-        {
-            Debug.Log("ZoneTriggerManager не найден в родительском объекте!");
-        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
         if (other.gameObject.CompareTag("Weapon") && !stateManager.isAttacking)
         {
-            manager.SetActiveZone("top");
+            manager.defenseSide = "top";
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Weapon") && manager != null)
+        if (other.gameObject.CompareTag("Weapon"))
         {
-            manager.ResetZone("top");
-            manager.defenceTime = 0;
+            manager.defenseSide = "";
         }
     }
 }

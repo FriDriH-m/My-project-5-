@@ -9,21 +9,19 @@ public class RightZone : MonoBehaviour
     {
         stateManager = GetComponentInParent<EnemyStateManager>();
         manager = GetComponentInParent<ZoneTriggerManager>();
-        if (manager == null)
-        {
-            Debug.Log("ZoneTriggerManager не найден в родительском объекте!");
-        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
         if (other.gameObject.CompareTag("Weapon") && !stateManager.isAttacking)
         {
-            manager.SetActiveZone("right");
+            manager.defenseSide = "right";
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Weapon") && manager != null)
+        if (other.gameObject.CompareTag("Weapon"))
         {
-            manager.ResetZone("right");
-            manager.defenceTime = 0;
+            manager.defenseSide = "";
         }
     }
 }

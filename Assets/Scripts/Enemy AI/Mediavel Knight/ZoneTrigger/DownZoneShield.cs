@@ -15,14 +15,14 @@ public class DownZoneShield : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Weapon") && !stateManager.isAttacking)
         {
-            manager.SetActiveZone("down");
+            manager.defenseSide = "down";
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Weapon") && manager != null)
         {
-            manager.ResetZone("down");
+            manager.defenseSide = "";
             manager.defenceTime = 0;
         }
     }
