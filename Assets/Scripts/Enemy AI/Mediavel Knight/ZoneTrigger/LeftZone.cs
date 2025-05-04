@@ -9,18 +9,15 @@ public class LeftZone : MonoBehaviour
     {
         stateManager = GetComponentInParent<EnemyStateManager>();
         manager = GetComponentInParent<ZoneTriggerManager>();
-    }
-    private void OnTriggerStay(Collider other)
-    {
         if (other.gameObject.CompareTag("Weapon") && !stateManager.isAttacking)
         {
             manager.defenseSide = "left";
-        }
+        }       
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Weapon"))
-        {
+        {            
             manager.defenseSide = "";
         }
     }

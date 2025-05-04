@@ -40,7 +40,8 @@ public class WeaponDamage : MonoBehaviour
         HitZone hitZone = collision.collider.GetComponentInParent<HitZone>();
         _damageCount = collision.gameObject.GetComponent<DamageCount>();
         _animator = collision.gameObject.GetComponent<Animator>();
-        float _instImpuls = impuls*8;
+        float _instImpuls = impuls*3;
+        Debug.Log("Импульс - " + _instImpuls);
 
         if (hitZone != null)
         {

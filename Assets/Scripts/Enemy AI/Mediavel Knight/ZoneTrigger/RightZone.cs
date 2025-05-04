@@ -9,13 +9,10 @@ public class RightZone : MonoBehaviour
     {
         stateManager = GetComponentInParent<EnemyStateManager>();
         manager = GetComponentInParent<ZoneTriggerManager>();
-    }
-    private void OnTriggerStay(Collider other)
-    {
         if (other.gameObject.CompareTag("Weapon") && !stateManager.isAttacking)
         {
             manager.defenseSide = "right";
-        }
+        }       
     }
     private void OnTriggerExit(Collider other)
     {

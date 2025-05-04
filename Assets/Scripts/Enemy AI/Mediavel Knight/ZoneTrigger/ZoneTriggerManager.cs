@@ -70,6 +70,11 @@ public class ZoneTriggerManager : MonoBehaviour
             _isCombinationAttack = false;
         }
     }
+    public void StartRetreat()
+    {
+        defenseSide = "down"; 
+        defenceTime = 0;
+    }
     public void AttackAnimation()
     {
         int chanceOfAttack = Random.Range(0, 8); // Шанс, что враг осмелится атаковать игрока
@@ -132,8 +137,7 @@ public class ZoneTriggerManager : MonoBehaviour
     public void DefenseAnimation()
     {
         if (!manager.isAttacking)
-        {
-            defenceTime += Time.deltaTime;
+        {            
             switch (defenseSide)
             {
                 case "":
