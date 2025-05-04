@@ -4,9 +4,9 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class Item : MonoBehaviour
 {
-    public bool inSlot; // Точь-в-точь как у гайдера
-    public Vector3 slotRotation = Vector3.zero; // Без изменений
-    public Slot currentSlot; // Как в оригинале
+    public bool inSlot;
+    public Vector3 slotRotation = Vector3.zero;
+    public Slot currentSlot;
 
     private void Awake()
     {
@@ -29,7 +29,7 @@ public class Item : MonoBehaviour
 
         // Часть 2: Код гайдера без изменений
         if (GetComponent<Item>() == null) return; // Проверка на Item
-        if (inSlot)
+        if (GetComponent<Item>().inSlot)
         {
             GetComponentInParent<Slot>().ItemInSlot = null;
             transform.parent = null;
