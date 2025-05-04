@@ -9,7 +9,7 @@ public class InventoryVR : MonoBehaviour
     public GameObject Inventory;
     public GameObject Anchor;
     private bool UIActive;
-
+    private bool _wasPressed = false;
     private void Start()
     {
         Inventory.SetActive(false);
@@ -18,12 +18,24 @@ public class InventoryVR : MonoBehaviour
 
     private void Update()
     {
-        if (InputDevices.GetDeviceAtXRNode(XRNode.LeftHand).TryGetFeatureValue(CommonUsages.secondaryButton, out bool isPressed) && isPressed)
+        if (InputDevices.GetDeviceAtXRNode(XRNode.LeftHand).TryGetFeatureValue(CommonUsages.secondaryButton, out bool isPressed))
         {
-            UIActive = !UIActive;
-            Inventory.SetActive(UIActive);
-            Debug.Log("Кнопка нажата!");
+            if (isPressed && !_wasPressed)
+            {
+                UIActive = !UIActive;
+                Inventory.SetActive(UIActive);
+            }
+
+            if (!isPressed)
+            {
+                _wasPressed = false;
+            }
+            else
+            {
+                _wasPressed = true;
+            }
         }
+
 
         if (UIActive)
         {
