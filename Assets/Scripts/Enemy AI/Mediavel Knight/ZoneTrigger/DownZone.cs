@@ -7,7 +7,6 @@ public class DownZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
         stateManager = GetComponentInParent<EnemyStateManager>();
         manager = GetComponentInParent<ZoneTriggerManager>();
         if (other.gameObject.CompareTag("Weapon") && !stateManager.isAttacking)
