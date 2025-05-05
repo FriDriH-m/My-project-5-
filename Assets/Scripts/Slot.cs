@@ -2,11 +2,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit;
+
 public class Slot : MonoBehaviour
 {
     public GameObject ItemInSlot;
     public Image slotImage;
-    Color originalColor;
+    public Color originalColor;
 
     void Start()
     {
@@ -14,24 +18,54 @@ public class Slot : MonoBehaviour
         originalColor = slotImage.color;
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (ItemInSlot != null) return;
         GameObject obj = other.gameObject;
-        if (!IsItem(obj)) return;
-        if (obj.TryGetComponent<XRGrabInteractable>(out var grabInteractable) && grabInteractable.isSelected)
-        {
-            InsertItem(obj);
-        }
+
+        if (ItemInSlot != null) return;  // Если слот уже занят, ничего не делаем
+        if (!IsItem(obj)) return;       // Если это не предмет, ничего не делаем
+
+        // Вызываем InsertItem, когда предмет входит в триггер
+        InsertItem(obj);
     }
 
     bool IsItem(GameObject obj)
     {
-        return obj.GetComponent<Item>();
+        return obj.GetComponent<Item>() != null;
     }
 
     void InsertItem(GameObject obj)
     {
+        // Проверяем, что объект не захвачен (отпущен)
+        XRGrabInteractable grabInteractable = obj.GetComponent<XRGrabInteractable>();
+        if (grabInteractable != null && grabInteractable.isSelected)
+        {
+            // Если объект захвачен, выходим из функции
+            return;
+        }
+
+        // Если дошли сюда, значит, предмет не захвачен, и можно поместить его в слот
+        // Получаем размер коллайдера слота
+        Collider slotCollider = GetComponent<Collider>();
+        Vector3 slotSize = slotCollider.bounds.size;
+
+        // Получаем размер коллайдера предмета
+        Collider itemCollider = obj.GetComponent<Collider>();
+        Vector3 itemSize = itemCollider.bounds.size;
+
+        // Вычисляем коэффициент масштабирования
+        Vector3 scaleFactor = new Vector3(
+            slotSize.x / itemSize.x,
+            slotSize.y / itemSize.y,
+            slotSize.z / itemSize.z
+        );
+
+        // Находим наименьший коэффициент масштабирования, чтобы предмет поместился в слоте
+        float minScale = Mathf.Min(scaleFactor.x, scaleFactor.y, scaleFactor.z);
+
+        // Применяем масштабирование к предмету
+        obj.transform.localScale = Vector3.one * minScale;  // Используем Vector3.one, чтобы масштабировать равномерно
+
         obj.GetComponent<Rigidbody>().isKinematic = true;
         obj.transform.SetParent(gameObject.transform, true);
         obj.transform.localPosition = Vector3.zero;
