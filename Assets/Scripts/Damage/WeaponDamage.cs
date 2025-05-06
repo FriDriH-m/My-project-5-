@@ -40,11 +40,15 @@ public class WeaponDamage : MonoBehaviour
         HitZone hitZone = collision.collider.GetComponentInParent<HitZone>();
         _damageCount = collision.gameObject.GetComponent<DamageCount>();
         _animator = collision.gameObject.GetComponent<Animator>();
-        float _instImpuls = impuls*3;
-        Debug.Log("Импульс - " + _instImpuls);
+        float _instImpuls = impuls;
+        
 
         if (hitZone != null)
         {
+            if (_instImpuls > 20)
+            {
+                Debug.Log("Импульс - " + _instImpuls);
+            }
             if (hitZone.zone == HitZone.ZoneType.Sword)
             {
                 _touchSword = true;
@@ -63,6 +67,7 @@ public class WeaponDamage : MonoBehaviour
 
                 if (_instImpuls > 20f)
                 {
+
                     Debug.Log("ГОЛОВА \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
                     if (_animator != null)
@@ -105,10 +110,10 @@ public class WeaponDamage : MonoBehaviour
             }
             if (hitZone.zone == HitZone.ZoneType.Shield)
             {
-                _instImpuls *= 0.1f;
+                _instImpuls *= 0f;
                 if (_instImpuls > 20f)
                 {
-                    Debug.Log("КОНЕЧНОСТЬ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    Debug.Log("ЩИТ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
                 }
             }

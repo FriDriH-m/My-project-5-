@@ -7,7 +7,7 @@ public class AttackState : BaseState
 
     public override void EnterState(EnemyStateManager manager, ZoneTriggerManager zoneManager)
     {
-        Debug.Log("attack");
+        //Debug.Log("attack");
         manager.isAnimationIdle = true;
         manager.SetSpeed(0);
     }
@@ -22,7 +22,7 @@ public class AttackState : BaseState
         if (time > 0.3f) // каждые 0.3 секунды обрабатывается эта ветка
         {
             if ((manager.CheckDistance() > manager.attackDistance) && !manager.isAttacking) manager.SwitchState(manager.agroState);
-            if (manager.CheckDistance() < manager.attackDistance - 1.2f) manager.SwitchState(manager.retreatState);
+            if (manager.CheckDistance() < manager.attackDistance - 2.5f) manager.SwitchState(manager.retreatState);
             zoneManager.AttackAnimation();
             time = 0;
         }

@@ -5,7 +5,7 @@ public class RetreatState : BaseState
 {
     public override void EnterState(EnemyStateManager manager, ZoneTriggerManager zoneManager)
     {
-        Debug.Log("retreat");
+        //Debug.Log("retreat");
         manager.animator.SetBool("IsRetreat", true);
     }
     public override void ExitState(EnemyStateManager manager, ZoneTriggerManager zoneManager)
