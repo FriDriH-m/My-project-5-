@@ -7,7 +7,7 @@ public class AttackState : BaseState
 
     public override void EnterState(EnemyStateManager manager, ZoneTriggerManager zoneManager)
     {
-        Debug.Log("attack");
+        //Debug.Log("attack");
         manager.isAnimationIdle = true;
         manager.SetSpeed(0);
     }

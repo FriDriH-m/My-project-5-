@@ -1,53 +1,42 @@
+using System.Collections;
 using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class WeaponDamage : MonoBehaviour
 {
-    [SerializeField] private float _mass = 1; // масса меча
-    [SerializeField] private Rigidbody _rigidBody; // rigidbody меча, чтобы вычислить его скорость
-    private Animator _animator;
-    private XRGrabInteractable _interactable;
-    private DamageCount _damageCount; // скрипт на враге с его здоровьем
-    public float speed = 0; // скорость меча
-    public float impuls = 0; // импыльс = скорость меча * массу меча
-    bool _touchSword = false; // было ли касание об меч врага
-    float _timeAfterSwrdTch = 0; // время, которое прошло после последнего касания с мечом
+    [SerializeField] private Rigidbody _rigidBody; 
+    [SerializeField] private float _damageRatio = 10f;
+    [SerializeField] private float _minimalImpuls;
+    bool _touchSword = false; 
+    private bool _canHit = true;
+    private Coroutine _canHitCoroutine = null;
 
 
     private void Awake()
     {  
-        _interactable = GetComponent<XRGrabInteractable>();
         if (_rigidBody == null) _rigidBody = GetComponent<Rigidbody>();
-    }
-    private void FixedUpdate()
-    {
-        speed = _rigidBody.linearVelocity.magnitude;
-        impuls = _mass * speed;
-        if (_touchSword)
-        {
-            _timeAfterSwrdTch += Time.deltaTime;
-        }
-        if (_timeAfterSwrdTch > 0.4f)
-        {
-            _timeAfterSwrdTch = 0f;
-            _touchSword = false;
-        }
     }
     private void OnCollisionEnter(Collision collision)
     {
-        //_interactable.movementType = XRBaseInteractable.MovementType.VelocityTracking;
-        HitZone hitZone = collision.collider.GetComponentInParent<HitZone>();
-        _damageCount = collision.gameObject.GetComponent<DamageCount>();
-        _animator = collision.gameObject.GetComponent<Animator>();
-        float _instImpuls = impuls*3;
-        Debug.Log("Импульс - " + _instImpuls);
+        if (!_canHit) return;
 
-        if (hitZone != null)
+        float impuls = collision.impulse.magnitude;
+        Debug.Log(impuls);
+
+        HitZone hitZone = collision.collider.GetComponentInParent<HitZone>();
+        DamageCount _damageCount = collision.collider.GetComponentInParent<DamageCount>();
+        Animator _animator = collision.collider.GetComponentInParent<Animator>();
+
+        float _instImpuls = impuls * _damageRatio;
+
+        if (hitZone != null && _canHit) 
         {
+            //Debug.Log("РРјРїСѓР»СЊСЃ - " + _instImpuls);
+
             if (hitZone.zone == HitZone.ZoneType.Sword)
             {
-                _touchSword = true;
+                StartCoroutine(SwordTouch());
             }
             if (hitZone.haveArmor)
             {
@@ -61,14 +50,15 @@ public class WeaponDamage : MonoBehaviour
                     _instImpuls *= 0.2f;
                 }
 
-                if (_instImpuls > 20f)
+                if (_instImpuls > _minimalImpuls)
                 {
-                    Debug.Log("ГОЛОВА \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    Debug.Log("Р“РћР›РћР’Рђ \nР±С‹Р»Рѕ - " + _damageCount.hitPoints + " СЃС‚Р°Р»Рѕ - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
                     if (_animator != null)
                     {
                         _animator.SetBool("HeadImpact", true);
-                    }                    
+                    }
+                    return;
                 }
             }
             if (hitZone.zone == HitZone.ZoneType.Torso)
@@ -79,14 +69,15 @@ public class WeaponDamage : MonoBehaviour
                     _instImpuls *= 0.2f;
                 }
 
-                if (_instImpuls > 20f)
+                if (_instImpuls > _minimalImpuls)
                 {
-                    Debug.Log("ТУЛОВИЩЕ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    Debug.Log("РўРЈР›РћР’РР©Р• \nР±С‹Р»Рѕ - " + _damageCount.hitPoints + " СЃС‚Р°Р»Рѕ - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
                     if (_animator != null)
                     {
                         _animator.SetBool("TorsoImpact", true);                       
-                    }                    
+                    }
+                    return;
                 }
             }
             if (hitZone.zone == HitZone.ZoneType.Limbs)
@@ -97,25 +88,41 @@ public class WeaponDamage : MonoBehaviour
                     _instImpuls *= 0.2f;
                 }
 
-                if (_instImpuls > 20f)
+                if (_instImpuls > _minimalImpuls)
                 {
-                    Debug.Log("КОНЕЧНОСТЬ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    Debug.Log("РљРћРќР•Р§РќРћРЎРўР¬ \nР±С‹Р»Рѕ - " + _damageCount.hitPoints + " СЃС‚Р°Р»Рѕ - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
+                    return;
                 }
             }
             if (hitZone.zone == HitZone.ZoneType.Shield)
             {
                 _instImpuls *= 0.1f;
-                if (_instImpuls > 20f)
+                if (_instImpuls > _minimalImpuls)
                 {
-                    Debug.Log("КОНЕЧНОСТЬ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    Debug.Log("Р©РРў \nР±С‹Р»Рѕ - " + _damageCount.hitPoints + " СЃС‚Р°Р»Рѕ - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
+                    return;
                 }
             }
         }
     }
     private void OnCollisionExit(Collision collision)
     {
-        //_interactable.movementType = XRBaseInteractable.MovementType.Kinematic;
+        if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
+        
+    }
+    private IEnumerator ExitHitZone()
+    {
+        _canHit = false;
+        yield return new WaitForSeconds(0.7f);
+        _canHit = true;
+        _canHitCoroutine = null;
+    }
+    private IEnumerator SwordTouch()
+    {
+        _touchSword = true;
+        yield return new WaitForSeconds(0.8f);
+        _touchSword = false;
     }
 }

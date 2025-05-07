@@ -55,7 +55,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 1
+      - time: 0.6801031
         functionName: EndImpactAnimation
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: fd293cb5b36e64640baaa9d96545ba2f, type: 3}

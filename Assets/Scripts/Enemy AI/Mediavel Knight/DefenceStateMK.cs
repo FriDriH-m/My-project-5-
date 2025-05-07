@@ -9,7 +9,7 @@ public class DefenceState : BaseState
     private Coroutine _retreatCoroutine;
     public override void EnterState(EnemyStateManager manager, ZoneTriggerManager zoneManager)
     {
-        Debug.Log("defense");
+        //Debug.Log("defense");
         manager.SetSpeed(0);
     }
     public override void ExitState(EnemyStateManager manager, ZoneTriggerManager zoneManager)
