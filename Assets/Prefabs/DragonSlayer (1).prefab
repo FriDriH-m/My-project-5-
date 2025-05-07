@@ -110,7 +110,10 @@ PrefabInstance:
       addedObject: {fileID: 3146136457292319825}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3fba011bbae58d848898dee1b08c90c5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -8605432542354431149}
+      addedObject: {fileID: 3266133853996053252}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3fba011bbae58d848898dee1b08c90c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5287722650604728149}
     - targetCorrespondingSourceObject: {fileID: -4202148855105533681, guid: 3fba011bbae58d848898dee1b08c90c5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 375258698282999678}
@@ -232,7 +235,7 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
+  m_ImplicitCom: 0
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -287,7 +290,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -8605432542354431149}
+      - m_Target: {fileID: 3266133853996053252}
         m_TargetAssemblyTypeName: GrabParenter, Assembly-CSharp
         m_MethodName: OnGrab
         m_Mode: 0
@@ -302,7 +305,7 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: -8605432542354431149}
+      - m_Target: {fileID: 3266133853996053252}
         m_TargetAssemblyTypeName: GrabParenter, Assembly-CSharp
         m_MethodName: OnUngrab
         m_Mode: 0
@@ -345,9 +348,9 @@ MonoBehaviour:
   m_AttachEaseInTime: 0.15
   m_MovementType: 0
   m_VelocityDamping: 1
-  m_VelocityScale: 1
+  m_VelocityScale: 0.2
   m_AngularVelocityDamping: 1
-  m_AngularVelocityScale: 1
+  m_AngularVelocityScale: 0.2
   m_TrackPosition: 1
   m_SmoothPosition: 0
   m_SmoothPositionAmount: 8
@@ -384,8 +387,8 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
-  m_FarAttachMode: 0
---- !u!114 &-8605432542354431149
+  m_FarAttachMode: 1
+--- !u!114 &3266133853996053252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -397,3 +400,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c3ccf61048e0f4c87185fa278190ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  train: {fileID: 0}
+  hint: {fileID: 0}
+  _offset: {x: 0, y: 0, z: 0}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &-5287722650604728149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6512476121007013074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab951ce7592ed494a836a864f60dd14b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidBody: {fileID: 1003348649838259503}
+  _damageRatio: 10
+  _minimalImpuls: 1

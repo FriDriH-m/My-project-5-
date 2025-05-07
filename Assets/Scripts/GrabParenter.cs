@@ -8,7 +8,6 @@ public class GrabParenter : MonoBehaviour
     [SerializeField] GameObject hint;
     [SerializeField] Vector3 _offset;
     [SerializeField] LayerMask _layerMask;
-    ConfigurableJoint configurableJoint;
     Rigidbody rb;
 
     Transform interactable;
@@ -29,8 +28,6 @@ public class GrabParenter : MonoBehaviour
         interactor = args.interactorObject.transform;
 
         interactable.SetParent(interactor);
-        rb = interactable.GetComponent<Rigidbody>();
-        
 
         if (gameObject.CompareTag("Start_Weapon"))
         {
