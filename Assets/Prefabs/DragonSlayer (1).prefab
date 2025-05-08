@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 6071509007005576389}
   serializedVersion: 2
   m_LocalRotation: {x: -0.18311022, y: -0.6031404, z: -0.1448012, w: 0.76270896}
-  m_LocalPosition: {x: 0, y: 0.41000015, z: 0}
+  m_LocalPosition: {x: 0.022, y: 0.41, z: 0.033}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -226,7 +226,7 @@ Rigidbody:
   m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_CenterOfMass: {x: 0, y: 0.52, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -402,10 +402,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   train: {fileID: 0}
   hint: {fileID: 0}
-  _offset: {x: 0, y: 0, z: 0}
+  _offset: {x: 0, y: 0.52, z: 0}
   _layerMask:
     serializedVersion: 2
     m_Bits: 0
+  _leftHand: {fileID: 0}
+  _rightHand: {fileID: 0}
+  _leftHandPosition: {x: 0.014, y: 0.416, z: 0.024}
+  _leftHandEuler: {x: -3.65, y: 262.7, z: 97.7}
+  _rightHandPosition: {x: -0.018, y: 0.504, z: -0.028}
+  _rightHandEuler: {x: 4.7, y: -60.86, z: -99.6}
 --- !u!114 &-5287722650604728149
 MonoBehaviour:
   m_ObjectHideFlags: 0

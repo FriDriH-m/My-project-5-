@@ -11,10 +11,11 @@ public class WeaponDamage : MonoBehaviour
     bool _touchSword = false; 
     private bool _canHit = true;
     private Coroutine _canHitCoroutine = null;
-    float _instImpuls 
+    float _instImpuls;
+    float _impulsValue 
     { 
         get { return _instImpuls; } 
-        set {Mathf.Min(value, 80f);} 
+        set { _instImpuls = Mathf.Min(value, 80f);} 
     }
 
 
@@ -33,7 +34,7 @@ public class WeaponDamage : MonoBehaviour
         DamageCount _damageCount = collision.collider.GetComponentInParent<DamageCount>();
         Animator _animator = collision.collider.GetComponentInParent<Animator>();
 
-        _instImpuls = impuls * _damageRatio;
+        _impulsValue = impuls * _damageRatio;
 
         if (hitZone != null && _canHit) 
         {
