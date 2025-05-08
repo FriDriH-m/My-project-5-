@@ -12,11 +12,8 @@ public class DamageCount : MonoBehaviour
         if (hitPoints <= 0)
         {
             animator.SetTrigger("Death");
-            if (_enemyStateManager != null && _zoneTriggerManager != null)
-            {
-                _enemyStateManager.enabled = false;
-                _zoneTriggerManager.enabled = false;
-            }
+            if (_enemyStateManager != null) { _enemyStateManager.enabled = false; }                
+            if (_zoneTriggerManager != null) { _zoneTriggerManager.enabled = false; }
         }
     }
 }
