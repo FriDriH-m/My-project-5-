@@ -1,17 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
-
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.XR.Interaction.Toolkit;
+using System.Collections;
 
 public class Slot : MonoBehaviour
 {
     public GameObject ItemInSlot;
     public Image slotImage;
     public Color originalColor;
-
     void Start()
     {
         slotImage = GetComponentInChildren<Image>();
@@ -24,7 +20,7 @@ public class Slot : MonoBehaviour
 
         if (ItemInSlot != null) return;  // Если слот уже занят, ничего не делаем
         if (!IsItem(obj)) return;       // Если это не предмет, ничего не делаем
-
+        Debug.Log("OnTriggerStay: Предмет в триггере: " + obj.name);
         // Вызываем InsertItem, когда предмет входит в триггер
         InsertItem(obj);
     }
@@ -40,31 +36,15 @@ public class Slot : MonoBehaviour
         XRGrabInteractable grabInteractable = obj.GetComponent<XRGrabInteractable>();
         if (grabInteractable != null && grabInteractable.isSelected)
         {
+            Debug.Log("InsertItem: Предмет помещен в слот: " + obj.name);
             // Если объект захвачен, выходим из функции
             return;
         }
-
+        Debug.Log("InsertItem: Предмет помещен в слот: " + obj.name);
         // Если дошли сюда, значит, предмет не захвачен, и можно поместить его в слот
         // Получаем размер коллайдера слота
         Collider slotCollider = GetComponent<Collider>();
         Vector3 slotSize = slotCollider.bounds.size;
-
-        // Получаем размер коллайдера предмета
-        Collider itemCollider = obj.GetComponent<Collider>();
-        Vector3 itemSize = itemCollider.bounds.size;
-
-        // Вычисляем коэффициент масштабирования
-        Vector3 scaleFactor = new Vector3(
-            slotSize.x / itemSize.x,
-            slotSize.y / itemSize.y,
-            slotSize.z / itemSize.z
-        );
-
-        // Находим наименьший коэффициент масштабирования, чтобы предмет поместился в слоте
-        float minScale = Mathf.Min(scaleFactor.x, scaleFactor.y, scaleFactor.z);
-
-        // Применяем масштабирование к предмету
-        obj.transform.localScale = Vector3.one * minScale;  // Используем Vector3.one, чтобы масштабировать равномерно
 
         obj.GetComponent<Rigidbody>().isKinematic = true;
         obj.transform.SetParent(gameObject.transform, true);
