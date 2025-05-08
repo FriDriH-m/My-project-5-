@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using System.Collections;
+using UnityEngine.Audio;
 
 public class GrabForInventory : UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable
 {
     private Item item;
     private Slot currentSlot;
-
+    [SerializeField] AudioClip _selectItem;
+    [SerializeField] AudioSource _audioSource;
     protected override void Awake()
     {
         base.Awake();
@@ -23,6 +25,7 @@ public class GrabForInventory : UnityEngine.XR.Interaction.Toolkit.Interactables
 
         if (item.inSlot)
         {
+            _audioSource.PlayOneShot(_selectItem);
             Debug.Log("OnSelectEntering: Объект вышел из слота!");
             currentSlot = item.currentSlot;
             if (currentSlot != null)

@@ -8,6 +8,8 @@ public class Slot : MonoBehaviour
     public GameObject ItemInSlot;
     public Image slotImage;
     public Color originalColor;
+    [SerializeField] AudioClip _selectItem;
+    [SerializeField] AudioSource _audioSource;
     void Start()
     {
         slotImage = GetComponentInChildren<Image>();
@@ -43,6 +45,7 @@ public class Slot : MonoBehaviour
         Debug.Log("InsertItem: Предмет помещен в слот: " + obj.name);
         // Если дошли сюда, значит, предмет не захвачен, и можно поместить его в слот
         // Получаем размер коллайдера слота
+        _audioSource.PlayOneShot(_selectItem);
         Collider slotCollider = GetComponent<Collider>();
         Vector3 slotSize = slotCollider.bounds.size;
 

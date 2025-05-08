@@ -10,6 +10,8 @@ public class InventoryVR : MonoBehaviour
     public GameObject Anchor;
     private bool UIActive;
     private bool _wasPressed = false;
+    [SerializeField] AudioClip _openAndCloseEffect;
+    [SerializeField] AudioSource _audioSource;
     private void Start()
     {
         Inventory.SetActive(false);
@@ -24,6 +26,8 @@ public class InventoryVR : MonoBehaviour
             {
                 UIActive = !UIActive;
                 Inventory.SetActive(UIActive);
+                _audioSource.PlayOneShot(_openAndCloseEffect);
+
             }
 
             if (!isPressed)
