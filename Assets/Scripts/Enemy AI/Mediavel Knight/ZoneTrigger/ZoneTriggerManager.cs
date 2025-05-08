@@ -83,7 +83,7 @@ public class ZoneTriggerManager : MonoBehaviour
 
         SetAttackZone(); // задает зону атаки
 
-        if (!HasWeapon(manager.player, "Weapon") && !(manager.CheckDistance() < manager.attackDistance - 1.2f) && !(manager.CheckDistance() > manager.attackDistance)) // Если у игрока нет оружия, не надо переходить в retreat state и agro, то враг будет атаковать без остановки
+        if (!HasWeapon(manager.player, "Weapon") && !(manager.CheckDistance() > manager.attackDistance)) // Если у игрока нет оружия, не надо переходить в retreat state и agro, то враг будет атаковать без остановки
         {
             chanceOfAttack = 1;
             randAttackInteger = Random.Range(0, 3);
@@ -106,26 +106,21 @@ public class ZoneTriggerManager : MonoBehaviour
             animator.SetBool("StrafeR", false);
             animator.SetBool("StrafeL", false);
 
-            int randInt = Random.Range(0, 3);
-            if (randInt == 1)
+            int randInt = Random.Range(0, 2);
+            if (randInt == 0)
             {
                 animator.SetBool("StrafeL", true);
                 animator.SetBool("StrafeR", false);
                 manager.isAnimation = true;
             }
-            else if (randInt == 2)
+            else if (randInt == 1)
             {
                 animator.SetBool("StrafeR", true);
                 animator.SetBool("StrafeL", false);
                 manager.isAnimation = true;
             }
-            else
-            {
-                manager.isAnimation = true;
-                manager.isAnimationIdle = true;
-            }
         }
-        if ((animator.GetBool("StrafeL") || animator.GetBool("StrafeR")) && !manager.isAnimationIdle && !manager.isAttacking)
+        if ((animator.GetBool("StrafeL") || animator.GetBool("StrafeR")) && !manager.isAttacking)
         {
             if (animator.GetBool("StrafeL"))
             {

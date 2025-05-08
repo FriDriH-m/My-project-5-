@@ -14,7 +14,6 @@ public class EnemyStateManager : MonoBehaviour
     public float retreatSpeed = 1f; // ƒистанци€ Strafe врага
 
     public bool isAnimation = false; // ѕеременна€ дл€ рандомного Strafe.  огда она false, рандомно выбираетс€ следующа€ сторона Strafe
-    public bool isAnimationIdle = false; // ѕеременна€, чтобы враг не двигалс€, когда проигрываетс€ анимаци€ idle. »з-за рандомного Strafe
     public bool isAnimationDown = false; // ѕеременна€, чтобы враг после уклонени€ задев зону down не стрейфил
     public bool isAttacking = false; // если true, другие анимации не могут
 
@@ -62,7 +61,6 @@ public class EnemyStateManager : MonoBehaviour
     public void EndAnimationStrafe() //ставит флаг если анимаци€ заврешилась (Strafe анимации), используетс€ Animation event
     {
         isAnimation = false;
-        isAnimationIdle = false;
     }
 
     public void StartAnimationDown() // срабатывает когда анимаци€ при задевании зоны down начинаетс€. Animation event

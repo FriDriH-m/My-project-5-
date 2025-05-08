@@ -54,7 +54,7 @@ public class ZoneTriggerManagerAxe : MonoBehaviour
     }
     public void AttackAnimation()
     {
-        int chanceOfAttack = Random.Range(0, 10); // Шанс, что враг осмелится атаковать игрока
+        int chanceOfAttack = Random.Range(0, 5); // Шанс, что враг осмелится атаковать игрока
         int randAttackInteger = Random.Range(0, 4); // рандомный выбор из доступных атак
         if (chanceOfAttack == 1) 
         {
@@ -68,26 +68,21 @@ public class ZoneTriggerManagerAxe : MonoBehaviour
             animator.SetBool("StrafeR", false);
             animator.SetBool("StrafeL", false);
 
-            int randInt = Random.Range(0, 5); 
-            if (randInt == 0 || randInt == 1)
+            int randInt = Random.Range(0, 2); 
+            if (randInt == 0 )
             {
                 animator.SetBool("StrafeL", true);
                 animator.SetBool("StrafeR", false);
                 manager.isAnimation = true;
             }
-            else if (randInt == 2 || randInt == 3)
+            else if (randInt == 1)
             {
                 animator.SetBool("StrafeR", true);
                 animator.SetBool("StrafeL", false);
                 manager.isAnimation = true;
-            }
-            else
-            {
-                manager.isAnimation = true;
-                manager.isAnimationIdle = true;
-            }
+            }            
         }
-        if ((animator.GetBool("StrafeL") || animator.GetBool("StrafeR")) && !manager.isAnimationIdle && !manager.isAttacking)
+        if ((animator.GetBool("StrafeL") || animator.GetBool("StrafeR")) && !manager.isAttacking)
         {
             if (animator.GetBool("StrafeL"))
             {
