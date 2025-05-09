@@ -12,6 +12,10 @@ TagManager:
   - Box_Key
   - Limbs
   - Shield
+  - Great_Sword
+  - Sword
+  - Axe
+  - Golem
   layers:
   - Default
   - TransparentFX

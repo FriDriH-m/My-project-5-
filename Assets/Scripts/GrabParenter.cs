@@ -6,8 +6,6 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class GrabParenter : MonoBehaviour
 {
-    [SerializeField] GameObject train;
-    [SerializeField] GameObject hint;
     [SerializeField] Vector3 _offset;
     [SerializeField] LayerMask _layerMask;
     [SerializeField] private Transform _leftHand;
@@ -19,6 +17,8 @@ public class GrabParenter : MonoBehaviour
     [SerializeField] private Vector3 _rightHandEuler;
     private Quaternion _leftHandRotation => Quaternion.Euler(_leftHandEuler);
     private Quaternion _rightHandRotation => Quaternion.Euler(_rightHandEuler);
+
+    
 
     Rigidbody rb;
 
@@ -36,7 +36,6 @@ public class GrabParenter : MonoBehaviour
     }
     public void OnGrab(SelectEnterEventArgs args)
     {
-        
         interactable = args.interactableObject.transform;
         interactor = args.interactorObject.transform;
 
@@ -53,15 +52,6 @@ public class GrabParenter : MonoBehaviour
             _rightHand.transform.SetParent(interactable);
             _rightHand.transform.localPosition = _rightHandPosition;
             _rightHand.transform.localRotation = _rightHandRotation;
-        }
-
-        if (gameObject.CompareTag("Start_Weapon"))
-        {
-            train.SetActive(true);
-        }
-        if (gameObject.CompareTag("Secret_Weapon"))
-        {
-            hint.SetActive(true);
         }
     }
 

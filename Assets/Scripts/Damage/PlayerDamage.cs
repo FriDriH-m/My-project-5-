@@ -1,25 +1,83 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerDamage : MonoBehaviour
 {
+    public Vector3 reviveCoordination;
     int hitPoints = 200;
+    private WeaponDamage _weaponDamage;
     private void OnTriggerEnter(Collider other)
     {
+        Transform parent = transform.parent;
+        _weaponDamage = parent.GetComponentInChildren<WeaponDamage>();        
+
         if (other.gameObject.CompareTag("Great_Sword"))
         {
-            hitPoints -= 60;
+            //Debug.Log("Great Sword урон");
+            if (_weaponDamage != null)
+            {
+                if (_weaponDamage._touchSword)
+                {
+                    Debug.Log("Урон не прошел, блокировал");
+                    return;
+                }
+                else hitPoints -= 60;
+            }
+            else hitPoints -= 60;
         }
-        if (other.gameObject.CompareTag("Sword"))
+        else if (other.gameObject.CompareTag("Sword"))
         {
-            hitPoints -= 30;
+            //Debug.Log("Sword урон");
+            if (_weaponDamage != null)
+            {
+                if (_weaponDamage._touchSword)
+                {
+                    Debug.Log("Урон не прошел, блокировал");
+                    return;
+                }
+                else hitPoints -= 30;
+            }
+            else hitPoints -= 30;
         }
-        if (other.gameObject.CompareTag("Axe"))
+        else if (other.gameObject.CompareTag("Axe"))
         {
-            hitPoints -= 20;
+            //Debug.Log("Axe урон");
+            if (_weaponDamage != null)
+            {
+                if (_weaponDamage._touchSword)
+                {
+                    Debug.Log("Урон не прошел, блокировал");
+                    return;
+                }
+                else hitPoints -= 20;
+            }
+            else hitPoints -= 20;
         }
-        if (other.gameObject.CompareTag("Golem"))
+        else if (other.gameObject.CompareTag("Golem"))
         {
-            hitPoints -= 90;
+            //Debug.Log("Golem урон");
+            if (_weaponDamage != null)
+            {
+                if (_weaponDamage._touchSword)
+                {
+                    hitPoints -= 50;
+                    return;
+                }
+                else hitPoints -= 90;
+            }
+            else hitPoints -= 90;
         }
+
+        if (hitPoints <= 0)
+        {
+            StartCoroutine(Revive());
+            //Смерть игрока
+        }
+    }
+    private IEnumerator Revive()
+    {
+        yield return new WaitForSeconds(2);
+        hitPoints = 200;
+        transform.parent.position = reviveCoordination;
     }
 }

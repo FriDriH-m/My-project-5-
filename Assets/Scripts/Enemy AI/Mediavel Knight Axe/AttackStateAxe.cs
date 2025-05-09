@@ -21,7 +21,7 @@ public class AttackStateAxe : BaseStateAxe
         if (time > 0.3f) // каждые 0.5 секунды обрабатывается эта ветка
         {
             if ((manager.CheckDistance() > manager.attackDistance) && !manager.isAttacking) manager.SwitchState(manager.agroState);
-            if (manager.CheckDistance() < manager.attackDistance - 0.5f) manager.SwitchState(manager.retreatState);
+            if (manager.CheckDistance() < manager.attackDistance - 0.8f) manager.SwitchState(manager.retreatState);
             zoneManager.AttackAnimation();
             time = 0;
         }

@@ -8,10 +8,11 @@ public class WeaponDamage : MonoBehaviour
     [SerializeField] private Rigidbody _rigidBody; 
     [SerializeField] private float _damageRatio = 10f;
     [SerializeField] private float _minimalImpuls;
-    bool _touchSword = false; 
+    public bool _touchSword = false; 
     private bool _canHit = true;
     private Coroutine _canHitCoroutine = null;
     float _instImpuls;
+
     float _impulsValue 
     { 
         get { return _instImpuls; } 
@@ -28,7 +29,7 @@ public class WeaponDamage : MonoBehaviour
         if (!_canHit) return;
 
         float impuls = collision.impulse.magnitude;
-        Debug.Log(impuls);
+        //Debug.Log(impuls);
 
         HitZone hitZone = collision.collider.GetComponentInParent<HitZone>();
         DamageCount _damageCount = collision.collider.GetComponentInParent<DamageCount>();
@@ -58,7 +59,7 @@ public class WeaponDamage : MonoBehaviour
 
                 if (_instImpuls > _minimalImpuls)
                 {
-                    Debug.Log("ГОЛОВА \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    //Debug.Log("ГОЛОВА \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
                     if (_animator != null)
                     {
@@ -77,7 +78,7 @@ public class WeaponDamage : MonoBehaviour
 
                 if (_instImpuls > _minimalImpuls)
                 {
-                    Debug.Log("ТУЛОВИЩЕ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    //Debug.Log("ТУЛОВИЩЕ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
                     if (_animator != null)
                     {
@@ -96,7 +97,7 @@ public class WeaponDamage : MonoBehaviour
 
                 if (_instImpuls > _minimalImpuls)
                 {
-                    Debug.Log("КОНЕЧНОСТЬ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    //Debug.Log("КОНЕЧНОСТЬ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
                     return;
                 }
@@ -106,7 +107,7 @@ public class WeaponDamage : MonoBehaviour
                 _instImpuls *= 0.1f;
                 if (_instImpuls > _minimalImpuls)
                 {
-                    Debug.Log("ЩИТ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    //Debug.Log("ЩИТ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
                     return;
                 }

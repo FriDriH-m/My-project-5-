@@ -3445,9 +3445,10 @@ GameObject:
   - component: {fileID: 4315855241712580304}
   - component: {fileID: 3312238913510298451}
   - component: {fileID: 8709994937598154519}
+  - component: {fileID: 5103268238810136121}
   m_Layer: 0
   m_Name: Axe_OS
-  m_TagString: Untagged
+  m_TagString: Axe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3649,6 +3650,27 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!65 &5103268238810136121
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301342627975897308}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.32, y: 0.1, z: 0.37}
+  m_Center: {x: -0.09194412, y: 0.000017149807, z: 0.57}
 --- !u!1 &4312822330880940656
 GameObject:
   m_ObjectHideFlags: 0

@@ -115,6 +115,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: cc3e69dfe1998e14ab3da931d34da76a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7279274568426934747}
+    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: cc3e69dfe1998e14ab3da931d34da76a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -938959843060134445}
+    - targetCorrespondingSourceObject: {fileID: -6689036041284674117, guid: cc3e69dfe1998e14ab3da931d34da76a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5870933295725671803}
     - targetCorrespondingSourceObject: {fileID: -6950903237277254608, guid: cc3e69dfe1998e14ab3da931d34da76a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4466486358755966754}
@@ -210,6 +216,18 @@ MonoBehaviour:
       - m_Target: {fileID: 7279274568426934747}
         m_TargetAssemblyTypeName: GrabParenter, Assembly-CSharp
         m_MethodName: OnGrab
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -938959843060134445}
+        m_TargetAssemblyTypeName: Hints, Assembly-CSharp
+        m_MethodName: OnGrabHint
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -317,8 +335,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c3ccf61048e0f4c87185fa278190ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  train: {fileID: 0}
-  hint: {fileID: 0}
   _offset: {x: 0, y: 0.49, z: 0}
   _layerMask:
     serializedVersion: 2
@@ -329,6 +345,35 @@ MonoBehaviour:
   _leftHandEuler: {x: -4.5, y: -101.4, z: 101.2}
   _rightHandPosition: {x: 0.14, y: -13.18, z: -5.56}
   _rightHandEuler: {x: -0.7, y: -77.79, z: -103.24}
+--- !u!114 &-938959843060134445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559643324179747276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31441f7259ab88a44918a4b19067febd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hint: {fileID: 0}
+--- !u!114 &-5870933295725671803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559643324179747276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab951ce7592ed494a836a864f60dd14b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidBody: {fileID: 0}
+  _damageRatio: 10
+  _minimalImpuls: 0
+  _touchSword: 0
 --- !u!1 &4280367839915798599 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6950903237277254608, guid: cc3e69dfe1998e14ab3da931d34da76a, type: 3}
