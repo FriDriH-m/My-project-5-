@@ -259,8 +259,8 @@ MonoBehaviour:
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1
-  m_SelectMode: 0
-  m_FocusMode: 1
+  m_SelectMode: 1
+  m_FocusMode: 2
   m_CustomReticle: {fileID: 0}
   m_AllowGazeInteraction: 0
   m_AllowGazeSelect: 0
@@ -400,18 +400,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c3ccf61048e0f4c87185fa278190ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  train: {fileID: 0}
-  hint: {fileID: 0}
   _offset: {x: 0, y: 0.52, z: 0}
   _layerMask:
     serializedVersion: 2
     m_Bits: 0
   _leftHand: {fileID: 0}
   _rightHand: {fileID: 0}
-  _leftHandPosition: {x: 0.014, y: 0.416, z: 0.024}
+  _canHoldTwoHands: 1
+  _leftHandPosition: {x: 0.014, y: 0.516, z: 0.024}
   _leftHandEuler: {x: -3.65, y: 262.7, z: 97.7}
-  _rightHandPosition: {x: -0.018, y: 0.504, z: -0.028}
-  _rightHandEuler: {x: 4.7, y: -60.86, z: -99.6}
+  _rightHandPosition: {x: -0.018, y: 0.53, z: -0.028}
+  _rightHandEuler: {x: -3, y: -60.86, z: -99.6}
+  _twoHandEuler: {x: 0, y: 90, z: 90}
 --- !u!114 &-5287722650604728149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,3 +427,4 @@ MonoBehaviour:
   _rigidBody: {fileID: 1003348649838259503}
   _damageRatio: 10
   _minimalImpuls: 1
+  _touchSword: 0

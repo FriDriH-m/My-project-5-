@@ -59,7 +59,7 @@ public class WeaponDamage : MonoBehaviour
 
                 if (_instImpuls > _minimalImpuls)
                 {
-                    //Debug.Log("ГОЛОВА \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    Debug.Log("ГОЛОВА \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
                     if (_animator != null)
                     {
@@ -78,7 +78,7 @@ public class WeaponDamage : MonoBehaviour
 
                 if (_instImpuls > _minimalImpuls)
                 {
-                    //Debug.Log("ТУЛОВИЩЕ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    Debug.Log("ТУЛОВИЩЕ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
                     if (_animator != null)
                     {
@@ -97,7 +97,7 @@ public class WeaponDamage : MonoBehaviour
 
                 if (_instImpuls > _minimalImpuls)
                 {
-                    //Debug.Log("КОНЕЧНОСТЬ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    Debug.Log("КОНЕЧНОСТЬ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
                     return;
                 }
@@ -107,7 +107,7 @@ public class WeaponDamage : MonoBehaviour
                 _instImpuls *= 0.1f;
                 if (_instImpuls > _minimalImpuls)
                 {
-                    //Debug.Log("ЩИТ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    Debug.Log("ЩИТ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
                     return;
                 }
