@@ -52,14 +52,14 @@ public class GrabParenter : MonoBehaviour
                 _secondaryHand = interactor;
                 if (_firstHand.CompareTag("R_Hand"))
                 {
-                    _leftHand.GetComponent<Collider>().enabled = false;
+                    if (_leftHand.GetComponent<Collider>() != null) { _leftHand.GetComponent<Collider>().enabled = false; }
                     _leftHand.transform.SetParent(interactable);
                     _leftHand.transform.localPosition = _leftHandPosition - new Vector3(0, 0.2f, 0);
                     _leftHand.transform.localRotation = _leftHandRotation;
                 }
                 else
                 {
-                    _rightHand.GetComponent<Collider>().enabled = false;
+                    if (_rightHand.GetComponent<Collider>() != null) { _rightHand.GetComponent<Collider>().enabled = false; }
                     _rightHand.transform.SetParent(interactable);
                     _rightHand.transform.localPosition = _rightHandPosition - new Vector3(0, 0.2f, 0);
                     _rightHand.transform.localRotation = _rightHandRotation;
@@ -109,14 +109,14 @@ public class GrabParenter : MonoBehaviour
     {
         if (hand.CompareTag("L_Hand"))
         {
-            _leftHand.GetComponent<Collider>().enabled = true;
+            if (_leftHand.GetComponent<Collider>() != null) { _leftHand.GetComponent<Collider>().enabled = true; }            
             _leftHand.transform.SetParent(interactor);
             _leftHand.transform.localPosition = Vector3.zero;
             _leftHand.transform.localRotation = Quaternion.Euler(-180, 167.888f, -90);
         }
         else if (hand.CompareTag("R_Hand"))
         {
-            _rightHand.GetComponent<Collider>().enabled = true;
+            if (_rightHand.GetComponent<Collider>() != null) { _rightHand.GetComponent<Collider>().enabled = true; }
             _rightHand.transform.SetParent(interactor);
             _rightHand.transform.localPosition = Vector3.zero;
             _rightHand.transform.localRotation = Quaternion.Euler(-180, 187.945f, 90);
@@ -126,14 +126,14 @@ public class GrabParenter : MonoBehaviour
     {
         if (hand.CompareTag("L_Hand"))
         {
-            _leftHand.GetComponent<Collider>().enabled = false;
+            if (_leftHand.GetComponent<Collider>() != null) { _leftHand.GetComponent<Collider>().enabled = false; }
             _leftHand.transform.SetParent(interactable);
             _leftHand.transform.localPosition = _leftHandPosition;
             _leftHand.transform.localRotation = _leftHandRotation;
         }
         else if (hand.CompareTag("R_Hand"))
         {
-            _rightHand.GetComponent<Collider>().enabled = false;
+            if (_rightHand.GetComponent<Collider>() != null) { _rightHand.GetComponent<Collider>().enabled = false; }
             _rightHand.transform.SetParent(interactable);
             _rightHand.transform.localPosition = _rightHandPosition;
             _rightHand.transform.localRotation = _rightHandRotation;
