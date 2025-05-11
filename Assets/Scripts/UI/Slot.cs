@@ -22,7 +22,6 @@ public class Slot : MonoBehaviour
 
         if (ItemInSlot != null) return;  // Если слот уже занят, ничего не делаем
         if (!IsItem(obj)) return;       // Если это не предмет, ничего не делаем
-        Debug.Log("OnTriggerStay: Предмет в триггере: " + obj.name);
         // Вызываем InsertItem, когда предмет входит в триггер
         InsertItem(obj);
     }
@@ -38,11 +37,9 @@ public class Slot : MonoBehaviour
         XRGrabInteractable grabInteractable = obj.GetComponent<XRGrabInteractable>();
         if (grabInteractable != null && grabInteractable.isSelected)
         {
-            Debug.Log("InsertItem: Предмет помещен в слот: " + obj.name);
             // Если объект захвачен, выходим из функции
             return;
         }
-        Debug.Log("InsertItem: Предмет помещен в слот: " + obj.name);
         // Если дошли сюда, значит, предмет не захвачен, и можно поместить его в слот
         // Получаем размер коллайдера слота
         _audioSource.PlayOneShot(_selectItem);
