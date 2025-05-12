@@ -10,6 +10,7 @@ public class GrabParenter : MonoBehaviour
     [SerializeField] private Transform _leftHand; // модельк левой руки
     [SerializeField] private Transform _rightHand; // моделька правой руки
     [SerializeField] private bool _canHoldTwoHands; // можно ли держать оружие двумя руками
+    [SerializeField] private float _trackPoint = 0.5f;
 
     [SerializeField] private Vector3 _leftHandPosition;  //
     [SerializeField] private Vector3 _leftHandEuler;     //  позиционирование моделек рук на рукоятке оружия после граба
@@ -37,6 +38,15 @@ public class GrabParenter : MonoBehaviour
         item = GetComponent<Item>();
     }
 
+    private void Start()
+    {
+        if (!_canHoldTwoHands)
+        {
+            grabInteractable.selectMode = InteractableSelectMode.Single;
+            grabInteractable.focusMode = InteractableFocusMode.Single;
+        }
+    }
+
     private void OnValidate()
     {
         rb = GetComponent<Rigidbody>();
@@ -45,9 +55,9 @@ public class GrabParenter : MonoBehaviour
     public void OnGrab(SelectEnterEventArgs args)
     {
         interactable = args.interactableObject.transform;
-        interactor = args.interactorObject.transform;\
+        interactor = args.interactorObject.transform;
         // Начало твоего скрипта, Илья
-        if (item.inSlot && item != null)
+        if (item != null && item.inSlot)
         {
             _audioSource.PlayOneShot(_selectItem);
             currentSlot = item.currentSlot;
@@ -61,29 +71,7 @@ public class GrabParenter : MonoBehaviour
                 _firstHand = interactor;
                 interactable.SetParent(interactor); // задается родитель в виде Near-Far Interactore в соответсвующем контроллере
                 HandToTargetPosition(_firstHand);   // метод задает позицию для рук
-            }
-            if (_canHoldTwoHands) // если оружие можно держать двумя руками (одноручное нельзя будет). Указывается в инспекторе
-            {
-                if (interactor.transform != _firstHand) // если берешь той рукой, которой до этого не брал. _firstHand принимает значение при первом взятии, всегда.
-                {
-                    _secondaryHand = interactor;
-                    if (_firstHand.CompareTag("R_Hand")) // вычисляется тег второй руки. Если у _firstHand тег R_Hand, то у второго L_Hand :O (ибануться можно).
-                    {
-                        if (_leftHand.GetComponent<Collider>() != null) { _leftHand.GetComponent<Collider>().enabled = false; } // отключает коллайдер чтобы не мешало
-                        _leftHand.transform.SetParent(interactable); // родителем модельки руки становится меч
-                        _leftHand.transform.localPosition = _leftHandPosition - new Vector3(0, 0.2f, 0); // просто позиционирование
-                        _leftHand.transform.localRotation = _leftHandRotation;
-                    }
-                    else // начинка та же
-                    {
-                        if (_rightHand.GetComponent<Collider>() != null) { _rightHand.GetComponent<Collider>().enabled = false; }
-                        _rightHand.transform.SetParent(interactable);
-                        _rightHand.transform.localPosition = _rightHandPosition - new Vector3(0, 0.2f, 0);
-                        _rightHand.transform.localRotation = _rightHandRotation;
-                    }
-                    TwoHandGrab(false);
-                }
-            }
+            }            
             // конец части моего скрипта
 
             Rigidbody rb = GetComponent<Rigidbody>();
@@ -107,20 +95,21 @@ public class GrabParenter : MonoBehaviour
             _firstHand = interactor;
             interactable.SetParent(interactor); // задается родитель в виде Near-Far Interactore в соответсвующем контроллере
             HandToTargetPosition(_firstHand);
+            SetRigidbodyDumping(70f);
         }
-        if (_canHoldTwoHands)
+        if (_canHoldTwoHands) // если оружие можно держать двумя руками (одноручное нельзя будет). Указывается в инспекторе
         {
-            if (interactor.transform != _firstHand)
+            if (interactor.transform != _firstHand) // если берешь той рукой, которой до этого не брал. _firstHand принимает значение при первом взятии, всегда.
             {
                 _secondaryHand = interactor;
-                if (_firstHand.CompareTag("R_Hand"))
+                if (_firstHand.CompareTag("R_Hand")) // вычисляется тег второй руки. Если у _firstHand тег R_Hand, то у второго L_Hand :O (ибануться можно).
                 {
-                    if (_leftHand.GetComponent<Collider>() != null) { _leftHand.GetComponent<Collider>().enabled = false; }
-                    _leftHand.transform.SetParent(interactable);
-                    _leftHand.transform.localPosition = _leftHandPosition - new Vector3(0, 0.2f, 0);
+                    if (_leftHand.GetComponent<Collider>() != null) { _leftHand.GetComponent<Collider>().enabled = false; } // отключает коллайдер чтобы не мешало
+                    _leftHand.transform.SetParent(interactable); // родителем модельки руки становится меч
+                    _leftHand.transform.localPosition = _leftHandPosition - new Vector3(0, 0.2f, 0); // просто позиционирование
                     _leftHand.transform.localRotation = _leftHandRotation;
                 }
-                else
+                else // начинка та же
                 {
                     if (_rightHand.GetComponent<Collider>() != null) { _rightHand.GetComponent<Collider>().enabled = false; }
                     _rightHand.transform.SetParent(interactable);
@@ -128,17 +117,15 @@ public class GrabParenter : MonoBehaviour
                     _rightHand.transform.localRotation = _rightHandRotation;
                 }
                 TwoHandGrab(false);
+                SetRigidbodyDumping(40f);
             }
-        }   
-        //rb.linearDamping = 70f;
-        //rb.angularDamping = 70f;
+        }
     }
 
     public void OnUngrab(SelectExitEventArgs args)
     {
         interactable = args.interactableObject.transform;
         interactor = args.interactorObject.transform;
-
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
@@ -147,20 +134,21 @@ public class GrabParenter : MonoBehaviour
 
         if (_firstHand != null && _secondaryHand != null) // если при отпускании оружие взято обеими руками
         {
-            if (args.interactorObject.transform == _firstHand) // если отпускает первая рука, которая взялась за оружие
+            if (interactor == _firstHand) // если отпускает первая рука, которая взялась за оружие
             {
                 HandToStartPosition(_firstHand); // задается начальная позиция, то есть на Родину депортируют :,(
                 _firstHand = _secondaryHand; // _firstHand принимает значение _secondaryHand чтобы в дальнейшем если отпущенной рукой возьмется игрок не было базара
-                interactable.SetParent(interactor); // моделька руки становится дочерним объектом контроллера
+                interactable.SetParent(_secondaryHand); // моделька руки становится дочерним объектом контроллера
                 _secondaryHand = null;
                 TwoHandGrab(true); // включается трекинг позиции, так как для одной руки он нужен чтобы оружие следовало за контроллером и крутилось. При двуручном мы отключаем это чтобы самим крутить-вертеть
             }
-            else if (args.interactorObject.transform == _secondaryHand) // если отпускает вторая по счету рука
+            else if (interactor == _secondaryHand) // если отпускает вторая по счету рука
             {
                 HandToStartPosition(_secondaryHand); // просто в начальную позицию и включается трекинг
                 TwoHandGrab(true);
                 _secondaryHand = null;
             }
+            SetRigidbodyDumping(70f);
         }
         else // это обрабатывается если двуручного хвата не было, то есть одной рукой взял и этой же рукой отпустил
         {
@@ -168,6 +156,7 @@ public class GrabParenter : MonoBehaviour
             HandToStartPosition(_firstHand);            
             _firstHand = null;
             interactable.SetParent(null);
+            SetRigidbodyDumping(0f);
         }        
     }
     public void TwoHandGrab(bool value)
@@ -175,19 +164,24 @@ public class GrabParenter : MonoBehaviour
         grabInteractable.trackPosition = value;
         grabInteractable.trackRotation = value;
     }
+    public void SetRigidbodyDumping(float value)
+    {
+        rb.angularDamping = value;
+        rb.linearDamping = value;
+    }
     public void HandToStartPosition(Transform hand)
     {
         if (hand.CompareTag("L_Hand"))
         {
             if (_leftHand.GetComponent<Collider>() != null) { _leftHand.GetComponent<Collider>().enabled = true; }            
-            _leftHand.transform.SetParent(interactor);
+            _leftHand.transform.SetParent(hand);
             _leftHand.transform.localPosition = Vector3.zero;
             _leftHand.transform.localRotation = Quaternion.Euler(-180, 167.888f, -90);
         }
         else if (hand.CompareTag("R_Hand"))
         {
             if (_rightHand.GetComponent<Collider>() != null) { _rightHand.GetComponent<Collider>().enabled = true; }
-            _rightHand.transform.SetParent(interactor);
+            _rightHand.transform.SetParent(hand);
             _rightHand.transform.localPosition = Vector3.zero;
             _rightHand.transform.localRotation = Quaternion.Euler(-180, 187.945f, 90);
         }
@@ -213,7 +207,7 @@ public class GrabParenter : MonoBehaviour
     {
         if (_firstHand != null && _secondaryHand != null)
         {
-            Vector3 midPoint = Vector3.Lerp(_firstHand.position, _secondaryHand.position, 0.5f);
+            Vector3 midPoint = Vector3.Lerp(_firstHand.position, _secondaryHand.position, _trackPoint);
             transform.position = midPoint;
 
             Vector3 direction = _firstHand.position - _secondaryHand.position;

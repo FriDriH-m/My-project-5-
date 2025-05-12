@@ -12,6 +12,7 @@ public class GrabForInventory : MonoBehaviour
     protected void Awake()
     {
         item = GetComponent<Item>();
+
     }
 
     protected void OnSelectEntering(SelectEnterEventArgs args)
@@ -69,4 +70,8 @@ public class GrabForInventory : MonoBehaviour
         yield return new WaitForSeconds(duration);
         col.enabled = true;
     }
+
 }
+
+
+
