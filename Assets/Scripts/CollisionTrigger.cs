@@ -1,12 +1,26 @@
 using UnityEngine;
 
-public class CollisionTrigger : MonoBehaviour
-{
-    [SerializeField] private GameObject GameObject;
+using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-    private void OnTriggerEnter(Collider other)
+[RequireComponent(typeof(XRGrabInteractable))]
+public class FernPhysicsHandler : MonoBehaviour
+{
+    private Rigidbody _rigidbody;
+    private bool _wasGrabbed = false;
+
+    private void Awake()
     {
-        if (!other.CompareTag("R_Hand") && !other.CompareTag("L_Hand")) return;
-        else GameObject.SetActive(false);
+        _rigidbody = GetComponent<Rigidbody>();
+    }
+
+    public void OnGrabbed()
+    {
+        if (!_wasGrabbed)
+        {
+            _rigidbody.isKinematic = false;
+            _wasGrabbed = true;
+        }
     }
 }

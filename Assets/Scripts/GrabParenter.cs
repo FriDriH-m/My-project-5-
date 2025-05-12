@@ -45,7 +45,7 @@ public class GrabParenter : MonoBehaviour
     public void OnGrab(SelectEnterEventArgs args)
     {
         interactable = args.interactableObject.transform;
-        interactor = args.interactorObject.transform;\
+        interactor = args.interactorObject.transform;
         // Начало твоего скрипта, Илья
         if (item.inSlot && item != null)
         {
