@@ -21,6 +21,7 @@ public class FernPhysicsHandler : MonoBehaviour
         {
             _rigidbody.isKinematic = false;
             _wasGrabbed = true;
+            Destroy(this);
         }
     }
 }
