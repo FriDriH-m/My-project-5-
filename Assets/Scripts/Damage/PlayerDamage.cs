@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerDamage : MonoBehaviour
 {
     public Vector3 reviveCoordination;
-    int hitPoints = 200;
+    [SerializeField] public int hitPoints = 200;
     private WeaponDamage _weaponDamage;
     private void OnTriggerEnter(Collider other)
     {
@@ -73,6 +73,7 @@ public class PlayerDamage : MonoBehaviour
             StartCoroutine(Revive());
             //Смерть игрока
         }
+
     }
     private IEnumerator Revive()
     {
