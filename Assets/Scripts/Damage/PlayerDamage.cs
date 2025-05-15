@@ -81,7 +81,7 @@ public class PlayerDamage : MonoBehaviour
     private void HealthBar()
     {
         Bar.fillAmount = hitPoints / 200;
-        Debug.Log($"HealBar{Bar.fillAmount}+{hitPoints / 200}");
+        //Debug.Log($"HealBar{Bar.fillAmount}+{hitPoints / 200}");
     }
     private IEnumerator Revive()
     {
