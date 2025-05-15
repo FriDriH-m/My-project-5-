@@ -1,11 +1,13 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerDamage : MonoBehaviour
 {
     public Vector3 reviveCoordination;
-    [SerializeField] public int hitPoints = 200;
+    [SerializeField] public float hitPoints;
     private WeaponDamage _weaponDamage;
+    public Image Bar;
     private void OnTriggerEnter(Collider other)
     {
         Transform parent = transform.parent;
@@ -21,9 +23,10 @@ public class PlayerDamage : MonoBehaviour
                     Debug.Log("Урон не прошел, блокировал");
                     return;
                 }
-                else hitPoints -= 60;
+                else
+                hitPoints -= 60; 
             }
-            else hitPoints -= 60;
+            else hitPoints -= 60; 
         }
         else if (other.gameObject.CompareTag("Sword"))
         {
@@ -49,7 +52,7 @@ public class PlayerDamage : MonoBehaviour
                     Debug.Log("Урон не прошел, блокировал");
                     return;
                 }
-                else hitPoints -= 20;
+                else hitPoints -= 20; 
             }
             else hitPoints -= 20;
         }
@@ -65,9 +68,9 @@ public class PlayerDamage : MonoBehaviour
                 }
                 else hitPoints -= 90;
             }
-            else hitPoints -= 90;
+            else hitPoints -= 90; 
         }
-
+        HealthBar();
         if (hitPoints <= 0)
         {
             StartCoroutine(Revive());
@@ -75,10 +78,16 @@ public class PlayerDamage : MonoBehaviour
         }
 
     }
+    private void HealthBar()
+    {
+        Bar.fillAmount = hitPoints / 200;
+        Debug.Log($"HealBar{Bar.fillAmount}+{hitPoints / 200}");
+    }
     private IEnumerator Revive()
     {
         yield return new WaitForSeconds(2);
         hitPoints = 200;
+        HealthBar();
         transform.parent.position = reviveCoordination;
     }
 }

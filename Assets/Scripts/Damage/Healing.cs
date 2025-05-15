@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthBush : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class HealthBush : MonoBehaviour
     [SerializeField] private int _healAmount = 30; // Насколько хиллимся
 
     private PlayerDamage _playerDamage;
-
+    public Image Bar;
     private void Start()
     {
         _playerDamage = FindObjectOfType<PlayerDamage>();
@@ -29,6 +30,12 @@ public class HealthBush : MonoBehaviour
             else
                 _playerDamage.hitPoints = 200;
         }
+        HealthBar();
+    }
+
+    private void HealthBar()
+    {
+        Bar.fillAmount = _playerDamage.hitPoints / 200;
     }
 
     private void DisableBush() // Минусует подорожник, чтоб больше не возникал
