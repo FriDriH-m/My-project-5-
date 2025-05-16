@@ -40,64 +40,47 @@ public class WeaponDamage : MonoBehaviour
         if (hitZone != null && _canHit) 
         {
             //Debug.Log("Импульс - " + _instImpuls);
-
             if (hitZone.zone == HitZone.ZoneType.Sword)
             {
-                StartCoroutine(SwordTouch());
+                if (_touchSword == false) StartCoroutine(SwordTouch());
             }
-            if (hitZone.haveArmor)
-            {
-                _instImpuls *= 0.8f;
-            }
+            if (hitZone.haveArmor) _instImpuls *= 0.8f;
             if (hitZone.zone == HitZone.ZoneType.Head)
             {
                 _instImpuls *= 1.5f;
-                if (_touchSword)
-                {
-                    _instImpuls *= 0.2f;
-                }
+                if (_touchSword) _instImpuls *= 0.2f;
 
                 if (_instImpuls > _minimalImpuls)
                 {
-                    Debug.Log("ГОЛОВА \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    //Debug.Log("ГОЛОВА \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
-                    if (_animator != null)
-                    {
-                        _animator.SetBool("HeadImpact", true);
-                    }
+                    if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
+                    if (_animator != null) _animator.SetBool("HeadImpact", true);
                     return;
                 }
             }
             if (hitZone.zone == HitZone.ZoneType.Torso)
             {
                 _instImpuls *= 1.2f;
-                if (_touchSword)
-                {
-                    _instImpuls *= 0.2f;
-                }
-
+                if (_touchSword) _instImpuls *= 0.2f;
                 if (_instImpuls > _minimalImpuls)
                 {
-                    Debug.Log("ТУЛОВИЩЕ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
+                    //Debug.Log("ТУЛОВИЩЕ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
-                    if (_animator != null)
-                    {
-                        _animator.SetBool("TorsoImpact", true);                       
-                    }
+                    if (_animator != null) _animator.SetBool("TorsoImpact", true);
                     return;
                 }
             }
             if (hitZone.zone == HitZone.ZoneType.Limbs)
             {
                 _instImpuls *= 0.8f;
-                if (_touchSword)
-                {
-                    _instImpuls *= 0.2f;
-                }
+                if (_touchSword) _instImpuls *= 0.2f; 
 
                 if (_instImpuls > _minimalImpuls)
                 {
-                    Debug.Log("КОНЕЧНОСТЬ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
+                    //Debug.Log("КОНЕЧНОСТЬ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
                     return;
                 }
@@ -107,17 +90,13 @@ public class WeaponDamage : MonoBehaviour
                 _instImpuls *= 0.1f;
                 if (_instImpuls > _minimalImpuls)
                 {
-                    Debug.Log("ЩИТ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
+                    //Debug.Log("ЩИТ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
                     return;
                 }
             }
         }
-    }
-    private void OnCollisionExit(Collision collision)
-    {
-        if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
-        
     }
     private IEnumerator ExitHitZone()
     {
