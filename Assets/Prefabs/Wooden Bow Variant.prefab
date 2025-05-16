@@ -354,10 +354,15 @@ MonoBehaviour:
     m_Bits: 0
   _leftHand: {fileID: 0}
   _rightHand: {fileID: 0}
+  _canHoldTwoHands: 0
   _leftHandPosition: {x: 0.21, y: 0.32, z: -0.03}
   _leftHandEuler: {x: -18.36, y: 89, z: 101.6}
   _rightHandPosition: {x: 0.21, y: 0.33, z: 0.03}
   _rightHandEuler: {x: -14.08, y: 80.28, z: -90.79}
+  _twoHandEuler: {x: 0, y: 0, z: 0}
+  _trackPoint: 0.5
+  _selectItem: {fileID: 0}
+  _audioSource: {fileID: 0}
 --- !u!4 &5356693207850381648 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4620178347958848, guid: d03c4353fda446d4f8df56d422578d64, type: 3}

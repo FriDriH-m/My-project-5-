@@ -19,14 +19,13 @@ public class GrabParenter : MonoBehaviour
     [SerializeField] private float _trackPoint = 0.5f;
     private Quaternion _leftHandRotation => Quaternion.Euler(_leftHandEuler); // преобразование Vector3 в Quaternion и запись в переменную
     private Quaternion _rightHandRotation => Quaternion.Euler(_rightHandEuler); // преобразование Vector3 в Quaternion и запись в переменную
-    private Quaternion _twoHandRotation => Quaternion.Euler(_twoHandEuler); // преобразование Vector3 в Quaternion и запись в переменную
     private XRGrabInteractable grabInteractable;
     private Transform _firstHand; // переменная которая будет хранить какая рука схватила первой оружиея
     private Transform _secondaryHand; // переменная которая будет хранить какая рука схватила второй оружие
     Rigidbody rb;
     Transform interactable;
     Transform interactor;
-
+    BowScript _bowScript;
     private Item item;
     private Slot currentSlot;
     [SerializeField] AudioClip _selectItem;
@@ -45,6 +44,7 @@ public class GrabParenter : MonoBehaviour
     }
     private void Start()
     {
+        _bowScript = GetComponent<BowScript>();
         if (!_canHoldTwoHands)
         {
             grabInteractable.selectMode = InteractableSelectMode.Single;
@@ -55,6 +55,7 @@ public class GrabParenter : MonoBehaviour
     public void OnGrab(SelectEnterEventArgs args)
     {
         interactable = args.interactableObject.transform;
+        if (interactable.CompareTag("Bow")) _bowScript.isGrabbed = true;
         interactor = args.interactorObject.transform;
         // Начало твоего скрипта, Илья
         if (item != null && item.inSlot)
@@ -125,6 +126,7 @@ public class GrabParenter : MonoBehaviour
     public void OnUngrab(SelectExitEventArgs args)
     {
         interactable = args.interactableObject.transform;
+        if (interactable.CompareTag("Bow")) _bowScript.isGrabbed = false;
         interactor = args.interactorObject.transform;
 
         Rigidbody rb = GetComponent<Rigidbody>();
