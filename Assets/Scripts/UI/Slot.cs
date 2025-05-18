@@ -16,7 +16,7 @@ public class Slot : MonoBehaviour
         originalColor = slotImage.color;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         GameObject obj = other.gameObject;
 

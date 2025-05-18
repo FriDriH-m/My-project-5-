@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,8 @@ public class PlayerDamage : MonoBehaviour
     [SerializeField] public float hitPoints;
     private WeaponDamage _weaponDamage;
     public Image Bar;
+    public Stats _stats;
+    [SerializeField] private TextMeshProUGUI Deaths;
     private void OnTriggerEnter(Collider other)
     {
         Transform parent = transform.parent;
@@ -78,6 +81,11 @@ public class PlayerDamage : MonoBehaviour
         }
 
     }
+    private void Update()
+    {
+        if (Deaths != null)
+            Deaths.text = $"Смертей: {_stats.Deaths}";
+    }
     private void HealthBar()
     {
         Bar.fillAmount = hitPoints / 200;
@@ -85,9 +93,10 @@ public class PlayerDamage : MonoBehaviour
     }
     private IEnumerator Revive()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.2f);
         hitPoints = 200;
         HealthBar();
+        _stats.Deaths += 1;
         transform.parent.position = reviveCoordination;
     }
 }

@@ -2,8 +2,9 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using System.Collections;
 using UnityEngine.Audio;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
-public class GrabForInventory : MonoBehaviour
+public class GrabForInventory : XRGrabInteractable
 {
     private Item item;
     private Slot currentSlot;
@@ -59,7 +60,7 @@ public class GrabForInventory : MonoBehaviour
             rb.isKinematic = false; // Включаем физику
         }
 
-        //transform.parent = null; // Убираем родителя
+        transform.parent = null; // Убираем родителя
     }
 
     System.Collections.IEnumerator EnableCollision(float duration)

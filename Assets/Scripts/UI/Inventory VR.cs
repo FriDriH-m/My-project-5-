@@ -12,7 +12,7 @@ public class InventoryVR : MonoBehaviour
     private bool _wasPressed = false;
     [SerializeField] AudioClip _openAndCloseEffect;
     [SerializeField] AudioSource _audioSource;
-    private void Start()
+    private void Awake()
     {
         Inventory.SetActive(false);
         UIActive = false;
