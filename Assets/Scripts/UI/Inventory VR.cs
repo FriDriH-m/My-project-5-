@@ -27,7 +27,6 @@ public class InventoryVR : MonoBehaviour
                 UIActive = !UIActive;
                 Inventory.SetActive(UIActive);
                 _audioSource.PlayOneShot(_openAndCloseEffect);
-
             }
 
             if (!isPressed)

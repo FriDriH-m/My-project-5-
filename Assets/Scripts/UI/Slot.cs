@@ -18,12 +18,13 @@ public class Slot : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        GameObject obj = other.gameObject;
 
+        if (!other.CompareTag("Item")) return;
+        GameObject obj = other.transform.parent.gameObject;
         if (ItemInSlot != null) return;  // Если слот уже занят, ничего не делаем
         if (!IsItem(obj)) return;       // Если это не предмет, ничего не делаем
-        // Вызываем InsertItem, когда предмет входит в триггер
-        InsertItem(obj);
+            // Вызываем InsertItem, когда предмет входит в триггер
+            InsertItem(obj);
     }
 
     bool IsItem(GameObject obj)
