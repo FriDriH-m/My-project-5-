@@ -8,7 +8,7 @@ public class BowScript : MonoBehaviour
     [SerializeField] GameObject arrow; // префаб стрелы чтобы создавать 
     GameObject spawnedArrow; // созданная стрела
     Rigidbody rb; // ригидбади стрелы
-
+    private bool _wasPressed = false;
     private void Start()
     {
         animator = transform.GetComponent<Animator>();
@@ -19,12 +19,21 @@ public class BowScript : MonoBehaviour
         {
             if (InputDevices.GetDeviceAtXRNode(XRNode.LeftHand).TryGetFeatureValue(CommonUsages.triggerButton, out bool isPressed)) // твоя фигня. с скрипта inventoryVR
             {
-                if (isPressed) // тоже
+                if (isPressed && !_wasPressed)
                 {
                     animator.SetBool("Shoot", true);
                     spawnedArrow = Instantiate(arrow, transform.position, Quaternion.identity); // создается стрела, (префаб, позиция спавна, поворот)
                     rb = spawnedArrow.GetComponent<Rigidbody>();
                     spawnedArrow.transform.SetParent(transform); // задается родитель в виде тетивы
+                }
+
+                if (!isPressed)
+                {
+                    _wasPressed = false;
+                }
+                else
+                {
+                    _wasPressed = true;
                 }
             }
         }
@@ -33,6 +42,7 @@ public class BowScript : MonoBehaviour
     {
         animator.SetBool("Shoot", false);
         rb.linearVelocity += transform.forward * 5; // задается скорость стреле
+        Debug.Log("Working");
     }
 }
 // по идее все должно сработать, но я уверен что некоторые мелочи не учел или какие то моменты с позиционированием.
