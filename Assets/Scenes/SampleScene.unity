@@ -1827,7 +1827,7 @@ MonoBehaviour:
   agroDistance: 20
   attackDistance: 8
   angleSpeed: 28
-  moveSpeed: 15
+  moveSpeed: 0
   animator: {fileID: 101739516}
   attackMove: 0
   canSwitchState: 0
@@ -6938,16 +6938,16 @@ RectTransform:
   m_GameObject: {fileID: 635602893}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.31411, y: 0.31411, z: 0.31411}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 265738760}
   m_Father: {fileID: 41028797}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -35}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.377, y: 0.1072382}
+  m_AnchorMax: {x: 0.6232152, y: 0.20338826}
+  m_AnchoredPosition: {x: -0.0333786, y: -0.5051346}
+  m_SizeDelta: {x: 110.81062, y: 20.34839}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &635602895
 MonoBehaviour:
@@ -8106,8 +8106,7 @@ MonoBehaviour:
   reviveCoordination: {x: 0, y: 0, z: 0}
   hitPoints: 200
   Bar: {fileID: 1864259072}
-  _stats: {fileID: 11400000, guid: 59f2ce1a25893d2449a36205b01dfaf6, type: 2}
-  Deaths: {fileID: 697453753}
+  Deaths: 0
 --- !u!136 &746657224
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9291,7 +9290,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ExitButton: {fileID: 635602895}
-  Deaths: {fileID: 697453753}
+  _Deaths: {fileID: 746657223}
+  Icon1: {fileID: 11400000, guid: e456ae8b019bce344a752c023d37f2c6, type: 2}
 --- !u!1 &931598280
 GameObject:
   m_ObjectHideFlags: 0
@@ -10181,14 +10181,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 26077581ce29354449089f920abe0cd4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28dc7908875ce944a8fc9cf1b022b639, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13796,19 +13796,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 51.1
+      value: 221.09
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.94
+      value: 0.71
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
-      propertyPath: m_LocalPosition.z 
-      value: -68.9
+      propertyPath: m_LocalPosition.z
+      value: -87.81
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.08106867
+      value: -0.7492852
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.x
@@ -13816,7 +13816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9967085
+      value: -0.6622474
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.z
@@ -13828,7 +13828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -189.3
+      value: -277.057
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -17429,7 +17429,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 28dc7908875ce944a8fc9cf1b022b639, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26077581ce29354449089f920abe0cd4, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1

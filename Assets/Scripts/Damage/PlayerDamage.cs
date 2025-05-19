@@ -9,8 +9,7 @@ public class PlayerDamage : MonoBehaviour
     [SerializeField] public float hitPoints;
     private WeaponDamage _weaponDamage;
     public Image Bar;
-    public Stats _stats;
-    [SerializeField] private TextMeshProUGUI Deaths;
+    public int Deaths = 0;
     private void OnTriggerEnter(Collider other)
     {
         Transform parent = transform.parent;
@@ -81,11 +80,6 @@ public class PlayerDamage : MonoBehaviour
         }
 
     }
-    private void Update()
-    {
-        if (Deaths != null)
-            Deaths.text = $"Смертей: {_stats.Deaths}";
-    }
     private void HealthBar()
     {
         Bar.fillAmount = hitPoints / 200;
@@ -94,9 +88,10 @@ public class PlayerDamage : MonoBehaviour
     private IEnumerator Revive()
     {
         yield return new WaitForSeconds(0.2f);
+        Deaths+=1;
         hitPoints = 200;
         HealthBar();
-        _stats.Deaths += 1;
+
         transform.parent.position = reviveCoordination;
     }
 }

@@ -1960,6 +1960,7 @@ GameObject:
   - component: {fileID: 278123556}
   - component: {fileID: 278123555}
   - component: {fileID: 278123560}
+  - component: {fileID: 278123561}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2089,6 +2090,59 @@ MonoBehaviour:
   _ExitButton: {fileID: 1089965524}
   _AchievementPanel: {fileID: 1646795567}
   _MainMenuPanel: {fileID: 296671094}
+--- !u!114 &278123561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278123554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9ddc1bdfeffd13458cc3c85f1e7eda8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JustIcons:
+  - {fileID: 11400000, guid: e456ae8b019bce344a752c023d37f2c6, type: 2}
+  - {fileID: 11400000, guid: 2cc72e069686dd64f9afd26991f2cd9b, type: 2}
+  - {fileID: 11400000, guid: aa714d42317d61547a47553d8522b218, type: 2}
+  - {fileID: 11400000, guid: a78c6202489d52f479503f977c802ce3, type: 2}
+  - {fileID: 11400000, guid: 7b5f79b6e90ccb64fad4e0953afcc340, type: 2}
+  SpecialyIcons:
+  - {fileID: 11400000, guid: ef101d8bc83db9e4b8459b874116c2c3, type: 2}
+  - {fileID: 11400000, guid: 9124607f91180ce40bb2c541dd6e52aa, type: 2}
+  - {fileID: 11400000, guid: d955451df3ed497429a134c3fd2052c2, type: 2}
+  - {fileID: 11400000, guid: 4d60e653329f90b45879cfe1cd1a8996, type: 2}
+  - {fileID: 11400000, guid: e322a0a84c9c6d04eaee6a5aa63eb4a8, type: 2}
+  - {fileID: 11400000, guid: 7359c9427c5ae4c438f77301e7ff2738, type: 2}
+  - {fileID: 11400000, guid: 969ba2ea3cde5384582e30cb25cc9702, type: 2}
+  - {fileID: 11400000, guid: 2527ad0c546488344af85f00ff5fece9, type: 2}
+  - {fileID: 11400000, guid: 19a20aebfbec6de48ab02cecdb1cf100, type: 2}
+  - {fileID: 11400000, guid: d2370f286f285d74299fe650fb675fc3, type: 2}
+  - {fileID: 11400000, guid: dd2f873ad2ced16488654c7aa144d654, type: 2}
+  JustImages:
+  - {fileID: 199726273}
+  - {fileID: 495571468}
+  - {fileID: 1997559905}
+  - {fileID: 716087240}
+  - {fileID: 1420145950}
+  - {fileID: 992795135}
+  - {fileID: 586042467}
+  - {fileID: 1028277643}
+  - {fileID: 335316144}
+  - {fileID: 686160348}
+  SpecialyImages:
+  - {fileID: 431754518}
+  - {fileID: 1222499773}
+  - {fileID: 721958670}
+  - {fileID: 229248209}
+  - {fileID: 494556148}
+  - {fileID: 220642980}
+  - {fileID: 836029105}
+  - {fileID: 879041797}
+  - {fileID: 501564106}
+  - {fileID: 1861552543}
+  - {fileID: 2065142027}
 --- !u!1 &292086663
 GameObject:
   m_ObjectHideFlags: 0
@@ -4011,7 +4065,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: 70.00005}
+  m_AnchoredPosition: {x: -150, y: 69.99981}
   m_SizeDelta: {x: 296.59, y: 1200}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &494556146
@@ -5855,8 +5909,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 309980483}
   m_HandleRect: {fileID: 309980482}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.11666667
+  m_Value: 1.0000002
+  m_Size: 0.116665445
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -12184,7 +12238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1646795568
 RectTransform:
   m_ObjectHideFlags: 0
