@@ -142,6 +142,7 @@ public class GrabParenter : MonoBehaviour
                 HandToStartPosition(_firstHand); // задаетс€ начальна€ позици€, то есть на –одину депортируют :,(
                 _firstHand = _secondaryHand; // _firstHand принимает значение _secondaryHand чтобы в дальнейшем если отпущенной рукой возьметс€ игрок не было базара
                 interactable.SetParent(_secondaryHand); // моделька руки становитс€ дочерним объектом контроллера
+                HandToTargetPosition(_secondaryHand);
                 _secondaryHand = null;
                 TwoHandGrab(true); // включаетс€ трекинг позиции, так как дл€ одной руки он нужен чтобы оружие следовало за контроллером и крутилось. ѕри двуручном мы отключаем это чтобы самим крутить-вертеть
             }
@@ -219,6 +220,7 @@ public class GrabParenter : MonoBehaviour
             //rb.AddTorque((direction - transform.eulerAngles) , ForceMode.VelocityChange);
         }
     }
+    
     private IEnumerator EnableCollision(float duration)
     {
         Collider col = GetComponent<Collider>();

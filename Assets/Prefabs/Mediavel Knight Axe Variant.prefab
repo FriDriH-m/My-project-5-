@@ -7083,7 +7083,7 @@ MonoBehaviour:
   enemy: {fileID: 4030866346675979262}
   walkSpeed: 3
   agroDistance: 18
-  attackDistance: 3.2
+  attackDistance: 2.5
   angleSpeed: 28
   animator: {fileID: 1730924223307275234}
   retreatSpeed: 1
@@ -7123,6 +7123,8 @@ MonoBehaviour:
   animator: {fileID: 1730924223307275234}
   _enemyStateManager: {fileID: -2716881243928964296}
   _zoneTriggerManager: {fileID: 7336352470903973290}
+  weapon: {fileID: 0}
+  _tag: Axe
   hitPoints: 100
 --- !u!1 &8940899612424531752
 GameObject:

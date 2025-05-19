@@ -1,10 +1,12 @@
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine.AI;
+using Unity.VisualScripting;
+using System.Collections.Generic;
 
 public class BossStateManager : MonoBehaviour
 {
-    NavMeshAgent navMeshAgent;
+    public NavMeshAgent navMeshAgent;
     public Vector3 vectorToPlayer;
     public Vector3 enemyForward;
     public Transform player;
@@ -13,14 +15,23 @@ public class BossStateManager : MonoBehaviour
     public float agroDistance; 
     public float attackDistance; 
     public float angleSpeed = 28f;
+    public float moveSpeed;
     public Animator animator;
     Transform target;
+    public bool attackMove;
+    public bool canSwitchState;
+    public bool isAttacking = false;
+    bool _isStrafing = false;
+    public int _strafingSide;
 
     BaseStateBoss currentState;    
     public IdleStateB idleState = new();
     public DefenseStateB defenseState = new();
     public AttackStateB attackState = new();
     public AgroStateB agroState = new();
+
+    List<string> attacks = new List<string> { "Attack R", "Attack L", "Attack L inplace" };
+    List<string> moveAttacks = new List<string> { "Attack R move1", "Attack L move" };
 
     public void SwitchState(BaseStateBoss newState) 
     {
@@ -60,6 +71,101 @@ public class BossStateManager : MonoBehaviour
     {
         SetTarget(player); 
         navMeshAgent.destination = target.position; 
-        currentState.UpdateState(this); 
+        currentState.UpdateState(this);
+        Debug.DrawRay(transform.position, transform.forward * attackDistance);
+    }
+
+    public void FastDistanceAttack(Coroutine _runCoroutine)
+    {
+        if (CheckDistance() <= attackDistance + 3 && _runCoroutine != null && !isAttacking && animator.GetBool("Run"))
+        {
+            StopCoroutine(_runCoroutine);
+            _runCoroutine = null;
+
+            SetSpeed(0);
+            navMeshAgent.velocity = Vector3.zero;
+            navMeshAgent.nextPosition = enemy.transform.position;
+
+            isAttacking = true;
+            animator.SetBool("Attack R move", true);
+            animator.SetBool("Walk", false);
+            animator.SetBool("Run", false);            
+            canSwitchState = false;
+        }
+    }
+    public void GetCloser()
+    {
+        if (attackMove)
+        {
+            float step = moveSpeed * Time.deltaTime;
+            enemy.position = Vector3.MoveTowards(
+                enemy.position,
+                player.position,
+                step
+            );
+
+            if (Vector3.Distance(enemy.position, player.position) < 3f )
+            {
+                attackMove = false;
+                animator.SetBool("Attack R move", false);
+                canSwitchState = true;
+            }
+        }
+    }
+    public void Strafing()
+    {
+        if (!_isStrafing)
+        {
+            animator.SetBool("Walk Left", false);
+            animator.SetBool("Walk Right", false);
+            if (_strafingSide == 1)
+            {
+                animator.SetBool("Walk Left", false);
+                animator.SetBool("Walk Right", true);
+            }
+            else
+            {
+                animator.SetBool("Walk Right", false);
+                animator.SetBool("Walk Left", true);
+            }
+        }       
+
+        if (_isStrafing)
+        {
+            if (animator.GetBool("Walk Left"))
+            {
+                enemy.RotateAround(player.position, Vector3.up, angleSpeed * Time.deltaTime);
+            }
+            else enemy.RotateAround(player.position, Vector3.up, -1 * angleSpeed * Time.deltaTime);
+        }
+    }
+    public void Attack()
+    {
+        if (CheckDistance() > attackDistance - 2 )
+        {
+            
+        }
+        else
+        {
+
+        }
+    }
+
+    public void StartStrafe()
+    {
+        _isStrafing = true;
+    }
+    public void EndStrafeAnimation()
+    {
+        _isStrafing = false;
+    }
+    public void MoveAttack()
+    {
+        attackMove = true;
+    }
+    public void StartIdleAnimation()
+    {
+        isAttacking = false;
+        _isStrafing = false;
     }
 }
