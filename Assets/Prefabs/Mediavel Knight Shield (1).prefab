@@ -2436,6 +2436,8 @@ MonoBehaviour:
   animator: {fileID: 4101218979293415030}
   _enemyStateManager: {fileID: 7313002014621825062}
   _zoneTriggerManager: {fileID: 2953954037513776165}
+  weapon: {fileID: 0}
+  _tag: Sword
   hitPoints: 120
 --- !u!1 &3543945282462907961
 GameObject:

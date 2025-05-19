@@ -7,24 +7,29 @@ public class PlitaTrigger : MonoBehaviour
     public static int boxCount = 0;
     private Vector3 targetPosition;
 
-    private void Start() {
+    private void Start()
+    {
         targetPosition = transform.position + new Vector3(0f, -0.2f, 0f);
     }
 
-    public void OnTriggerEnter(Collider other) {
-        if (other.CompareTag("Box_Key")) { boxCount++;  shouldMove = true; }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Box_Key")) { boxCount++; shouldMove = true; }
         else return;
     }
 
-    private void Update() {
-        if (shouldMove && transform.position != targetPosition) 
+    private void Update()
+    {
+        if (shouldMove && transform.position != targetPosition)
         {
             transform.position = Vector3.Lerp(transform.position, targetPosition, speed * Time.deltaTime);
         }
         //if (Vector3.Distance(transform.position, targetPosition) < 0.01f) { shouldMove = false; }
     }
-    private void OnTriggerExit(Collider other) {
+    private void OnTriggerExit(Collider other)
+    {
         if (other.CompareTag("Box_Key")) { boxCount--; shouldMove = false; }
         else return;
     }
 }
+

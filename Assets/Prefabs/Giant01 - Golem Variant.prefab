@@ -1204,7 +1204,7 @@ MonoBehaviour:
   enemy: {fileID: 4347635597072364099}
   walkSpeed: 3
   agroDistance: 13
-  attackDistance: 4
+  attackDistance: 3
   angleSpeed: 28
   animator: {fileID: 7689275547505567801}
   retreatSpeed: 1

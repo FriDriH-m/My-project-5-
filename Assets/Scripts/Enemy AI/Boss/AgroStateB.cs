@@ -15,17 +15,19 @@ public class AgroStateB : BaseStateBoss
     {
         manager.animator.SetBool("Walk", false);
         manager.animator.SetBool("Run", false);
-        manager.StopCoroutine(_runCoroutine);
+        if (_runCoroutine != null) manager.StopCoroutine(_runCoroutine);
+        _runCoroutine = null;
     }
     public override void UpdateState(BossStateManager manager)
     {
-        if (manager.CheckDistance() >= manager.agroDistance) manager.SwitchState(manager.idleState);
-        if (manager.CheckDistance() <= manager.attackDistance) manager.SwitchState(manager.attackState);
-        
-        
+        if (manager.CheckDistance() >= manager.agroDistance && manager.canSwitchState) manager.SwitchState(manager.idleState);
+        if (manager.CheckDistance() <= manager.attackDistance && manager.canSwitchState) manager.SwitchState(manager.attackState);
+
+        manager.FastDistanceAttack(_runCoroutine); // включает атаку с быстрым сближением на расстоянии attackDistance + 3
+        manager.GetCloser(); // само сближение до расстояния 3
     }
     public IEnumerator Running(BossStateManager manager)
-    {        
+    {           
         yield return new WaitForSeconds(2f);
         manager.SetSpeed(manager.walkSpeed + 4);
         manager.animator.SetBool("Run", true);        
