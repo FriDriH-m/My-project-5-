@@ -1220,6 +1220,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6316884316966726353, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+      propertyPath: _leftHand
+      value: 
+      objectReference: {fileID: 1282405033}
+    - target: {fileID: 6316884316966726353, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+      propertyPath: _rightHand
+      value: 
+      objectReference: {fileID: 398191835}
     - target: {fileID: 8169429541019703634, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
       propertyPath: m_Name
       value: Leafy Bush (1)
@@ -1254,6 +1262,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8169429541019703634, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
   m_PrefabInstance: {fileID: 62305874}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &62305877 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1546837760316467068, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+  m_PrefabInstance: {fileID: 62305874}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &62305878 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6316884316966726353, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+  m_PrefabInstance: {fileID: 62305874}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62305876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c3ccf61048e0f4c87185fa278190ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &62305881
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1329,7 +1353,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 364218956}
+      - m_Target: {fileID: 62305887}
         m_TargetAssemblyTypeName: GrabParenter, Assembly-CSharp
         m_MethodName: OnGrab
         m_Mode: 0
@@ -1344,7 +1368,7 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 364218956}
+      - m_Target: {fileID: 62305878}
         m_TargetAssemblyTypeName: GrabParenter, Assembly-CSharp
         m_MethodName: OnUngrab
         m_Mode: 0
@@ -1377,7 +1401,7 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
-  m_AttachTransform: {fileID: 335753919}
+  m_AttachTransform: {fileID: 62305877}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
@@ -2198,6 +2222,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6316884316966726353, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+      propertyPath: _leftHand
+      value: 
+      objectReference: {fileID: 1282405033}
+    - target: {fileID: 6316884316966726353, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+      propertyPath: _rightHand
+      value: 
+      objectReference: {fileID: 398191835}
     - target: {fileID: 8169429541019703634, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
       propertyPath: m_Name
       value: Leafy Bush
@@ -2209,12 +2241,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8169429541019703634, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
       insertIndex: 2
       addedObject: {fileID: 130320967}
-    - targetCorrespondingSourceObject: {fileID: 8169429541019703634, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 130320974}
-    - targetCorrespondingSourceObject: {fileID: 8169429541019703634, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 130320973}
     - targetCorrespondingSourceObject: {fileID: 8169429541019703634, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
       insertIndex: -1
       addedObject: {fileID: 130320971}
@@ -2232,6 +2258,22 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8169429541019703634, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
   m_PrefabInstance: {fileID: 130320960}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &130320963 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1546837760316467068, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+  m_PrefabInstance: {fileID: 130320960}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &130320964 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6316884316966726353, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+  m_PrefabInstance: {fileID: 130320960}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130320962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c3ccf61048e0f4c87185fa278190ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &130320967
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2307,7 +2349,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 364218956}
+      - m_Target: {fileID: 130320964}
         m_TargetAssemblyTypeName: GrabParenter, Assembly-CSharp
         m_MethodName: OnGrab
         m_Mode: 0
@@ -2322,7 +2364,7 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 364218956}
+      - m_Target: {fileID: 130320964}
         m_TargetAssemblyTypeName: GrabParenter, Assembly-CSharp
         m_MethodName: OnUngrab
         m_Mode: 0
@@ -2355,7 +2397,7 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
-  m_AttachTransform: {fileID: 335753919}
+  m_AttachTransform: {fileID: 130320963}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
@@ -2420,48 +2462,6 @@ MonoBehaviour:
   _podorozhniktrigger: {fileID: 100908059}
   _healAmount: 30
   Bar: {fileID: 1864259072}
---- !u!114 &130320973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 130320962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3c3ccf61048e0f4c87185fa278190ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _offset: {x: 0, y: 0, z: 0}
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  _leftHand: {fileID: 1282405033}
-  _rightHand: {fileID: 398191835}
-  _canHoldTwoHands: 0
-  _leftHandPosition: {x: 0.035, y: 0.1, z: 0.01}
-  _leftHandEuler: {x: 0, y: 0, z: 90}
-  _rightHandPosition: {x: -0.008, y: 0.1, z: 0.01}
-  _rightHandEuler: {x: 0, y: 0, z: -90}
-  _twoHandEuler: {x: 0, y: 0, z: 0}
-  _trackPoint: 0.5
-  _selectItem: {fileID: 0}
-  _audioSource: {fileID: 0}
---- !u!114 &130320974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 130320962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae1d1475991decb4d9d1d22b96af3cec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inSlot: 0
-  slotRotation: {x: 0, y: 0, z: 0}
-  currentSlot: {fileID: 0}
 --- !u!1001 &135042508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3905,37 +3905,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5401331254644708158, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
   m_PrefabInstance: {fileID: 364218939}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &335753918
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 335753919}
-  m_Layer: 0
-  m_Name: AttachTransform
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &335753919
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 335753918}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0165, y: 0.0801, z: 0.0126}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 332452120}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &336563127 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1543070802843469984, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
@@ -4041,6 +4010,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6316884316966726353, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+      propertyPath: _leftHand
+      value: 
+      objectReference: {fileID: 1282405033}
+    - target: {fileID: 6316884316966726353, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+      propertyPath: _rightHand
+      value: 
+      objectReference: {fileID: 398191835}
     - target: {fileID: 8169429541019703634, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
       propertyPath: m_Name
       value: Leafy Bush (3)
@@ -4073,6 +4050,11 @@ Transform:
 --- !u!1 &342078751 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8169429541019703634, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+  m_PrefabInstance: {fileID: 342078749}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &342078752 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1546837760316467068, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
   m_PrefabInstance: {fileID: 342078749}
   m_PrefabAsset: {fileID: 0}
 --- !u!54 &342078756
@@ -4150,7 +4132,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 364218956}
+      - m_Target: {fileID: 342078762}
         m_TargetAssemblyTypeName: GrabParenter, Assembly-CSharp
         m_MethodName: OnGrab
         m_Mode: 0
@@ -4165,7 +4147,7 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 364218956}
+      - m_Target: {fileID: 342078762}
         m_TargetAssemblyTypeName: GrabParenter, Assembly-CSharp
         m_MethodName: OnUngrab
         m_Mode: 0
@@ -4198,7 +4180,7 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
-  m_AttachTransform: {fileID: 335753919}
+  m_AttachTransform: {fileID: 342078752}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
@@ -4373,6 +4355,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6316884316966726353, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+      propertyPath: _leftHand
+      value: 
+      objectReference: {fileID: 1282405033}
+    - target: {fileID: 6316884316966726353, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+      propertyPath: _rightHand
+      value: 
+      objectReference: {fileID: 398191835}
     - target: {fileID: 8169429541019703634, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
       propertyPath: m_Name
       value: Leafy Bush (2)
@@ -4405,6 +4395,11 @@ Transform:
 --- !u!1 &348966180 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8169429541019703634, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+  m_PrefabInstance: {fileID: 348966178}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &348966181 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1546837760316467068, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
   m_PrefabInstance: {fileID: 348966178}
   m_PrefabAsset: {fileID: 0}
 --- !u!54 &348966185
@@ -4482,7 +4477,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 364218956}
+      - m_Target: {fileID: 348966191}
         m_TargetAssemblyTypeName: GrabParenter, Assembly-CSharp
         m_MethodName: OnGrab
         m_Mode: 0
@@ -4497,7 +4492,7 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 364218956}
+      - m_Target: {fileID: 348966191}
         m_TargetAssemblyTypeName: GrabParenter, Assembly-CSharp
         m_MethodName: OnUngrab
         m_Mode: 0
@@ -4530,7 +4525,7 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
-  m_AttachTransform: {fileID: 335753919}
+  m_AttachTransform: {fileID: 348966181}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
@@ -4964,16 +4959,21 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6316884316966726353, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+      propertyPath: _leftHand
+      value: 
+      objectReference: {fileID: 1282405033}
+    - target: {fileID: 6316884316966726353, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+      propertyPath: _rightHand
+      value: 
+      objectReference: {fileID: 398191835}
     - target: {fileID: 8169429541019703634, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
       propertyPath: m_Name
       value: Leafy Bush
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 5401331254644708158, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 335753919}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8169429541019703634, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
       insertIndex: 2
@@ -5134,7 +5134,7 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
-  m_AttachTransform: {fileID: 335753919}
+  m_AttachTransform: {fileID: 0}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
@@ -12799,6 +12799,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6316884316966726353, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+      propertyPath: _leftHand
+      value: 
+      objectReference: {fileID: 1282405033}
+    - target: {fileID: 6316884316966726353, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+      propertyPath: _rightHand
+      value: 
+      objectReference: {fileID: 398191835}
     - target: {fileID: 8169429541019703634, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
       propertyPath: m_Name
       value: Leafy Bush
@@ -12812,12 +12820,6 @@ PrefabInstance:
       insertIndex: 2
       addedObject: {fileID: 1290532391}
     - targetCorrespondingSourceObject: {fileID: 8169429541019703634, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 1290532398}
-    - targetCorrespondingSourceObject: {fileID: 8169429541019703634, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1290532397}
-    - targetCorrespondingSourceObject: {fileID: 8169429541019703634, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1290532395}
     - targetCorrespondingSourceObject: {fileID: 8169429541019703634, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
@@ -12829,6 +12831,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5401331254644708158, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
   m_PrefabInstance: {fileID: 1290532382}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1290532384 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1546837760316467068, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+  m_PrefabInstance: {fileID: 1290532382}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1290532385 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6316884316966726353, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+  m_PrefabInstance: {fileID: 1290532382}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162600065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c3ccf61048e0f4c87185fa278190ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &1290532391
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12904,7 +12922,7 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 364218956}
+      - m_Target: {fileID: 1290532385}
         m_TargetAssemblyTypeName: GrabParenter, Assembly-CSharp
         m_MethodName: OnGrab
         m_Mode: 0
@@ -12919,7 +12937,7 @@ MonoBehaviour:
   m_SelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 364218956}
+      - m_Target: {fileID: 1290532385}
         m_TargetAssemblyTypeName: GrabParenter, Assembly-CSharp
         m_MethodName: OnUngrab
         m_Mode: 0
@@ -12952,7 +12970,7 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
-  m_AttachTransform: {fileID: 335753919}
+  m_AttachTransform: {fileID: 1290532384}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
@@ -13017,48 +13035,6 @@ MonoBehaviour:
   _podorozhniktrigger: {fileID: 100908059}
   _healAmount: 30
   Bar: {fileID: 1864259072}
---- !u!114 &1290532397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1162600065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3c3ccf61048e0f4c87185fa278190ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _offset: {x: 0, y: 0, z: 0}
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  _leftHand: {fileID: 1282405033}
-  _rightHand: {fileID: 398191835}
-  _canHoldTwoHands: 0
-  _leftHandPosition: {x: 0.035, y: 0.1, z: 0.01}
-  _leftHandEuler: {x: 0, y: 0, z: 90}
-  _rightHandPosition: {x: -0.008, y: 0.1, z: 0.01}
-  _rightHandEuler: {x: 0, y: 0, z: -90}
-  _twoHandEuler: {x: 0, y: 0, z: 0}
-  _trackPoint: 0.5
-  _selectItem: {fileID: 0}
-  _audioSource: {fileID: 0}
---- !u!114 &1290532398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1162600065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae1d1475991decb4d9d1d22b96af3cec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inSlot: 0
-  slotRotation: {x: 0, y: 0, z: 0}
-  currentSlot: {fileID: 0}
 --- !u!1001 &1292275236
 PrefabInstance:
   m_ObjectHideFlags: 0
