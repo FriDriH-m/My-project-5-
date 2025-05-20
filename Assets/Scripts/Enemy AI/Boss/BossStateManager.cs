@@ -15,7 +15,6 @@ public class BossStateManager : MonoBehaviour
     public float agroDistance; 
     public float attackDistance; 
     public float angleSpeed = 28f;
-    public float moveSpeed;
     public Animator animator;
     Transform target;
     public bool attackMove;
@@ -77,7 +76,7 @@ public class BossStateManager : MonoBehaviour
 
     public void FastDistanceAttack(Coroutine _runCoroutine)
     {
-        if (CheckDistance() <= attackDistance + 3 && _runCoroutine != null && !isAttacking && animator.GetBool("Run"))
+        if (CheckDistance() <= attackDistance && _runCoroutine != null && !isAttacking && animator.GetBool("Run"))
         {
             StopCoroutine(_runCoroutine);
             _runCoroutine = null;
@@ -93,10 +92,16 @@ public class BossStateManager : MonoBehaviour
             canSwitchState = false;
         }
     }
-    public void GetCloser()
+    public void GetCloser(bool runAttack)
     {
         if (attackMove)
-        {
+        {           
+            float moveSpeed;
+            if (runAttack)
+            {
+                moveSpeed = 20;
+            }
+            else moveSpeed = 10;
             float step = moveSpeed * Time.deltaTime;
             enemy.position = Vector3.MoveTowards(
                 enemy.position,
@@ -104,7 +109,7 @@ public class BossStateManager : MonoBehaviour
                 step
             );
 
-            if (Vector3.Distance(enemy.position, player.position) < 3f )
+            if (Vector3.Distance(enemy.position, player.position) < 2f )
             {
                 attackMove = false;
                 animator.SetBool("Attack R move", false);
@@ -114,10 +119,10 @@ public class BossStateManager : MonoBehaviour
     }
     public void Strafing()
     {
-        if (!_isStrafing)
+        if (!_isStrafing && !isAttacking)
         {
-            animator.SetBool("Walk Left", false);
-            animator.SetBool("Walk Right", false);
+            //animator.SetBool("Walk Left", false);
+            //animator.SetBool("Walk Right", false);
             if (_strafingSide == 1)
             {
                 animator.SetBool("Walk Left", false);
@@ -130,7 +135,7 @@ public class BossStateManager : MonoBehaviour
             }
         }       
 
-        if (_isStrafing)
+        if (_isStrafing && !isAttacking)
         {
             if (animator.GetBool("Walk Left"))
             {
@@ -141,13 +146,34 @@ public class BossStateManager : MonoBehaviour
     }
     public void Attack()
     {
-        if (CheckDistance() > attackDistance - 2 )
+        int chanceOfAttack = Random.Range(0, 5);
+        if (!isAttacking && chanceOfAttack == 1)
         {
-            
-        }
-        else
+            if (CheckDistance() > attackDistance - 4)
+            {
+                int randInt = Random.Range(0, 2);
+                animator.SetBool(moveAttacks[randInt], true);
+                isAttacking = true;
+            }
+            else
+            {
+                int randInt = Random.Range(0, 3);
+                animator.SetBool(attacks[randInt], true);
+                isAttacking = true;
+            }
+        }        
+    }
+    public void JumpBack()
+    {
+        if (attackMove)
         {
-
+            float moveSpeed = 20;
+            float step = moveSpeed * Time.deltaTime;
+            enemy.position = Vector3.MoveTowards(
+                enemy.position,
+                player.position,
+                -step
+            );
         }
     }
 
@@ -165,6 +191,14 @@ public class BossStateManager : MonoBehaviour
     }
     public void StartIdleAnimation()
     {
+        for (int i = 0; i < 3; i++)
+        {
+            animator.SetBool(attacks[i], false);
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            animator.SetBool(moveAttacks[i], false);
+        }
         isAttacking = false;
         _isStrafing = false;
     }

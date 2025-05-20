@@ -28,15 +28,7 @@ public class DamageCount : MonoBehaviour
                     _object.tag = "Untagged";
                 }
             }
-            animator.SetTrigger("Death");
-            foreach (Transform _object in transform)
-            {
-                if (_object.CompareTag(_tag))
-                {
-                    Debug.Log("тег обнулен");
-                    _object.tag = "Untagged";
-                }
-            }            
+            if (animator != null) animator.SetTrigger("Death");
             if (_enemyStateManager != null) { _enemyStateManager.enabled = false; }                
             if (_zoneTriggerManager != null) { _zoneTriggerManager.enabled = false; }
             _hasDead = true;

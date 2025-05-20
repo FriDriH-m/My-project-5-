@@ -8,6 +8,7 @@ public class WeaponDamage : MonoBehaviour
     [SerializeField] private Rigidbody _rigidBody; 
     [SerializeField] private float _damageRatio = 10f;
     [SerializeField] private float _minimalImpuls;
+    [SerializeField] private ParticleSystem _effect;
     public bool _touchSword = false; 
     private bool _canHit = true;
     private Coroutine _canHitCoroutine = null;
@@ -43,6 +44,15 @@ public class WeaponDamage : MonoBehaviour
             if (hitZone.zone == HitZone.ZoneType.Sword)
             {
                 if (_touchSword == false) StartCoroutine(SwordTouch());
+                if (_instImpuls > _minimalImpuls)
+                {
+                    foreach (ContactPoint contact in collision.contacts)
+                    {
+                        Instantiate(_effect, contact.point, Quaternion.identity);
+                        return;
+                    }
+                }
+
             }
             if (hitZone.haveArmor) _instImpuls *= 0.8f;
             if (hitZone.zone == HitZone.ZoneType.Head)
@@ -53,6 +63,11 @@ public class WeaponDamage : MonoBehaviour
                 if (_instImpuls > _minimalImpuls)
                 {
                     //Debug.Log("ГОЛОВА \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    foreach (ContactPoint contact in collision.contacts)
+                    {
+                        Instantiate(_effect, contact.point, Quaternion.identity);
+                        return;
+                    }
                     _damageCount.hitPoints -= _instImpuls;
                     if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
                     if (_animator != null) _animator.SetBool("HeadImpact", true);
@@ -67,6 +82,11 @@ public class WeaponDamage : MonoBehaviour
                 {
                     if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
                     //Debug.Log("ТУЛОВИЩЕ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    foreach (ContactPoint contact in collision.contacts)
+                    {
+                        Instantiate(_effect, contact.point, Quaternion.identity);
+                        return;
+                    }
                     _damageCount.hitPoints -= _instImpuls;
                     if (_animator != null) _animator.SetBool("TorsoImpact", true);
                     return;
@@ -81,6 +101,11 @@ public class WeaponDamage : MonoBehaviour
                 {
                     if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
                     //Debug.Log("КОНЕЧНОСТЬ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    foreach (ContactPoint contact in collision.contacts)
+                    {
+                        Instantiate(_effect, contact.point, Quaternion.identity);
+                        return;
+                    }
                     _damageCount.hitPoints -= _instImpuls;
                     return;
                 }
@@ -88,11 +113,17 @@ public class WeaponDamage : MonoBehaviour
             if (hitZone.zone == HitZone.ZoneType.Shield)
             {
                 _instImpuls *= 0.1f;
+                
                 if (_instImpuls > _minimalImpuls)
                 {
                     if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
                     //Debug.Log("ЩИТ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
+                    foreach (ContactPoint contact in collision.contacts)
+                    {
+                        Instantiate(_effect, contact.point, Quaternion.identity);
+                        return;
+                    }
                     return;
                 }
             }
@@ -110,5 +141,9 @@ public class WeaponDamage : MonoBehaviour
         _touchSword = true;
         yield return new WaitForSeconds(0.8f);
         _touchSword = false;
+    }
+    private void TouchEffect()
+    {
+
     }
 }
