@@ -10,6 +10,7 @@ public class PlayerDamage : MonoBehaviour
     private WeaponDamage _weaponDamage;
     public Image Bar;
     public int Deaths = 0;
+    public bool Damage = false;
     private void OnTriggerEnter(Collider other)
     {
         Transform parent = transform.parent;
@@ -29,6 +30,7 @@ public class PlayerDamage : MonoBehaviour
                 hitPoints -= 60; 
             }
             else hitPoints -= 60; 
+            Damage = true;
         }
         else if (other.gameObject.CompareTag("Sword"))
         {
@@ -43,6 +45,7 @@ public class PlayerDamage : MonoBehaviour
                 else hitPoints -= 30;
             }
             else hitPoints -= 30;
+            Damage = true;
         }
         else if (other.gameObject.CompareTag("Axe"))
         {
@@ -57,6 +60,8 @@ public class PlayerDamage : MonoBehaviour
                 else hitPoints -= 20; 
             }
             else hitPoints -= 20;
+            Damage = true;
+
         }
         else if (other.gameObject.CompareTag("Golem"))
         {
@@ -70,7 +75,8 @@ public class PlayerDamage : MonoBehaviour
                 }
                 else hitPoints -= 90;
             }
-            else hitPoints -= 90; 
+            else hitPoints -= 90;
+            Damage = true;
         }
         HealthBar();
         if (hitPoints <= 0)
@@ -91,7 +97,6 @@ public class PlayerDamage : MonoBehaviour
         Deaths+=1;
         hitPoints = 200;
         HealthBar();
-
         transform.parent.position = reviveCoordination;
     }
 }
