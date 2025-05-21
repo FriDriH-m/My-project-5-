@@ -8,6 +8,7 @@ public class DamageCount : MonoBehaviour
     [SerializeField] private MonoBehaviour _zoneTriggerManager;// для отключения после смерти
     [SerializeField] private string _tag;
     Transform[] allChildrens;
+    private bool _hasDead = false;
 
 
     public float hitPoints = 100;
@@ -17,20 +18,28 @@ public class DamageCount : MonoBehaviour
     }
     private void Update()
     {
-        if (hitPoints <= 0)
+        if (hitPoints <= 0 && !_hasDead)
         {
             foreach (Transform _object in allChildrens)
             {
                 if (_object.CompareTag(_tag))
                 {
+                    Debug.Log("тег обнулен");
                     _object.tag = "Untagged";
                 }
             }
-            if (animator != null) animator.SetTrigger("Death");
-           
+            animator.SetTrigger("Death");
+            foreach (Transform _object in transform)
+            {
+                if (_object.CompareTag(_tag))
+                {
+                    Debug.Log("тег обнулен");
+                    _object.tag = "Untagged";
+                }
+            }            
             if (_enemyStateManager != null) { _enemyStateManager.enabled = false; }                
             if (_zoneTriggerManager != null) { _zoneTriggerManager.enabled = false; }
-            this.enabled = false;
+            _hasDead = true;
         }
     }
 }
