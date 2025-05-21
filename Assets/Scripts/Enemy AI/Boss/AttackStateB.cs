@@ -6,7 +6,6 @@ public class AttackStateB : BaseStateBoss
     float time = 0; // таймер
     public override void EnterState(BossStateManager manager)
     {
-        //Debug.Log("attack");
         manager.SetSpeed(0);
     }
     public override void ExitState(BossStateManager manager)

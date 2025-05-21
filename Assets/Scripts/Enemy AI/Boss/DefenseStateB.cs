@@ -6,6 +6,8 @@ public class DefenseStateB : BaseStateBoss
     {
         //Debug.Log("idle");
         manager.SetSpeed(0);
+        manager.animator.SetBool("Jump Back", true);
+        _coroutine = manager.StartCoroutine(Switch(manager));
     }
     public override void ExitState(BossStateManager manager)
     {

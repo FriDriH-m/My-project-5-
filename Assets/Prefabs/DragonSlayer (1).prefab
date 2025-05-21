@@ -241,7 +241,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &3266133853996053252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +266,7 @@ MonoBehaviour:
   _rightHandPosition: {x: -0.018, y: 0.53, z: -0.028}
   _rightHandEuler: {x: -3, y: -60.86, z: -99.6}
   _twoHandEuler: {x: 0, y: 90, z: 90}
+  _trackPoint: 0.5
   _selectItem: {fileID: 0}
   _audioSource: {fileID: 0}
 --- !u!114 &-5287722650604728149
@@ -282,7 +283,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidBody: {fileID: 1003348649838259503}
   _damageRatio: 10
-  _minimalImpuls: 1
+  _minimalImpuls: 10
+  _effect: {fileID: 970440554703164915, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
   _touchSword: 0
 --- !u!114 &9200581270937596200
 MonoBehaviour:

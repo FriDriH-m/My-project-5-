@@ -72,7 +72,6 @@ public class BossStateManager : MonoBehaviour
         SetTarget(player); 
         navMeshAgent.destination = target.position; 
         currentState.UpdateState(this);
-        Debug.DrawRay(transform.position, transform.forward * attackDistance);
     }
 
     public void FastDistanceAttack(Coroutine _runCoroutine)
@@ -104,7 +103,7 @@ public class BossStateManager : MonoBehaviour
                 step
             );
 
-            if (Vector3.Distance(enemy.position, player.position) < 3f )
+            if (Vector3.Distance(enemy.position, player.position) <= 2.5f )
             {
                 attackMove = false;
                 animator.SetBool("Attack R move", false);
@@ -116,8 +115,6 @@ public class BossStateManager : MonoBehaviour
     {
         if (!_isStrafing)
         {
-            animator.SetBool("Walk Left", false);
-            animator.SetBool("Walk Right", false);
             if (_strafingSide == 1)
             {
                 animator.SetBool("Walk Left", false);
@@ -147,7 +144,19 @@ public class BossStateManager : MonoBehaviour
         }
         else
         {
-
+            float moveSpeed = 20;
+            float step = moveSpeed * Time.deltaTime;
+            enemy.position = Vector3.MoveTowards(
+                enemy.position,
+                player.position,
+                -step
+            );
+            canSwitchState = false;
+        }
+        if (Vector3.Distance(enemy.position, player.position) > 6f)
+        {
+            attackMove = false;
+            canSwitchState = true;
         }
     }
 
@@ -162,6 +171,11 @@ public class BossStateManager : MonoBehaviour
     public void MoveAttack()
     {
         attackMove = true;
+        canSwitchState = false;
+    }
+    private void EndImpactAnimation()
+    {
+        animator.SetBool("TorsoImpact", false);
     }
     public void StartIdleAnimation()
     {
