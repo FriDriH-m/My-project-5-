@@ -57,7 +57,6 @@ public class WeaponDamage : MonoBehaviour
                     if (weaponName == "DragonSlayer (1)")
                     {
                         Icon9._unlocked = true;
-                        Debug.Log("Dragon");
                     }
                     if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
                     if (_animator != null) _animator.SetBool("HeadImpact", true);
@@ -76,7 +75,6 @@ public class WeaponDamage : MonoBehaviour
                     if (weaponName == "DragonSlayer (1)")
                     {
                         Icon9._unlocked = true;
-                        Debug.Log("Dragon");
                     }
                     if (_animator != null) _animator.SetBool("TorsoImpact", true);
                     return;
@@ -95,7 +93,6 @@ public class WeaponDamage : MonoBehaviour
                     if (weaponName == "DragonSlayer (1)")
                     {
                         Icon9._unlocked = true;
-                        Debug.Log("Dragon");
                     }
                     return;
                 }
@@ -111,7 +108,6 @@ public class WeaponDamage : MonoBehaviour
                     if (weaponName == "DragonSlayer (1)")
                     {
                         Icon9._unlocked = true;
-                        Debug.Log("Dragon");
                     }
                     return;
                 }
