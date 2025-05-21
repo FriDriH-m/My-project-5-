@@ -6,11 +6,16 @@ using UnityEngine.UI;
 public class PlayerDamage : MonoBehaviour
 {
     public Vector3 reviveCoordination;
-    [SerializeField] public float hitPoints;
+    public float hitPoints;
     private WeaponDamage _weaponDamage;
     public Image Bar;
     public int Deaths = 0;
     public bool Damage = false;
+    public DataAchievement Icon16;
+    private void Start()
+    {
+        hitPoints = 200f;
+    }
     private void OnTriggerEnter(Collider other)
     {
         Transform parent = transform.parent;
@@ -81,17 +86,21 @@ public class PlayerDamage : MonoBehaviour
         HealthBar();
         if (hitPoints <= 0)
         {
+            if (other.gameObject.CompareTag("Axe") && (other.gameObject.transform.root.name == "Mediavel Knight Axe Variant (1)"))
+            {
+                Icon16._unlocked = true;
+            }
             StartCoroutine(Revive());
             //Смерть игрока
         }
 
     }
-    private void HealthBar()
+    public void HealthBar()
     {
         Bar.fillAmount = hitPoints / 200;
         //Debug.Log($"HealBar{Bar.fillAmount}+{hitPoints / 200}");
     }
-    private IEnumerator Revive()
+    public IEnumerator Revive()
     {
         yield return new WaitForSeconds(0.2f);
         Deaths+=1;

@@ -1,50 +1,32 @@
-// AchievementManager.cs
 using UnityEngine;
-
+using UnityEngine.UI;
 public class AchievementManager : MonoBehaviour
 {
-    // Массив всех ScriptableObject с достижениями
-    public DataAchievement[] allAchievements;
-
-    // Метод для разблокировки по индексу (0-15)
-    public void UnlockAchievement(int achievementIndex)
-    {
-        if (achievementIndex >= 0 && achievementIndex < allAchievements.Length)
-        {
-            if (!allAchievements[achievementIndex]._unlocked)
-            {
-                allAchievements[achievementIndex]._unlocked = true;
-                Debug.Log($"Достижение {achievementIndex + 1} разблокировано!");
-                SaveAchievements(); // Сохраняем прогресс
-            }
-        }
-        else
-        {
-            Debug.LogError("Неверный индекс достижения!");
-        }
-    }
-
-    // Сохранение прогресса в PlayerPrefs
-    private void SaveAchievements()
-    {
-        for (int i = 0; i < allAchievements.Length; i++)
-        {
-            PlayerPrefs.SetInt($"Achievement_{i}", allAchievements[i]._unlocked ? 1 : 0);
-        }
-        PlayerPrefs.Save();
-    }
-
-    // Загрузка прогресса при старте игры
+    public DataAchievement[] JustIcons;
+    public DataAchievement[] SpecialyIcons;
+    public Image[] JustImages;
+    public GameObject[] SpecialyImages;
+    int i = 0;
     private void Start()
     {
-        LoadAchievements();
-    }
-
-    private void LoadAchievements()
-    {
-        for (int i = 0; i < allAchievements.Length; i++)
+        foreach (DataAchievement icon in JustIcons)
         {
-            allAchievements[i]._unlocked = PlayerPrefs.GetInt($"Achievement_{i}", 0) == 1;
+            if (icon._unlocked == true)
+            {
+                JustImages[i].color = new Color('F', 'F', 'F', 'F');
+                JustImages[i + 1].color = new Color('F', 'F', 'F', 'F');
+            }
+            i += 2;
         }
+        i = 0;
+        foreach (DataAchievement icon in SpecialyIcons)
+        {
+            if (icon._unlocked == true)
+            {
+                SpecialyImages[i].SetActive(false);
+            }
+            i += 1;
+        }
+        i = 0;
     }
 }

@@ -13,6 +13,7 @@ public class WeaponDamage : MonoBehaviour
     private Coroutine _canHitCoroutine = null;
     float _instImpuls;
     public DataAchievement Icon9;
+    public DataAchievement Icon15;
     float _impulsValue 
     { 
         get { return _instImpuls; } 
@@ -58,6 +59,10 @@ public class WeaponDamage : MonoBehaviour
                     {
                         Icon9._unlocked = true;
                     }
+                    if ((gameObject.transform.parent == null) && (_damageCount.hitPoints <= 0))
+                    {
+                        Icon15._unlocked = true;
+                    }
                     if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
                     if (_animator != null) _animator.SetBool("HeadImpact", true);
                     return;
@@ -75,6 +80,10 @@ public class WeaponDamage : MonoBehaviour
                     if (weaponName == "DragonSlayer (1)")
                     {
                         Icon9._unlocked = true;
+                    }
+                    if ((gameObject.transform.parent == null) && (_damageCount.hitPoints <= 0))
+                    {
+                        Icon15._unlocked = true;
                     }
                     if (_animator != null) _animator.SetBool("TorsoImpact", true);
                     return;
@@ -94,6 +103,10 @@ public class WeaponDamage : MonoBehaviour
                     {
                         Icon9._unlocked = true;
                     }
+                    if ((gameObject.transform.parent == null) && (_damageCount.hitPoints <= 0))
+                    {
+                        Icon15._unlocked = true;
+                    }
                     return;
                 }
             }
@@ -108,6 +121,10 @@ public class WeaponDamage : MonoBehaviour
                     if (weaponName == "DragonSlayer (1)")
                     {
                         Icon9._unlocked = true;
+                    }
+                    if ((gameObject.transform.parent == null) && (_damageCount.hitPoints <= 0))
+                    {
+                        Icon15._unlocked = true;
                     }
                     return;
                 }
