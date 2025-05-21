@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthBush : MonoBehaviour
+public class Healing : MonoBehaviour
 {
     [SerializeField] public Collider _podorozhniktrigger; //Триггер, который чекает вход подорожника (На MainCamera)
     [SerializeField] private int _healAmount = 30; // Насколько хиллимся

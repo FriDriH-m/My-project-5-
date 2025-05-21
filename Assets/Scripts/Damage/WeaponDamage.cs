@@ -13,7 +13,8 @@ public class WeaponDamage : MonoBehaviour
     private bool _canHit = true;
     private Coroutine _canHitCoroutine = null;
     float _instImpuls;
-
+    public DataAchievement Icon9;
+    public DataAchievement Icon15;
     float _impulsValue 
     { 
         get { return _instImpuls; } 
@@ -28,7 +29,8 @@ public class WeaponDamage : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (!_canHit) return;
-        
+
+        string weaponName = gameObject.name;
         float impuls = collision.impulse.magnitude;
 
         HitZone hitZone = collision.collider.GetComponentInParent<HitZone>();
@@ -60,6 +62,14 @@ public class WeaponDamage : MonoBehaviour
                     //Debug.Log("ГОЛОВА \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     Effects(collision);
                     _damageCount.hitPoints -= _instImpuls;
+                    if (weaponName == "DragonSlayer (1)")
+                    {
+                        Icon9._unlocked = true;
+                    }
+                    if ((gameObject.transform.parent == null) && (_damageCount.hitPoints <= 0))
+                    {
+                        Icon15._unlocked = true;
+                    }
                     if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
                     if (_animator != null) _animator.SetBool("HeadImpact", true);
                     if (_animator != null) _animator.SetTrigger("Impact");
@@ -76,6 +86,14 @@ public class WeaponDamage : MonoBehaviour
                     //Debug.Log("ТУЛОВИЩЕ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     Effects(collision);
                     _damageCount.hitPoints -= _instImpuls;
+                    if (weaponName == "DragonSlayer (1)")
+                    {
+                        Icon9._unlocked = true;
+                    }
+                    if ((gameObject.transform.parent == null) && (_damageCount.hitPoints <= 0))
+                    {
+                        Icon15._unlocked = true;
+                    }
                     if (_animator != null) _animator.SetBool("TorsoImpact", true);
                     return;
                 }
@@ -91,6 +109,14 @@ public class WeaponDamage : MonoBehaviour
                     //Debug.Log("КОНЕЧНОСТЬ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     Effects(collision);
                     _damageCount.hitPoints -= _instImpuls;
+                    if (weaponName == "DragonSlayer (1)")
+                    {
+                        Icon9._unlocked = true;
+                    }
+                    if ((gameObject.transform.parent == null) && (_damageCount.hitPoints <= 0))
+                    {
+                        Icon15._unlocked = true;
+                    }
                     return;
                 }
             }
@@ -104,7 +130,15 @@ public class WeaponDamage : MonoBehaviour
                     if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
                     //Debug.Log("ЩИТ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
-                    
+
+                    if (weaponName == "DragonSlayer (1)")
+                    {
+                        Icon9._unlocked = true;
+                    }
+                    if ((gameObject.transform.parent == null) && (_damageCount.hitPoints <= 0))
+                    {
+                        Icon15._unlocked = true;
+                    }
                     return;
                 }
             }
