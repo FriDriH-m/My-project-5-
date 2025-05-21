@@ -257,22 +257,8 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.93213564
-        functionName: Shoot
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 1806a76089848714291dc09d0b15b050, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 1
         functionName: EndShoot
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 1806a76089848714291dc09d0b15b050, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0
-        functionName: StartShoot
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 1806a76089848714291dc09d0b15b050, type: 3}
         floatParameter: 0

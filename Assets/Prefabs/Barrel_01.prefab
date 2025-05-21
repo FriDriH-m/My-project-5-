@@ -294,7 +294,7 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
-  m_FarAttachMode: 1
+  m_FarAttachMode: 0
 --- !u!1 &8841664660786277034 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 060d000557fda73428e416006e69e7c8, type: 3}
