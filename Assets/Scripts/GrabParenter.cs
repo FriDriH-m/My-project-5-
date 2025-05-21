@@ -25,7 +25,6 @@ public class GrabParenter : MonoBehaviour
     Rigidbody rb;
     Transform interactable;
     Transform interactor;
-    BowScript _bowScript;
     private Item item;
     private Slot currentSlot;
     [SerializeField] AudioClip _selectItem;
@@ -44,7 +43,6 @@ public class GrabParenter : MonoBehaviour
     }
     private void Start()
     {
-        _bowScript = GetComponent<BowScript>();
         if (!_canHoldTwoHands)
         {
             grabInteractable.selectMode = InteractableSelectMode.Single;
@@ -55,7 +53,6 @@ public class GrabParenter : MonoBehaviour
     public void OnGrab(SelectEnterEventArgs args)
     {
         interactable = args.interactableObject.transform;
-        if (interactable.CompareTag("Bow")) _bowScript.isGrabbed = true;
         interactor = args.interactorObject.transform;
         // Начало твоего скрипта, Илья
         if (item != null && item.inSlot)
@@ -126,7 +123,6 @@ public class GrabParenter : MonoBehaviour
     public void OnUngrab(SelectExitEventArgs args)
     {
         interactable = args.interactableObject.transform;
-        if (interactable.CompareTag("Bow")) _bowScript.isGrabbed = false;
         interactor = args.interactorObject.transform;
 
         Rigidbody rb = GetComponent<Rigidbody>();
@@ -228,5 +224,7 @@ public class GrabParenter : MonoBehaviour
         yield return new WaitForSeconds(duration);
         col.enabled = true;
     }
+
+    
 }
 

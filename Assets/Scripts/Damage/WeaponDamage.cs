@@ -28,9 +28,8 @@ public class WeaponDamage : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (!_canHit) return;
-
+        
         float impuls = collision.impulse.magnitude;
-        //Debug.Log(impuls);
 
         HitZone hitZone = collision.collider.GetComponentInParent<HitZone>();
         DamageCount _damageCount = collision.collider.GetComponentInParent<DamageCount>();
@@ -46,11 +45,7 @@ public class WeaponDamage : MonoBehaviour
                 if (_touchSword == false) StartCoroutine(SwordTouch());
                 if (_instImpuls > _minimalImpuls)
                 {
-                    foreach (ContactPoint contact in collision.contacts)
-                    {
-                        Instantiate(_effect, contact.point, Quaternion.identity);
-                        return;
-                    }
+                    Effects(collision);
                 }
 
             }
@@ -63,14 +58,11 @@ public class WeaponDamage : MonoBehaviour
                 if (_instImpuls > _minimalImpuls)
                 {
                     //Debug.Log("ГОЛОВА \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
-                    foreach (ContactPoint contact in collision.contacts)
-                    {
-                        Instantiate(_effect, contact.point, Quaternion.identity);
-                        return;
-                    }
+                    Effects(collision);
                     _damageCount.hitPoints -= _instImpuls;
                     if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
                     if (_animator != null) _animator.SetBool("HeadImpact", true);
+                    if (_animator != null) _animator.SetTrigger("Impact");
                     return;
                 }
             }
@@ -82,11 +74,7 @@ public class WeaponDamage : MonoBehaviour
                 {
                     if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
                     //Debug.Log("ТУЛОВИЩЕ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
-                    foreach (ContactPoint contact in collision.contacts)
-                    {
-                        Instantiate(_effect, contact.point, Quaternion.identity);
-                        return;
-                    }
+                    Effects(collision);
                     _damageCount.hitPoints -= _instImpuls;
                     if (_animator != null) _animator.SetBool("TorsoImpact", true);
                     return;
@@ -101,11 +89,7 @@ public class WeaponDamage : MonoBehaviour
                 {
                     if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
                     //Debug.Log("КОНЕЧНОСТЬ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
-                    foreach (ContactPoint contact in collision.contacts)
-                    {
-                        Instantiate(_effect, contact.point, Quaternion.identity);
-                        return;
-                    }
+                    Effects(collision);
                     _damageCount.hitPoints -= _instImpuls;
                     return;
                 }
@@ -116,17 +100,22 @@ public class WeaponDamage : MonoBehaviour
                 
                 if (_instImpuls > _minimalImpuls)
                 {
+                    Effects(collision);
                     if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
                     //Debug.Log("ЩИТ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
-                    foreach (ContactPoint contact in collision.contacts)
-                    {
-                        Instantiate(_effect, contact.point, Quaternion.identity);
-                        return;
-                    }
+                    
                     return;
                 }
             }
+        }
+    }
+    private void Effects(Collision collision)
+    {
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            Instantiate(_effect, contact.point, Quaternion.identity);
+            return;
         }
     }
     private IEnumerator ExitHitZone()
@@ -134,6 +123,7 @@ public class WeaponDamage : MonoBehaviour
         _canHit = false;
         yield return new WaitForSeconds(0.7f);
         _canHit = true;
+        StopCoroutine(_canHitCoroutine);
         _canHitCoroutine = null;
     }
     private IEnumerator SwordTouch()
@@ -141,9 +131,5 @@ public class WeaponDamage : MonoBehaviour
         _touchSword = true;
         yield return new WaitForSeconds(0.8f);
         _touchSword = false;
-    }
-    private void TouchEffect()
-    {
-
     }
 }

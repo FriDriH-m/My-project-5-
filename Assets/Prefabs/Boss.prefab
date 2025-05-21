@@ -3037,7 +3037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 820a7829b25f65540bbbaed682cbd108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 7963382207250586107}
   _enemyStateManager: {fileID: 7148152777675263034}
   _zoneTriggerManager: {fileID: 0}
   _tag: Great_Sword

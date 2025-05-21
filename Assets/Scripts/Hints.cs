@@ -7,7 +7,6 @@ public class Hints : MonoBehaviour
 
     public void OnGrabHint(SelectEnterEventArgs args)
     {
-        Debug.Log("≈—“‹!");
         _hint.SetActive(true);
     }
 }

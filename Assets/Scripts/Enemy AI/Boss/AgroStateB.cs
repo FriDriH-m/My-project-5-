@@ -6,10 +6,10 @@ public class AgroStateB : BaseStateBoss
     Coroutine _runCoroutine;
     public override void EnterState(BossStateManager manager)
     {
-        //Debug.Log("agro");
         manager.animator.SetBool("Walk", true);
         manager.SetSpeed(manager.walkSpeed);
         _runCoroutine = manager.StartCoroutine(Running(manager));
+        
     }
     public override void ExitState(BossStateManager manager)
     {
