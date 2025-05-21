@@ -24,7 +24,6 @@ public class PlitaTrigger : MonoBehaviour
         {
             transform.position = Vector3.Lerp(transform.position, targetPosition, speed * Time.deltaTime);
         }
-        //if (Vector3.Distance(transform.position, targetPosition) < 0.01f) { shouldMove = false; }
     }
     private void OnTriggerExit(Collider other)
     {

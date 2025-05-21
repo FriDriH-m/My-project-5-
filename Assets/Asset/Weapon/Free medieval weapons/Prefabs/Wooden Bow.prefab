@@ -786,6 +786,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrabbed: 0
+  tetiva: {fileID: 1798074416387974}
+  arrow: {fileID: 100000, guid: 5b4335161d9fa504c9ec268fe6a0a12b, type: 3}
 --- !u!1 &1793173729035202
 GameObject:
   m_ObjectHideFlags: 0
