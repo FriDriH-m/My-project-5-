@@ -18,6 +18,7 @@ TagManager:
   - Golem
   - Bow
   - Item
+  - Arrow
   layers:
   - Default
   - TransparentFX
