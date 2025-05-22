@@ -23,6 +23,7 @@ public class PlayerDamage : MonoBehaviour
 
         if (other.gameObject.CompareTag("Great_Sword"))
         {
+            Debug.Log("”рон есть");
             //Debug.Log("Great Sword урон");
             if (_weaponDamage != null)
             {
