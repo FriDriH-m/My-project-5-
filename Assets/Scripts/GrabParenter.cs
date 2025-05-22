@@ -5,52 +5,57 @@ using System.Collections;
 
 public class GrabParenter : MonoBehaviour
 {
-    [SerializeField] Vector3 _offset; // От Олега
-    [SerializeField] LayerMask _layerMask; // От Олега
-    [SerializeField] private Transform _leftHand; // модельк левой руки
-    [SerializeField] private Transform _rightHand; // моделька правой руки
-    [SerializeField] private bool _canHoldTwoHands; // можно ли держать оружие двумя руками
+    [SerializeField] protected Vector3 _offset; // От Олега
+    [SerializeField] protected LayerMask _layerMask; // От Олега
+    [SerializeField] protected Transform _leftHand; // модельк левой руки
+    [SerializeField] protected Transform _rightHand; // моделька правой руки
+    [SerializeField] protected bool _canHoldTwoHands; // можно ли держать оружие двумя руками
 
-    [SerializeField] private Vector3 _leftHandPosition;  //
-    [SerializeField] private Vector3 _leftHandEuler;     //  позиционирование моделек рук на рукоятке оружия после граба
-    [SerializeField] private Vector3 _rightHandPosition; //
-    [SerializeField] private Vector3 _rightHandEuler;    //
-    [SerializeField] private Vector3 _twoHandEuler; // вращение в двуручном хвате
-    [SerializeField] private float _trackPoint = 0.5f;
-    private Quaternion _leftHandRotation => Quaternion.Euler(_leftHandEuler); // преобразование Vector3 в Quaternion и запись в переменную
-    private Quaternion _rightHandRotation => Quaternion.Euler(_rightHandEuler); // преобразование Vector3 в Quaternion и запись в переменную
-    private XRGrabInteractable grabInteractable;
-    private Transform _firstHand; // переменная которая будет хранить какая рука схватила первой оружиея
-    private Transform _secondaryHand; // переменная которая будет хранить какая рука схватила второй оружие
-    Rigidbody rb;
-    Transform interactable;
-    Transform interactor;
-    private Item item;
-    private Slot currentSlot;
-    [SerializeField] AudioClip _selectItem;
-    [SerializeField] AudioSource _audioSource;
+    [SerializeField] protected Vector3 _leftHandPosition;  //
+    [SerializeField] protected Vector3 _leftHandEuler;     //  позиционирование моделек рук на рукоятке оружия после граба
+    [SerializeField] protected Vector3 _rightHandPosition; //
+    [SerializeField] protected Vector3 _rightHandEuler;    //
+    [SerializeField] protected Vector3 _twoHandEuler; // вращение в двуручном хвате
+    [SerializeField] protected float _trackPoint = 0.5f;
+    protected Quaternion _leftHandRotation => Quaternion.Euler(_leftHandEuler); // преобразование Vector3 в Quaternion и запись в переменную
+    protected Quaternion _rightHandRotation => Quaternion.Euler(_rightHandEuler); // преобразование Vector3 в Quaternion и запись в переменную
+    protected XRGrabInteractable grabInteractable;
+    protected Transform _firstHand; // переменная которая будет хранить какая рука схватила первой оружиея
+    protected Transform _secondaryHand; // переменная которая будет хранить какая рука схватила второй оружие
+    protected Rigidbody rb;
+    protected Transform interactable;
+    protected Transform interactor;
+    protected Item item;
+    protected Slot currentSlot;
+    [SerializeField] protected AudioClip _selectItem;
+    [SerializeField] protected AudioSource _audioSource;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         grabInteractable = GetComponent<XRGrabInteractable>();
         item = GetComponent<Item>();
     }
 
-    private void OnValidate()
+    protected virtual void OnValidate()
     {
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = _offset;
     }
-    private void Start()
+    protected virtual void Start()
     {
         if (!_canHoldTwoHands)
         {
             grabInteractable.selectMode = InteractableSelectMode.Single;
             grabInteractable.focusMode = InteractableFocusMode.Single;
         }
+        else
+        {
+            grabInteractable.selectMode = InteractableSelectMode.Multiple;
+            grabInteractable.focusMode = InteractableFocusMode.Multiple;
+        }
     }
 
-    public void OnGrab(SelectEnterEventArgs args)
+    public virtual void OnGrab(SelectEnterEventArgs args)
     {
         interactable = args.interactableObject.transform;
         interactor = args.interactorObject.transform;
@@ -120,7 +125,7 @@ public class GrabParenter : MonoBehaviour
         }   
     }
 
-    public void OnUngrab(SelectExitEventArgs args)
+    public virtual void OnUngrab(SelectExitEventArgs args)
     {
         interactable = args.interactableObject.transform;
         interactor = args.interactorObject.transform;
@@ -159,17 +164,17 @@ public class GrabParenter : MonoBehaviour
             SetRigidbodyDumping(0f);
         }        
     }
-    public void TwoHandGrab(bool value)
+    public virtual void TwoHandGrab(bool value)
     {
         grabInteractable.trackPosition = value;
         //grabInteractable.trackRotation = value;
     }
-    public void SetRigidbodyDumping(float value)
+    public virtual void SetRigidbodyDumping(float value)
     {
         rb.angularDamping = value;
         rb.linearDamping = value;
     }
-    public void HandToStartPosition(Transform hand)
+    public virtual void HandToStartPosition(Transform hand)
     {
         if (hand.CompareTag("L_Hand"))
         {
@@ -186,7 +191,7 @@ public class GrabParenter : MonoBehaviour
             _rightHand.transform.localRotation = Quaternion.Euler(-180, 187.945f, 90);
         }
     }
-    public void HandToTargetPosition(Transform hand)
+    public virtual void HandToTargetPosition(Transform hand)
     {
         if (hand.CompareTag("L_Hand"))
         {
@@ -203,21 +208,20 @@ public class GrabParenter : MonoBehaviour
             _rightHand.transform.localRotation = _rightHandRotation;
         }
     }
-    private void Update()
+    protected virtual void Update()
     {
         if (_firstHand != null && _secondaryHand != null)
         {
             
             Vector3 midPoint = Vector3.Lerp(_firstHand.position, _secondaryHand.position, _trackPoint);
-            Vector3 direction = _firstHand.position - _secondaryHand.position;
 
             // Используй физические методы для перемещения
             rb.AddForce((midPoint - transform.position) * 10, ForceMode.VelocityChange);
             //rb.AddTorque((direction - transform.eulerAngles) , ForceMode.VelocityChange);
         }
     }
-    
-    private IEnumerator EnableCollision(float duration)
+
+    protected IEnumerator EnableCollision(float duration)
     {
         Collider col = GetComponent<Collider>();
         col.enabled = false;
