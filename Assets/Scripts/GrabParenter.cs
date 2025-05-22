@@ -23,14 +23,13 @@ public class GrabParenter : MonoBehaviour
     private Transform _firstHand; // переменная которая будет хранить какая рука схватила первой оружиея
     private Transform _secondaryHand; // переменная которая будет хранить какая рука схватила второй оружие
     Rigidbody rb;
-    Transform interactable;
+    public Transform interactable;
     Transform interactor;
     BowScript _bowScript;
     private Item item;
     private Slot currentSlot;
     [SerializeField] AudioClip _selectItem;
     [SerializeField] AudioSource _audioSource;
-
     private void Awake()
     {
         grabInteractable = GetComponent<XRGrabInteractable>();

@@ -18,6 +18,7 @@ TagManager:
   - Golem
   - Bow
   - Item
+  - Healing
   layers:
   - Default
   - TransparentFX
