@@ -5,9 +5,7 @@ public class FireActive : MonoBehaviour
 {
     PlayerDamage _playerDamage;
     Coroutine _coroutine;
-
-    [SerializeField] private GameObject _canvasToDisable;
-    [SerializeField] private Collider _colliderToDisable;
+    public bool Fire = false;
     private void Start()
     {
         _playerDamage = FindFirstObjectByType<PlayerDamage>();
@@ -32,15 +30,10 @@ public class FireActive : MonoBehaviour
     {
         transform.GetChild(1).gameObject.SetActive(false);
         yield return new WaitForSeconds(1.5f);
-
+        Fire = true;
         transform.GetChild(0).gameObject.SetActive(true);
         transform.GetChild(1).gameObject.SetActive(true);
         _playerDamage.reviveCoordination = transform.position + new Vector3(1,0,0);
-
-        if (_canvasToDisable != null)
-            _canvasToDisable.SetActive(false);
-        if (_colliderToDisable != null)
-            _colliderToDisable.enabled = false;
         _coroutine = null;
     }
 }
