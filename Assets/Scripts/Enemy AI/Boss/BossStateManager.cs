@@ -12,10 +12,9 @@ public class BossStateManager : MonoBehaviour
     public Transform player;
     public Transform enemy;
     public float walkSpeed;
-    public float agroDistance; 
-    public float attackDistance; 
+    public float agroDistance;
+    public float attackDistance;
     public float angleSpeed = 28f;
-    public float moveSpeed;
     public Animator animator;
     Transform target;
     public bool attackMove;
@@ -24,7 +23,7 @@ public class BossStateManager : MonoBehaviour
     bool _isStrafing = false;
     public int _strafingSide;
 
-    BaseStateBoss currentState;    
+    BaseStateBoss currentState;
     public IdleStateB idleState = new();
     public DefenseStateB defenseState = new();
     public AttackStateB attackState = new();
@@ -33,7 +32,7 @@ public class BossStateManager : MonoBehaviour
     List<string> attacks = new List<string> { "Attack R", "Attack L", "Attack L inplace" };
     List<string> moveAttacks = new List<string> { "Attack R move1", "Attack L move" };
 
-    public void SwitchState(BaseStateBoss newState) 
+    public void SwitchState(BaseStateBoss newState)
     {
         if (currentState != null)
         {
@@ -45,7 +44,7 @@ public class BossStateManager : MonoBehaviour
     public void SetSpeed(float speed) => navMeshAgent.speed = speed;
 
     public void SetTarget(Transform newDestination) => target = newDestination;
-    public float CheckAngle() 
+    public float CheckAngle()
     {
         vectorToPlayer = (player.position - enemy.position);
         vectorToPlayer.y = 0;
@@ -56,7 +55,7 @@ public class BossStateManager : MonoBehaviour
         enemyForward.Normalize();
         return Vector3.SignedAngle(vectorToPlayer, enemyForward, Vector3.up);
     }
-    public float CheckDistance() 
+    public float CheckDistance()
     {
         return (transform.position - target.transform.position).magnitude;
     }
@@ -65,18 +64,19 @@ public class BossStateManager : MonoBehaviour
         enemy = transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        SwitchState(idleState); 
+        SwitchState(idleState);
     }
     private void Update()
     {
-        SetTarget(player); 
-        navMeshAgent.destination = target.position; 
+        SetTarget(player);
+        navMeshAgent.destination = target.position;
         currentState.UpdateState(this);
+        Debug.DrawRay(transform.position, transform.forward * attackDistance);
     }
 
     public void FastDistanceAttack(Coroutine _runCoroutine)
     {
-        if (CheckDistance() <= attackDistance + 3 && _runCoroutine != null && !isAttacking && animator.GetBool("Run"))
+        if (CheckDistance() <= attackDistance && _runCoroutine != null && !isAttacking && animator.GetBool("Run"))
         {
             StopCoroutine(_runCoroutine);
             _runCoroutine = null;
@@ -88,14 +88,20 @@ public class BossStateManager : MonoBehaviour
             isAttacking = true;
             animator.SetBool("Attack R move", true);
             animator.SetBool("Walk", false);
-            animator.SetBool("Run", false);            
+            animator.SetBool("Run", false);
             canSwitchState = false;
         }
     }
-    public void GetCloser()
+    public void GetCloser(bool runAttack)
     {
         if (attackMove)
         {
+            float moveSpeed;
+            if (runAttack)
+            {
+                moveSpeed = 20;
+            }
+            else moveSpeed = 10;
             float step = moveSpeed * Time.deltaTime;
             enemy.position = Vector3.MoveTowards(
                 enemy.position,
@@ -103,18 +109,21 @@ public class BossStateManager : MonoBehaviour
                 step
             );
 
-            if (Vector3.Distance(enemy.position, player.position) <= 2.5f )
-            {
-                attackMove = false;
-                animator.SetBool("Attack R move", false);
-                canSwitchState = true;
-            }
+            if (Vector3.Distance(enemy.position, player.position) < 2f)
+                if (Vector3.Distance(enemy.position, player.position) <= 2.5f)
+                {
+                    attackMove = false;
+                    animator.SetBool("Attack R move", false);
+                    canSwitchState = true;
+                }
         }
     }
     public void Strafing()
     {
-        if (!_isStrafing)
+        if (!_isStrafing && !isAttacking)
         {
+            //animator.SetBool("Walk Left", false);
+            //animator.SetBool("Walk Right", false);
             if (_strafingSide == 1)
             {
                 animator.SetBool("Walk Left", false);
@@ -125,9 +134,9 @@ public class BossStateManager : MonoBehaviour
                 animator.SetBool("Walk Right", false);
                 animator.SetBool("Walk Left", true);
             }
-        }       
+        }
 
-        if (_isStrafing)
+        if (_isStrafing && !isAttacking)
         {
             if (animator.GetBool("Walk Left"))
             {
@@ -138,11 +147,26 @@ public class BossStateManager : MonoBehaviour
     }
     public void Attack()
     {
-        if (CheckDistance() > attackDistance - 2 )
+        int chanceOfAttack = Random.Range(0, 5);
+        if (!isAttacking && chanceOfAttack == 1)
         {
-            
+            if (CheckDistance() > attackDistance - 4)
+            {
+                int randInt = Random.Range(0, 2);
+                animator.SetBool(moveAttacks[randInt], true);
+                isAttacking = true;
+            }
+            else
+            {
+                int randInt = Random.Range(0, 3);
+                animator.SetBool(attacks[randInt], true);
+                isAttacking = true;
+            }
         }
-        else
+    }
+    public void JumpBack()
+    {
+        if (attackMove)
         {
             float moveSpeed = 20;
             float step = moveSpeed * Time.deltaTime;
@@ -179,6 +203,14 @@ public class BossStateManager : MonoBehaviour
     }
     public void StartIdleAnimation()
     {
+        for (int i = 0; i < 3; i++)
+        {
+            animator.SetBool(attacks[i], false);
+        }
+        for (int i = 0; i < 2; i++)
+        {
+            animator.SetBool(moveAttacks[i], false);
+        }
         isAttacking = false;
         _isStrafing = false;
     }

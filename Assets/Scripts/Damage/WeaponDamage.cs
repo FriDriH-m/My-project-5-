@@ -8,6 +8,7 @@ public class WeaponDamage : MonoBehaviour
     [SerializeField] private Rigidbody _rigidBody; 
     [SerializeField] private float _damageRatio = 10f;
     [SerializeField] private float _minimalImpuls;
+    [SerializeField] ParticleSystem _effect;
     public bool _touchSword = false; 
     private bool _canHit = true;
     private Coroutine _canHitCoroutine = null;

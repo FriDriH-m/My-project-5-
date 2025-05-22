@@ -8135,8 +8135,9 @@ MonoBehaviour:
   reviveCoordination: {x: 0, y: 0, z: 0}
   hitPoints: 200
   Bar: {fileID: 1864259072}
-  _stats: {fileID: 11400000, guid: 59f2ce1a25893d2449a36205b01dfaf6, type: 2}
-  Deaths: {fileID: 697453753}
+  Deaths: 0
+  Damage: 0
+  Icon16: {fileID: 0}
 --- !u!136 &746657224
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9525,7 +9526,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ExitButton: {fileID: 635602895}
-  Deaths: {fileID: 697453753}
+  _Fire: {fileID: 0}
+  _Deaths: {fileID: 0}
+  Icon1: {fileID: 0}
+  Icon2: {fileID: 0}
+  Icon5: {fileID: 0}
 --- !u!4 &916444126 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4718553843291987325, guid: 01f095570b3acd14a9de426a6896d19c, type: 3}
@@ -13410,6 +13415,8 @@ MonoBehaviour:
   _minimalImpuls: 0
   _effect: {fileID: 0}
   _touchSword: 0
+  Icon9: {fileID: 0}
+  Icon15: {fileID: 0}
 --- !u!1 &1331537624 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1037715513984232, guid: 259746fbc59909b4eb14377c46a80363, type: 3}
@@ -13863,7 +13870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 77.8
+      value: 192.1
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13871,7 +13878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 52.9
+      value: -88
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.w
