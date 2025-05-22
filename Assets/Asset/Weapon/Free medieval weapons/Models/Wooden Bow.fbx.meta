@@ -198,7 +198,7 @@ ModelImporter:
     second: wooden bow_1
   - first:
       74: 7400000
-    second: Wooden Bow_1|Armature.001Action.003
+    second: Bow Animation
   - first:
       95: 9500000
     second: //RootNode
@@ -233,18 +233,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Wooden Bow_1|Armature.001Action.003
+      name: Bow Animation
       takeName: Wooden Bow_1|Armature.001Action.003
       internalID: 7400000
       firstFrame: 0
-      lastFrame: 18
+      lastFrame: 12.3
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -256,28 +256,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0.93213564
-        functionName: Shoot
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 1806a76089848714291dc09d0b15b050, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 1
-        functionName: EndShoot
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 1806a76089848714291dc09d0b15b050, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0
-        functionName: StartShoot
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 1806a76089848714291dc09d0b15b050, type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

@@ -13,7 +13,7 @@ public class SecondDoorTrigger : MonoBehaviour
     }
     public void OnTriggerStay(Collider other)
     {
-        Debug.Log(TargetScript.targetCount);
+        //Debug.Log(TargetScript.targetCount);
         if (TargetScript.targetCount == 4) { shouldMove = true; targetPosition = door.transform.position + new Vector3(0f, -0.42f, 0f); }
         else return;
     }
