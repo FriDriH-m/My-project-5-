@@ -9,7 +9,7 @@ public class AgroStateB : BaseStateBoss
         manager.animator.SetBool("Walk", true);
         manager.SetSpeed(manager.walkSpeed);
         _runCoroutine = manager.StartCoroutine(Running(manager));
-        
+
     }
     public override void ExitState(BossStateManager manager)
     {
@@ -27,9 +27,9 @@ public class AgroStateB : BaseStateBoss
         manager.GetCloser(true); // само сближение до расстояния 3
     }
     public IEnumerator Running(BossStateManager manager)
-    {           
+    {
         yield return new WaitForSeconds(2f);
         manager.SetSpeed(manager.walkSpeed + 4);
-        manager.animator.SetBool("Run", true);        
+        manager.animator.SetBool("Run", true);
     }
 }
