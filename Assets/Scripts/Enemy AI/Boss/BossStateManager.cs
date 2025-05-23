@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using System.Collections.Generic;
 
 public class BossStateManager : MonoBehaviour
-{
+{    
     public NavMeshAgent navMeshAgent;
     public Vector3 vectorToPlayer;
     public Vector3 enemyForward;

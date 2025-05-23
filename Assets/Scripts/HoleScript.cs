@@ -32,7 +32,7 @@ public class HoleScript : MonoBehaviour
         if (other.GetComponentInChildren<PlayerDamage>() != null)
         {
             Debug.Log("player");
-            other.GetComponent<PlayerDamage>().hitPoints = 0;
+            other.GetComponentInChildren<PlayerDamage>().hitPoints = 0;
         }
     }
 

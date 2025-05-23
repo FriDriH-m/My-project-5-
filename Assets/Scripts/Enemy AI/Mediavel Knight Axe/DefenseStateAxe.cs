@@ -4,7 +4,7 @@ public class DefenseStateAxe : BaseStateAxe
 {
     public override void EnterState(EnemyStateManagerAxe manager, ZoneTriggerManagerAxe zoneManager)
     {
-        Debug.Log("defense");
+        //Debug.Log("defense");
         manager.SetSpeed(0);
     }
     public override void ExitState(EnemyStateManagerAxe manager, ZoneTriggerManagerAxe zoneManager)

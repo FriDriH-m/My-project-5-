@@ -40,7 +40,7 @@ public class WeaponDamage : MonoBehaviour
 
         if (hitZone != null && _canHit) 
         {
-            //Debug.Log("Импульс - " + _instImpuls);
+            Debug.Log("Импульс - " + _instImpuls);
             if (hitZone.zone == HitZone.ZoneType.Sword)
             {
                 if (_touchSword == false) StartCoroutine(SwordTouch());
@@ -58,7 +58,7 @@ public class WeaponDamage : MonoBehaviour
 
                 if (_instImpuls > _minimalImpuls)
                 {
-                    //Debug.Log("ГОЛОВА \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    Debug.Log("ГОЛОВА \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     Effects(collision);
                     _damageCount.hitPoints -= _instImpuls;
                     if (weaponName == "DragonSlayer (1)")
@@ -82,7 +82,7 @@ public class WeaponDamage : MonoBehaviour
                 if (_instImpuls > _minimalImpuls)
                 {
                     if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
-                    //Debug.Log("ТУЛОВИЩЕ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    Debug.Log("ТУЛОВИЩЕ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     Effects(collision);
                     _damageCount.hitPoints -= _instImpuls;
                     if (weaponName == "DragonSlayer (1)")
@@ -105,7 +105,7 @@ public class WeaponDamage : MonoBehaviour
                 if (_instImpuls > _minimalImpuls)
                 {
                     if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
-                    //Debug.Log("КОНЕЧНОСТЬ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    Debug.Log("КОНЕЧНОСТЬ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     Effects(collision);
                     _damageCount.hitPoints -= _instImpuls;
                     if (weaponName == "DragonSlayer (1)")
@@ -126,7 +126,7 @@ public class WeaponDamage : MonoBehaviour
                 {
                     Effects(collision);
                     if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
-                    //Debug.Log("ЩИТ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    Debug.Log("ЩИТ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
                     if (weaponName == "DragonSlayer (1)")
                     {
