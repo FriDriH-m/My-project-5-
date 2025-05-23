@@ -124,6 +124,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -6950903237277254608, guid: cc3e69dfe1998e14ab3da931d34da76a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4466486358755966754}
+    - targetCorrespondingSourceObject: {fileID: -6950903237277254608, guid: cc3e69dfe1998e14ab3da931d34da76a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 642636430023627250}
     - targetCorrespondingSourceObject: {fileID: 4704088376575760577, guid: cc3e69dfe1998e14ab3da931d34da76a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2841305275108443787}
@@ -341,10 +344,15 @@ MonoBehaviour:
     m_Bits: 4294967295
   _leftHand: {fileID: 0}
   _rightHand: {fileID: 0}
+  _canHoldTwoHands: 0
   _leftHandPosition: {x: 0.48, y: -17.24, z: 4.65}
   _leftHandEuler: {x: -4.5, y: -101.4, z: 101.2}
   _rightHandPosition: {x: 0.14, y: -13.18, z: -5.56}
   _rightHandEuler: {x: -0.7, y: -77.79, z: -103.24}
+  _twoHandEuler: {x: 0, y: 0, z: 0}
+  _trackPoint: 0.5
+  _selectItem: {fileID: 0}
+  _audioSource: {fileID: 0}
 --- !u!114 &-938959843060134445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,6 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hint: {fileID: 0}
+  Icon6: {fileID: 0}
 --- !u!114 &-5870933295725671803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,7 +382,10 @@ MonoBehaviour:
   _rigidBody: {fileID: 0}
   _damageRatio: 10
   _minimalImpuls: 0
+  _effect: {fileID: 0}
   _touchSword: 0
+  Icon9: {fileID: 0}
+  Icon15: {fileID: 0}
 --- !u!1 &4280367839915798599 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6950903237277254608, guid: cc3e69dfe1998e14ab3da931d34da76a, type: 3}
@@ -402,6 +414,29 @@ CapsuleCollider:
   m_Height: 105.3
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 39.7}
+--- !u!136 &642636430023627250
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4280367839915798599}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 6.2
+  m_Height: 77.88
+  m_Direction: 0
+  m_Center: {x: 0, y: 0, z: -19.51}
 --- !u!1 &7325037719179072694 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4704088376575760577, guid: cc3e69dfe1998e14ab3da931d34da76a, type: 3}

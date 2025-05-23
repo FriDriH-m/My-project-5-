@@ -8,6 +8,7 @@ public class WeaponDamage : MonoBehaviour
     [SerializeField] private Rigidbody _rigidBody; 
     [SerializeField] private float _damageRatio = 10f;
     [SerializeField] private float _minimalImpuls;
+    [SerializeField] ParticleSystem _effect;
     public bool _touchSword = false; 
     private bool _canHit = true;
     private Coroutine _canHitCoroutine = null;
@@ -30,7 +31,6 @@ public class WeaponDamage : MonoBehaviour
         if (!_canHit) return;
         string weaponName = gameObject.name;
         float impuls = collision.impulse.magnitude;
-        //Debug.Log(impuls);
 
         HitZone hitZone = collision.collider.GetComponentInParent<HitZone>();
         DamageCount _damageCount = collision.collider.GetComponentInParent<DamageCount>();
@@ -44,6 +44,11 @@ public class WeaponDamage : MonoBehaviour
             if (hitZone.zone == HitZone.ZoneType.Sword)
             {
                 if (_touchSword == false) StartCoroutine(SwordTouch());
+                if (_instImpuls > _minimalImpuls)
+                {
+                    Effects(collision);
+                }
+
             }
             if (hitZone.haveArmor) _instImpuls *= 0.8f;
             if (hitZone.zone == HitZone.ZoneType.Head)
@@ -54,6 +59,7 @@ public class WeaponDamage : MonoBehaviour
                 if (_instImpuls > _minimalImpuls)
                 {
                     //Debug.Log("ГОЛОВА \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    Effects(collision);
                     _damageCount.hitPoints -= _instImpuls;
                     if (weaponName == "DragonSlayer (1)")
                     {
@@ -65,6 +71,7 @@ public class WeaponDamage : MonoBehaviour
                     }
                     if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
                     if (_animator != null) _animator.SetBool("HeadImpact", true);
+                    if (_animator != null) _animator.SetTrigger("Impact");
                     return;
                 }
             }
@@ -76,6 +83,7 @@ public class WeaponDamage : MonoBehaviour
                 {
                     if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
                     //Debug.Log("ТУЛОВИЩЕ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    Effects(collision);
                     _damageCount.hitPoints -= _instImpuls;
                     if (weaponName == "DragonSlayer (1)")
                     {
@@ -98,6 +106,7 @@ public class WeaponDamage : MonoBehaviour
                 {
                     if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
                     //Debug.Log("КОНЕЧНОСТЬ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
+                    Effects(collision);
                     _damageCount.hitPoints -= _instImpuls;
                     if (weaponName == "DragonSlayer (1)")
                     {
@@ -115,6 +124,7 @@ public class WeaponDamage : MonoBehaviour
                 _instImpuls *= 0.1f;
                 if (_instImpuls > _minimalImpuls)
                 {
+                    Effects(collision);
                     if (_canHitCoroutine == null) { _canHitCoroutine = StartCoroutine(ExitHitZone()); }
                     //Debug.Log("ЩИТ \nбыло - " + _damageCount.hitPoints + " стало - " + (_damageCount.hitPoints - _instImpuls));
                     _damageCount.hitPoints -= _instImpuls;
@@ -131,11 +141,20 @@ public class WeaponDamage : MonoBehaviour
             }
         }
     }
+    private void Effects(Collision collision)
+    {
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            Instantiate(_effect, contact.point, Quaternion.identity);
+            return;
+        }
+    }
     private IEnumerator ExitHitZone()
     {
         _canHit = false;
         yield return new WaitForSeconds(0.7f);
         _canHit = true;
+        StopCoroutine(_canHitCoroutine);
         _canHitCoroutine = null;
     }
     private IEnumerator SwordTouch()
