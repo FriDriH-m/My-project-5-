@@ -15,7 +15,7 @@ public class GrabParenter : MonoBehaviour
     [SerializeField] protected Vector3 _leftHandEuler;     //  позиционирование моделек рук на рукоятке оружия после граба
     [SerializeField] protected Vector3 _rightHandPosition; //
     [SerializeField] protected Vector3 _rightHandEuler;    //
-    [SerializeField] protected Vector3 _twoHandEuler; // вращение в двуручном хвате
+    [SerializeField] protected Vector3 _secondHandDown; // вращение в двуручном хвате
     [SerializeField] protected float _trackPoint = 0.5f;
     protected Quaternion _leftHandRotation => Quaternion.Euler(_leftHandEuler); // преобразование Vector3 в Quaternion и запись в переменную
     protected Quaternion _rightHandRotation => Quaternion.Euler(_rightHandEuler); // преобразование Vector3 в Quaternion и запись в переменную
@@ -109,14 +109,14 @@ public class GrabParenter : MonoBehaviour
                 {
                     if (_leftHand.GetComponent<Collider>() != null) { _leftHand.GetComponent<Collider>().enabled = false; }
                     _leftHand.transform.SetParent(interactable);
-                    _leftHand.transform.localPosition = _leftHandPosition - new Vector3(0, 0.2f, 0);
+                    _leftHand.transform.localPosition = _leftHandPosition - _secondHandDown;
                     _leftHand.transform.localRotation = _leftHandRotation;
                 }
                 else
                 {
                     if (_rightHand.GetComponent<Collider>() != null) { _rightHand.GetComponent<Collider>().enabled = false; }
                     _rightHand.transform.SetParent(interactable);
-                    _rightHand.transform.localPosition = _rightHandPosition - new Vector3(0, 0.2f, 0);
+                    _rightHand.transform.localPosition = _rightHandPosition - _secondHandDown;
                     _rightHand.transform.localRotation = _rightHandRotation;
                 }
                 TwoHandGrab(false);

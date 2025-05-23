@@ -344,12 +344,12 @@ MonoBehaviour:
     m_Bits: 4294967295
   _leftHand: {fileID: 0}
   _rightHand: {fileID: 0}
-  _canHoldTwoHands: 0
+  _canHoldTwoHands: 1
   _leftHandPosition: {x: 0.48, y: -17.24, z: 4.65}
   _leftHandEuler: {x: -4.5, y: -101.4, z: 101.2}
   _rightHandPosition: {x: 0.14, y: -13.18, z: -5.56}
   _rightHandEuler: {x: -0.7, y: -77.79, z: -103.24}
-  _twoHandEuler: {x: 0, y: 0, z: 0}
+  _secondHandDown: {x: 0, y: 45, z: 0}
   _trackPoint: 0.5
   _selectItem: {fileID: 0}
   _audioSource: {fileID: 0}

@@ -1186,6 +1186,7 @@ MonoBehaviour:
   animator: {fileID: 7689275547505567801}
   _enemyStateManager: {fileID: 1221218996769303473}
   _zoneTriggerManager: {fileID: 0}
+  _tag: Golem
   hitPoints: 500
 --- !u!114 &1221218996769303473
 MonoBehaviour:
