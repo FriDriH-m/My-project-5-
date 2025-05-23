@@ -839,6 +839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnPoint: {x: 0, y: 1, z: 0}
   player: {fileID: 169331273}
+  _effect: {fileID: 1301697207402410478, guid: 39f852c28f9c3fd45a427c24f3564ba7, type: 3}
 --- !u!1 &41028796
 GameObject:
   m_ObjectHideFlags: 0
