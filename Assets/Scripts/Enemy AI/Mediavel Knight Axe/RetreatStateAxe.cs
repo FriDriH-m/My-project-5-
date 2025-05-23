@@ -5,7 +5,7 @@ public class RetreatStateAxe : BaseStateAxe
     float time = 0; // таймер
     public override void EnterState(EnemyStateManagerAxe manager, ZoneTriggerManagerAxe zoneManager)
     {
-        Debug.Log("retreat");
+        //Debug.Log("retreat");
         manager.animator.SetBool("IsRetreat", true);
     }
     public override void ExitState(EnemyStateManagerAxe manager, ZoneTriggerManagerAxe zoneManager)
