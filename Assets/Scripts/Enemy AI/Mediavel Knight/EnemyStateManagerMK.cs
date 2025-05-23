@@ -98,6 +98,7 @@ public class EnemyStateManager : MonoBehaviour
     }
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         zoneManager = GetComponent<ZoneTriggerManager>(); 
         SwitchState(idleState); // Задается стандартное состояние
     }

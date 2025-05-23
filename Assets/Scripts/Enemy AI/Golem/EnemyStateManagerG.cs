@@ -4,7 +4,7 @@ using UnityEngine.AI;
 public class EnemyStateManagerG : MonoBehaviour
 {
     [SerializeField] NavMeshAgent navMeshAgent;
-    [SerializeField] public Transform player;
+    public Transform player;
     [SerializeField] public Transform enemy; 
     [SerializeField] public float walkSpeed; // Скорость ходьбы врага
     [SerializeField] public float agroDistance; // Дистанция агра врага
@@ -26,6 +26,7 @@ public class EnemyStateManagerG : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         SwitchState(idleState);
     }
 

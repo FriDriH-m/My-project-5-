@@ -97,6 +97,7 @@ public class EnemyStateManagerAxe : MonoBehaviour
     }
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         zoneManager = GetComponent<ZoneTriggerManagerAxe>();
         SwitchState(idleState); // Задается стандартное состояние
     }
