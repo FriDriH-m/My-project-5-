@@ -10,7 +10,7 @@ public class Healing : MonoBehaviour
     public Image Bar;
     private void Start()
     {
-        _playerDamage = FindObjectOfType<PlayerDamage>();
+        _playerDamage = FindFirstObjectByType<PlayerDamage>();
     }
 
     private void OnTriggerEnter(Collider other)
