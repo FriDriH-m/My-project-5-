@@ -15,6 +15,6 @@ public class BoxBreak : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         float impactSpeed = collision.relativeVelocity.magnitude;
-        if (impactSpeed > breakSpeed) { Destroy(boxPart); Destroy(box); }
+        if (impactSpeed > breakSpeed) { transform.gameObject.SetActive(false); }
     }
 }

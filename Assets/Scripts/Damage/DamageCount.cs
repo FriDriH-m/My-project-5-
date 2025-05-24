@@ -43,18 +43,18 @@ public class DamageCount : MonoBehaviour
             if (_zoneTriggerManager != null) { _zoneTriggerManager.enabled = false; }
             alreadyDead = true;
         }
-        if (_playerDamage.hitPoints <= 0 && alreadyDead)
+        if (_playerDamage.hitPoints <= 0)
         {
+            transform.position = startCoordination + new Vector3(0, 0, 1);
+            transform.rotation = startRotation;
+            hitPoints = startHitPoints;
+
             if (_enemyStateManager != null) { _enemyStateManager.enabled = true; }
             if (_zoneTriggerManager != null) { _zoneTriggerManager.enabled = true; }
 
             animator.Rebind();
             animator.Update(0f);
-            animator.Play("Idle", 0);
-
-            transform.position = startCoordination + new Vector3(0, 0, 1);
-            transform.rotation = startRotation;
-            hitPoints = startHitPoints;
+            animator.Play("Idle", 0);            
 
             alreadyDead = false;
         }
