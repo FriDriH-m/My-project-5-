@@ -35,12 +35,16 @@ public class BowGrabParenter : GrabParenter
             {
                 animationAmount = 0.96f;
             }
-            Vector3 vector = secondPoint.position - firstPoint.position;
+            
+            // стрела перед выстрелом - позиционирование, ротатион
+            Vector3 vector = secondPoint.position - firstPoint.position; 
             vector.Normalize();
             Quaternion baseRotation = Quaternion.LookRotation(vector);
             Quaternion correction = Quaternion.Euler(90f, 0f, 2.5f);
             arrowModel.transform.rotation = baseRotation * correction;
+
             animator.Play("Bow", 0, animationAmount);
+
             Vector3 midPoint = Vector3.Lerp(_firstHand.position, _secondaryHand.position, _trackPoint) - new Vector3 (0, 0.25f, 0);
             rb.AddForce((midPoint - transform.position) * 10, ForceMode.VelocityChange);
         }

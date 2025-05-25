@@ -24,7 +24,7 @@ public class SecondHandGrabDistance : XRGrabInteractable
             //Debug.Log(Vector3.Distance(interactor.transform.position, _secondAttachPoint.position));
             if (interactor.transform != _firstInteractor)
             {
-                Debug.Log(Vector3.Distance(handModel.position, _secondAttachPoint.position) + " - " + handModel.name);
+                //Debug.Log(Vector3.Distance(handModel.position, _secondAttachPoint.position) + " - " + handModel.name);
 
                 float distance = Vector3.Distance(handModel.position, _secondAttachPoint.position);
 
