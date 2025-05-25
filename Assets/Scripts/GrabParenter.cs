@@ -19,7 +19,7 @@ public class GrabParenter : MonoBehaviour
     [SerializeField] protected float _trackPoint = 0.5f;
     protected Quaternion _leftHandRotation => Quaternion.Euler(_leftHandEuler); // преобразование Vector3 в Quaternion и запись в переменную
     protected Quaternion _rightHandRotation => Quaternion.Euler(_rightHandEuler); // преобразование Vector3 в Quaternion и запись в переменную
-    protected XRGrabInteractable grabInteractable;
+    protected SecondHandGrabDistance grabInteractable;
     protected Transform _firstHand; // переменная которая будет хранить какая рука схватила первой оружиея
     protected Transform _secondaryHand; // переменная которая будет хранить какая рука схватила второй оружие
     protected Rigidbody rb;
@@ -32,7 +32,7 @@ public class GrabParenter : MonoBehaviour
 
     protected virtual void Awake()
     {
-        grabInteractable = GetComponent<XRGrabInteractable>();
+        grabInteractable = GetComponent<SecondHandGrabDistance>();
         item = GetComponent<Item>();
     }
 
@@ -72,6 +72,7 @@ public class GrabParenter : MonoBehaviour
             if (_firstHand == null)
             {
                 _firstHand = interactor;
+                SendHandModel(_firstHand);
                 interactable.SetParent(interactor); // задается родитель в виде Near-Far Interactore в соответсвующем контроллере
                 HandToTargetPosition(_firstHand);   // метод задает позицию для рук
             }
@@ -96,12 +97,14 @@ public class GrabParenter : MonoBehaviour
         if (_firstHand == null)
         {
             _firstHand = interactor;
+            SendHandModel(_firstHand);
             interactable.SetParent(interactor); // задается родитель в виде Near-Far Interactore в соответсвующем контроллере
             HandToTargetPosition(_firstHand);
             SetRigidbodyDumping(70f);
         }
         if (_canHoldTwoHands)
         {
+            //Debug.Log(Vector3.Distance(_firstHand.position, interactor.position));
             if (interactor.transform != _firstHand)
             {
                 _secondaryHand = interactor;
@@ -142,12 +145,13 @@ public class GrabParenter : MonoBehaviour
             {
                 HandToStartPosition(_firstHand); // задается начальная позиция, то есть на Родину депортируют :,(
                 _firstHand = _secondaryHand; // _firstHand принимает значение _secondaryHand чтобы в дальнейшем если отпущенной рукой возьмется игрок не было базара
+                SendHandModel(_firstHand);
                 interactable.SetParent(_secondaryHand); // моделька руки становится дочерним объектом контроллера
                 HandToTargetPosition(_secondaryHand);
                 _secondaryHand = null;
                 TwoHandGrab(true); // включается трекинг позиции, так как для одной руки он нужен чтобы оружие следовало за контроллером и крутилось. При двуручном мы отключаем это чтобы самим крутить-вертеть
             }
-            else if (args.interactorObject.transform == _secondaryHand) // если отпускает вторая по счету рука
+            else if (interactor == _secondaryHand) // если отпускает вторая по счету рука
             {
                 HandToStartPosition(_secondaryHand); // просто в начальную позицию и включается трекинг
                 TwoHandGrab(true);
@@ -160,6 +164,7 @@ public class GrabParenter : MonoBehaviour
             TwoHandGrab(true);
             HandToStartPosition(_firstHand);            
             _firstHand = null;
+            grabInteractable.handModel = null;
             interactable.SetParent(null);
             SetRigidbodyDumping(0f);
         }        
@@ -173,6 +178,17 @@ public class GrabParenter : MonoBehaviour
     {
         rb.angularDamping = value;
         rb.linearDamping = value;
+    }
+    public virtual void SendHandModel(Transform hand)
+    {
+        if (hand.CompareTag("L_Hand"))
+        {
+            grabInteractable.handModel = _rightHand;
+        }
+        else if (hand.CompareTag("R_Hand"))
+        {
+            grabInteractable.handModel = _leftHand;
+        }
     }
     public virtual void HandToStartPosition(Transform hand)
     {
@@ -214,8 +230,7 @@ public class GrabParenter : MonoBehaviour
         {
             
             Vector3 midPoint = Vector3.Lerp(_firstHand.position, _secondaryHand.position, _trackPoint);
-
-            // Используй физические методы для перемещения
+          
             rb.AddForce((midPoint - transform.position) * 10, ForceMode.VelocityChange);
             //rb.AddTorque((direction - transform.eulerAngles) , ForceMode.VelocityChange);
         }
@@ -227,8 +242,6 @@ public class GrabParenter : MonoBehaviour
         col.enabled = false;
         yield return new WaitForSeconds(duration);
         col.enabled = true;
-    }
-
-    
+    }   
 }
 
