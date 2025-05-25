@@ -15,6 +15,7 @@ public class BowGrabParenter : GrabParenter
     float animationAmount;
     GameObject spawnedArrow; // созданная стрела
     Rigidbody arrowRb;
+    public int Shoots;
     protected override void Start()
     {
         base.Start();
@@ -40,7 +41,6 @@ public class BowGrabParenter : GrabParenter
             Quaternion correction = Quaternion.Euler(90f, 0f, 2.5f);
             arrowModel.transform.rotation = baseRotation * correction;
             animator.Play("Bow", 0, animationAmount);
-
             Vector3 midPoint = Vector3.Lerp(_firstHand.position, _secondaryHand.position, _trackPoint) - new Vector3 (0, 0.25f, 0);
             rb.AddForce((midPoint - transform.position) * 10, ForceMode.VelocityChange);
         }
@@ -132,6 +132,7 @@ public class BowGrabParenter : GrabParenter
             Debug.Log(animationAmount + " импульс - " + (30 * animationAmount));
             arrowRb.AddForce(transform.right * 33 * animationAmount, ForceMode.Impulse);
             animator.Play("Bow", 0, 0);
+            Shoots += 1;
         }
         base.OnUngrab(args);
     }

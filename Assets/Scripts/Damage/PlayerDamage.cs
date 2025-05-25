@@ -102,7 +102,7 @@ public class PlayerDamage : MonoBehaviour
     }
     public IEnumerator Revive()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         Deaths+=1;
         hitPoints = 200;
         HealthBar();

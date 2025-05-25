@@ -14,7 +14,7 @@ public class BackInMenu : MonoBehaviour
     {
         _ExitButton.onClick.AddListener(AfterClickExit);
     }
-
+    
     public void AfterClickExit()
     {
         if (Icon5._unlocked == false)
