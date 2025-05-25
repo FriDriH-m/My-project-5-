@@ -62,6 +62,7 @@ public class BowGrabParenter : GrabParenter
             if (_firstHand == null)
             {
                 _firstHand = interactor;
+                SendHandModel(_firstHand);
                 interactable.SetParent(interactor); // задается родитель в виде Near-Far Interactore в соответсвующем контроллере
                 HandToTargetPosition(_firstHand);   // метод задает позицию для рук
             }
@@ -86,6 +87,7 @@ public class BowGrabParenter : GrabParenter
         if (_firstHand == null)
         {
             _firstHand = interactor;
+            SendHandModel(_firstHand);
             interactable.SetParent(interactor); // задается родитель в виде Near-Far Interactore в соответсвующем контроллере
             HandToTargetPosition(_firstHand);
             SetRigidbodyDumping(70f);
