@@ -9,7 +9,6 @@ public class HoleScript : MonoBehaviour
     public int Falls;
     private void OnTriggerEnter(Collider other)
     {        
-        Debug.Log("Something");
         if (other.transform.CompareTag("Weapon"))
         {
             Debug.Log("Есть");
@@ -27,9 +26,7 @@ public class HoleScript : MonoBehaviour
                 other.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
                 other.transform.rotation = Quaternion.identity;
                 Instantiate(_effect, other.transform.position, Quaternion.identity);
-            }
-            
-            
+            }            
         }
         if (other.GetComponentInChildren<PlayerDamage>() != null)
         {

@@ -164,6 +164,7 @@ public class GrabParenter : MonoBehaviour
             TwoHandGrab(true);
             HandToStartPosition(_firstHand);            
             _firstHand = null;
+            SendHandModel(_firstHand);
             grabInteractable.handModel = null;
             interactable.SetParent(null);
             SetRigidbodyDumping(0f);
@@ -181,6 +182,7 @@ public class GrabParenter : MonoBehaviour
     }
     public virtual void SendHandModel(Transform hand)
     {
+        Debug.Log("ֲûחמג");
         grabInteractable._firstInteractor = hand;
         if (hand.CompareTag("L_Hand"))
         {
