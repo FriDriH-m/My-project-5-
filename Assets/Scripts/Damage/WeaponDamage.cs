@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class WeaponDamage : MonoBehaviour
@@ -13,6 +14,8 @@ public class WeaponDamage : MonoBehaviour
     private bool _canHit = true;
     private Coroutine _canHitCoroutine = null;
     float _instImpuls;
+    private AudioSource audioSource;
+    public AudioClip[] hitSounds;
     public DataAchievement Icon9;
     public DataAchievement Icon15;
     float _impulsValue 
@@ -25,6 +28,11 @@ public class WeaponDamage : MonoBehaviour
     private void Awake()
     {  
         if (_rigidBody == null) _rigidBody = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -146,6 +154,14 @@ public class WeaponDamage : MonoBehaviour
         foreach (ContactPoint contact in collision.contacts)
         {
             Instantiate(_effect, contact.point, Quaternion.identity);
+
+            // Рандомный звук удара
+            if (hitSounds.Length > 0)
+            {
+                int randomSoundIndex = Random.Range(0, hitSounds.Length);
+                audioSource.pitch = Random.Range(0.9f, 1.1f);  // Чуть меняем тон
+                audioSource.PlayOneShot(hitSounds[randomSoundIndex]);
+            }
             return;
         }
     }
