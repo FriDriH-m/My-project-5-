@@ -181,6 +181,7 @@ public class GrabParenter : MonoBehaviour
     }
     public virtual void SendHandModel(Transform hand)
     {
+        grabInteractable._firstInteractor = hand;
         if (hand.CompareTag("L_Hand"))
         {
             grabInteractable.handModel = _rightHand;
