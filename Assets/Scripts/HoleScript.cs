@@ -12,6 +12,7 @@ public class HoleScript : MonoBehaviour
         Debug.Log("Something");
         if (other.transform.CompareTag("Weapon"))
         {
+            Debug.Log("Есть");
             FindParent(other);
             if (_parent != null) 
             {
