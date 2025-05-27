@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Healing : MonoBehaviour
 {
     [SerializeField] public Collider _podorozhniktrigger; //Триггер, который чекает вход подорожника (На MainCamera)
     [SerializeField] private int _healAmount = 30; // Насколько хиллимся
+    public DataAchievement Icon7;
 
     private PlayerDamage _playerDamage;
     public Image Bar;
@@ -30,16 +32,15 @@ public class Healing : MonoBehaviour
             else
                 _playerDamage.hitPoints = 200;
         }
-        HealthBar();
-    }
-
-    private void HealthBar()
-    {
-        Bar.fillAmount = _playerDamage.hitPoints / 200;
+        _playerDamage.HealthBar();
     }
 
     private void DisableBush() // Минусует подорожник, чтоб больше не возникал
     {
         Destroy(gameObject);
+    }
+    public virtual void HealingAchiv(SelectEnterEventArgs args)
+    {
+        Icon7._unlocked = true;
     }
 }

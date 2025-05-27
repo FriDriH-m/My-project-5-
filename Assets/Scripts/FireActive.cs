@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class FireActive : MonoBehaviour
 {
+    [SerializeField] GameObject Training;
     PlayerDamage _playerDamage;
     Coroutine _coroutine;
     public bool Fire = false;
@@ -30,6 +31,10 @@ public class FireActive : MonoBehaviour
     {
         transform.GetChild(1).gameObject.SetActive(false);
         yield return new WaitForSeconds(1.5f);
+        if (Training != null)
+        {
+            Training.SetActive(false);
+        }        
         Fire = true;
         transform.GetChild(0).gameObject.SetActive(true);
         transform.GetChild(1).gameObject.SetActive(true);
