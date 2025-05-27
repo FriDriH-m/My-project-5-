@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class PlayerDamage : MonoBehaviour
@@ -9,6 +10,8 @@ public class PlayerDamage : MonoBehaviour
     public float hitPoints;
     private WeaponDamage _weaponDamage;
     public Image Bar;
+    private AudioSource audioSource;
+    public AudioClip[] hitSounds;
     public int Deaths = 0;
     public bool Damage = false;
     public DataAchievement Icon16;
@@ -32,7 +35,10 @@ public class PlayerDamage : MonoBehaviour
                     return;
                 }
                 else
-                hitPoints -= 60; 
+                {
+                    HitSound();
+                    hitPoints -= 60;
+                }
             }
             else hitPoints -= 60; 
             Damage = true;
@@ -47,9 +53,18 @@ public class PlayerDamage : MonoBehaviour
                     Debug.Log("Урон не прошел, блокировал");
                     return;
                 }
-                else hitPoints -= 30;
+                else
+                {
+                    HitSound();
+                    hitPoints -= 30;
+                }
             }
-            else hitPoints -= 30;
+            else
+            {
+                HitSound();
+                hitPoints -= 30; 
+            }
+
             Damage = true;
         }
         else if (other.gameObject.CompareTag("Axe"))
@@ -62,7 +77,11 @@ public class PlayerDamage : MonoBehaviour
                     Debug.Log("Урон не прошел, блокировал");
                     return;
                 }
-                else hitPoints -= 20; 
+                else 
+                {
+                    HitSound();
+                    hitPoints -= 20; 
+                }
             }
             else hitPoints -= 20;
             Damage = true;
@@ -78,7 +97,11 @@ public class PlayerDamage : MonoBehaviour
                     hitPoints -= 50;
                     return;
                 }
-                else hitPoints -= 90;
+                else 
+                { 
+                    HitSound();
+                    hitPoints -= 90; 
+                }
             }
             else hitPoints -= 90;
             Damage = true;
@@ -99,6 +122,15 @@ public class PlayerDamage : MonoBehaviour
     {
         Bar.fillAmount = hitPoints / 200;
         //Debug.Log($"HealBar{Bar.fillAmount}+{hitPoints / 200}");
+    }
+    public void HitSound()
+    {
+        if (hitSounds.Length > 0)
+        {
+            int randomSoundIndex = Random.Range(0, hitSounds.Length);
+            audioSource.pitch = Random.Range(0.9f, 1.1f);  // Чуть меняем тон
+            audioSource.PlayOneShot(hitSounds[randomSoundIndex]);
+        }
     }
     public IEnumerator Revive()
     {

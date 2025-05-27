@@ -761,6 +761,10 @@ MonoBehaviour:
   m_AtlasRenderMode: 4169
   m_UsedGlyphRects:
   - m_X: 0
+    m_Y: 78
+    m_Width: 71
+    m_Height: 64
+  - m_X: 65
     m_Y: 0
     m_Width: 67
     m_Height: 78
