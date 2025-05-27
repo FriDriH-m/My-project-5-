@@ -25,7 +25,7 @@ public class RetreatStateAxe : BaseStateAxe
         }
 
         if (manager.CheckDistance() >= manager.attackDistance) manager.SwitchState(manager.attackState);
-        if (zoneManager.top == 1 || zoneManager.down == 1) manager.SwitchState(manager.defenceState);
+        if (zoneManager.defenseSide != "") manager.SwitchState(manager.defenceState);
 
         manager.StartRetreatMove();
     }

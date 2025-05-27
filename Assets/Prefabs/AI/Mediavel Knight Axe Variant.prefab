@@ -2608,7 +2608,6 @@ Transform:
   - {fileID: 3103926696194573577}
   - {fileID: 8379817935896656681}
   - {fileID: 2941905011214425785}
-  - {fileID: 4843528325833790479}
   m_Father: {fileID: 9202830836525990740}
   m_LocalEulerAnglesHint: {x: 8.791819, y: 19.861845, z: 19.168535}
 --- !u!65 &3817862733921146477
@@ -3446,6 +3445,8 @@ GameObject:
   - component: {fileID: 3312238913510298451}
   - component: {fileID: 8709994937598154519}
   - component: {fileID: 5103268238810136121}
+  - component: {fileID: 3060068527849899285}
+  - component: {fileID: 7534906030769068810}
   m_Layer: 0
   m_Name: Axe_OS
   m_TagString: Axe
@@ -3556,7 +3557,7 @@ ConfigurableJoint:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4301342627975897308}
   serializedVersion: 4
-  m_ConnectedBody: {fileID: 7941118995702434762}
+  m_ConnectedBody: {fileID: 0}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0.028302649, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
@@ -3671,6 +3672,43 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.32, y: 0.1, z: 0.37}
   m_Center: {x: -0.09194412, y: 0.000017149807, z: 0.57}
+--- !u!136 &3060068527849899285
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301342627975897308}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.06
+  m_Height: 1.26
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: -0.22}
+--- !u!114 &7534906030769068810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301342627975897308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d54223a4f7e7c48ada5bba1bf9a2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zone: 3
+  haveArmor: 0
 --- !u!1 &4312822330880940656
 GameObject:
   m_ObjectHideFlags: 0
@@ -4836,65 +4874,6 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.011603594, y: 0.32124603, z: -0.032041475}
     m_Extent: {x: 0.8153995, y: 0.5505556, z: 0.38638967}
   m_DirtyAABB: 0
---- !u!1 &6498824655059666348
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4843528325833790479}
-  - component: {fileID: 7941118995702434762}
-  m_Layer: 0
-  m_Name: Joint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4843528325833790479
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6498824655059666348}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0036, y: 0.1864, z: 0.0517}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5460158189827997647}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &7941118995702434762
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6498824655059666348}
-  serializedVersion: 4
-  m_Mass: 0.0000001
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &6586567896992926689
 GameObject:
   m_ObjectHideFlags: 0
@@ -7123,9 +7102,10 @@ MonoBehaviour:
   animator: {fileID: 1730924223307275234}
   _enemyStateManager: {fileID: -2716881243928964296}
   _zoneTriggerManager: {fileID: 7336352470903973290}
-  weapon: {fileID: 0}
   _tag: Axe
+  _playerDamage: {fileID: 0}
   hitPoints: 100
+  startHitPoints: 0
 --- !u!1 &8940899612424531752
 GameObject:
   m_ObjectHideFlags: 0

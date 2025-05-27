@@ -8,8 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 99c9720ab356a0642a771bea13969a05
+  m_OcclusionCullingData: {fileID: 36300000, guid: c64d4b9bdd6cc9644bee45f0fb8f77bd, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -93,8 +93,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: e597a9b4c79eb4f49921b243e5d8b6db, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 4eec26f45870d6b4db3cee6b7c4526af, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -127,6 +127,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1402543587}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 6.9474424e+22
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 9.354894e+26
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 2.6221498e+20
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 60.60884
+      objectReference: {fileID: 0}
+    - target: {fileID: 961844090551262188, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2733401572601076693, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5725956150029247770, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: NaN
@@ -142,6 +170,22 @@ PrefabInstance:
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.z
       value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892100396018879645, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505189115993123790, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7802960952806962637, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392679009818113774, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8459163052174217637, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_LocalScale.x
@@ -198,6 +242,14 @@ PrefabInstance:
     - target: {fileID: 9092533823991991071, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_Name
       value: TorchLowPoly (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9092533823991991071, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 9139101616572425031, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -320,6 +372,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 324228170}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 14681.103
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 3.097271e+27
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 6.8398014e+25
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 250253.58
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: -1.9793631e-23
@@ -470,6 +538,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rails (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -576,6 +648,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
       propertyPath: m_Name
       value: Rails (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -964,6 +1040,10 @@ PrefabInstance:
       propertyPath: agroDistance
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: -2716881243928964296, guid: 40300a9a9e6151243b76527ebf9fff45, type: 3}
+      propertyPath: attackDistance
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4030866346675979262, guid: 40300a9a9e6151243b76527ebf9fff45, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7199942
@@ -1322,6 +1402,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
       propertyPath: m_Name
       value: Rails (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1904,6 +1988,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rails (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2010,6 +2098,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
       propertyPath: m_Name
       value: Rails (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2442,6 +2534,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rails (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2638,6 +2734,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
       propertyPath: m_Name
       value: Rails (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3144,6 +3244,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rails (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3250,6 +3354,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
       propertyPath: m_Name
       value: Rails (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3776,6 +3884,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1387478651}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 1.6e-43
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 1e-45
@@ -4150,6 +4262,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rails (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4511,6 +4627,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rails (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4558,6 +4678,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1771754284}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: -7.5107956e+36
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 5.7e-44
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 0
@@ -4703,6 +4831,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
       propertyPath: m_Name
       value: Rails (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4907,6 +5039,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 324228170}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 2.2959e-41
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 1.62e-42
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 1.56e-43
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 4.19e-43
@@ -7483,6 +7627,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rails (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8336,6 +8484,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rails (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8383,6 +8535,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1387478651}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: -3.8027743e-38
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 7.33e-43
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 0
@@ -8808,6 +8968,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 2.7470774e+20
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 3.011e-42
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 2.524355e-29
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.y
       value: 1.18e-43
@@ -8928,6 +9100,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
       propertyPath: m_Name
       value: Rails (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10132,6 +10308,7 @@ MonoBehaviour:
   reviveCoordination: {x: 1.09, y: 1.56, z: 5.3}
   hitPoints: 200
   Bar: {fileID: 1046669985}
+  hitSounds: []
   Deaths: 0
   Damage: 0
   Icon16: {fileID: 11400000, guid: dd2f873ad2ced16488654c7aa144d654, type: 2}
@@ -10252,6 +10429,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
       propertyPath: m_Name
       value: Rails (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10395,6 +10576,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1387478651}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 3.7920448e-25
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: NaN
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 0
@@ -10485,6 +10678,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 324228170}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 2.3077e-41
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 0
@@ -11570,6 +11767,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rails (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11693,6 +11894,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1387478651}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 3.59e-43
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 0
@@ -11985,15 +12190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d8882d30e3528d468f474fde8e651c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Deaths: {fileID: 336258993}
-  _DamageToNPC: {fileID: 0}
-  _DamageToPlayer: {fileID: 0}
-  _Falls: {fileID: 1019640453}
-  _BowShoots: {fileID: 390945024}
-  _TimeToComplete: {fileID: 697453753}
-  _PlayerDamage: {fileID: 746657223}
-  _HoleScript: {fileID: 40080205}
-  _BowGrabParenter: {fileID: 624018600}
 --- !u!1001 &904935797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12322,6 +12518,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
       propertyPath: m_Name
       value: Rails (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13017,6 +13217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rails (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13378,6 +13582,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rails
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13435,7 +13643,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4673611459674428, guid: ab8ac2017bc4c9e40b484324e5ee20e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.6070979
+      value: 15.08
       objectReference: {fileID: 0}
     - target: {fileID: 4673611459674428, guid: ab8ac2017bc4c9e40b484324e5ee20e7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13443,7 +13651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4673611459674428, guid: ab8ac2017bc4c9e40b484324e5ee20e7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.273582
+      value: 9.13
       objectReference: {fileID: 0}
     - target: {fileID: 4673611459674428, guid: ab8ac2017bc4c9e40b484324e5ee20e7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14706,6 +14914,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1387478651}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 3.011e-42
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 2.4678842e+10
@@ -14860,6 +15072,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
       propertyPath: m_Name
       value: Rails (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15246,6 +15462,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1387478651}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 1.846488e+25
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 7.4992535e+28
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 7.2064716e+31
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 7.0361966e+22
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: -2.4164335e+24
@@ -15804,6 +16036,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1771754284}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 9.1837e-41
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 2.846962e-39
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 3.9574e-41
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: -2.4164335e+24
@@ -16242,6 +16486,49 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!1 &1261064877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1261064879}
+  - component: {fileID: 1261064878}
+  m_Layer: 0
+  m_Name: Occlusion Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!192 &1261064878
+OcclusionArea:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261064877}
+  serializedVersion: 2
+  m_Size: {x: 2.9360626, y: 1, z: 3.199915}
+  m_Center: {x: -0.9680314, y: 0, z: -1.0999575}
+  m_IsViewVolume: 1
+--- !u!4 &1261064879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261064877}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.42, y: 0, z: 8.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1261965737
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17249,6 +17536,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1387478651}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 7.802198e-31
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 2.1159059e+23
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 5.0760962e+31
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 0.00087524165
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 2.5085264e+10
@@ -17399,6 +17702,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rails (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17449,6 +17756,34 @@ PrefabInstance:
     - target: {fileID: -6689036041284674117, guid: 02b8c34ca459dae45a6e998fc00be529, type: 3}
       propertyPath: m_Name
       value: Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: -6689036041284674117, guid: 02b8c34ca459dae45a6e998fc00be529, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -6085157148961737527, guid: 02b8c34ca459dae45a6e998fc00be529, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -3954242748724567720, guid: 02b8c34ca459dae45a6e998fc00be529, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -3435154547726703252, guid: 02b8c34ca459dae45a6e998fc00be529, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -3144785764463898559, guid: 02b8c34ca459dae45a6e998fc00be529, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -890306970407880622, guid: 02b8c34ca459dae45a6e998fc00be529, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484665033948473043, guid: 02b8c34ca459dae45a6e998fc00be529, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2774220344278030320, guid: 02b8c34ca459dae45a6e998fc00be529, type: 3}
       propertyPath: m_LocalScale.x
@@ -17501,6 +17836,14 @@ PrefabInstance:
     - target: {fileID: 2774220344278030320, guid: 02b8c34ca459dae45a6e998fc00be529, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5223050435497749669, guid: 02b8c34ca459dae45a6e998fc00be529, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978103523514716507, guid: 02b8c34ca459dae45a6e998fc00be529, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17894,6 +18237,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 324228170}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: -2.3931308e-38
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 7.33e-43
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: NaN
@@ -17998,7 +18349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 153982007679157697, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_MoveSpeed
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Name
@@ -18010,7 +18361,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 94.2
+      value: 12.83
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18018,11 +18369,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 47.5
+      value: 7.94
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99655306
+      value: 0.9237016
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.x
@@ -18030,7 +18381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.08295797
+      value: 0.3831128
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.z
@@ -18042,7 +18393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 9.517
+      value: 45.053
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -18471,6 +18822,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1387478651}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 5.51075e-40
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 7.33e-43
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 3.904267e-29
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 7.33e-43
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: NaN
@@ -18664,6 +19031,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
       propertyPath: m_Name
       value: Rails (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19406,6 +19777,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 53293681c59bcc14eab262596b74391e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19517,6 +19892,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 53293681c59bcc14eab262596b74391e, type: 3}
       propertyPath: m_Name
       value: Stone
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 53293681c59bcc14eab262596b74391e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19811,6 +20190,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rails (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19858,6 +20241,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1387478651}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 0.00087519555
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 8.34e-43
@@ -20391,6 +20786,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1387478651}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 1e-45
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 0
@@ -20697,6 +21096,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 574561766}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 8.4e-44
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 1.7511017e-18
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 7.33e-43
+      objectReference: {fileID: 0}
     - target: {fileID: 2634357405492437862, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.17
@@ -21480,6 +21891,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rails (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21983,6 +22398,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rails (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22173,6 +22592,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1387478651}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 0.00000085383647
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 0.0000006720248
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 0.0000001640991
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 2.0890487e+20
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 0
@@ -23023,6 +23458,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rails (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23070,6 +23509,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 3e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 6e-45
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.y
       value: 7.4e-43
@@ -23581,6 +24028,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rails (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23628,6 +24079,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1609930356}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 6.6551657e+31
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 0.00000066357063
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 2.846962e-39
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 3.9574e-41
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_Intensity
       value: 3.37
@@ -23915,6 +24382,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
       propertyPath: m_Name
       value: Rails (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24443,6 +24914,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 25922965}
     m_Modifications:
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 1.8169361e+31
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 0.00091727753
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 1.1705309e-19
+      objectReference: {fileID: 0}
+    - target: {fileID: 866694075780671099, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 3.0972774e+27
+      objectReference: {fileID: 0}
     - target: {fileID: 5870784655964883769, guid: 555f892913b6d9a41b5b01bfa52217e9, type: 3}
       propertyPath: m_BoundingSphereOverride.w
       value: 0
@@ -24592,6 +25079,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
       propertyPath: m_Name
       value: Rails (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24899,6 +25390,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rails (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25189,6 +25684,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rails (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d66be5041b0fadd489a29eb96f159565, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25374,7 +25873,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1 &445108765338083043
 GameObject:
@@ -25662,7 +26161,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1001 &1277972966140222973
 PrefabInstance:
@@ -25980,7 +26479,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!33 &1945666273559638920
 MeshFilter:
@@ -26390,7 +26889,7 @@ PrefabInstance:
       objectReference: {fileID: 207171759}
     - target: {fileID: 7273642619754570719, guid: b76aa504957ffe840819d0bb9ec91eb6, type: 3}
       propertyPath: _maxGrabDistance
-      value: 0.05
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7273642619754570719, guid: b76aa504957ffe840819d0bb9ec91eb6, type: 3}
       propertyPath: _secondAttachPoint
@@ -26823,7 +27322,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!33 &5432492857702707492
 MeshFilter:
@@ -27118,7 +27617,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!135 &6000430045339502484
 SphereCollider:
@@ -27561,7 +28060,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!23 &8166346991020897513
 MeshRenderer:
@@ -27735,6 +28234,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fire
       objectReference: {fileID: 0}
+    - target: {fileID: 574145984453941172, guid: 4cb61b182b7fdbc49b8807391c954981, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 917632714367585550, guid: 4cb61b182b7fdbc49b8807391c954981, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.09
@@ -27775,6 +28278,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 44.149
       objectReference: {fileID: 0}
+    - target: {fileID: 1141807910198149572, guid: 4cb61b182b7fdbc49b8807391c954981, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255053967005034563, guid: 4cb61b182b7fdbc49b8807391c954981, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 2890384066050230469, guid: 4cb61b182b7fdbc49b8807391c954981, type: 3}
       propertyPath: _canvasToDisable
       value: 
@@ -27782,6 +28293,34 @@ PrefabInstance:
     - target: {fileID: 2890384066050230469, guid: 4cb61b182b7fdbc49b8807391c954981, type: 3}
       propertyPath: _colliderToDisable
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3235701488893169939, guid: 4cb61b182b7fdbc49b8807391c954981, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4502111466653747097, guid: 4cb61b182b7fdbc49b8807391c954981, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5650515784705827533, guid: 4cb61b182b7fdbc49b8807391c954981, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5673366536798496622, guid: 4cb61b182b7fdbc49b8807391c954981, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6718365676528322538, guid: 4cb61b182b7fdbc49b8807391c954981, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7119465686330446071, guid: 4cb61b182b7fdbc49b8807391c954981, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8111600024413116271, guid: 4cb61b182b7fdbc49b8807391c954981, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27949,3 +28488,4 @@ SceneRoots:
   - {fileID: 340809070}
   - {fileID: 1052709704}
   - {fileID: 110237029}
+  - {fileID: 1261064879}

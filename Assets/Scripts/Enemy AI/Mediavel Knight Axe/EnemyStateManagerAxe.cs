@@ -13,8 +13,8 @@ public class EnemyStateManagerAxe : MonoBehaviour
     [SerializeField] public Animator animator; // Аниматор врага
     [SerializeField] public float retreatSpeed = 1f; // Дистанция Strafe врага
 
-    public bool isAnimation = false; // Переменная для рандомного Strafe. Когда она false, рандомно выбирается следующая сторона Strafe
-    public bool isAnimationDown = false; // Переменная, чтобы враг после уклонения задев зону down не стрейфил
+    //public bool isAnimation = false; // Переменная для рандомного Strafe. Когда она false, рандомно выбирается следующая сторона Strafe
+    //public bool isAnimationDown = false; // Переменная, чтобы враг после уклонения задев зону down не стрейфил
     public bool isAttacking = false; // если true, другие анимации не могут
 
     public Vector3 vectorToPlayer; // Вектор от врага к игроку
@@ -57,16 +57,10 @@ public class EnemyStateManagerAxe : MonoBehaviour
     {
         return (transform.position - target.transform.position).magnitude;
     }
-    public void EndAnimationStrafe() //ставит флаг если анимация заврешилась (Strafe анимации), используется Animation event
-    {
-        isAnimation = false;
-    }
 
     public void StartAnimationDown() // срабатывает когда анимация при задевании зоны down начинается. Animation event
     {
-        enemy.position = Vector3.MoveTowards(enemy.position, enemy.position - enemy.forward * 2f, 4f * Time.deltaTime); // плавно двигает врага на определенное расстояние
-        isAnimationDown = true; // второе значение верхней строчки не имеет значения, главное чтобы не было слишком маленьким или равным нулю. 
-        // все потому что оно проигрывается каждый кадр и дальность хода зависит от скорости передвижения, ведь анимация длится фикс-ое время и чем быстрее, тем дальше.
+        enemy.position = Vector3.MoveTowards(enemy.position, enemy.position - enemy.forward * 2f, 4f * Time.deltaTime);
     }
     public void StartRetreatMove()
     {
@@ -77,8 +71,7 @@ public class EnemyStateManagerAxe : MonoBehaviour
     }
     public void EndAnimationDown() // срабатывает когда анимация при задевании зоны down заканчивается. Animation event
     {
-        zoneManager.ResetZone("down");
-        isAnimationDown = false;
+        zoneManager.defenseSide = "";
     }
     public void StartAttackAnimation()
     {
@@ -88,6 +81,10 @@ public class EnemyStateManagerAxe : MonoBehaviour
     }
     public void EndAttackAnimation()
     {
+        animator.SetBool("attack2", false);
+        animator.SetBool("attack1", false);
+        animator.SetBool("attackMiddle", false);
+        animator.SetBool("attack360", false);
         isAttacking = false;
     }
     public void EndImpactAnimation()
@@ -103,6 +100,7 @@ public class EnemyStateManagerAxe : MonoBehaviour
     }
     private void Update()
     {
+        Debug.Log(isAttacking);
         SetTarget(player); // Задает значение target Transform player
         navMeshAgent.destination = target.position; // Постоянно обновляет позицию
         currentState.UpdateState(this, zoneManager); // Вызывается метод Updatestate() текущего состояния

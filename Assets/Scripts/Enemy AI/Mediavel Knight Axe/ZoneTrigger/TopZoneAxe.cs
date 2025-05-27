@@ -15,14 +15,14 @@ public class TopZoneAxe : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Weapon") && !stateManager.isAttacking)
         {
-            manager.SetActiveZone("top");
+            manager.defenseSide = "top";
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Weapon") && manager != null)
         {
-            manager.ResetZone("top");
+            manager.defenseSide = "";
             manager.defenceTime = 0;
         }
     }

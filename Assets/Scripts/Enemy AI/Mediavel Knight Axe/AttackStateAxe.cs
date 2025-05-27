@@ -25,11 +25,11 @@ public class AttackStateAxe : BaseStateAxe
             zoneManager.AttackAnimation();
             time = 0;
         }
-
+       
+        
         time1 += Time.deltaTime;
         if (time1 > 2f)
         {
-            manager.isAnimationDown = false; // через две секунды после отскока назад может проигрываться strafe
             time1 = 0;
         }
 
@@ -38,6 +38,6 @@ public class AttackStateAxe : BaseStateAxe
 
         zoneManager.StrafeAnimation();
 
-        if (zoneManager.top == 1 || zoneManager.down == 1) manager.SwitchState(manager.defenceState);
+        if (zoneManager.defenseSide == "") manager.SwitchState(manager.defenceState);
     }
 }
