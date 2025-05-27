@@ -8,9 +8,11 @@ public class Item : MonoBehaviour
     public Vector3 slotRotation = Vector3.zero;
     public Slot currentSlot;
     public Vector3 originalScale; // Новое: хранит изначальный размер
+    [SerializeField] public float ScaleInSlot = 0.2f;
 
     void Start()
     {
         originalScale = transform.localScale; // Новое: запоминаем начальный масштаб
+
     }
 }

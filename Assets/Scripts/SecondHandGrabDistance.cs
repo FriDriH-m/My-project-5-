@@ -12,19 +12,23 @@ public class SecondHandGrabDistance : XRGrabInteractable
     public Transform handModel = null;
 
     public Transform _firstInteractor = null;
+    private void Update()
+    {
+        
+    }
     public override bool IsSelectableBy(IXRSelectInteractor interactor)
     {
         if(TwoHandGrabbing)
         {
             if (_firstInteractor == null)
             {
-                Debug.Log("_firstInteractor - null");
                 return base.IsSelectableBy(interactor);
             }
             //Debug.Log(Vector3.Distance(interactor.transform.position, _secondAttachPoint.position));
             if (interactor.transform != _firstInteractor)
             {
                 //Debug.Log(Vector3.Distance(handModel.position, _secondAttachPoint.position) + " - " + handModel.name);
+                Debug.Log(_firstInteractor.tag);
 
                 float distance = Vector3.Distance(handModel.position, _secondAttachPoint.position);
 

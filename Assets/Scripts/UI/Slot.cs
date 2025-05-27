@@ -51,21 +51,7 @@ public class Slot : MonoBehaviour
             item.originalScale = obj.transform.localScale;
 
         // 2. Масштабируем под размер слота
-        if (TryGetComponent<BoxCollider>(out var slotCollider))
-        {
-            Vector3 slotSize = slotCollider.size; // Размер слота
-            Vector3 objectSize = obj.GetComponent<Renderer>().bounds.size; // Размер предмета
-
-            // Вычисляем коэффициент масштабирования
-            float scaleRatio = Mathf.Min(
-                slotSize.x / objectSize.x,
-                slotSize.y / objectSize.y,
-                slotSize.z / objectSize.z
-            ) * 0.8f; // 0.8 — небольшой отступ от краев
-
-            // Применяем новый размер
-            obj.transform.localScale = item.originalScale * scaleRatio;
-        }
+        obj.transform.localScale *= item.ScaleInSlot;
 
         obj.GetComponent<Rigidbody>().isKinematic = true;
         obj.transform.SetParent(gameObject.transform, true);

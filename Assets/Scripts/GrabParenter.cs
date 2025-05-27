@@ -139,8 +139,6 @@ public class GrabParenter : MonoBehaviour
         {
             rb.isKinematic = false; // Включаем физику
         }
-        Debug.Log("Имя объекта - " + interactable.name);
-        Debug.Log(_firstHand + " " + _secondaryHand);
         if (_firstHand != null && _secondaryHand != null) // если при отпускании оружие взято обеими руками
         {
             if (interactor == _firstHand) // если отпускает первая рука, которая взялась за оружие
@@ -163,13 +161,12 @@ public class GrabParenter : MonoBehaviour
         }
         else // это обрабатывается если двуручного хвата не было, то есть одной рукой взял и этой же рукой отпустил
         {
-            Debug.Log("Обработан");
             TwoHandGrab(true);
             HandToStartPosition(_firstHand);            
             _firstHand = null;
-            //grabInteractable.handModel = null;
+            grabInteractable._firstInteractor = null;
+            grabInteractable.handModel = null;
             interactable.SetParent(null);
-            Debug.Log("Отпущен");
             SetRigidbodyDumping(0f);
         }        
     }

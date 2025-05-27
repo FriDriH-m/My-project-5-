@@ -46,7 +46,8 @@ public class BowGrabParenter : GrabParenter
             animator.Play("Bow", 0, animationAmount);
 
             Vector3 midPoint = Vector3.Lerp(_firstHand.position, _secondaryHand.position, _trackPoint) - new Vector3 (0, 0.25f, 0);
-            rb.AddForce((midPoint - transform.position) * 10, ForceMode.VelocityChange);
+            rb.AddForce((midPoint - (transform.position + new Vector3(0, 0, 0))) * 10, ForceMode.VelocityChange);
+            //rb.AddTorque(_firstHand.position - _secondaryHand.position, ForceMode.VelocityChange);
         }
     }
     public override void OnGrab(SelectEnterEventArgs args)
@@ -135,7 +136,6 @@ public class BowGrabParenter : GrabParenter
 
             arrowRb = spawnedArrow.GetComponent<Rigidbody>();
             spawnedArrow.transform.SetParent(null);
-            Debug.Log(animationAmount + " импульс - " + (30 * animationAmount));
             arrowRb.AddForce(transform.right * 33 * animationAmount, ForceMode.Impulse);
             animator.Play("Bow", 0, 0);
             Shoots += 1;
