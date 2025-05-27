@@ -109,7 +109,7 @@ public class PlayerDamage : MonoBehaviour
         HealthBar();
         if (hitPoints <= 0)
         {
-            if (other.gameObject.CompareTag("Axe") && (other.gameObject.transform.root.name == "Mediavel Knight Axe Variant (1)"))
+            if (other.gameObject.CompareTag("Sword") && (other.gameObject.transform.root.name == "Mediavel Knight Shield (14)"))
             {
                 Icon16._unlocked = true;
             }
