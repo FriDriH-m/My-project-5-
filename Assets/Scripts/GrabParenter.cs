@@ -62,6 +62,7 @@ public class GrabParenter : MonoBehaviour
         // Начало твоего скрипта, Илья
         if (item != null && item.inSlot)
         {
+            interactable.localScale = item.originalScale; // Возвращаем исходный размер
             _audioSource.PlayOneShot(_selectItem);
             currentSlot = item.currentSlot;
             if (currentSlot != null)
@@ -138,7 +139,6 @@ public class GrabParenter : MonoBehaviour
         {
             rb.isKinematic = false; // Включаем физику
         }
-
         if (_firstHand != null && _secondaryHand != null) // если при отпускании оружие взято обеими руками
         {
             if (interactor == _firstHand) // если отпускает первая рука, которая взялась за оружие
@@ -164,7 +164,7 @@ public class GrabParenter : MonoBehaviour
             TwoHandGrab(true);
             HandToStartPosition(_firstHand);            
             _firstHand = null;
-            SendHandModel(_firstHand);
+            grabInteractable._firstInteractor = null;
             grabInteractable.handModel = null;
             interactable.SetParent(null);
             SetRigidbodyDumping(0f);
@@ -182,7 +182,6 @@ public class GrabParenter : MonoBehaviour
     }
     public virtual void SendHandModel(Transform hand)
     {
-        Debug.Log("Вызов");
         grabInteractable._firstInteractor = hand;
         if (hand.CompareTag("L_Hand"))
         {
@@ -192,6 +191,10 @@ public class GrabParenter : MonoBehaviour
         {
             grabInteractable.handModel = _leftHand;
         }
+        else
+        {
+            return;
+        }        
     }
     public virtual void HandToStartPosition(Transform hand)
     {

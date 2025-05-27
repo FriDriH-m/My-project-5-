@@ -23,8 +23,8 @@ public class Slot : MonoBehaviour
         GameObject obj = other.transform.parent.gameObject;
         if (ItemInSlot != null) return;  // Если слот уже занят, ничего не делаем
         if (!IsItem(obj)) return;       // Если это не предмет, ничего не делаем
-            // Вызываем InsertItem, когда предмет входит в триггер
-            InsertItem(obj);
+                                        // Вызываем InsertItem, когда предмет входит в триггер
+        InsertItem(obj);
     }
 
     bool IsItem(GameObject obj)
@@ -34,6 +34,7 @@ public class Slot : MonoBehaviour
 
     void InsertItem(GameObject obj)
     {
+        Item item = obj.GetComponent<Item>();
         // Проверяем, что объект не захвачен (отпущен)
         XRGrabInteractable grabInteractable = obj.GetComponent<XRGrabInteractable>();
         if (grabInteractable != null && grabInteractable.isSelected)
@@ -41,11 +42,16 @@ public class Slot : MonoBehaviour
             // Если объект захвачен, выходим из функции
             return;
         }
+
         // Если дошли сюда, значит, предмет не захвачен, и можно поместить его в слот
         // Получаем размер коллайдера слота
         _audioSource.PlayOneShot(_selectItem);
-        Collider slotCollider = GetComponent<Collider>();
-        Vector3 slotSize = slotCollider.bounds.size;
+        // 1. Сохраняем изначальный размер (если еще не сохранен)
+        if (item.originalScale == Vector3.zero)
+            item.originalScale = obj.transform.localScale;
+
+        // 2. Масштабируем под размер слота
+        obj.transform.localScale *= item.ScaleInSlot;
 
         obj.GetComponent<Rigidbody>().isKinematic = true;
         obj.transform.SetParent(gameObject.transform, true);
@@ -55,6 +61,11 @@ public class Slot : MonoBehaviour
         obj.GetComponent<Item>().currentSlot = this;
         ItemInSlot = obj;
         slotImage.color = Color.gray;
+    }
+
+    public void RemoveItem()
+    {
+        ItemInSlot.transform.localScale = ItemInSlot.GetComponent<Item>().originalScale;
     }
 
     public void ResetColor()

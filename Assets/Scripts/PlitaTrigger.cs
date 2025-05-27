@@ -9,7 +9,7 @@ public class PlitaTrigger : MonoBehaviour
 
     private void Start()
     {
-        targetPosition = transform.position + new Vector3(0f, -0.2f, 0f);
+        targetPosition = transform.position + new Vector3(0f, -0.4f, 0f);
     }
 
     public void OnTriggerEnter(Collider other)

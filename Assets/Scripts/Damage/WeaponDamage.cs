@@ -48,7 +48,6 @@ public class WeaponDamage : MonoBehaviour
 
         if (hitZone != null && _canHit) 
         {
-            Debug.Log("Импульс - " + _instImpuls);
             if (hitZone.zone == HitZone.ZoneType.Sword)
             {
                 if (_touchSword == false) StartCoroutine(SwordTouch());
