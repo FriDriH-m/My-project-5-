@@ -6,9 +6,12 @@ public class SecondDoorTrigger : MonoBehaviour
     [SerializeField] private float moveSpeed;
     private bool shouldMove = false;
     private Vector3 targetPosition;
+    public AudioClip doorOpenSound;
+    public AudioSource audioSource;
 
     public void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         targetPosition = door.transform.position;
     }
     public void OnTriggerStay(Collider other)
@@ -24,5 +27,11 @@ public class SecondDoorTrigger : MonoBehaviour
             door.transform.position = Vector3.Lerp(door.transform.position, targetPosition, moveSpeed * Time.deltaTime);
         }
         if (Vector3.Distance(door.transform.position, targetPosition) < 0.01f) shouldMove = false;
+        if (TargetScript.targetCount == 4)
+        if (!shouldMove)
+            audioSource.Play();
+        else
+            audioSource.Stop();
+
     }
 }

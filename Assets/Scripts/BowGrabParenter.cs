@@ -2,6 +2,7 @@ using GLTFast.Schema;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using System.Collections;
+using UnityEngine.Audio;
 
 public class BowGrabParenter : GrabParenter
 {
@@ -12,6 +13,8 @@ public class BowGrabParenter : GrabParenter
     [SerializeField] Transform secondPoint;
     [SerializeField] GameObject tetiva; // тетива лука
     [SerializeField] GameObject arrow; // префаб стрелы чтобы создавать 
+    private AudioSource audioSource;
+    public AudioClip[] hitArrowSounds;
     float animationAmount;
     GameObject spawnedArrow; // созданная стрела
     Rigidbody arrowRb;
@@ -20,6 +23,11 @@ public class BowGrabParenter : GrabParenter
     {
         base.Start();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
     protected override void Update()
     {
@@ -35,7 +43,7 @@ public class BowGrabParenter : GrabParenter
             {
                 animationAmount = 0.96f;
             }
-            
+            Debug.Log($"currentDist = {animationAmount}");
             // стрела перед выстрелом - позиционирование, ротатион
             Vector3 vector = secondPoint.position - firstPoint.position; 
             vector.Normalize();
@@ -138,11 +146,21 @@ public class BowGrabParenter : GrabParenter
             spawnedArrow.transform.SetParent(null);
             arrowRb.AddForce(transform.right * 33 * animationAmount, ForceMode.Impulse);
             animator.Play("Bow", 0, 0);
+            HitArrowSound();
             Shoots += 1;
         }
         base.OnUngrab(args);
     }
 
+    public void HitArrowSound()
+    {
+        if (hitArrowSounds.Length > 0)
+        {
+            int randomSoundIndex = Random.Range(0, hitArrowSounds.Length);
+            audioSource.pitch = Random.Range(0.9f, 1.1f);  // Чуть меняем тон
+            audioSource.PlayOneShot(hitArrowSounds[randomSoundIndex]);
+        }
+    }
     public override void TwoHandGrab(bool value)
     {
         //grabInteractable.trackPosition = value;

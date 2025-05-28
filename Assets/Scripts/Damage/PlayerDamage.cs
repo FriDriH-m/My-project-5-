@@ -12,12 +12,18 @@ public class PlayerDamage : MonoBehaviour
     public Image Bar;
     private AudioSource audioSource;
     public AudioClip[] hitSounds;
+    public AudioClip[] hitGolemSounds;
     public int Deaths = 0;
     public bool Damage = false;
     public DataAchievement Icon16;
     private void Start()
     {
         hitPoints = 200f;
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -45,12 +51,13 @@ public class PlayerDamage : MonoBehaviour
                 }
                 else
                 {
-                    HitSound();
+                
                     hitPoints -= 60;
                 }
             }
             else hitPoints -= 60; 
             Damage = true;
+            HitSound();
         }
         else if (other.gameObject.CompareTag("Sword"))
         {
@@ -68,17 +75,18 @@ public class PlayerDamage : MonoBehaviour
                 }
                 else
                 {
-                    HitSound();
+                    
                     hitPoints -= 30;
                 }
             }
             else
             {
-                HitSound();
+                
                 hitPoints -= 30; 
             }
 
             Damage = true;
+            HitSound();
         }
         else if (other.gameObject.CompareTag("Axe"))
         {
@@ -97,12 +105,13 @@ public class PlayerDamage : MonoBehaviour
                 }
                 else 
                 {
-                    HitSound();
+                    
                     hitPoints -= 20; 
                 }
             }
             else hitPoints -= 20;
             Damage = true;
+            HitSound();
 
         }
         else if (other.gameObject.CompareTag("Golem"))
@@ -121,12 +130,12 @@ public class PlayerDamage : MonoBehaviour
                 }
                 else 
                 { 
-                    HitSound();
                     hitPoints -= 90; 
                 }
             }
             else hitPoints -= 90;
             Damage = true;
+            HitGolemSound();
         }
         HealthBar();
         if (hitPoints <= 0)
@@ -152,6 +161,16 @@ public class PlayerDamage : MonoBehaviour
             int randomSoundIndex = Random.Range(0, hitSounds.Length);
             audioSource.pitch = Random.Range(0.9f, 1.1f);  // Чуть меняем тон
             audioSource.PlayOneShot(hitSounds[randomSoundIndex]);
+        }
+    }
+
+    public void HitGolemSound()
+    {
+        if (hitGolemSounds.Length > 0)
+        {
+            int randomSoundIndex = Random.Range(0, hitGolemSounds.Length);
+            audioSource.pitch = Random.Range(0.9f, 1.1f);  // Чуть меняем тон
+            audioSource.PlayOneShot(hitGolemSounds[randomSoundIndex]);
         }
     }
     public IEnumerator Revive()
