@@ -7066,8 +7066,6 @@ MonoBehaviour:
   angleSpeed: 28
   animator: {fileID: 1730924223307275234}
   retreatSpeed: 1
-  isAnimation: 0
-  isAnimationDown: 0
   isAttacking: 0
   vectorToPlayer: {x: 0, y: 0, z: 0}
   enemyForward: {x: 0, y: 0, z: 0}
@@ -7085,8 +7083,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1730924223307275234}
   defenceTime: 0
-  top: 0
-  down: 0
+  strafing: 0
+  defenseSide: 
 --- !u!114 &8618990876705176008
 MonoBehaviour:
   m_ObjectHideFlags: 0

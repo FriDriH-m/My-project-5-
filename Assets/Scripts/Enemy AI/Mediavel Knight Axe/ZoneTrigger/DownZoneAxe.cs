@@ -22,7 +22,6 @@ public class DownZoneAxe : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Weapon") && manager != null)
         {
-            manager.defenseSide = "";
             manager.defenceTime = 0;
         }
     }
