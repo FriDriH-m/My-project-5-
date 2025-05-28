@@ -25,6 +25,7 @@ public class ZoneTriggerManagerAxe : MonoBehaviour
         {
             animator.SetBool(attackZone[i], false);
         }
+        manager.damageCount.attacking = false;
         manager.isAttacking = false;
     }
     public void AttackAnimation()
@@ -37,7 +38,7 @@ public class ZoneTriggerManagerAxe : MonoBehaviour
             {
                 animator.SetBool(attackZone[randAttackInteger], true);
                 manager.isAttacking = true;
-                
+                manager.damageCount.attacking = true;
             }
         }
         

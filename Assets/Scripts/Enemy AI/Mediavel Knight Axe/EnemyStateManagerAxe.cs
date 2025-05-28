@@ -12,9 +12,8 @@ public class EnemyStateManagerAxe : MonoBehaviour
     [SerializeField] public float angleSpeed = 28f; // скорость Strafe врага
     [SerializeField] public Animator animator; // Аниматор врага
     [SerializeField] public float retreatSpeed = 1f; // Дистанция Strafe врага
+    public DamageCount damageCount;
 
-    //public bool isAnimation = false; // Переменная для рандомного Strafe. Когда она false, рандомно выбирается следующая сторона Strafe
-    //public bool isAnimationDown = false; // Переменная, чтобы враг после уклонения задев зону down не стрейфил
     public bool isAttacking = false; // если true, другие анимации не могут
 
     public Vector3 vectorToPlayer; // Вектор от врага к игроку
@@ -86,6 +85,7 @@ public class EnemyStateManagerAxe : MonoBehaviour
     }
     private void Start()
     {
+        damageCount = GetComponent<DamageCount>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         zoneManager = GetComponent<ZoneTriggerManagerAxe>();
         SwitchState(idleState); // Задается стандартное состояние

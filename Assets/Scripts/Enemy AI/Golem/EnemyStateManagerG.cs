@@ -15,6 +15,7 @@ public class EnemyStateManagerG : MonoBehaviour
     public Vector3 vectorToPlayer; // ¬ектор от врага к игроку
     public Vector3 enemyForward; // ¬ектор направлени€ взгл€да врага
     Transform target;
+    public DamageCount damageCount;
 
     public bool isAnimationIdle = false; // ѕеременна€, чтобы враг не двигалс€, когда проигрываетс€ анимаци€ idle. »з-за рандомного Strafe
     public bool isAttacking = false; // если true, другие анимации не могут
@@ -26,6 +27,7 @@ public class EnemyStateManagerG : MonoBehaviour
 
     private void Start()
     {
+        damageCount = GetComponent<DamageCount>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         SwitchState(idleState);
     }
@@ -60,6 +62,7 @@ public class EnemyStateManagerG : MonoBehaviour
     {
         animator.SetBool("AttackLeft", false);
         animator.SetBool("AttackRight", false);
+        damageCount.attacking = false;
         isAttacking = false;
     }
     public void RandomAttack() 
@@ -80,10 +83,12 @@ public class EnemyStateManagerG : MonoBehaviour
     }
     public void StartAttackAnimation()
     {
+        damageCount.attacking = true;
         isAttacking = true;
     }
     public void EndAttackAnimation()
     {
+        damageCount.attacking = false;
         isAttacking = false;
     }
     private void Update()

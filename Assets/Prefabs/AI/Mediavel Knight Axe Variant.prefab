@@ -7060,12 +7060,13 @@ MonoBehaviour:
   navMeshAgent: {fileID: 234980337838001310}
   player: {fileID: 0}
   enemy: {fileID: 4030866346675979262}
-  walkSpeed: 3
+  walkSpeed: 4
   agroDistance: 18
-  attackDistance: 2.5
+  attackDistance: 3.3
   angleSpeed: 28
   animator: {fileID: 1730924223307275234}
   retreatSpeed: 1
+  damageCount: {fileID: 0}
   isAttacking: 0
   vectorToPlayer: {x: 0, y: 0, z: 0}
   enemyForward: {x: 0, y: 0, z: 0}
@@ -7102,7 +7103,9 @@ MonoBehaviour:
   _zoneTriggerManager: {fileID: 7336352470903973290}
   _tag: Axe
   _playerDamage: {fileID: 0}
+  timeNoAttaking: 0.5
   hitPoints: 100
+  attacking: 0
   startHitPoints: 0
 --- !u!1 &8940899612424531752
 GameObject:
