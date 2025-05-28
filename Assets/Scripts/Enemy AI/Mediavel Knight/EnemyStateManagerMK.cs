@@ -12,6 +12,7 @@ public class EnemyStateManager : MonoBehaviour
     public float angleSpeed = 28f; // скорость Strafe врага
     public Animator animator; // Аниматор врага
     public float retreatSpeed = 1f; // Дистанция Strafe врага
+    public DamageCount damageCount;
 
     public bool isAnimation = false; // Переменная для рандомного Strafe. Когда она false, рандомно выбирается следующая сторона Strafe
     public bool isAnimationDown = false; // Переменная, чтобы враг после уклонения задев зону down не стрейфил
@@ -86,10 +87,12 @@ public class EnemyStateManager : MonoBehaviour
         animator.SetBool("StrafeR", false);
         animator.SetBool("StrafeL", false);
         isAttacking = true;
+        damageCount.attacking = true;
     }
     public void EndAttackAnimation()
     {
         isAttacking = false;
+        damageCount.attacking = true;
     }
     public void EndImpactAnimation()
     {
@@ -98,6 +101,7 @@ public class EnemyStateManager : MonoBehaviour
     }
     private void Start()
     {
+        damageCount = GetComponent<DamageCount>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         zoneManager = GetComponent<ZoneTriggerManager>(); 
         SwitchState(idleState); // Задается стандартное состояние
