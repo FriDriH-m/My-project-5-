@@ -66,6 +66,7 @@ public class GrabParenter : MonoBehaviour
         if (item != null && item.inSlot)
         {
             interactable.localScale = item.originalScale; // Возвращаем исходный размер
+            interactable.localEulerAngles = item.originalRotation;
             _audioSource.PlayOneShot(_selectItem);
             currentSlot = item.currentSlot;
             if (currentSlot != null)

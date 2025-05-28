@@ -23,8 +23,9 @@ public class Slot : MonoBehaviour
         GameObject obj = other.transform.parent.gameObject;
         if (ItemInSlot != null) return;  // Если слот уже занят, ничего не делаем
         if (!IsItem(obj)) return;       // Если это не предмет, ничего не делаем
-                                        // Вызываем InsertItem, когда предмет входит в триггер
+        Item item = obj.GetComponent<Item>();                // Вызываем InsertItem, когда предмет входит в триггер
         InsertItem(obj);
+
     }
 
     bool IsItem(GameObject obj)
@@ -52,21 +53,17 @@ public class Slot : MonoBehaviour
 
         // 2. Масштабируем под размер слота
         obj.transform.localScale *= item.ScaleInSlot;
-
         obj.GetComponent<Rigidbody>().isKinematic = true;
         obj.transform.SetParent(gameObject.transform, true);
         obj.transform.localPosition = Vector3.zero;
-        obj.transform.localEulerAngles = obj.GetComponent<Item>().slotRotation;
+        obj.transform.localRotation = item.RotationInSlot;
+        obj.transform.localPosition += item.PositionOffset;
         obj.GetComponent<Item>().inSlot = true;
         obj.GetComponent<Item>().currentSlot = this;
         ItemInSlot = obj;
         slotImage.color = Color.gray;
     }
 
-    public void RemoveItem()
-    {
-        ItemInSlot.transform.localScale = ItemInSlot.GetComponent<Item>().originalScale;
-    }
 
     public void ResetColor()
     {
