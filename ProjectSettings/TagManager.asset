@@ -7,7 +7,6 @@ TagManager:
   - Weapon
   - R_Hand
   - L_Hand
-  - Start_Weapon
   - Secret_Weapon
   - Box_Key
   - Limbs
@@ -19,6 +18,8 @@ TagManager:
   - Bow
   - Item
   - Arrow
+  - Key
+  - Start_Weapon
   layers:
   - Default
   - TransparentFX

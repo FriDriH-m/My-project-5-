@@ -14,6 +14,7 @@ public class AttackState : BaseState
     {
         manager.animator.SetBool("StrafeR", false); 
         manager.animator.SetBool("StrafeL", false);
+        manager.damageCount.attacking = true;
     }
     public override void UpdateState(EnemyStateManager manager, ZoneTriggerManager zoneManager)
     {
