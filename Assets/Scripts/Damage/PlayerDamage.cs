@@ -24,7 +24,7 @@ public class PlayerDamage : MonoBehaviour
         Transform parent = transform.parent;
         _weaponDamage = parent.GetComponentInChildren<WeaponDamage>();
         DamageCount _damageCount = other.GetComponentInParent<DamageCount>();
-        if (!_damageCount.attacking)
+        if (_damageCount != null && !_damageCount.attacking)
         {
             Debug.Log("Враг не атакует");
             return;
