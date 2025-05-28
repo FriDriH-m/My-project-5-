@@ -214,6 +214,7 @@ GameObject:
   - component: {fileID: 4534147065827568}
   - component: {fileID: 4759657776774158624}
   - component: {fileID: 6342984979548277359}
+  - component: {fileID: -3630709830115254012}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Arrow
@@ -269,7 +270,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1959729250425484}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -288,6 +289,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &-3630709830115254012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959729250425484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab951ce7592ed494a836a864f60dd14b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageRatio: 0.2
+  _minimalImpuls: 1
+  _effect: {fileID: 970440554703164915, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
+  _touchSword: 0
+  hitSounds: []
+  Icon9: {fileID: 0}
+  Icon15: {fileID: 0}
 --- !u!1 &7818353411802402407
 GameObject:
   m_ObjectHideFlags: 0
