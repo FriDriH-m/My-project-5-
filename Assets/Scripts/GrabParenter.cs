@@ -42,6 +42,23 @@ public class GrabParenter : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = _offset;
     }
+    //void OnDrawGizmos()
+    //{
+    //    if (rb == null)
+    //        rb = GetComponent<Rigidbody>();
+    //    if (rb == null)
+    //        return;
+
+    //    // Центр массы — в локальных координатах тела, поэтому переводим в мировые:
+    //    Vector3 worldCenterOfMass = transform.TransformPoint(rb.centerOfMass);
+
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawSphere(worldCenterOfMass, 0.1f); // рисуем красную сферу
+
+    //    // Для наглядности можно соединить её с объектом
+    //    Gizmos.color = Color.yellow;
+    //    Gizmos.DrawLine(transform.position, worldCenterOfMass);
+    //}
     protected virtual void Start()
     {
         bossDoor = FindFirstObjectByType<BossDoor>();
@@ -62,7 +79,6 @@ public class GrabParenter : MonoBehaviour
         interactable = args.interactableObject.transform;
         interactor = args.interactorObject.transform;
         
-        // Начало твоего скрипта, Илья
         if (item != null && item.inSlot)
         {
             interactable.localScale = item.originalScale; // Возвращаем исходный размер
@@ -98,7 +114,7 @@ public class GrabParenter : MonoBehaviour
             item.currentSlot = null;
             StartCoroutine(EnableCollision(0.1f));
         }
-        //Конец твоего скрипта
+
         if (_firstHand == null)
         {
             _firstHand = interactor;
@@ -189,7 +205,6 @@ public class GrabParenter : MonoBehaviour
     public virtual void TwoHandGrab(bool value)
     {
         grabInteractable.trackPosition = value;
-        //grabInteractable.trackRotation = value;
     }
     public virtual void SetRigidbodyDumping(float value)
     {
@@ -214,8 +229,10 @@ public class GrabParenter : MonoBehaviour
     }
     public virtual void HandToStartPosition(Transform hand)
     {
+        if (hand == null) return; 
         if (hand.CompareTag("L_Hand"))
         {
+            if (_leftHand == null) return; 
             if (_leftHand.GetComponent<Collider>() != null) { _leftHand.GetComponent<Collider>().enabled = true; }            
             _leftHand.transform.SetParent(hand);
             _leftHand.transform.localPosition = Vector3.zero;
@@ -223,6 +240,7 @@ public class GrabParenter : MonoBehaviour
         }
         else if (hand.CompareTag("R_Hand"))
         {
+            if (_rightHand == null) return; 
             if (_rightHand.GetComponent<Collider>() != null) { _rightHand.GetComponent<Collider>().enabled = true; }
             _rightHand.transform.SetParent(hand);
             _rightHand.transform.localPosition = Vector3.zero;
@@ -233,6 +251,7 @@ public class GrabParenter : MonoBehaviour
     {
         if (hand.CompareTag("L_Hand"))
         {
+            if (_leftHand == null) return;
             if (_leftHand.GetComponent<Collider>() != null) { _leftHand.GetComponent<Collider>().enabled = false; }
             _leftHand.transform.SetParent(interactable);
             _leftHand.transform.localPosition = _leftHandPosition;
@@ -240,6 +259,7 @@ public class GrabParenter : MonoBehaviour
         }
         else if (hand.CompareTag("R_Hand"))
         {
+            if (_rightHand == null) return;
             if (_rightHand.GetComponent<Collider>() != null) { _rightHand.GetComponent<Collider>().enabled = false; }
             _rightHand.transform.SetParent(interactable);
             _rightHand.transform.localPosition = _rightHandPosition;
@@ -249,16 +269,10 @@ public class GrabParenter : MonoBehaviour
     protected virtual void Update()
     {
         if (_firstHand != null && _secondaryHand != null)
-        {
-            
-            Vector3 midPoint = Vector3.Lerp(_firstHand.position, _secondaryHand.position, _trackPoint);
-            
-            //Vector3 vector = _firstHand.position - _secondaryHand.position;
-            //vector.Normalize();
-            
+        {            
+            Vector3 midPoint = Vector3.Lerp(_firstHand.position, _secondaryHand.position, _trackPoint);           
           
             rb.AddForce((midPoint - transform.position) * 5f, ForceMode.VelocityChange);
-            //rb.AddTorque(transform.up - vector , ForceMode.VelocityChange);
         }
     }
 
