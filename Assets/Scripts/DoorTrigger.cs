@@ -7,10 +7,10 @@ public class DoorTrigger : MonoBehaviour {
     private Vector3 targetPosition;
 
     public void Start() {
-        targetPosition = door.transform.position;
+        targetPosition = door.transform.position + new Vector3(0f, -0.42f, 0f); 
     }
     public void OnTriggerStay(Collider other) {
-        if (PlitaTrigger.boxCount == 5) { shouldMove = true; targetPosition = door.transform.position + new Vector3(0f, -0.42f, 0f); }
+        if (PlitaTrigger.boxCount == 5) { shouldMove = true; }
         else return;
     }
     public void Update() {
