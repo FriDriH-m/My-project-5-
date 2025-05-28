@@ -7,6 +7,7 @@ public class HoleScript : MonoBehaviour
     [SerializeField] private ParticleSystem _effect;
     private Transform _parent;
     public int Falls;
+    public DataAchievement Icon8;
     private void OnTriggerEnter(Collider other)
     {        
         if (other.transform.CompareTag("Weapon"))
@@ -33,6 +34,7 @@ public class HoleScript : MonoBehaviour
             Debug.Log("player");
             other.GetComponentInChildren<PlayerDamage>().hitPoints = 0;
             Falls += 1;
+            Icon8._unlocked = true;
         }
     }
 
