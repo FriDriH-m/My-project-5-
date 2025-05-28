@@ -75,17 +75,9 @@ public class EnemyStateManagerAxe : MonoBehaviour
     }
     public void StartAttackAnimation()
     {
-        animator.SetBool("StrafeR", false);
+        zoneManager.strafing = false;
         animator.SetBool("StrafeL", false);
-        isAttacking = true;
-    }
-    public void EndAttackAnimation()
-    {
-        animator.SetBool("attack2", false);
-        animator.SetBool("attack1", false);
-        animator.SetBool("attackMiddle", false);
-        animator.SetBool("attack360", false);
-        isAttacking = false;
+        animator.SetBool("StrafeR", false);
     }
     public void EndImpactAnimation()
     {
@@ -100,7 +92,7 @@ public class EnemyStateManagerAxe : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(isAttacking);
+        //Debug.Log(isAttacking);
         SetTarget(player); // Задает значение target Transform player
         navMeshAgent.destination = target.position; // Постоянно обновляет позицию
         currentState.UpdateState(this, zoneManager); // Вызывается метод Updatestate() текущего состояния

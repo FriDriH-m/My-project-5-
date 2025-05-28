@@ -8,6 +8,7 @@ public class ZoneTriggerManagerAxe : MonoBehaviour
     EnemyStateManagerAxe manager;
 
     public float defenceTime = 0; // время, в течение которого враг защищается от атаки игрока
+    public bool strafing = false;
 
     public string defenseSide = "";
 
@@ -16,57 +17,57 @@ public class ZoneTriggerManagerAxe : MonoBehaviour
     private void Start()
     {
         manager = GetComponent<EnemyStateManagerAxe>();
+
     }
-    public void ResetAttackAnimation() // Animation event у idle анимации в начале
+    public void StartIdleAnimation() // Animation event у idle анимации в начале
     {
-        
+        for (int i = 0; i  < attackZone.Count; i++)
+        {
+            animator.SetBool(attackZone[i], false);
+        }
+        manager.isAttacking = false;
     }
     public void AttackAnimation()
     {
         if (!manager.isAttacking)
         {            
-            int chanceOfAttack = Random.Range(0, 2); // Шанс, что враг осмелится атаковать игрока
+            int chanceOfAttack = Random.Range(0, 4); // Шанс, что враг осмелится атаковать игрока
             int randAttackInteger = Random.Range(0, 4); // рандомный выбор из доступных атак
             if (chanceOfAttack == 1)
             {
                 animator.SetBool(attackZone[randAttackInteger], true);
                 manager.isAttacking = true;
+                
             }
         }
         
     }
     public void StrafeAnimation()
     {
-        
-        if (defenseSide == "" && !manager.isAttacking)
-        {            
+        if (!strafing && defenseSide == "" && !manager.isAttacking)
+        {
             int randInt = Random.Range(0, 2); 
             if (randInt == 0 )
             {
                 animator.SetBool("StrafeL", true);
                 animator.SetBool("StrafeR", false);
+                strafing = true;
             }
             else if (randInt == 1)
             {
                 animator.SetBool("StrafeR", true);
                 animator.SetBool("StrafeL", false);
+                strafing = true;
             }            
         }
-        else
+        if (animator.GetBool("StrafeL"))
         {
-            animator.SetBool("StrafeR", false);
-            animator.SetBool("StrafeL", false);
+            manager.enemy.RotateAround(manager.player.position, Vector3.up, manager.angleSpeed * Time.deltaTime);
         }
-        if ((animator.GetBool("StrafeL") || animator.GetBool("StrafeR")))
+
+        if (animator.GetBool("StrafeR"))
         {
-            if (animator.GetBool("StrafeL"))
-            {
-                manager.enemy.RotateAround(manager.player.position, Vector3.up, manager.angleSpeed * Time.deltaTime);
-            }
-            else if (animator.GetBool("StrafeR"))
-            {
-                manager.enemy.RotateAround(manager.player.position, Vector3.up, -1 * manager.angleSpeed * Time.deltaTime);
-            }
+            manager.enemy.RotateAround(manager.player.position, Vector3.up, -1 * manager.angleSpeed * Time.deltaTime);
         }
     }
     public void DefenseAnimation()

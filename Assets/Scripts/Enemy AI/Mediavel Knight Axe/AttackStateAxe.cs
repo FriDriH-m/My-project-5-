@@ -3,7 +3,6 @@ using UnityEngine;
 public class AttackStateAxe : BaseStateAxe
 {
     float time = 0; // таймер
-    float time1 = 0; // таймер для ограничения strafe
 
     public override void EnterState(EnemyStateManagerAxe manager, ZoneTriggerManagerAxe zoneManager)
     {
@@ -12,8 +11,9 @@ public class AttackStateAxe : BaseStateAxe
     }
     public override void ExitState(EnemyStateManagerAxe manager, ZoneTriggerManagerAxe zoneManager)
     {
-        manager.animator.SetBool("StrafeR", false);
+        zoneManager.strafing = false;
         manager.animator.SetBool("StrafeL", false);
+        manager.animator.SetBool("StrafeR", false);
     }
     public override void UpdateState(EnemyStateManagerAxe manager, ZoneTriggerManagerAxe zoneManager)
     {
@@ -25,19 +25,11 @@ public class AttackStateAxe : BaseStateAxe
             zoneManager.AttackAnimation();
             time = 0;
         }
-       
-        
-        time1 += Time.deltaTime;
-        if (time1 > 2f)
-        {
-            time1 = 0;
-        }
 
         if (manager.CheckAngle() > 1f) manager.enemy.Rotate(0, -2f, 0);
         if (manager.CheckAngle() < -1f) manager.enemy.Rotate(0, 2f, 0);
-
         zoneManager.StrafeAnimation();
 
-        if (zoneManager.defenseSide == "") manager.SwitchState(manager.defenceState);
+        if (zoneManager.defenseSide != "") manager.SwitchState(manager.defenceState);
     }
 }

@@ -1,11 +1,14 @@
+using GLTFast.Schema;
 using UnityEngine;
 
 public class AgroStateAxe : BaseStateAxe
 {
     public override void EnterState(EnemyStateManagerAxe manager, ZoneTriggerManagerAxe zoneManager)
     {
+        //Debug.Log("Agro");
         manager.animator.SetBool("IsWalking", true);
         manager.SetSpeed(manager.walkSpeed);
+        
     }
     public override void ExitState(EnemyStateManagerAxe manager, ZoneTriggerManagerAxe zoneManager)
     {
