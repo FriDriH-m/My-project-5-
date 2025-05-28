@@ -42,6 +42,23 @@ public class GrabParenter : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = _offset;
     }
+    //void OnDrawGizmos()
+    //{
+    //    if (rb == null)
+    //        rb = GetComponent<Rigidbody>();
+    //    if (rb == null)
+    //        return;
+
+    //    // ÷ентр массы Ч в локальных координатах тела, поэтому переводим в мировые:
+    //    Vector3 worldCenterOfMass = transform.TransformPoint(rb.centerOfMass);
+
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawSphere(worldCenterOfMass, 0.1f); // рисуем красную сферу
+
+    //    // ƒл€ нагл€дности можно соединить еЄ с объектом
+    //    Gizmos.color = Color.yellow;
+    //    Gizmos.DrawLine(transform.position, worldCenterOfMass);
+    //}
     protected virtual void Start()
     {
         bossDoor = FindFirstObjectByType<BossDoor>();
@@ -187,7 +204,6 @@ public class GrabParenter : MonoBehaviour
     public virtual void TwoHandGrab(bool value)
     {
         grabInteractable.trackPosition = value;
-        grabInteractable.trackRotation = value;
     }
     public virtual void SetRigidbodyDumping(float value)
     {

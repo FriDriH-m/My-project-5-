@@ -23,7 +23,7 @@ public class BowGrabParenter : GrabParenter
     }
     protected override void Update()
     {
-
+        //Debug.DrawRay(transform.position,)
         if (_secondaryHand != null && _firstHand != null)
         {
             arrowModel.SetActive(true);
@@ -45,8 +45,8 @@ public class BowGrabParenter : GrabParenter
 
             animator.Play("Bow", 0, animationAmount);
 
-            Vector3 midPoint = Vector3.Lerp(_firstHand.position, _secondaryHand.position, _trackPoint) - new Vector3 (0, 0.25f, 0);
-            rb.AddForce((midPoint - (transform.position + new Vector3(0, 0, 0))) * 10, ForceMode.VelocityChange);
+            //Vector3 midPoint = Vector3.Lerp(_firstHand.position, _secondaryHand.position, _trackPoint) - new Vector3 (0f, 0.25f, 0.2f);
+            //rb.AddForce((midPoint - (transform.position + new Vector3(0, 0, 0))) * 10, ForceMode.VelocityChange);
             //rb.AddTorque(_firstHand.position - _secondaryHand.position, ForceMode.VelocityChange);
         }
     }
@@ -128,7 +128,7 @@ public class BowGrabParenter : GrabParenter
         {
             arrowModel.SetActive(false);
 
-            Vector3 spawnPosition = transform.position + transform.right * 0.4f + transform.up * 0.3f;
+            Vector3 spawnPosition = transform.position + transform.right + transform.up;
             spawnedArrow = Instantiate(arrow, spawnPosition, Quaternion.identity);
             spawnedArrow.transform.rotation = Quaternion.LookRotation(transform.up);
 
@@ -141,6 +141,12 @@ public class BowGrabParenter : GrabParenter
             Shoots += 1;
         }
         base.OnUngrab(args);
+    }
+
+    public override void TwoHandGrab(bool value)
+    {
+        //grabInteractable.trackPosition = value;
+        //grabInteractable.trackRotation = value;   
     }
     public IEnumerator DeleteArrow(GameObject arrow)
     {
