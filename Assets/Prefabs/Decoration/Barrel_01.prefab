@@ -96,13 +96,16 @@ PrefabInstance:
       addedObject: {fileID: 7040554668907683940}
     - targetCorrespondingSourceObject: {fileID: 100002, guid: 060d000557fda73428e416006e69e7c8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6896299105072007852}
-    - targetCorrespondingSourceObject: {fileID: 100002, guid: 060d000557fda73428e416006e69e7c8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 5328843852699413388}
     - targetCorrespondingSourceObject: {fileID: 100002, guid: 060d000557fda73428e416006e69e7c8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1667574960193383416}
+      addedObject: {fileID: 2294622414612427233}
+    - targetCorrespondingSourceObject: {fileID: 100002, guid: 060d000557fda73428e416006e69e7c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6552351589655131004}
+    - targetCorrespondingSourceObject: {fileID: 100002, guid: 060d000557fda73428e416006e69e7c8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2530954332408660289}
   m_SourcePrefab: {fileID: 100100000, guid: 060d000557fda73428e416006e69e7c8, type: 3}
 --- !u!1 &8841664660786277032 stripped
 GameObject:
@@ -131,21 +134,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 060d000557fda73428e416006e69e7c8, type: 3}
---- !u!114 &6896299105072007852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8841664660786277032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2533f904fe3a4484b8f481522dfea6f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  box: {fileID: 8841664660786277034}
-  boxPart: {fileID: 8841664660786277032}
-  breakSpeed: 30
 --- !u!54 &5328843852699413388
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -154,7 +142,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8841664660786277032}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -166,14 +154,14 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
+  m_ImplicitCom: 0
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &1667574960193383416
+  m_CollisionDetection: 2
+--- !u!114 &2294622414612427233
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,7 +170,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 8841664660786277032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: fefd4b1bceede4d46b24106689f344fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6552351589655131004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8841664660786277032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c8346b15b5c60247b7b985ab40c0d4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -220,10 +220,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2530954332408660289}
+        m_TargetAssemblyTypeName: GrabParenter, Assembly-CSharp
+        m_MethodName: OnGrab
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2530954332408660289}
+        m_TargetAssemblyTypeName: GrabParenter, Assembly-CSharp
+        m_MethodName: OnUngrab
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -255,9 +279,9 @@ MonoBehaviour:
   m_AttachEaseInTime: 0.15
   m_MovementType: 0
   m_VelocityDamping: 1
-  m_VelocityScale: 1
+  m_VelocityScale: 0.2
   m_AngularVelocityDamping: 1
-  m_AngularVelocityScale: 1
+  m_AngularVelocityScale: 0.2
   m_TrackPosition: 1
   m_SmoothPosition: 0
   m_SmoothPositionAmount: 8
@@ -295,8 +319,35 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 1
---- !u!1 &8841664660786277034 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 060d000557fda73428e416006e69e7c8, type: 3}
-  m_PrefabInstance: {fileID: 8841664660786375690}
+  _maxGrabDistance: 0.15
+  _secondAttachPoint: {fileID: 0}
+  TwoHandGrabbing: 0
+  handModel: {fileID: 0}
+  _firstInteractor: {fileID: 0}
+--- !u!114 &2530954332408660289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8841664660786277032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c3ccf61048e0f4c87185fa278190ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _offset: {x: 0, y: 0, z: 0}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _leftHand: {fileID: 0}
+  _rightHand: {fileID: 0}
+  _canHoldTwoHands: 0
+  _leftHandPosition: {x: 0, y: 0, z: 0}
+  _leftHandEuler: {x: 0, y: 0, z: 0}
+  _rightHandPosition: {x: 0, y: 0, z: 0}
+  _rightHandEuler: {x: 0, y: 0, z: 0}
+  _secondHandDown: {x: 0, y: 0, z: 0}
+  _trackPoint: 0.5
+  _selectItem: {fileID: 0}
+  _audioSource: {fileID: 0}
