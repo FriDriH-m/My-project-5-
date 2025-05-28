@@ -1120,8 +1120,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 130.37, y: 0.565, z: -76.41}
-  m_LocalScale: {x: 1.9404, y: 1.9404, z: 1.9404}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.11, y: 1.11, z: 1.11}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 271401670893911144}
   - {fileID: 2681826922904135372}
@@ -1187,7 +1187,13 @@ MonoBehaviour:
   _enemyStateManager: {fileID: 1221218996769303473}
   _zoneTriggerManager: {fileID: 0}
   _tag: Golem
-  hitPoints: 500
+  _playerDamage: {fileID: 0}
+  timeNoAttaking: 1.5
+  _golemHand1: {fileID: 8039683884384789053}
+  _golemHand2: {fileID: 5119845997537575326}
+  hitPoints: 250
+  attacking: 0
+  startHitPoints: 0
 --- !u!114 &1221218996769303473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1211,6 +1217,7 @@ MonoBehaviour:
   retreatSpeed: 1
   vectorToPlayer: {x: 0, y: 0, z: 0}
   enemyForward: {x: 0, y: 0, z: 0}
+  damageCount: {fileID: 0}
   isAnimationIdle: 0
   isAttacking: 0
 --- !u!54 &19489896074095924

@@ -22,11 +22,20 @@ public class PlayerDamage : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Transform parent = transform.parent;
-        _weaponDamage = parent.GetComponentInChildren<WeaponDamage>();        
-
+        _weaponDamage = parent.GetComponentInChildren<WeaponDamage>();
+        DamageCount _damageCount = other.GetComponentInParent<DamageCount>();
+        if (!_damageCount.attacking)
+        {
+            Debug.Log("Враг не атакует");
+            return;
+        }
         if (other.gameObject.CompareTag("Great_Sword"))
         {
-            //Debug.Log("Great Sword урон");
+            //Debug.Log("Great Sword урон");            
+            if (_damageCount != null)
+            {
+                _damageCount.StartCoroutine(_damageCount.CanHit());
+            }
             if (_weaponDamage != null)
             {
                 if (_weaponDamage._touchSword)
@@ -46,6 +55,10 @@ public class PlayerDamage : MonoBehaviour
         else if (other.gameObject.CompareTag("Sword"))
         {
             //Debug.Log("Sword урон");
+            if (_damageCount != null)
+            {
+                _damageCount.StartCoroutine(_damageCount.CanHit());
+            }
             if (_weaponDamage != null)
             {
                 if (_weaponDamage._touchSword)
@@ -70,6 +83,11 @@ public class PlayerDamage : MonoBehaviour
         else if (other.gameObject.CompareTag("Axe"))
         {
             //Debug.Log("Axe урон");
+            if (_damageCount != null)
+            {
+                _damageCount.StartCoroutine(_damageCount.CanHit());
+            }
+
             if (_weaponDamage != null)
             {
                 if (_weaponDamage._touchSword)
@@ -90,6 +108,10 @@ public class PlayerDamage : MonoBehaviour
         else if (other.gameObject.CompareTag("Golem"))
         {
             //Debug.Log("Golem урон");
+            if (_damageCount != null)
+            {
+                _damageCount.StartCoroutine(_damageCount.CanHit());
+            }
             if (_weaponDamage != null)
             {
                 if (_weaponDamage._touchSword)
