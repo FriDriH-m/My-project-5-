@@ -77,7 +77,7 @@ public class ZoneTriggerManager : MonoBehaviour
     }
     public void AttackAnimation()
     {
-        int chanceOfAttack = Random.Range(0, 8); // Шанс, что враг осмелится атаковать игрока
+        int chanceOfAttack = Random.Range(0, 6); // Шанс, что враг осмелится атаковать игрока
         _chanceOfCombination = Random.Range(0, 4); // шанс, что враг атакует комбинацией
         int randAttackInteger = Random.Range(0, 2); // рандомный выбор из доступных атак
 

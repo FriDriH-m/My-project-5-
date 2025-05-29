@@ -26,7 +26,6 @@ public class AttackState : BaseState
             zoneManager.AttackAnimation();
             time = 0;
         }
-
         time1 += Time.deltaTime;
         if (time1 > 2f)
         {
