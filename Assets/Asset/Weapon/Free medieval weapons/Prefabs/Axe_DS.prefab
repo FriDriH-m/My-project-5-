@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8988390104429582458}
   - component: {fileID: 7324594881591899406}
   - component: {fileID: 8613272393390495663}
+  - component: {fileID: 6990999327754139509}
   m_Layer: 0
   m_Name: Axe_DS
   m_TagString: Untagged
@@ -112,9 +113,9 @@ MonoBehaviour:
   currentSlot: {fileID: 0}
   originalRotation: {x: 0, y: 0, z: 0}
   originalScale: {x: 0, y: 0, z: 0}
-  ScaleInSlot: 0.2
-  RotationInSlot: {x: 0, y: 0, z: 0, w: 1}
-  PositionOffset: {x: 0, y: 0, z: 0}
+  ScaleInSlot: 0.15
+  RotationInSlot: {x: -0.70710677, y: 0, z: 0, w: 0.70710677}
+  PositionOffset: {x: 0, y: -0.02, z: 0}
 --- !u!114 &9211724281512228696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +285,7 @@ MonoBehaviour:
   m_SmoothRotation: 0
   m_SmoothRotationAmount: 8
   m_TightenRotation: 0.1
-  m_TrackScale: 1
+  m_TrackScale: 0
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
   m_TightenScale: 0.1
@@ -316,6 +317,7 @@ MonoBehaviour:
   _maxGrabDistance: 0.15
   _secondAttachPoint: {fileID: 6475848346916832212}
   TwoHandGrabbing: 1
+  _isShield: 0
   handModel: {fileID: 0}
   _firstInteractor: {fileID: 0}
 --- !u!114 &8988390104429582458
@@ -389,6 +391,29 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.30869007, y: 0.04877352, z: 0.33}
   m_Center: {x: 0.00000023841858, y: 0.000100176796, z: 0.67}
+--- !u!114 &6990999327754139509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948186286613674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0a1302d0d134fa8a2a5b3bf4aec3c20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PermittedDisplacementAxes: 7
+  m_ConstrainedAxisDisplacementMode: 1
+  m_TwoHandedRotationMode: 1
+  m_AllowOneHandedScaling: 0
+  m_AllowTwoHandedScaling: 0
+  m_OneHandedScaleSpeed: 0.5
+  m_ThresholdMoveRatioForScale: 0.05
+  m_ClampScaling: 0
+  m_MinimumScaleRatio: 0.1
+  m_MaximumScaleRatio: 10
+  m_ScaleMultiplier: 1
 --- !u!1 &4168822745518863747
 GameObject:
   m_ObjectHideFlags: 0

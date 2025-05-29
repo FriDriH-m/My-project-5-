@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 9052029070192281514}
   - component: {fileID: 8450393007900034390}
   - component: {fileID: 6245230569007616921}
+  - component: {fileID: 6543309958413108258}
   m_Layer: 0
   m_Name: Sword_OH
   m_TagString: Weapon
@@ -271,6 +272,7 @@ MonoBehaviour:
   _maxGrabDistance: 0.15
   _secondAttachPoint: {fileID: 0}
   TwoHandGrabbing: 0
+  _isShield: 0
   handModel: {fileID: 0}
   _firstInteractor: {fileID: 0}
 --- !u!114 &565426939162225934
@@ -402,8 +404,31 @@ MonoBehaviour:
   originalRotation: {x: 0, y: 0, z: 0}
   originalScale: {x: 0, y: 0, z: 0}
   ScaleInSlot: 0.2
-  RotationInSlot: {x: 0, y: 0, z: 0, w: 1}
-  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationInSlot: {x: -0.012340676, y: -0.70699906, z: -0.70699906, w: 0.012340676}
+  PositionOffset: {x: 0, y: -0.12, z: 0}
+--- !u!114 &6543309958413108258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037715513984232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0a1302d0d134fa8a2a5b3bf4aec3c20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PermittedDisplacementAxes: -1
+  m_ConstrainedAxisDisplacementMode: 1
+  m_TwoHandedRotationMode: 1
+  m_AllowOneHandedScaling: 0
+  m_AllowTwoHandedScaling: 0
+  m_OneHandedScaleSpeed: 0.5
+  m_ThresholdMoveRatioForScale: 0.05
+  m_ClampScaling: 0
+  m_MinimumScaleRatio: 0.1
+  m_MaximumScaleRatio: 10
+  m_ScaleMultiplier: 1
 --- !u!1 &8581258224922669964
 GameObject:
   m_ObjectHideFlags: 0

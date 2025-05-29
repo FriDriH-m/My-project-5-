@@ -7062,7 +7062,7 @@ MonoBehaviour:
   enemy: {fileID: 4030866346675979262}
   walkSpeed: 4
   agroDistance: 18
-  attackDistance: 3.3
+  attackDistance: 2.5
   angleSpeed: 28
   animator: {fileID: 1730924223307275234}
   retreatSpeed: 1
@@ -7104,6 +7104,8 @@ MonoBehaviour:
   _tag: Axe
   _playerDamage: {fileID: 0}
   timeNoAttaking: 0.5
+  _golemHand1: {fileID: 0}
+  _golemHand2: {fileID: 0}
   hitPoints: 100
   attacking: 0
   startHitPoints: 0
