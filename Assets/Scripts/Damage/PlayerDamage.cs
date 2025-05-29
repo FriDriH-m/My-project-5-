@@ -123,15 +123,7 @@ public class PlayerDamage : MonoBehaviour
             }
             if (_weaponDamage != null)
             {
-                if (_weaponDamage._touchSword)
-                {
-                    hitPoints -= 50;
-                    return;
-                }
-                else 
-                { 
-                    hitPoints -= 90; 
-                }
+                 hitPoints -= 90; 
             }
             else hitPoints -= 90;
             Damage = true;

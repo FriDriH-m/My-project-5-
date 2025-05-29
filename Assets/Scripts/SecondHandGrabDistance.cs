@@ -8,16 +8,17 @@ public class SecondHandGrabDistance : XRGrabInteractable
     [SerializeField] private float _maxGrabDistance = 0.15f;
     [SerializeField] private Transform _secondAttachPoint;
     [SerializeField] private bool TwoHandGrabbing;
+    [SerializeField] private bool _isShield;
 
     public Transform handModel = null;
 
     public Transform _firstInteractor = null;
-    private void Update()
-    {
-        
-    }
     public override bool IsSelectableBy(IXRSelectInteractor interactor)
     {
+        if (_isShield)
+        {
+            if (interactor.transform.CompareTag("R_Hand")) return false;
+        }
         if(TwoHandGrabbing)
         {
             if (_firstInteractor == null)
