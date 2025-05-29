@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3260081263660336387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2542211221046640392}
+  m_Layer: 0
+  m_Name: Second Attach Poin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2542211221046640392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3260081263660336387}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.24, z: -0.003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5848810509652354664}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6071509007005576389
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,9 +40,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4292060810304229476}
+  - component: {fileID: 8540918498196472621}
   m_Layer: 0
   m_Name: AttachTransform
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,6 +63,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5848810509652354664}
   m_LocalEulerAnglesHint: {x: -27, y: -76.673, z: 0}
+--- !u!65 &8540918498196472621
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6071509007005576389}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.04, y: 0.04, z: 0.04}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &6242445754201997699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91,6 +144,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4202148855105533681, guid: 3fba011bbae58d848898dee1b08c90c5, type: 3}
+      propertyPath: m_TagString
+      value: Weapon
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3fba011bbae58d848898dee1b08c90c5, type: 3}
       propertyPath: m_Name
       value: DragonSlayer (1)
@@ -101,6 +158,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3fba011bbae58d848898dee1b08c90c5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4292060810304229476}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3fba011bbae58d848898dee1b08c90c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2542211221046640392}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3fba011bbae58d848898dee1b08c90c5, type: 3}
       insertIndex: -1
@@ -113,7 +173,10 @@ PrefabInstance:
       addedObject: {fileID: -5287722650604728149}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3fba011bbae58d848898dee1b08c90c5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9200581270937596200}
+      addedObject: {fileID: 5702379111456223531}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3fba011bbae58d848898dee1b08c90c5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4217685199811963288}
     - targetCorrespondingSourceObject: {fileID: -4202148855105533681, guid: 3fba011bbae58d848898dee1b08c90c5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 375258698282999678}
@@ -266,7 +329,7 @@ MonoBehaviour:
   _rightHandPosition: {x: -0.018, y: 0.53, z: -0.028}
   _rightHandEuler: {x: -3, y: -60.86, z: -99.6}
   _secondHandDown: {x: 0, y: 0.2, z: 0}
-  _trackPoint: 0.5
+  _trackPoint: 1
   _selectItem: {fileID: 0}
   _audioSource: {fileID: 0}
 --- !u!114 &-5287722650604728149
@@ -281,14 +344,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab951ce7592ed494a836a864f60dd14b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rigidBody: {fileID: 1003348649838259503}
   _damageRatio: 10
   _minimalImpuls: 10
   _effect: {fileID: 970440554703164915, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
   _touchSword: 0
+  hitSounds: []
   Icon9: {fileID: 0}
   Icon15: {fileID: 0}
---- !u!114 &9200581270937596200
+--- !u!114 &5702379111456223531
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,7 +360,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6512476121007013074}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c8346b15b5c60247b7b985ab40c0d4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -305,8 +368,8 @@ MonoBehaviour:
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1
-  m_SelectMode: 1
-  m_FocusMode: 2
+  m_SelectMode: 0
+  m_FocusMode: 1
   m_CustomReticle: {fileID: 0}
   m_AllowGazeInteraction: 0
   m_AllowGazeSelect: 0
@@ -434,3 +497,29 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 1
+  _maxGrabDistance: 0.1
+  _secondAttachPoint: {fileID: 0}
+  TwoHandGrabbing: 1
+  _isShield: 0
+  handModel: {fileID: 0}
+  _firstInteractor: {fileID: 0}
+--- !u!114 &4217685199811963288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6512476121007013074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1d1475991decb4d9d1d22b96af3cec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inSlot: 0
+  slotRotation: {x: 0, y: 0, z: 0}
+  currentSlot: {fileID: 0}
+  originalRotation: {x: 0, y: 0, z: 0}
+  originalScale: {x: 0, y: 0, z: 0}
+  ScaleInSlot: 0.2
+  RotationInSlot: {x: 0, y: 0, z: 0, w: 1}
+  PositionOffset: {x: 0, y: 0, z: 0}
