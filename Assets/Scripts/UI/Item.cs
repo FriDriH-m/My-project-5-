@@ -12,10 +12,12 @@ public class Item : MonoBehaviour
     [SerializeField] public float ScaleInSlot = 0.2f;
     [SerializeField] public Quaternion RotationInSlot = Quaternion.Euler(0f, 0f, 0f);
     [SerializeField] public Vector3 PositionOffset;
+    public Vector3 originalPosition;
 
     void Start()
     {
         originalScale = transform.localScale; // Новое: запоминаем начальный масштаб
         originalRotation = transform.localEulerAngles;
+        originalPosition = transform.localPosition;
     }
 }

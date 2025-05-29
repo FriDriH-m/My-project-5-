@@ -415,6 +415,7 @@ MonoBehaviour:
   ScaleInSlot: 0.2
   RotationInSlot: {x: -0.70710677, y: 0, z: 0, w: 0.70710677}
   PositionOffset: {x: 0, y: -0.14, z: 0}
+  originalPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &6707775800371181629
 MonoBehaviour:
   m_ObjectHideFlags: 0

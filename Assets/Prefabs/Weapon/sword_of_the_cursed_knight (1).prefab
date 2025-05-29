@@ -303,7 +303,19 @@ MonoBehaviour:
       m_Calls: []
   m_FirstSelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -938959843060134445}
+        m_TargetAssemblyTypeName: Hints, Assembly-CSharp
+        m_MethodName: OnGrabHint
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_LastSelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -368,9 +380,9 @@ MonoBehaviour:
   m_AttachEaseInTime: 0.15
   m_MovementType: 0
   m_VelocityDamping: 1
-  m_VelocityScale: 0.2
+  m_VelocityScale: 0.3
   m_AngularVelocityDamping: 1
-  m_AngularVelocityScale: 0.2
+  m_AngularVelocityScale: 0.3
   m_TrackPosition: 1
   m_SmoothPosition: 0
   m_SmoothPositionAmount: 8
@@ -379,7 +391,7 @@ MonoBehaviour:
   m_SmoothRotation: 0
   m_SmoothRotationAmount: 8
   m_TightenRotation: 0.1
-  m_TrackScale: 1
+  m_TrackScale: 0
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
   m_TightenScale: 0.1
@@ -411,6 +423,7 @@ MonoBehaviour:
   _maxGrabDistance: 0.25
   _secondAttachPoint: {fileID: 0}
   TwoHandGrabbing: 1
+  _isShield: 0
   handModel: {fileID: 0}
   _firstInteractor: {fileID: 0}
 --- !u!114 &1537151743485354822
@@ -430,9 +443,10 @@ MonoBehaviour:
   currentSlot: {fileID: 0}
   originalRotation: {x: 0, y: 0, z: 0}
   originalScale: {x: 0, y: 0, z: 0}
-  ScaleInSlot: 0.2
+  ScaleInSlot: 0.15
   RotationInSlot: {x: 0, y: 0, z: 0, w: 1}
-  PositionOffset: {x: 0, y: 0, z: 0}
+  PositionOffset: {x: 0, y: -0.11, z: 0}
+  originalPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &8813714636442894859
 MonoBehaviour:
   m_ObjectHideFlags: 0
