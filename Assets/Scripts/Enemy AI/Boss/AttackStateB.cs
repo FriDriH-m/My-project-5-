@@ -7,6 +7,8 @@ public class AttackStateB : BaseStateBoss
     public override void EnterState(BossStateManager manager)
     {
         manager.SetSpeed(0);
+        manager.animator.SetBool("Walk Left", false);
+        manager.animator.SetBool("Walk Right", false);
     }
     public override void ExitState(BossStateManager manager)
     {

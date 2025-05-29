@@ -10313,6 +10313,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 169331273}
+    - target: {fileID: 7148152777675263034, guid: f4533630ebd45b043b5b1852799b3b70, type: 3}
+      propertyPath: agroDistance
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12369,10 +12373,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 4514349628423195940, guid: f4cabd4865deda24787f4472089a0e0a, type: 3}
-      propertyPath: _tag
-      value: Golem
-      objectReference: {fileID: 0}
     - target: {fileID: 4664217115024701546, guid: f4cabd4865deda24787f4472089a0e0a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.9404
@@ -12705,6 +12705,34 @@ PrefabInstance:
       propertyPath: _damageRatio
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5545903241318606407, guid: ab8ac2017bc4c9e40b484324e5ee20e7, type: 3}
+      propertyPath: hitSounds.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5545903241318606407, guid: ab8ac2017bc4c9e40b484324e5ee20e7, type: 3}
+      propertyPath: 'hitSounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 8e4668d8b5827224cb11e3370c8044d4, type: 3}
+    - target: {fileID: 5545903241318606407, guid: ab8ac2017bc4c9e40b484324e5ee20e7, type: 3}
+      propertyPath: 'hitSounds.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 445169f292f0233468befbb5f93f12bb, type: 3}
+    - target: {fileID: 5545903241318606407, guid: ab8ac2017bc4c9e40b484324e5ee20e7, type: 3}
+      propertyPath: 'hitSounds.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 6ba71d07c930fe944876440504c02fd7, type: 3}
+    - target: {fileID: 5545903241318606407, guid: ab8ac2017bc4c9e40b484324e5ee20e7, type: 3}
+      propertyPath: 'hitSounds.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ac7fcca958223904ebe8256c13603ae4, type: 3}
+    - target: {fileID: 5545903241318606407, guid: ab8ac2017bc4c9e40b484324e5ee20e7, type: 3}
+      propertyPath: 'hitSounds.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: a3ead4168ab9e2b4a97c1d7c6eb3e05b, type: 3}
+    - target: {fileID: 5545903241318606407, guid: ab8ac2017bc4c9e40b484324e5ee20e7, type: 3}
+      propertyPath: 'hitSounds.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 8cf50564621ddbe48840eea48f1ab532, type: 3}
     - target: {fileID: 8653598041467451371, guid: ab8ac2017bc4c9e40b484324e5ee20e7, type: 3}
       propertyPath: m_Mass
       value: 13
@@ -17039,7 +17067,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 81.910576
+      value: 194.6
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -17047,7 +17075,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 52.1701
+      value: -82.1
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.w

@@ -22,6 +22,8 @@ public class BossStateManager : MonoBehaviour
     public bool isAttacking = false;
     bool _isStrafing = false;
     public int _strafingSide;
+    public Coroutine _runCoroutine;
+    public DamageCount damageCount;
 
     BaseStateBoss currentState;
     public IdleStateB idleState = new();
@@ -61,6 +63,7 @@ public class BossStateManager : MonoBehaviour
     }
     private void Start()
     {
+        damageCount = GetComponent<DamageCount>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         enemy = transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -81,11 +84,13 @@ public class BossStateManager : MonoBehaviour
             StopCoroutine(_runCoroutine);
             _runCoroutine = null;
 
+            animator.SetBool("Run", false);
             SetSpeed(0);
             navMeshAgent.velocity = Vector3.zero;
             navMeshAgent.nextPosition = enemy.transform.position;
 
             isAttacking = true;
+            damageCount.attacking = true;
             animator.SetBool("Attack R move", true);
             animator.SetBool("Walk", false);
             animator.SetBool("Run", false);
@@ -96,12 +101,13 @@ public class BossStateManager : MonoBehaviour
     {
         if (attackMove)
         {
+            damageCount.attacking = true;
             float moveSpeed;
             if (runAttack)
             {
-                moveSpeed = 20;
+                moveSpeed = 23;
             }
-            else moveSpeed = 10;
+            else moveSpeed = 14;
             float step = moveSpeed * Time.deltaTime;
             enemy.position = Vector3.MoveTowards(
                 enemy.position,
@@ -109,7 +115,7 @@ public class BossStateManager : MonoBehaviour
                 step
             );
 
-            if (Vector3.Distance(enemy.position, player.position) <= 2.5f)
+            if (Vector3.Distance(enemy.position, player.position) <= 2.2f)
             {
                 attackMove = false;
                 animator.SetBool("Attack R move", false);
@@ -144,9 +150,10 @@ public class BossStateManager : MonoBehaviour
     }
     public void Attack()
     {
-        int chanceOfAttack = Random.Range(0, 5);
+        int chanceOfAttack = Random.Range(0, 3);
         if (!isAttacking && chanceOfAttack == 1)
         {
+            damageCount.attacking = true;
             if (CheckDistance() > attackDistance - 4)
             {
                 int randInt = Random.Range(0, 2);
@@ -209,6 +216,7 @@ public class BossStateManager : MonoBehaviour
             animator.SetBool(moveAttacks[i], false);
         }
         isAttacking = false;
+        damageCount.attacking = false;
         _isStrafing = false;
     }
 }

@@ -3017,7 +3017,7 @@ MonoBehaviour:
   player: {fileID: 0}
   enemy: {fileID: 6262126278943768612}
   walkSpeed: 3
-  agroDistance: 20
+  agroDistance: 30
   attackDistance: 8
   angleSpeed: 28
   animator: {fileID: 7963382207250586107}
@@ -3025,6 +3025,7 @@ MonoBehaviour:
   canSwitchState: 0
   isAttacking: 0
   _strafingSide: 0
+  damageCount: {fileID: 0}
 --- !u!114 &5129722235249542548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3041,7 +3042,13 @@ MonoBehaviour:
   _enemyStateManager: {fileID: 7148152777675263034}
   _zoneTriggerManager: {fileID: 0}
   _tag: Great_Sword
+  _playerDamage: {fileID: 0}
+  timeNoAttaking: 2
+  _golemHand1: {fileID: 0}
+  _golemHand2: {fileID: 0}
   hitPoints: 500
+  attacking: 0
+  startHitPoints: 0
 --- !u!1 &6765862475843297879
 GameObject:
   m_ObjectHideFlags: 0

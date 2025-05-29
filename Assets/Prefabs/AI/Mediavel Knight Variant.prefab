@@ -1193,6 +1193,7 @@ MonoBehaviour:
   angleSpeed: 28
   animator: {fileID: 3259185624867660188}
   retreatSpeed: 1
+  damageCount: {fileID: 0}
   isAnimation: 0
   isAnimationDown: 0
   isAttacking: 0
@@ -1227,9 +1228,14 @@ MonoBehaviour:
   animator: {fileID: 3259185624867660188}
   _enemyStateManager: {fileID: 6286350708632887093}
   _zoneTriggerManager: {fileID: 3295483736139627767}
-  weapon: {fileID: 0}
   _tag: Great_Sword
+  _playerDamage: {fileID: 0}
+  timeNoAttaking: 1
+  _golemHand1: {fileID: 0}
+  _golemHand2: {fileID: 0}
   hitPoints: 150
+  attacking: 0
+  startHitPoints: 0
 --- !u!1 &1416023509306305515 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 762302269045348471, guid: 7bfb12a93254dda43b5f3cb7488ccf29, type: 3}
@@ -1585,7 +1591,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_CenterOfMass: {x: 0, y: 0.1, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -1594,7 +1600,7 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
+  m_ImplicitCom: 0
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 1

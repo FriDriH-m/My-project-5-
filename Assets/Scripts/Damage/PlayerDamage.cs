@@ -37,7 +37,7 @@ public class PlayerDamage : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Great_Sword"))
         {
-            //Debug.Log("Great Sword урон");            
+            
             if (_damageCount != null)
             {
                 _damageCount.StartCoroutine(_damageCount.CanHit());
@@ -51,7 +51,7 @@ public class PlayerDamage : MonoBehaviour
                 }
                 else
                 {
-                
+                    Debug.Log("Great Sword урон");
                     hitPoints -= 60;
                 }
             }
