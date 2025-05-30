@@ -6945,6 +6945,7 @@ GameObject:
   - component: {fileID: -2716881243928964296}
   - component: {fileID: 7336352470903973290}
   - component: {fileID: 8618990876705176008}
+  - component: {fileID: -6797687606406120629}
   m_Layer: 0
   m_Name: Mediavel Knight Axe Variant
   m_TagString: Box_Key
@@ -7022,7 +7023,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!195 &234980337838001310
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -7109,6 +7110,69 @@ MonoBehaviour:
   hitPoints: 100
   attacking: 0
   startHitPoints: 0
+--- !u!205 &-6797687606406120629
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8903397567811971216}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.029729651
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1381199254766970284}
+    - renderer: {fileID: 6459647694565034749}
+    - renderer: {fileID: 4315855241712580304}
+    - renderer: {fileID: 978771152104949632}
+    - renderer: {fileID: 6426689639879609942}
+    - renderer: {fileID: 5932768542746152537}
+    - renderer: {fileID: 8400825260350626984}
+    - renderer: {fileID: 2740285602471087159}
+    - renderer: {fileID: 4011224651232068863}
+    - renderer: {fileID: 6247057944194151395}
+    - renderer: {fileID: 6718376504797548731}
+    - renderer: {fileID: 3996539548990624119}
+    - renderer: {fileID: 6409802118257639107}
+    - renderer: {fileID: 2423499321463535622}
+    - renderer: {fileID: 2476609525659719096}
+    - renderer: {fileID: 803508773318596692}
+    - renderer: {fileID: 3579100449759313763}
+    - renderer: {fileID: 6239685328331913941}
+    - renderer: {fileID: 2913702504002595706}
+    - renderer: {fileID: 4284559714136286896}
+    - renderer: {fileID: 226778692118238638}
+    - renderer: {fileID: 7760439881913808428}
+    - renderer: {fileID: 3665122817176220651}
+    - renderer: {fileID: 5992192353679402942}
+    - renderer: {fileID: 8753961379035436117}
+    - renderer: {fileID: 477635308796026060}
+    - renderer: {fileID: 2267122461255226697}
+    - renderer: {fileID: 365677988601274761}
+    - renderer: {fileID: 42690063098061071}
+    - renderer: {fileID: 452957534833895204}
+    - renderer: {fileID: 1241548081124729656}
+    - renderer: {fileID: 890068946704665276}
+    - renderer: {fileID: 7067494494338661077}
+    - renderer: {fileID: 7577118682618402591}
+    - renderer: {fileID: 9158291963326801727}
+    - renderer: {fileID: 6388967912391253628}
+    - renderer: {fileID: 6519397071607349911}
+    - renderer: {fileID: 4188033555903574351}
+    - renderer: {fileID: 3669275329106247822}
+    - renderer: {fileID: 2205091804903506383}
+    - renderer: {fileID: 5171492086099386591}
+    - renderer: {fileID: 5648342900109182515}
+    - renderer: {fileID: 1787178368763180604}
+    - renderer: {fileID: 3598985121139723547}
+    - renderer: {fileID: 5265267805501038312}
+  m_Enabled: 1
 --- !u!1 &8940899612424531752
 GameObject:
   m_ObjectHideFlags: 0
