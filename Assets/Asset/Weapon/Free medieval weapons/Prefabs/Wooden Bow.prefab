@@ -732,7 +732,7 @@ GameObject:
   - component: {fileID: 2403468641668057906}
   m_Layer: 0
   m_Name: Wooden Bow
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -861,9 +861,11 @@ MonoBehaviour:
   secondPoint: {fileID: 0}
   tetiva: {fileID: 1798074416387974}
   arrow: {fileID: 1959729250425484, guid: 5187dfa4d8f19524e8bbf7c6894b7de7, type: 3}
-  hitArrowSounds: []
+  hitArrowSounds:
+  - {fileID: 8300000, guid: 41c0003bf64ab45498afe804b94a5242, type: 3}
+  - {fileID: 8300000, guid: f6206b7df778dac4591d89252bfba0e7, type: 3}
   Shoots: 0
-  spawnPoint: {fileID: 0}
+  spawnPoint: {fileID: 5353983558811037406}
 --- !u!114 &2403468641668057906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -960,8 +962,8 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
-  m_AttachTransform: {fileID: 0}
-  m_SecondaryAttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 8127989871007206136}
+  m_SecondaryAttachTransform: {fileID: 7400042477012742408}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
   m_MatchAttachRotation: 1
@@ -1010,7 +1012,7 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 1
-  _maxGrabDistance: 0.1
+  _maxGrabDistance: 0.12
   _secondAttachPoint: {fileID: 0}
   TwoHandGrabbing: 1
   _isShield: 0

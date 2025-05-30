@@ -947,8 +947,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.41, y: 0.4, z: 0.22}
-  m_Center: {x: 0, y: 0.27, z: 0.1}
+  m_Size: {x: 0.45209944, y: 0.46563053, z: 0.22000001}
+  m_Center: {x: -0.021049784, y: 0.3028161, z: 0.10000001}
 --- !u!114 &2594575234671589260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,7 +1212,7 @@ MonoBehaviour:
   enemy: {fileID: 4347635597072364099}
   walkSpeed: 3
   agroDistance: 13
-  attackDistance: 3
+  attackDistance: 2.8
   angleSpeed: 28
   animator: {fileID: 7689275547505567801}
   retreatSpeed: 1
