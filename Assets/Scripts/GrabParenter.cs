@@ -28,6 +28,7 @@ public class GrabParenter : MonoBehaviour
     protected Item item;
     protected Slot currentSlot;
     [SerializeField] protected AudioClip _selectItem;
+    [SerializeField] protected AudioClip Grab;
     [SerializeField] protected AudioSource _audioSource;
     BossDoor bossDoor;
 
@@ -78,12 +79,12 @@ public class GrabParenter : MonoBehaviour
     {
         interactable = args.interactableObject.transform;
         interactor = args.interactorObject.transform;
-        
+        _audioSource.PlayOneShot(Grab);
         if (item != null && item.inSlot)
         {
             interactable.localScale = item.originalScale; // Возвращаем исходный размер
             interactable.localEulerAngles = item.originalRotation;
-            interactable.localPosition = item.originalPosition;
+            interactable.localPosition -= item.PositionOffset;
             _audioSource.PlayOneShot(_selectItem);
             currentSlot = item.currentSlot;
             if (currentSlot != null)

@@ -14,8 +14,8 @@ public class InventoryVR : MonoBehaviour
     [SerializeField] AudioSource _audioSource;
     private void Awake()
     {
-        Inventory.SetActive(true);
-        UIActive = true;
+        Inventory.SetActive(false);
+        UIActive = false;
     }
 
     private void Update()

@@ -15,7 +15,10 @@ public class PlayerDamage : MonoBehaviour
     public AudioClip[] hitGolemSounds;
     public int Deaths = 0;
     public bool Damage = false;
+    public AudioClip Hit;
     public DataAchievement Icon16;
+    [SerializeField] private Image fadeOverlay; // Перетащите сюда FadeOverlay
+    [SerializeField] private float fadeInDuration = 2.0f; // Длительность проявления
     private void Start()
     {
         hitPoints = 200f;
@@ -32,7 +35,7 @@ public class PlayerDamage : MonoBehaviour
         DamageCount _damageCount = other.GetComponentInParent<DamageCount>();
         if (_damageCount != null && !_damageCount.attacking)
         {
-            Debug.Log("Враг не атакует");
+            //Debug.Log("Враг не атакует");
             return;
         }
         if (other.gameObject.CompareTag("Great_Sword"))
@@ -46,16 +49,17 @@ public class PlayerDamage : MonoBehaviour
             {
                 if (_weaponDamage._touchSword)
                 {
-                    Debug.Log("Урон не прошел, блокировал");
+                    //Debug.Log("Урон не прошел, блокировал");
                     return;
                 }
                 else
                 {
-                    Debug.Log("Great Sword урон");
+                    //Debug.Log("Great Sword урон");
+                    PlayerHit();
                     hitPoints -= 60;
                 }
             }
-            else hitPoints -= 60; 
+            else { hitPoints -= 60; PlayerHit(); } 
             Damage = true;
             HitSound();
         }
@@ -75,14 +79,14 @@ public class PlayerDamage : MonoBehaviour
                 }
                 else
                 {
-                    
                     hitPoints -= 30;
+                    PlayerHit();
                 }
             }
             else
             {
-                
                 hitPoints -= 30; 
+                PlayerHit();
             }
 
             Damage = true;
@@ -105,14 +109,13 @@ public class PlayerDamage : MonoBehaviour
                 }
                 else 
                 {
-                    
-                    hitPoints -= 20; 
+                    hitPoints -= 20;
+                    PlayerHit();
                 }
             }
-            else hitPoints -= 20;
+            else { hitPoints -= 20; PlayerHit(); }
             Damage = true;
             HitSound();
-
         }
         else if (other.gameObject.CompareTag("Golem"))
         {
@@ -123,9 +126,10 @@ public class PlayerDamage : MonoBehaviour
             }
             if (_weaponDamage != null)
             {
-                 hitPoints -= 90; 
+                 hitPoints -= 90;
+                 PlayerHit();
             }
-            else hitPoints -= 90;
+            else { hitPoints -= 90; PlayerHit(); }
             Damage = true;
             HitGolemSound();
         }
@@ -155,7 +159,10 @@ public class PlayerDamage : MonoBehaviour
             audioSource.PlayOneShot(hitSounds[randomSoundIndex]);
         }
     }
-
+    private void PlayerHit()
+    {
+        audioSource.PlayOneShot(Hit);
+    }
     public void HitGolemSound()
     {
         if (hitGolemSounds.Length > 0)
@@ -167,10 +174,33 @@ public class PlayerDamage : MonoBehaviour
     }
     public IEnumerator Revive()
     {
+        StartFadeEffect();
         yield return new WaitForSeconds(0.1f);
         Deaths+=1;
         hitPoints = 200;
         HealthBar();
         transform.parent.position = reviveCoordination;
+    }
+
+    public void StartFadeEffect()
+    {
+        fadeOverlay.color = new Color(0, 0, 0, 1);
+        StartCoroutine(FadeIn());
+    }
+
+    public IEnumerator FadeIn()
+    {
+        float elapsedTime = 0f;
+        Color startColor = fadeOverlay.color;
+        Color targetColor = new Color(0, 0, 0, 0); // Полная прозрачность
+
+        while (elapsedTime < fadeInDuration)
+        {
+            fadeOverlay.color = Color.Lerp(startColor, targetColor, elapsedTime / fadeInDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        fadeOverlay.color = targetColor; // Финализируем прозрачность
     }
 }

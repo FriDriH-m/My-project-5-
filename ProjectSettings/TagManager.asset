@@ -20,6 +20,7 @@ TagManager:
   - Arrow
   - Key
   - Start_Weapon
+  - LeafyBush
   layers:
   - Default
   - TransparentFX
