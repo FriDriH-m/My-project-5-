@@ -105,7 +105,6 @@ public class PlayerDamage : MonoBehaviour
             {
                 if (_weaponDamage._touchSword)
                 {
-                    Debug.Log("Óðîí íå ïðîøåë, áëîêèðîâàë");
                     return;
                 }
                 else 

@@ -94,7 +94,7 @@ public class DamageCount : MonoBehaviour
     {
         if (_golemHand1 != null)
         {
-            _golemHand1.tag = "Untaggeg";
+            _golemHand1.tag = "Untagged";
             _golemHand2.tag = "Untagged";
             yield return new WaitForSeconds(timeNoAttaking);
             _golemHand1.tag = _tag;
