@@ -17,8 +17,8 @@ public class PlayerDamage : MonoBehaviour
     public bool Damage = false;
     public AudioClip Hit;
     public DataAchievement Icon16;
-    [SerializeField] private Image fadeOverlay; // Ïåðåòàùèòå ñþäà FadeOverlay
-    [SerializeField] private float fadeInDuration = 2.0f; // Äëèòåëüíîñòü ïðîÿâëåíèÿ
+    [SerializeField] private Image fadeOverlay; 
+    [SerializeField] private float fadeInDuration = 2.0f;
     private void Start()
     {
         hitPoints = 200f;
@@ -190,10 +190,11 @@ public class PlayerDamage : MonoBehaviour
 
     public IEnumerator FadeIn()
     {
+        fadeOverlay.enabled = true;
         float elapsedTime = 0f;
         Color startColor = fadeOverlay.color;
         Color targetColor = new Color(0, 0, 0, 0); // Ïîëíàÿ ïðîçðà÷íîñòü
-
+        yield return new WaitForSeconds(1f);
         while (elapsedTime < fadeInDuration)
         {
             fadeOverlay.color = Color.Lerp(startColor, targetColor, elapsedTime / fadeInDuration);
@@ -202,5 +203,6 @@ public class PlayerDamage : MonoBehaviour
         }
 
         fadeOverlay.color = targetColor; // Ôèíàëèçèðóåì ïðîçðà÷íîñòü
+        fadeOverlay.enabled = false;
     }
 }

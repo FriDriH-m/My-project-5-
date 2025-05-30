@@ -8,13 +8,14 @@ public class HoleScript : MonoBehaviour
     private Transform _parent;
     public int Falls;
     public DataAchievement Icon8;
+    public AudioClip WeaponTeleport;
     private void OnTriggerEnter(Collider other)
     {        
         if (other.transform.CompareTag("Weapon"))
         {
             Debug.Log("Есть");
             FindParent(other);
-            if (_parent != null) 
+            if (_parent != null)
             {
                 _parent.transform.position = player.position + new Vector3(2, 2, 0);
                 _parent.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
@@ -27,6 +28,10 @@ public class HoleScript : MonoBehaviour
                 other.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
                 other.transform.rotation = Quaternion.identity;
                 Instantiate(_effect, other.transform.position, Quaternion.identity);
+                if (other.gameObject.GetComponent<AudioSource>() != null)
+                {
+                    other.gameObject.GetComponent<AudioSource>().PlayOneShot(WeaponTeleport);
+                }
             }            
         }
         if (other.GetComponentInChildren<PlayerDamage>() != null)

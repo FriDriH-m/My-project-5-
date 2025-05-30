@@ -18,6 +18,7 @@ public class WeaponDamage : MonoBehaviour
     public AudioClip[] hitSounds;
     public DataAchievement Icon9;
     public DataAchievement Icon15;
+    private float _lastHitTime;
     float _impulsValue 
     { 
         get { return _instImpuls; } 
@@ -43,11 +44,12 @@ public class WeaponDamage : MonoBehaviour
         HitZone hitZone = collision.collider.GetComponentInParent<HitZone>();
         DamageCount _damageCount = collision.collider.GetComponentInParent<DamageCount>();
         Animator _animator = collision.collider.GetComponentInParent<Animator>();
-
+        Debug.Log("удар по приколу");
         _impulsValue = impuls * _damageRatio;
         if (collision.gameObject.CompareTag("Weapon") || collision.gameObject.CompareTag("Secret_Weapon"))
         {
-            HitSound();
+            HitOurSound();
+            Debug.Log("удар по щиту");
         }
         if (hitZone != null && _canHit) 
         {
@@ -125,14 +127,22 @@ public class WeaponDamage : MonoBehaviour
             }
         }
     }
-    public void HitSound()
+    public void HitOurSound()
     {
-        if (hitSounds.Length > 0)
+        float cooldown = 0.6f;
+        if (Time.time - _lastHitTime >= cooldown)
         {
+            _lastHitTime = Time.time; // Фиксируем время запуска
             int randomSoundIndex = Random.Range(0, hitSounds.Length);
             audioSource.pitch = Random.Range(0.9f, 1.1f);  // Чуть меняем тон
             audioSource.PlayOneShot(hitSounds[randomSoundIndex]);
         }
+    }
+    public void HitSound()
+    {
+            int randomSoundIndex = Random.Range(0, hitSounds.Length);
+            audioSource.pitch = Random.Range(0.9f, 1.1f);  // Чуть меняем тон
+            audioSource.PlayOneShot(hitSounds[randomSoundIndex]);
     }
 
     private void Effects(Collision collision)

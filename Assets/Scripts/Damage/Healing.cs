@@ -18,7 +18,9 @@ public class Healing : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Item item = GetComponent<Item>();
         if (other != _podorozhniktrigger) return;
+        if (item.inSlot == true) return;
         if (_playerDamage.hitPoints == 200) return;
         ApplyHealing();
         DisableBush();

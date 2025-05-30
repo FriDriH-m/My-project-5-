@@ -1066,6 +1066,7 @@ MonoBehaviour:
   _effect: {fileID: 1301697207402410478, guid: 39f852c28f9c3fd45a427c24f3564ba7, type: 3}
   Falls: 0
   Icon8: {fileID: 11400000, guid: d955451df3ed497429a134c3fd2052c2, type: 2}
+  WeaponTeleport: {fileID: 8300000, guid: d1baf514e8e35ff418c3029c33d6ac06, type: 3}
 --- !u!1 &41028796
 GameObject:
   m_ObjectHideFlags: 0
@@ -6610,6 +6611,10 @@ PrefabInstance:
       propertyPath: _podorozhniktrigger
       value: 
       objectReference: {fileID: 100908059}
+    - target: {fileID: 6710754210251940251, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
+      propertyPath: inSlot
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6710754210251940251, guid: 2735768faf04dbb4d95d7523b2a00772, type: 3}
       propertyPath: ScaleInSlot
       value: 0.3
@@ -16692,7 +16697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 193.99629
+      value: -4.8
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16700,7 +16705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -82.77239
+      value: 4.8
       objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -22910,7 +22915,7 @@ PrefabInstance:
       objectReference: {fileID: 1779736369}
     - target: {fileID: 3330559771550602255, guid: 310bbc9d8d9393c49b42a09f7ed0a319, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.14296
+      value: 84.2
       objectReference: {fileID: 0}
     - target: {fileID: 3330559771550602255, guid: 310bbc9d8d9393c49b42a09f7ed0a319, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22918,7 +22923,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3330559771550602255, guid: 310bbc9d8d9393c49b42a09f7ed0a319, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 14.283073
+      value: 71
       objectReference: {fileID: 0}
     - target: {fileID: 3330559771550602255, guid: 310bbc9d8d9393c49b42a09f7ed0a319, type: 3}
       propertyPath: m_LocalRotation.w
