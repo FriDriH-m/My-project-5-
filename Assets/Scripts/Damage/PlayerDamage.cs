@@ -74,8 +74,7 @@ public class PlayerDamage : MonoBehaviour
                     return;
                 }
                 else
-                {
-                    
+                {                    
                     hitPoints -= 30;
                 }
             }
@@ -104,8 +103,7 @@ public class PlayerDamage : MonoBehaviour
                     return;
                 }
                 else 
-                {
-                    
+                {                    
                     hitPoints -= 20; 
                 }
             }

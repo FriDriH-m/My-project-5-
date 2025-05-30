@@ -28,7 +28,7 @@ public class SecondDoorTrigger : MonoBehaviour
         }
         if (Vector3.Distance(door.transform.position, targetPosition) < 0.01f) shouldMove = false;
         if (TargetScript.targetCount == 4)
-        if (!shouldMove)
+        if (shouldMove)
             audioSource.Play();
         else
             audioSource.Stop();
