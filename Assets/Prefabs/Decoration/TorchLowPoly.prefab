@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4812976289834802688}
   - component: {fileID: 7291282882527226570}
   - component: {fileID: 5103127363897235488}
+  - component: {fileID: 3196068546226215163}
   m_Layer: 0
   m_Name: TorchLowPoly
   m_TagString: Untagged
@@ -111,6 +112,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.1815209, y: 0.5945208, z: 0.15664236}
   m_Center: {x: 0.0075039864, y: 0.30059642, z: -0.006721206}
+--- !u!205 &3196068546226215163
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9092533823991991071}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.0075039864, y: 0.30059642, z: -0.006721206}
+  m_Size: 0.5945208
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.06398536
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7291282882527226570}
+  m_Enabled: 1
 --- !u!1001 &38903397106565751
 PrefabInstance:
   m_ObjectHideFlags: 0
