@@ -15,7 +15,10 @@ public class PlayerDamage : MonoBehaviour
     public AudioClip[] hitGolemSounds;
     public int Deaths = 0;
     public bool Damage = false;
+    public AudioClip Hit;
     public DataAchievement Icon16;
+    [SerializeField] private Image fadeOverlay; // ГЏГҐГ°ГҐГІГ Г№ГЁГІГҐ Г±ГѕГ¤Г  FadeOverlay
+    [SerializeField] private float fadeInDuration = 2.0f; // Г„Г«ГЁГІГҐГ«ГјГ­Г®Г±ГІГј ГЇГ°Г®ГїГўГ«ГҐГ­ГЁГї
     private void Start()
     {
         hitPoints = 200f;
@@ -32,7 +35,7 @@ public class PlayerDamage : MonoBehaviour
         DamageCount _damageCount = other.GetComponentInParent<DamageCount>();
         if (_damageCount != null && !_damageCount.attacking)
         {
-            Debug.Log("Враг не атакует");
+            //Debug.Log("Г‚Г°Г ГЈ Г­ГҐ Г ГІГ ГЄГіГҐГІ");
             return;
         }
         if (other.gameObject.CompareTag("Great_Sword"))
@@ -46,22 +49,23 @@ public class PlayerDamage : MonoBehaviour
             {
                 if (_weaponDamage._touchSword)
                 {
-                    Debug.Log("Урон не прошел, блокировал");
+                    //Debug.Log("Г“Г°Г®Г­ Г­ГҐ ГЇГ°Г®ГёГҐГ«, ГЎГ«Г®ГЄГЁГ°Г®ГўГ Г«");
                     return;
                 }
                 else
                 {
-                    Debug.Log("Great Sword урон");
+                    //Debug.Log("Great Sword ГіГ°Г®Г­");
+                    PlayerHit();
                     hitPoints -= 60;
                 }
             }
-            else hitPoints -= 60; 
+            else { hitPoints -= 60; PlayerHit(); } 
             Damage = true;
             HitSound();
         }
         else if (other.gameObject.CompareTag("Sword"))
         {
-            //Debug.Log("Sword урон");
+            //Debug.Log("Sword ГіГ°Г®Г­");
             if (_damageCount != null)
             {
                 _damageCount.StartCoroutine(_damageCount.CanHit());
@@ -70,18 +74,20 @@ public class PlayerDamage : MonoBehaviour
             {
                 if (_weaponDamage._touchSword)
                 {
-                    Debug.Log("Урон не прошел, блокировал");
+                    Debug.Log("Г“Г°Г®Г­ Г­ГҐ ГЇГ°Г®ГёГҐГ«, ГЎГ«Г®ГЄГЁГ°Г®ГўГ Г«");
                     return;
                 }
                 else
-                {                    
+                {
+
                     hitPoints -= 30;
+                    PlayerHit();
                 }
             }
             else
             {
-                
                 hitPoints -= 30; 
+                PlayerHit();
             }
 
             Damage = true;
@@ -89,7 +95,7 @@ public class PlayerDamage : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Axe"))
         {
-            //Debug.Log("Axe урон");
+            //Debug.Log("Axe ГіГ°Г®Г­");
             if (_damageCount != null)
             {
                 _damageCount.StartCoroutine(_damageCount.CanHit());
@@ -99,31 +105,32 @@ public class PlayerDamage : MonoBehaviour
             {
                 if (_weaponDamage._touchSword)
                 {
-                    Debug.Log("Урон не прошел, блокировал");
+                    Debug.Log("Г“Г°Г®Г­ Г­ГҐ ГЇГ°Г®ГёГҐГ«, ГЎГ«Г®ГЄГЁГ°Г®ГўГ Г«");
                     return;
                 }
                 else 
-                {                    
-                    hitPoints -= 20; 
+                {
+                    hitPoints -= 20;
+                    PlayerHit();
                 }
             }
-            else hitPoints -= 20;
+            else { hitPoints -= 20; PlayerHit(); }
             Damage = true;
             HitSound();
-
         }
         else if (other.gameObject.CompareTag("Golem"))
         {
-            //Debug.Log("Golem урон");
+            //Debug.Log("Golem ГіГ°Г®Г­");
             if (_damageCount != null)
             {
                 _damageCount.StartCoroutine(_damageCount.CanHit());
             }
             if (_weaponDamage != null)
             {
-                 hitPoints -= 90; 
+                 hitPoints -= 90;
+                 PlayerHit();
             }
-            else hitPoints -= 90;
+            else { hitPoints -= 90; PlayerHit(); }
             Damage = true;
             HitGolemSound();
         }
@@ -135,7 +142,7 @@ public class PlayerDamage : MonoBehaviour
                 Icon16._unlocked = true;
             }
             StartCoroutine(Revive());
-            //Смерть игрока
+            //Г‘Г¬ГҐГ°ГІГј ГЁГЈГ°Г®ГЄГ 
         }
 
     }
@@ -149,26 +156,52 @@ public class PlayerDamage : MonoBehaviour
         if (hitSounds.Length > 0)
         {
             int randomSoundIndex = Random.Range(0, hitSounds.Length);
-            audioSource.pitch = Random.Range(0.9f, 1.1f);  // Чуть меняем тон
+            audioSource.pitch = Random.Range(0.9f, 1.1f);  // Г—ГіГІГј Г¬ГҐГ­ГїГҐГ¬ ГІГ®Г­
             audioSource.PlayOneShot(hitSounds[randomSoundIndex]);
         }
     }
-
+    private void PlayerHit()
+    {
+        audioSource.PlayOneShot(Hit);
+    }
     public void HitGolemSound()
     {
         if (hitGolemSounds.Length > 0)
         {
             int randomSoundIndex = Random.Range(0, hitGolemSounds.Length);
-            audioSource.pitch = Random.Range(0.9f, 1.1f);  // Чуть меняем тон
+            audioSource.pitch = Random.Range(0.9f, 1.1f);  // Г—ГіГІГј Г¬ГҐГ­ГїГҐГ¬ ГІГ®Г­
             audioSource.PlayOneShot(hitGolemSounds[randomSoundIndex]);
         }
     }
     public IEnumerator Revive()
     {
+        StartFadeEffect();
         yield return new WaitForSeconds(0.1f);
         Deaths+=1;
         hitPoints = 200;
         HealthBar();
         transform.parent.position = reviveCoordination;
+    }
+
+    public void StartFadeEffect()
+    {
+        fadeOverlay.color = new Color(0, 0, 0, 1);
+        StartCoroutine(FadeIn());
+    }
+
+    public IEnumerator FadeIn()
+    {
+        float elapsedTime = 0f;
+        Color startColor = fadeOverlay.color;
+        Color targetColor = new Color(0, 0, 0, 0); // ГЏГ®Г«Г­Г Гї ГЇГ°Г®Г§Г°Г Г·Г­Г®Г±ГІГј
+
+        while (elapsedTime < fadeInDuration)
+        {
+            fadeOverlay.color = Color.Lerp(startColor, targetColor, elapsedTime / fadeInDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        fadeOverlay.color = targetColor; // Г”ГЁГ­Г Г«ГЁГ§ГЁГ°ГіГҐГ¬ ГЇГ°Г®Г§Г°Г Г·Г­Г®Г±ГІГј
     }
 }

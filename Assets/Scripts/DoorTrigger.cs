@@ -10,7 +10,7 @@ public class DoorTrigger : MonoBehaviour {
         targetPosition = door.transform.position + new Vector3(0f, -0.42f, 0f); 
     }
     public void OnTriggerStay(Collider other) {
-        if (PlitaTrigger.boxCount == 5) { shouldMove = true; }
+        if (PlitaTrigger.boxCount >= 5) { shouldMove = true; }
         else return;
     }
     public void Update() {
@@ -18,5 +18,6 @@ public class DoorTrigger : MonoBehaviour {
             door.transform.position = Vector3.Lerp(door.transform.position, targetPosition, moveSpeed * Time.deltaTime);
         }
         if (Vector3.Distance(door.transform.position, targetPosition) < 0.01f) shouldMove = false;
+        Debug.Log($"{PlitaTrigger.boxCount}");
     }
 }

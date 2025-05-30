@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2859644723555170323}
   - component: {fileID: 7804107692390219941}
   - component: {fileID: 2905841160861742905}
+  - component: {fileID: 6500791084904312892}
   m_Layer: 0
   m_Name: Axe_OS
   m_TagString: Weapon
@@ -245,7 +246,7 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 1179687160404423106}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
@@ -266,7 +267,7 @@ MonoBehaviour:
   m_SmoothRotation: 0
   m_SmoothRotationAmount: 8
   m_TightenRotation: 0.1
-  m_TrackScale: 1
+  m_TrackScale: 0
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
   m_TightenScale: 0.1
@@ -296,8 +297,9 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 1
   _maxGrabDistance: 0.3
-  _secondAttachPoint: {fileID: 0}
+  _secondAttachPoint: {fileID: 2384131323201513359}
   TwoHandGrabbing: 1
+  _isShield: 0
   handModel: {fileID: 0}
   _firstInteractor: {fileID: 0}
 --- !u!114 &1787901314004313729
@@ -386,9 +388,33 @@ MonoBehaviour:
   currentSlot: {fileID: 0}
   originalRotation: {x: 0, y: 0, z: 0}
   originalScale: {x: 0, y: 0, z: 0}
-  ScaleInSlot: 0.2
-  RotationInSlot: {x: 0, y: 0, z: 0, w: 1}
+  ScaleInSlot: 0.15
+  RotationInSlot: {x: -0.70710677, y: 0, z: 0, w: 0.70710677}
   PositionOffset: {x: 0, y: 0, z: 0}
+  originalPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &6500791084904312892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776472905282870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0a1302d0d134fa8a2a5b3bf4aec3c20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PermittedDisplacementAxes: -1
+  m_ConstrainedAxisDisplacementMode: 1
+  m_TwoHandedRotationMode: 1
+  m_AllowOneHandedScaling: 0
+  m_AllowTwoHandedScaling: 0
+  m_OneHandedScaleSpeed: 0.5
+  m_ThresholdMoveRatioForScale: 0.05
+  m_ClampScaling: 0
+  m_MinimumScaleRatio: 0.1
+  m_MaximumScaleRatio: 10
+  m_ScaleMultiplier: 1
 --- !u!1 &3660108737539542416
 GameObject:
   m_ObjectHideFlags: 0

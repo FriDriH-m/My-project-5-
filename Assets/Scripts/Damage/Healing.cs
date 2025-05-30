@@ -4,8 +4,10 @@ using UnityEngine.UI;
 public class Healing : MonoBehaviour
 {
     [SerializeField] public Collider _podorozhniktrigger; //Триггер, который чекает вход подорожника (На MainCamera)
-    [SerializeField] private int _healAmount = 30; // Насколько хиллимся
+    [SerializeField] private int _healAmount; // Насколько хиллимся
     public DataAchievement Icon7;
+    [SerializeField] private AudioClip Eat;
+    [SerializeField] private AudioSource audioSource;
 
     private PlayerDamage _playerDamage;
     public Image Bar;
@@ -46,6 +48,7 @@ public class Healing : MonoBehaviour
 
     private void DisableBush() // Минусует подорожник, чтоб больше не возникал
     {
+        audioSource.PlayOneShot(Eat);
         Destroy(gameObject);
     }
 }

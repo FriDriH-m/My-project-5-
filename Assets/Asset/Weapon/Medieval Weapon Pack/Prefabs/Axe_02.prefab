@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1164126668748223946}
   - component: {fileID: 4071365191182230165}
   - component: {fileID: 3644210471313932345}
+  - component: {fileID: 7120648968016156483}
   m_Layer: 0
   m_Name: Axe_02
   m_TagString: Untagged
@@ -182,7 +183,7 @@ MonoBehaviour:
   m_SmoothRotation: 0
   m_SmoothRotationAmount: 8
   m_TightenRotation: 0.1
-  m_TrackScale: 1
+  m_TrackScale: 0
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
   m_TightenScale: 0.1
@@ -214,6 +215,7 @@ MonoBehaviour:
   _maxGrabDistance: 0.15
   _secondAttachPoint: {fileID: 0}
   TwoHandGrabbing: 0
+  _isShield: 0
   handModel: {fileID: 0}
   _firstInteractor: {fileID: 0}
 --- !u!114 &1164126668748223946
@@ -288,6 +290,29 @@ MonoBehaviour:
   ScaleInSlot: 0.2
   RotationInSlot: {x: 0, y: 0, z: 0, w: 1}
   PositionOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &7120648968016156483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3330559771550602256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0a1302d0d134fa8a2a5b3bf4aec3c20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PermittedDisplacementAxes: -1
+  m_ConstrainedAxisDisplacementMode: 1
+  m_TwoHandedRotationMode: 1
+  m_AllowOneHandedScaling: 0
+  m_AllowTwoHandedScaling: 0
+  m_OneHandedScaleSpeed: 0.5
+  m_ThresholdMoveRatioForScale: 0.05
+  m_ClampScaling: 0
+  m_MinimumScaleRatio: 0.1
+  m_MaximumScaleRatio: 10
+  m_ScaleMultiplier: 1
 --- !u!1 &8067434623092487496
 GameObject:
   m_ObjectHideFlags: 0

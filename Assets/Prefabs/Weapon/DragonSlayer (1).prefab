@@ -331,6 +331,7 @@ MonoBehaviour:
   _secondHandDown: {x: 0, y: 0.2, z: 0}
   _trackPoint: 1
   _selectItem: {fileID: 0}
+  Grab: {fileID: 0}
   _audioSource: {fileID: 0}
 --- !u!114 &-5287722650604728149
 MonoBehaviour:
@@ -523,3 +524,4 @@ MonoBehaviour:
   ScaleInSlot: 0.2
   RotationInSlot: {x: 0, y: 0, z: 0, w: 1}
   PositionOffset: {x: 0, y: 0, z: 0}
+  originalPosition: {x: 0, y: 0, z: 0}

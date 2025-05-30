@@ -2281,6 +2281,7 @@ GameObject:
   - component: {fileID: 7313002014621825062}
   - component: {fileID: 2953954037513776165}
   - component: {fileID: 3972759073966886959}
+  - component: {fileID: 2133261671081098398}
   m_Layer: 0
   m_Name: Mediavel Knight Shield (1)
   m_TagString: Shield
@@ -2358,7 +2359,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!195 &3660138367361106779
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2402,6 +2403,7 @@ MonoBehaviour:
   angleSpeed: 28
   animator: {fileID: 4101218979293415030}
   retreatSpeed: 1
+  damageCount: {fileID: 0}
   isAnimation: 0
   isAnimationDown: 0
   isAttacking: 0
@@ -2439,8 +2441,75 @@ MonoBehaviour:
   _tag: Sword
   _playerDamage: {fileID: 0}
   timeNoAttaking: 1
+  _golemHand1: {fileID: 0}
+  _golemHand2: {fileID: 0}
   hitPoints: 120
+  attacking: 0
   startHitPoints: 0
+--- !u!205 &2133261671081098398
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3426173150031455169}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.027895462
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5127365622479597309}
+    - renderer: {fileID: 983554808497635756}
+    - renderer: {fileID: 6455423621942004945}
+    - renderer: {fileID: 951172755098453255}
+    - renderer: {fileID: 456661503687673096}
+    - renderer: {fileID: 2348262894573623289}
+    - renderer: {fileID: 8215829631479138150}
+    - renderer: {fileID: 7181470267508723630}
+    - renderer: {fileID: 193950156257769650}
+    - renderer: {fileID: 666384775892737002}
+    - renderer: {fileID: 7166776434675653158}
+    - renderer: {fileID: 934285443897472402}
+    - renderer: {fileID: 8476602926098461527}
+    - renderer: {fileID: 8529150858981711593}
+    - renderer: {fileID: 6856075405037261573}
+    - renderer: {fileID: 7325256925053023282}
+    - renderer: {fileID: 186017604403065220}
+    - renderer: {fileID: 8965684190198947883}
+    - renderer: {fileID: 8031852063360265697}
+    - renderer: {fileID: 6279883466092617471}
+    - renderer: {fileID: 4589608156176743805}
+    - renderer: {fileID: 7412414199997855930}
+    - renderer: {fileID: 516653415313845487}
+    - renderer: {fileID: 3278444365407330052}
+    - renderer: {fileID: 5954858707595679645}
+    - renderer: {fileID: 5437359208392826392}
+    - renderer: {fileID: 5841213284868123352}
+    - renderer: {fileID: 4384403443051400636}
+    - renderer: {fileID: 7920441882689664970}
+    - renderer: {fileID: 6094677458382973534}
+    - renderer: {fileID: 5929609874781842549}
+    - renderer: {fileID: 4988251019069139049}
+    - renderer: {fileID: 6366161623390437869}
+    - renderer: {fileID: 3897802210507813252}
+    - renderer: {fileID: 4405747431680728142}
+    - renderer: {fileID: 3106292684943387758}
+    - renderer: {fileID: 912298671744898349}
+    - renderer: {fileID: 1043290994624793030}
+    - renderer: {fileID: 7934758624739801630}
+    - renderer: {fileID: 7415437101201804255}
+    - renderer: {fileID: 5375329734265621150}
+    - renderer: {fileID: 1425347632417205134}
+    - renderer: {fileID: 1901081205173046626}
+    - renderer: {fileID: 5534462114095005037}
+    - renderer: {fileID: 7345695759958427210}
+    - renderer: {fileID: 2095004600291153337}
+  m_Enabled: 1
 --- !u!1 &3543945282462907961
 GameObject:
   m_ObjectHideFlags: 0

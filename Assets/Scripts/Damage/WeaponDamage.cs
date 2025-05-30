@@ -45,7 +45,10 @@ public class WeaponDamage : MonoBehaviour
         Animator _animator = collision.collider.GetComponentInParent<Animator>();
 
         _impulsValue = impuls * _damageRatio;
-
+        if (collision.gameObject.CompareTag("Weapon") || collision.gameObject.CompareTag("Secret_Weapon"))
+        {
+            HitSound();
+        }
         if (hitZone != null && _canHit) 
         {
             if (hitZone.zone == HitZone.ZoneType.Sword)
@@ -122,20 +125,22 @@ public class WeaponDamage : MonoBehaviour
             }
         }
     }
+    public void HitSound()
+    {
+        if (hitSounds.Length > 0)
+        {
+            int randomSoundIndex = Random.Range(0, hitSounds.Length);
+            audioSource.pitch = Random.Range(0.9f, 1.1f);  // Чуть меняем тон
+            audioSource.PlayOneShot(hitSounds[randomSoundIndex]);
+        }
+    }
+
     private void Effects(Collision collision)
     {
         foreach (ContactPoint contact in collision.contacts)
         {
             Instantiate(_effect, contact.point, Quaternion.identity);
-
-            // Рандомный звук удара
-            if (hitSounds.Length > 0)
-            {
-                int randomSoundIndex = Random.Range(0, hitSounds.Length);
-                audioSource.pitch = Random.Range(0.9f, 1.1f);  // Чуть меняем тон
-                audioSource.PlayOneShot(hitSounds[randomSoundIndex]);
-            }
-            return;
+            HitSound();
         }
     }
     private IEnumerator ExitHitZone()

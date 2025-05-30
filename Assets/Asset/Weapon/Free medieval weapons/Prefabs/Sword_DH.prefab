@@ -339,7 +339,7 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
-  m_AttachTransform: {fileID: 0}
+  m_AttachTransform: {fileID: 41063147291586362}
   m_SecondaryAttachTransform: {fileID: 0}
   m_UseDynamicAttach: 0
   m_MatchAttachPosition: 1
@@ -390,8 +390,9 @@ MonoBehaviour:
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 1
   _maxGrabDistance: 0.15
-  _secondAttachPoint: {fileID: 0}
+  _secondAttachPoint: {fileID: 4495711830092768002}
   TwoHandGrabbing: 1
+  _isShield: 0
   handModel: {fileID: 0}
   _firstInteractor: {fileID: 0}
 --- !u!114 &487750063100229744
@@ -412,8 +413,9 @@ MonoBehaviour:
   originalRotation: {x: 0, y: 0, z: 0}
   originalScale: {x: 0, y: 0, z: 0}
   ScaleInSlot: 0.2
-  RotationInSlot: {x: 0, y: 0, z: 0, w: 1}
-  PositionOffset: {x: 0, y: 0, z: 0}
+  RotationInSlot: {x: -0.70710677, y: 0, z: 0, w: 0.70710677}
+  PositionOffset: {x: 0, y: -0.14, z: 0}
+  originalPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &6707775800371181629
 MonoBehaviour:
   m_ObjectHideFlags: 0
