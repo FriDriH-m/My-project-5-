@@ -19,6 +19,7 @@ public class PlayerDamage : MonoBehaviour
     public DataAchievement Icon16;
     [SerializeField] private Image fadeOverlay; 
     [SerializeField] private float fadeInDuration = 2.0f;
+    public GameObject DeathCanvas;
     private void Start()
     {
         hitPoints = 200f;
@@ -190,7 +191,7 @@ public class PlayerDamage : MonoBehaviour
 
     public IEnumerator FadeIn()
     {
-        fadeOverlay.enabled = true;
+        DeathCanvas.SetActive(true);
         float elapsedTime = 0f;
         Color startColor = fadeOverlay.color;
         Color targetColor = new Color(0, 0, 0, 0); // Ïîëíàÿ ïðîçðà÷íîñòü
@@ -203,6 +204,6 @@ public class PlayerDamage : MonoBehaviour
         }
 
         fadeOverlay.color = targetColor; // Ôèíàëèçèðóåì ïðîçðà÷íîñòü
-        fadeOverlay.enabled = false;
+        DeathCanvas.SetActive(false);
     }
 }
