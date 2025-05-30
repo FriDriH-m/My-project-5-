@@ -17,8 +17,8 @@ public class PlayerDamage : MonoBehaviour
     public bool Damage = false;
     public AudioClip Hit;
     public DataAchievement Icon16;
-    [SerializeField] private Image fadeOverlay; // Перетащите сюда FadeOverlay
-    [SerializeField] private float fadeInDuration = 2.0f; // Длительность проявления
+    [SerializeField] private Image fadeOverlay; // ГЏГҐГ°ГҐГІГ Г№ГЁГІГҐ Г±ГѕГ¤Г  FadeOverlay
+    [SerializeField] private float fadeInDuration = 2.0f; // Г„Г«ГЁГІГҐГ«ГјГ­Г®Г±ГІГј ГЇГ°Г®ГїГўГ«ГҐГ­ГЁГї
     private void Start()
     {
         hitPoints = 200f;
@@ -35,7 +35,7 @@ public class PlayerDamage : MonoBehaviour
         DamageCount _damageCount = other.GetComponentInParent<DamageCount>();
         if (_damageCount != null && !_damageCount.attacking)
         {
-            //Debug.Log("Враг не атакует");
+            //Debug.Log("Г‚Г°Г ГЈ Г­ГҐ Г ГІГ ГЄГіГҐГІ");
             return;
         }
         if (other.gameObject.CompareTag("Great_Sword"))
@@ -49,12 +49,12 @@ public class PlayerDamage : MonoBehaviour
             {
                 if (_weaponDamage._touchSword)
                 {
-                    //Debug.Log("Урон не прошел, блокировал");
+                    //Debug.Log("Г“Г°Г®Г­ Г­ГҐ ГЇГ°Г®ГёГҐГ«, ГЎГ«Г®ГЄГЁГ°Г®ГўГ Г«");
                     return;
                 }
                 else
                 {
-                    //Debug.Log("Great Sword урон");
+                    //Debug.Log("Great Sword ГіГ°Г®Г­");
                     PlayerHit();
                     hitPoints -= 60;
                 }
@@ -65,7 +65,7 @@ public class PlayerDamage : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Sword"))
         {
-            //Debug.Log("Sword урон");
+            //Debug.Log("Sword ГіГ°Г®Г­");
             if (_damageCount != null)
             {
                 _damageCount.StartCoroutine(_damageCount.CanHit());
@@ -74,11 +74,12 @@ public class PlayerDamage : MonoBehaviour
             {
                 if (_weaponDamage._touchSword)
                 {
-                    Debug.Log("Урон не прошел, блокировал");
+                    Debug.Log("Г“Г°Г®Г­ Г­ГҐ ГЇГ°Г®ГёГҐГ«, ГЎГ«Г®ГЄГЁГ°Г®ГўГ Г«");
                     return;
                 }
                 else
                 {
+
                     hitPoints -= 30;
                     PlayerHit();
                 }
@@ -94,7 +95,7 @@ public class PlayerDamage : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Axe"))
         {
-            //Debug.Log("Axe урон");
+            //Debug.Log("Axe ГіГ°Г®Г­");
             if (_damageCount != null)
             {
                 _damageCount.StartCoroutine(_damageCount.CanHit());
@@ -104,7 +105,7 @@ public class PlayerDamage : MonoBehaviour
             {
                 if (_weaponDamage._touchSword)
                 {
-                    Debug.Log("Урон не прошел, блокировал");
+                    Debug.Log("Г“Г°Г®Г­ Г­ГҐ ГЇГ°Г®ГёГҐГ«, ГЎГ«Г®ГЄГЁГ°Г®ГўГ Г«");
                     return;
                 }
                 else 
@@ -119,7 +120,7 @@ public class PlayerDamage : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("Golem"))
         {
-            //Debug.Log("Golem урон");
+            //Debug.Log("Golem ГіГ°Г®Г­");
             if (_damageCount != null)
             {
                 _damageCount.StartCoroutine(_damageCount.CanHit());
@@ -141,7 +142,7 @@ public class PlayerDamage : MonoBehaviour
                 Icon16._unlocked = true;
             }
             StartCoroutine(Revive());
-            //Смерть игрока
+            //Г‘Г¬ГҐГ°ГІГј ГЁГЈГ°Г®ГЄГ 
         }
 
     }
@@ -155,7 +156,7 @@ public class PlayerDamage : MonoBehaviour
         if (hitSounds.Length > 0)
         {
             int randomSoundIndex = Random.Range(0, hitSounds.Length);
-            audioSource.pitch = Random.Range(0.9f, 1.1f);  // Чуть меняем тон
+            audioSource.pitch = Random.Range(0.9f, 1.1f);  // Г—ГіГІГј Г¬ГҐГ­ГїГҐГ¬ ГІГ®Г­
             audioSource.PlayOneShot(hitSounds[randomSoundIndex]);
         }
     }
@@ -168,7 +169,7 @@ public class PlayerDamage : MonoBehaviour
         if (hitGolemSounds.Length > 0)
         {
             int randomSoundIndex = Random.Range(0, hitGolemSounds.Length);
-            audioSource.pitch = Random.Range(0.9f, 1.1f);  // Чуть меняем тон
+            audioSource.pitch = Random.Range(0.9f, 1.1f);  // Г—ГіГІГј Г¬ГҐГ­ГїГҐГ¬ ГІГ®Г­
             audioSource.PlayOneShot(hitGolemSounds[randomSoundIndex]);
         }
     }
@@ -192,7 +193,7 @@ public class PlayerDamage : MonoBehaviour
     {
         float elapsedTime = 0f;
         Color startColor = fadeOverlay.color;
-        Color targetColor = new Color(0, 0, 0, 0); // Полная прозрачность
+        Color targetColor = new Color(0, 0, 0, 0); // ГЏГ®Г«Г­Г Гї ГЇГ°Г®Г§Г°Г Г·Г­Г®Г±ГІГј
 
         while (elapsedTime < fadeInDuration)
         {
@@ -201,6 +202,6 @@ public class PlayerDamage : MonoBehaviour
             yield return null;
         }
 
-        fadeOverlay.color = targetColor; // Финализируем прозрачность
+        fadeOverlay.color = targetColor; // Г”ГЁГ­Г Г«ГЁГ§ГЁГ°ГіГҐГ¬ ГЇГ°Г®Г§Г°Г Г·Г­Г®Г±ГІГј
     }
 }
