@@ -16,6 +16,7 @@ public class DamageCount : MonoBehaviour
     public float hitPoints;
     private bool alreadyDead = false;
     public bool attacking = false;
+    public bool revive = false;
 
     private Vector3 startCoordination;
     private Quaternion startRotation;
@@ -26,7 +27,7 @@ public class DamageCount : MonoBehaviour
         startHitPoints = hitPoints;
         startCoordination = transform.position;
         startRotation = transform.rotation;
-
+        animator = transform.GetComponent<Animator>();
         _playerDamage = FindFirstObjectByType<PlayerDamage>();
         allChildrens = transform.GetComponentsInChildren<Transform>();        
     }
@@ -36,7 +37,7 @@ public class DamageCount : MonoBehaviour
         {
             if (_golemHand1 != null)
             {
-                _golemHand1.tag = "Untaggeg";
+                _golemHand1.tag = "Untagged";
                 _golemHand2.tag = "Untagged";
             }
             else
@@ -83,9 +84,29 @@ public class DamageCount : MonoBehaviour
             if (_enemyStateManager != null) { _enemyStateManager.enabled = true; }
             if (_zoneTriggerManager != null) { _zoneTriggerManager.enabled = true; }
 
+            revive = true;
+            
+            if (animator != null)
+            {
+                foreach (AnimatorControllerParameter param in animator.parameters)
+                {
+                    switch (param.type)
+                    {
+                        case AnimatorControllerParameterType.Float:
+                            animator.SetFloat(param.name, 0f);
+                            break;
+                        case AnimatorControllerParameterType.Int:
+                            animator.SetInteger(param.name, 0);
+                            break;
+                        case AnimatorControllerParameterType.Bool:
+                            animator.SetBool(param.name, false);
+                            break;
+                    }
+                }
+            }
             animator.Rebind();
             animator.Update(0f);
-            animator.Play("Idle", 0);            
+            animator.Play("Idle", 0);
 
             alreadyDead = false;
         }

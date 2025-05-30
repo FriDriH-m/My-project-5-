@@ -5,7 +5,7 @@ public class RetreatStateAxe : BaseStateAxe
     float time = 0; // таймер
     public override void EnterState(EnemyStateManagerAxe manager, ZoneTriggerManagerAxe zoneManager)
     {
-        //Debug.Log("retreat");
+        Debug.Log("retreat");
         manager.animator.SetBool("IsRetreat", true);
     }
     public override void ExitState(EnemyStateManagerAxe manager, ZoneTriggerManagerAxe zoneManager)
@@ -25,7 +25,7 @@ public class RetreatStateAxe : BaseStateAxe
         }
 
         if (manager.CheckDistance() >= manager.attackDistance) manager.SwitchState(manager.attackState);
-        if (zoneManager.defenseSide != "") manager.SwitchState(manager.defenceState);
+        if (zoneManager.defenseSide != "" && manager.isAttacking) manager.SwitchState(manager.defenceState);
 
         manager.StartRetreatMove();
     }

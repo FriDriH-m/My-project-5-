@@ -42,6 +42,7 @@ public class BossDoor : MonoBehaviour
     }
     public IEnumerator KeyActive()
     {
+        inZone = false;
         Renderer renderer = keyModel.GetComponent<Renderer>();
         if (renderer != null)
         {

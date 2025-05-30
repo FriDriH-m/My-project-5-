@@ -92,7 +92,10 @@ public class EnemyStateManagerAxe : MonoBehaviour
     }
     private void Update()
     {
-        //Debug.Log(isAttacking);
+        if (damageCount.revive)
+        {
+            SwitchState(idleState);
+        }
         SetTarget(player); // Задает значение target Transform player
         navMeshAgent.destination = target.position; // Постоянно обновляет позицию
         currentState.UpdateState(this, zoneManager); // Вызывается метод Updatestate() текущего состояния

@@ -44,7 +44,7 @@ public class WeaponDamage : MonoBehaviour
         HitZone hitZone = collision.collider.GetComponentInParent<HitZone>();
         DamageCount _damageCount = collision.collider.GetComponentInParent<DamageCount>();
         Animator _animator = collision.collider.GetComponentInParent<Animator>();
-        Debug.Log("удар по приколу");
+        //Debug.Log("удар по приколу");
         _impulsValue = impuls * _damageRatio;
         if (collision.gameObject.CompareTag("Weapon") || collision.gameObject.CompareTag("Secret_Weapon"))
         {

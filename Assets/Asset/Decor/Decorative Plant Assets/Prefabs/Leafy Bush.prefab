@@ -161,8 +161,12 @@ MonoBehaviour:
   inSlot: 0
   slotRotation: {x: 0, y: 0, z: 0}
   currentSlot: {fileID: 0}
+  originalRotation: {x: 0, y: 0, z: 0}
   originalScale: {x: 0, y: 0, z: 0}
   ScaleInSlot: 0.2
+  RotationInSlot: {x: 0, y: 0, z: 0, w: 1}
+  PositionOffset: {x: 0, y: 0, z: 0}
+  originalPosition: {x: 0, y: 0, z: 0}
 --- !u!54 &8143546511041498722
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -216,6 +220,7 @@ MonoBehaviour:
   _secondHandDown: {x: 0, y: 0, z: 0}
   _trackPoint: 0.5
   _selectItem: {fileID: 0}
+  Grab: {fileID: 0}
   _audioSource: {fileID: 0}
 --- !u!114 &7424029326931859306
 MonoBehaviour:
@@ -236,7 +241,7 @@ MonoBehaviour:
   m_AllowTwoHandedScaling: 0
   m_OneHandedScaleSpeed: 0.5
   m_ThresholdMoveRatioForScale: 0.05
-  m_ClampScaling: 1
+  m_ClampScaling: 0
   m_MinimumScaleRatio: 0.1
   m_MaximumScaleRatio: 10
   m_ScaleMultiplier: 1
@@ -401,6 +406,7 @@ MonoBehaviour:
   _maxGrabDistance: 0.15
   _secondAttachPoint: {fileID: 0}
   TwoHandGrabbing: 0
+  _isShield: 0
   handModel: {fileID: 0}
   _firstInteractor: {fileID: 0}
 --- !u!114 &6459380899775421524
@@ -418,4 +424,6 @@ MonoBehaviour:
   _podorozhniktrigger: {fileID: 0}
   _healAmount: 50
   Icon7: {fileID: 11400000, guid: 9124607f91180ce40bb2c541dd6e52aa, type: 2}
+  Eat: {fileID: 8300000, guid: 11df1cb530bd11c449cc1d69760a1231, type: 3}
+  audioSource: {fileID: 0}
   Bar: {fileID: 0}

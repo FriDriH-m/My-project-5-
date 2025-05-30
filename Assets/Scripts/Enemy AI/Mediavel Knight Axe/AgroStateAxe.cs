@@ -5,7 +5,7 @@ public class AgroStateAxe : BaseStateAxe
 {
     public override void EnterState(EnemyStateManagerAxe manager, ZoneTriggerManagerAxe zoneManager)
     {
-        //Debug.Log("Agro");
+        Debug.Log("Agro");
         manager.animator.SetBool("IsWalking", true);
         manager.SetSpeed(manager.walkSpeed);
         
