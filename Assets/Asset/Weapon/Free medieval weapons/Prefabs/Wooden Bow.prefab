@@ -825,8 +825,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.39, y: 1.11, z: 0.12}
-  m_Center: {x: 0.15, y: 0.28, z: 0}
+  m_Size: {x: 0.13746643, y: 1.11, z: 0.034942627}
+  m_Center: {x: 0.22925568, y: 0.28000003, z: -0.0054740906}
 --- !u!114 &7308104505162294230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -863,6 +863,7 @@ MonoBehaviour:
   arrow: {fileID: 1959729250425484, guid: 5187dfa4d8f19524e8bbf7c6894b7de7, type: 3}
   hitArrowSounds: []
   Shoots: 0
+  spawnPoint: {fileID: 0}
 --- !u!114 &2403468641668057906
 MonoBehaviour:
   m_ObjectHideFlags: 0
