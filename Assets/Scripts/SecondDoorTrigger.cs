@@ -8,6 +8,7 @@ public class SecondDoorTrigger : MonoBehaviour
     private Vector3 targetPosition;
     public AudioClip doorOpenSound;
     public AudioSource audioSource;
+    private bool wasMoved = false;  
 
     public void Start()
     {
@@ -17,7 +18,7 @@ public class SecondDoorTrigger : MonoBehaviour
     public void OnTriggerStay(Collider other)
     {
         //Debug.Log(TargetScript.targetCount);
-        if (TargetScript.targetCount == 4) { shouldMove = true; targetPosition = door.transform.position + new Vector3(0f, -0.42f, 0f); }
+        if (TargetScript.targetCount == 4 && !wasMoved) { shouldMove = true; targetPosition = door.transform.position + new Vector3(0f, -5f, 0f); wasMoved = true; }
         else return;
     }
     public void Update()
@@ -26,7 +27,7 @@ public class SecondDoorTrigger : MonoBehaviour
         {
             door.transform.position = Vector3.Lerp(door.transform.position, targetPosition, moveSpeed * Time.deltaTime);
         }
-        if (Vector3.Distance(door.transform.position, targetPosition) < 0.01f) shouldMove = false;
+        if (Vector3.Distance(door.transform.position, targetPosition) < 0.3f) shouldMove = false;
         if (TargetScript.targetCount == 4)
         if (shouldMove)
             audioSource.Play();

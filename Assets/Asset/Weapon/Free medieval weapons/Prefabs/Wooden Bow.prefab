@@ -752,6 +752,9 @@ Transform:
   m_Children:
   - {fileID: 4224820139693682}
   - {fileID: 4311502713970408}
+  - {fileID: 8127989871007206136}
+  - {fileID: 7400042477012742408}
+  - {fileID: 5353983558811037406}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &95329518231908724
@@ -850,6 +853,7 @@ MonoBehaviour:
   _secondHandDown: {x: 0, y: 0, z: 0}
   _trackPoint: 0
   _selectItem: {fileID: 0}
+  Grab: {fileID: 0}
   _audioSource: {fileID: 0}
   isGrabbed: 0
   arrowModel: {fileID: 0}
@@ -857,6 +861,7 @@ MonoBehaviour:
   secondPoint: {fileID: 0}
   tetiva: {fileID: 1798074416387974}
   arrow: {fileID: 1959729250425484, guid: 5187dfa4d8f19524e8bbf7c6894b7de7, type: 3}
+  hitArrowSounds: []
   Shoots: 0
 --- !u!114 &2403468641668057906
 MonoBehaviour:
@@ -1007,6 +1012,7 @@ MonoBehaviour:
   _maxGrabDistance: 0.1
   _secondAttachPoint: {fileID: 0}
   TwoHandGrabbing: 1
+  _isShield: 0
   handModel: {fileID: 0}
   _firstInteractor: {fileID: 0}
 --- !u!1 &1793173729035202
@@ -1294,5 +1300,98 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4162163098961802}
+  m_Father: {fileID: 4620178347958848}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2914871992886249188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8127989871007206136}
+  m_Layer: 0
+  m_Name: First Attach Transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8127989871007206136
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2914871992886249188}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.21099854, y: 0.30000007, z: -0.016998291}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4620178347958848}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &5235450927385878051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5353983558811037406}
+  m_Layer: 0
+  m_Name: Arrow Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5353983558811037406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5235450927385878051}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4620178347958848}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8266621093145483200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7400042477012742408}
+  m_Layer: 0
+  m_Name: Second Attach
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7400042477012742408
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8266621093145483200}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1076, y: 0.287, z: -0.019}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 4620178347958848}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

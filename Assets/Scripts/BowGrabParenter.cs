@@ -19,6 +19,7 @@ public class BowGrabParenter : GrabParenter
     GameObject spawnedArrow; // созданная стрела
     Rigidbody arrowRb;
     public int Shoots;
+    [SerializeField] Transform spawnPoint; // точка спавна стрелы
     protected override void Start()
     {
         base.Start();
@@ -31,7 +32,8 @@ public class BowGrabParenter : GrabParenter
     }
     protected override void Update()
     {
-        //Debug.DrawRay(transform.position,)
+        Debug.DrawRay(transform.position, transform.forward * 2, Color.red);
+        Debug.DrawRay(transform.position, transform.forward * 2, Color.red);
         if (_secondaryHand != null && _firstHand != null)
         {
             arrowModel.SetActive(true);
@@ -43,7 +45,7 @@ public class BowGrabParenter : GrabParenter
             {
                 animationAmount = 0.96f;
             }
-            Debug.Log($"currentDist = {animationAmount}");
+            //Debug.Log($"currentDist = {animationAmount}");
             // стрела перед выстрелом - позиционирование, ротатион
             Vector3 vector = secondPoint.position - firstPoint.position; 
             vector.Normalize();
@@ -58,6 +60,7 @@ public class BowGrabParenter : GrabParenter
             //rb.AddTorque(_firstHand.position - _secondaryHand.position, ForceMode.VelocityChange);
         }
     }
+
     public override void OnGrab(SelectEnterEventArgs args)
     {
         interactable = args.interactableObject.transform;
@@ -136,15 +139,17 @@ public class BowGrabParenter : GrabParenter
         {
             arrowModel.SetActive(false);
 
-            Vector3 spawnPosition = transform.position + transform.right + transform.up;
-            spawnedArrow = Instantiate(arrow, spawnPosition, Quaternion.identity);
-            spawnedArrow.transform.rotation = Quaternion.LookRotation(transform.up);
+            Vector3 spawnPosition = spawnPoint.position;
+            Vector3 direction = (_leftHand.position - _rightHand.position).normalized;
 
+            spawnedArrow = Instantiate(arrow, spawnPosition, Quaternion.LookRotation(transform.up) * Quaternion.LookRotation(transform.forward) * Quaternion.LookRotation(transform.right));
+            //spawnedArrow.transform.rotation = ;
+            //spawnedArrow.transform.Rotate(0, 0, -90);
             StartCoroutine(DeleteArrow(spawnedArrow));
 
             arrowRb = spawnedArrow.GetComponent<Rigidbody>();
             spawnedArrow.transform.SetParent(null);
-            arrowRb.AddForce(transform.right * 33 * animationAmount, ForceMode.Impulse);
+            arrowRb.AddForce(transform.right * 23 * animationAmount, ForceMode.Impulse);
             animator.Play("Bow", 0, 0);
             HitArrowSound();
             Shoots += 1;

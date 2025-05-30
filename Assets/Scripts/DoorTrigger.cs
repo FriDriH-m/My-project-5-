@@ -5,19 +5,22 @@ public class DoorTrigger : MonoBehaviour {
     [SerializeField] private float moveSpeed;
     private bool shouldMove = false;
     private Vector3 targetPosition;
+    private bool wasMoved = false;
 
     public void Start() {
-        targetPosition = door.transform.position + new Vector3(0f, -0.42f, 0f); 
+        targetPosition = door.transform.position + new Vector3(0f, -8f, 0f); 
     }
     public void OnTriggerStay(Collider other) {
-        if (PlitaTrigger.boxCount >= 5) { shouldMove = true; }
+        if (PlitaTrigger.boxCount >= 5 && !wasMoved) { shouldMove = true; wasMoved = true; }
         else return;
     }
     public void Update() {
         if (shouldMove) {
             door.transform.position = Vector3.Lerp(door.transform.position, targetPosition, moveSpeed * Time.deltaTime);
         }
-        if (Vector3.Distance(door.transform.position, targetPosition) < 0.01f) shouldMove = false;
-        Debug.Log($"{PlitaTrigger.boxCount}");
+        if (Vector3.Distance(door.transform.position, targetPosition) < 0.5f)
+        {
+            shouldMove = false;
+        } 
     }
 }
