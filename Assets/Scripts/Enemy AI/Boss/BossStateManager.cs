@@ -105,9 +105,9 @@ public class BossStateManager : MonoBehaviour
             float moveSpeed;
             if (runAttack)
             {
-                moveSpeed = 23;
+                moveSpeed = 25;
             }
-            else moveSpeed = 14;
+            else moveSpeed = 20;
             float step = moveSpeed * Time.deltaTime;
             enemy.position = Vector3.MoveTowards(
                 enemy.position,
@@ -115,7 +115,7 @@ public class BossStateManager : MonoBehaviour
                 step
             );
 
-            if (Vector3.Distance(enemy.position, player.position) <= 2.2f)
+            if (Vector3.Distance(enemy.position, player.position) <= 2f)
             {
                 attackMove = false;
                 animator.SetBool("Attack R move", false);

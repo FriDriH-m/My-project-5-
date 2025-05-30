@@ -21,7 +21,7 @@ public class AttackStateB : BaseStateBoss
         if (time > 0.5f) // каждые 0.3 секунды обрабатывается эта ветка
         {
             if (manager.CheckDistance() > manager.attackDistance && manager.canSwitchState) manager.SwitchState(manager.agroState);
-            if ((manager.CheckDistance() < 2) && manager.canSwitchState) manager.SwitchState(manager.defenseState);
+            if ((manager.CheckDistance() < 1.8f) && manager.canSwitchState) manager.SwitchState(manager.defenseState);
             manager._strafingSide = Random.Range(0, 2);
             manager.Attack();
             time = 0;

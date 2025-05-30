@@ -30,6 +30,6 @@ public class MainMenu : MonoBehaviour
 
     public void AfterClickExit()
     {
-            UnityEditor.EditorApplication.isPlaying = false;
+        Application.Quit();
     }
 }
