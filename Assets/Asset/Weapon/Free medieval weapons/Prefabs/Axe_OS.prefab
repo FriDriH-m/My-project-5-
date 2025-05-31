@@ -142,13 +142,14 @@ MonoBehaviour:
   _leftHand: {fileID: 0}
   _rightHand: {fileID: 0}
   _canHoldTwoHands: 1
-  _leftHandPosition: {x: 0.0151, y: -0.0214, z: 0.1069}
+  _leftHandPosition: {x: 0.0139, y: -0.0207, z: -0.0242}
   _leftHandEuler: {x: 187.107, y: 114.344, z: -166.859}
   _rightHandPosition: {x: -0.009211686, y: 0.02918706, z: 0.05432206}
   _rightHandEuler: {x: 25.022, y: -69.71, z: -174.209}
-  _secondHandDown: {x: 0, y: 0, z: 0.2}
-  _trackPoint: 0.5
+  _secondHandDown: {x: 0, y: 0, z: 0.3}
+  _trackPoint: 0.1
   _selectItem: {fileID: 0}
+  Grab: {fileID: 8300000, guid: 511a1c79e0a12974f890586e8d10dffa, type: 3}
   _audioSource: {fileID: 0}
 --- !u!114 &3560306752561944370
 MonoBehaviour:
@@ -441,7 +442,7 @@ Transform:
   m_GameObject: {fileID: 3660108737539542416}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: 0.072}
+  m_LocalPosition: {x: 0, y: 0, z: -0.019}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -493,7 +494,7 @@ Transform:
   m_GameObject: {fileID: 3878079376131627522}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.213}
+  m_LocalPosition: {x: 0, y: 0, z: -0.303}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

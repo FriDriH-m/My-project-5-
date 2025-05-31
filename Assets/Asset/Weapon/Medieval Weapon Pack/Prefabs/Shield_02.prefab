@@ -118,6 +118,7 @@ MonoBehaviour:
   _secondHandDown: {x: 0, y: 0, z: 0}
   _trackPoint: 0.5
   _selectItem: {fileID: 0}
+  Grab: {fileID: 0}
   _audioSource: {fileID: 0}
 --- !u!54 &8382607709987777446
 Rigidbody:
@@ -348,7 +349,7 @@ Transform:
   m_GameObject: {fileID: 7452767005497667966}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.69465834, z: 0, w: 0.71933985}
-  m_LocalPosition: {x: 0.0761, y: -0.0086, z: 0.003}
+  m_LocalPosition: {x: 0.079, y: 0.007, z: -0.039}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -4457,10 +4457,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 125304964197219483, guid: 1fa34df54f1414448b502a85dfa4a95c, type: 3}
-      propertyPath: Grab
-      value: 
-      objectReference: {fileID: 8300000, guid: 511a1c79e0a12974f890586e8d10dffa, type: 3}
-    - target: {fileID: 125304964197219483, guid: 1fa34df54f1414448b502a85dfa4a95c, type: 3}
       propertyPath: _leftHand
       value: 
       objectReference: {fileID: 1282405033}
@@ -4472,6 +4468,22 @@ PrefabInstance:
       propertyPath: _audioSource
       value: 
       objectReference: {fileID: 1779736369}
+    - target: {fileID: 125304964197219483, guid: 1fa34df54f1414448b502a85dfa4a95c, type: 3}
+      propertyPath: _secondHandDown.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 125304964197219483, guid: 1fa34df54f1414448b502a85dfa4a95c, type: 3}
+      propertyPath: _rightHandPosition.x
+      value: -0.0105
+      objectReference: {fileID: 0}
+    - target: {fileID: 125304964197219483, guid: 1fa34df54f1414448b502a85dfa4a95c, type: 3}
+      propertyPath: _rightHandPosition.y
+      value: 0.0292
+      objectReference: {fileID: 0}
+    - target: {fileID: 125304964197219483, guid: 1fa34df54f1414448b502a85dfa4a95c, type: 3}
+      propertyPath: _rightHandPosition.z
+      value: -0.0051
+      objectReference: {fileID: 0}
     - target: {fileID: 1787901314004313729, guid: 1fa34df54f1414448b502a85dfa4a95c, type: 3}
       propertyPath: Icon9
       value: 
@@ -4480,10 +4492,6 @@ PrefabInstance:
       propertyPath: Icon15
       value: 
       objectReference: {fileID: 11400000, guid: d2370f286f285d74299fe650fb675fc3, type: 2}
-    - target: {fileID: 3531418727004490423, guid: 1fa34df54f1414448b502a85dfa4a95c, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3560306752561944370, guid: 1fa34df54f1414448b502a85dfa4a95c, type: 3}
       propertyPath: m_AttachTransform
       value: 
@@ -15741,6 +15749,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 862974980524377249, guid: f063809a91c6b0248956e054e09b9b56, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 862974980524377249, guid: f063809a91c6b0248956e054e09b9b56, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.006
+      objectReference: {fileID: 0}
+    - target: {fileID: 862974980524377249, guid: f063809a91c6b0248956e054e09b9b56, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -2.787
       objectReference: {fileID: 0}
@@ -15752,10 +15768,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90.614
       objectReference: {fileID: 0}
-    - target: {fileID: 8988390104429582458, guid: f063809a91c6b0248956e054e09b9b56, type: 3}
-      propertyPath: Grab
-      value: 
-      objectReference: {fileID: 8300000, guid: 511a1c79e0a12974f890586e8d10dffa, type: 3}
+    - target: {fileID: 6475848346916832212, guid: f063809a91c6b0248956e054e09b9b56, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 6475848346916832212, guid: f063809a91c6b0248956e054e09b9b56, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.187
+      objectReference: {fileID: 0}
     - target: {fileID: 8988390104429582458, guid: f063809a91c6b0248956e054e09b9b56, type: 3}
       propertyPath: _leftHand
       value: 
@@ -15768,14 +15788,6 @@ PrefabInstance:
       propertyPath: _audioSource
       value: 
       objectReference: {fileID: 1779736369}
-    - target: {fileID: 9211724281512228696, guid: f063809a91c6b0248956e054e09b9b56, type: 3}
-      propertyPath: Icon9
-      value: 
-      objectReference: {fileID: 11400000, guid: 4d60e653329f90b45879cfe1cd1a8996, type: 2}
-    - target: {fileID: 9211724281512228696, guid: f063809a91c6b0248956e054e09b9b56, type: 3}
-      propertyPath: Icon15
-      value: 
-      objectReference: {fileID: 11400000, guid: d2370f286f285d74299fe650fb675fc3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
