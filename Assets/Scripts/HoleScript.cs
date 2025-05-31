@@ -11,9 +11,8 @@ public class HoleScript : MonoBehaviour
     public AudioClip WeaponTeleport;
     private void OnTriggerEnter(Collider other)
     {        
-        if (other.transform.CompareTag("Weapon"))
+        if (other.transform.CompareTag("Weapon") || other.transform.CompareTag("Key"))
         {
-            //Debug.Log("Есть");
             FindParent(other);
             if (_parent != null)
             {
@@ -36,7 +35,6 @@ public class HoleScript : MonoBehaviour
         }
         if (other.GetComponentInChildren<PlayerDamage>() != null)
         {
-            Debug.Log("player");
             other.GetComponentInChildren<PlayerDamage>().hitPoints = 0;
             Falls += 1;
             Icon8._unlocked = true;

@@ -22,7 +22,7 @@ public class WeaponDamage : MonoBehaviour
     float _impulsValue 
     { 
         get { return _instImpuls; } 
-        set { _instImpuls = Mathf.Min(value, 80f);} 
+        set { _instImpuls = Mathf.Min(value, 50f);} 
     }
 
 
@@ -99,7 +99,7 @@ public class WeaponDamage : MonoBehaviour
 
             if (hitZone.zone == HitZone.ZoneType.Limbs)
             {
-                _instImpuls *= 0.8f;
+                _instImpuls *= 0.6f;
                 if (_touchSword) _instImpuls *= 0.2f; 
 
                 if (_instImpuls > _minimalImpuls)

@@ -349,7 +349,13 @@ MonoBehaviour:
   _minimalImpuls: 10
   _effect: {fileID: 970440554703164915, guid: 47096eff328e11a418ace7db2d72aa97, type: 3}
   _touchSword: 0
-  hitSounds: []
+  hitSounds:
+  - {fileID: 8300000, guid: 8e4668d8b5827224cb11e3370c8044d4, type: 3}
+  - {fileID: 8300000, guid: 445169f292f0233468befbb5f93f12bb, type: 3}
+  - {fileID: 8300000, guid: 6ba71d07c930fe944876440504c02fd7, type: 3}
+  - {fileID: 8300000, guid: ac7fcca958223904ebe8256c13603ae4, type: 3}
+  - {fileID: 8300000, guid: a3ead4168ab9e2b4a97c1d7c6eb3e05b, type: 3}
+  - {fileID: 8300000, guid: 8cf50564621ddbe48840eea48f1ab532, type: 3}
   Icon9: {fileID: 0}
   Icon15: {fileID: 0}
 --- !u!114 &5702379111456223531

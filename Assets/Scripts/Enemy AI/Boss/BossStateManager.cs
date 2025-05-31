@@ -154,7 +154,7 @@ public class BossStateManager : MonoBehaviour
         if (!isAttacking && chanceOfAttack == 1)
         {
             damageCount.attacking = true;
-            if (CheckDistance() > attackDistance - 4)
+            if (CheckDistance() > attackDistance - 4.5f)
             {
                 int randInt = Random.Range(0, 2);
                 animator.SetBool(moveAttacks[randInt], true);

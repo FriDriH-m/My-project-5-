@@ -1,17 +1,23 @@
+using NUnit.Framework;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class SecondDoorTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject door;
     [SerializeField] private float moveSpeed;
+    [SerializeField] List<GameObject> objectsToDestroy;
     private bool shouldMove = false;
+    private Vector3 startPosition;
     private Vector3 targetPosition;
     public AudioClip doorOpenSound;
     public AudioSource audioSource;
-    private bool wasMoved = false;  
+    private bool wasMoved = false;
+    public bool toClose = false;
 
     public void Start()
     {
+        startPosition = transform.position;
         audioSource = GetComponent<AudioSource>();
         targetPosition = door.transform.position;
     }
@@ -23,11 +29,25 @@ public class SecondDoorTrigger : MonoBehaviour
     }
     public void Update()
     {
+        if (toClose)
+        {
+            door.transform.position = Vector3.Lerp(door.transform.position, startPosition, moveSpeed * Time.deltaTime);
+            if (Vector3.Distance(door.transform.position, startPosition) < 0.1f) 
+            { 
+                toClose = false; 
+                foreach (GameObject obj in objectsToDestroy)
+                {
+                    Destroy(obj);
+                }
+            }
+        }
         if (shouldMove)
         {
             door.transform.position = Vector3.Lerp(door.transform.position, targetPosition, moveSpeed * Time.deltaTime);
         }
-        if (Vector3.Distance(door.transform.position, targetPosition) < 0.3f) shouldMove = false;
+        if (shouldMove && Vector3.Distance(door.transform.position, targetPosition) < 0.3f) shouldMove = false;
+        
+
         if (TargetScript.targetCount == 4)
         if (shouldMove)
             audioSource.Play();
