@@ -27,6 +27,10 @@ public class SecondDoorTrigger : MonoBehaviour
         if (TargetScript.targetCount == 4 && !wasMoved) { shouldMove = true; targetPosition = door.transform.position + new Vector3(0f, -6f, 0f); wasMoved = true; }
         else return;
     }
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log(other.name);
+    }
     public void Update()
     {
         if (toClose)

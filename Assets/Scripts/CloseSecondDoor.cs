@@ -9,14 +9,12 @@ public class CloseSecondDoor : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.GetComponent<PlayerDamage>() != null)
+        if (other.CompareTag("R_Hand") || other.CompareTag("L_Hand"))
         {
-            Debug.Log("Игрока");
             if (triggerDoor != null)
             {
                 triggerDoor.toClose = true;
             }
-            else Debug.Log("No script");
         }
     }
 }
