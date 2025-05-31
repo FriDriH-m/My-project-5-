@@ -60,7 +60,7 @@ public class DefenceState : BaseState
     }
     private IEnumerator SwitchDefenseState(EnemyStateManager manager, ZoneTriggerManager zoneManager)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.1f);
         if (manager.CheckDistance() <= manager.attackDistance)
         {
             manager.SwitchState(manager.attackState);

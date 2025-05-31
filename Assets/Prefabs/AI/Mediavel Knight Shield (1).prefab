@@ -2445,6 +2445,7 @@ MonoBehaviour:
   _golemHand2: {fileID: 0}
   hitPoints: 120
   attacking: 0
+  revive: 0
   startHitPoints: 0
 --- !u!205 &2133261671081098398
 LODGroup:
@@ -5854,7 +5855,6 @@ GameObject:
   - component: {fileID: 2413643039086799523}
   - component: {fileID: 497875579166083531}
   - component: {fileID: 3352220925566396277}
-  - component: {fileID: 3739641746278969604}
   m_Layer: 0
   m_Name: Shield_03
   m_TagString: Untagged
@@ -5913,33 +5913,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.66, y: 0.82, z: 0.07}
   m_Center: {x: 0, y: 0, z: -0.04}
---- !u!54 &3739641746278969604
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7256760125803798946}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &7316127023519901820
 GameObject:
   m_ObjectHideFlags: 0
@@ -7429,7 +7402,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8803018074996960077}
   - component: {fileID: 4450729059657696361}
-  - component: {fileID: 1256905074744803317}
   - component: {fileID: 7886598776478719532}
   m_Layer: 0
   m_Name: Sword_02
@@ -7475,33 +7447,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.11, y: 1.17, z: 0.06}
   m_Center: {x: 0, y: 0.63, z: 0}
---- !u!54 &1256905074744803317
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8803018074996960066}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &7886598776478719532
 MonoBehaviour:
   m_ObjectHideFlags: 0
