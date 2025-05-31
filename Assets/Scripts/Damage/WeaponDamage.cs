@@ -151,6 +151,7 @@ public class WeaponDamage : MonoBehaviour
         {
             Instantiate(_effect, contact.point, Quaternion.identity);
             HitSound();
+            break;
         }
     }
     private IEnumerator ExitHitZone()

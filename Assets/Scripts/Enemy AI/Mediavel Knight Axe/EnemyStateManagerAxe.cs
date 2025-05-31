@@ -95,6 +95,7 @@ public class EnemyStateManagerAxe : MonoBehaviour
         if (damageCount.revive)
         {
             SwitchState(idleState);
+            damageCount.revive = false;
         }
         SetTarget(player); // Задает значение target Transform player
         navMeshAgent.destination = target.position; // Постоянно обновляет позицию

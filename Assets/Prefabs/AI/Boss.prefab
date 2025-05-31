@@ -3046,8 +3046,9 @@ MonoBehaviour:
   timeNoAttaking: 2
   _golemHand1: {fileID: 0}
   _golemHand2: {fileID: 0}
-  hitPoints: 500
+  hitPoints: 300
   attacking: 0
+  revive: 0
   startHitPoints: 0
 --- !u!1 &6765862475843297879
 GameObject:

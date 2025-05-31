@@ -1192,8 +1192,9 @@ MonoBehaviour:
   timeNoAttaking: 1.5
   _golemHand1: {fileID: 8039683884384789053}
   _golemHand2: {fileID: 5119845997537575326}
-  hitPoints: 250
+  hitPoints: 180
   attacking: 0
+  revive: 0
   startHitPoints: 0
 --- !u!114 &1221218996769303473
 MonoBehaviour:

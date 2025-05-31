@@ -7107,8 +7107,9 @@ MonoBehaviour:
   timeNoAttaking: 0.4
   _golemHand1: {fileID: 0}
   _golemHand2: {fileID: 0}
-  hitPoints: 100
+  hitPoints: 60
   attacking: 0
+  revive: 0
   startHitPoints: 0
 --- !u!205 &-6797687606406120629
 LODGroup:
