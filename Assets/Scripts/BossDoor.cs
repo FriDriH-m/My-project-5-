@@ -50,6 +50,7 @@ public class BossDoor : MonoBehaviour
         }
         shouldMove = true;
         targetPosition = door.position + new Vector3(0, -15, 0);
+        FindObjectOfType<PreBossSound>().StartFadeOut();
         yield return null;
     }
 }

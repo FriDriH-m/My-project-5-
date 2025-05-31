@@ -44,6 +44,7 @@ public class EngingUI : MonoBehaviour
         if (_DamageCount.hitPoints <= 0)
         {
             EngingCanvas();
+            FindObjectOfType<BossSound>().StartFadeOut();
         }
     }
 }

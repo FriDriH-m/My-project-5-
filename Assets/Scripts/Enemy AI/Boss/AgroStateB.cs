@@ -1,15 +1,16 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AgroStateB : BaseStateBoss
 {
-    
     public override void EnterState(BossStateManager manager)
     {
         manager.animator.SetBool("Walk", true);
         manager.SetSpeed(manager.walkSpeed);
         manager._runCoroutine = manager.StartCoroutine(Running(manager));
-
+        manager.BossSound.AgroStateActive();
+        Debug.Log("Агро");
     }
     public override void ExitState(BossStateManager manager)
     {

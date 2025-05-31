@@ -24,6 +24,7 @@ public class BossStateManager : MonoBehaviour
     public int _strafingSide;
     public Coroutine _runCoroutine;
     public DamageCount damageCount;
+    public BossSound BossSound;
 
     BaseStateBoss currentState;
     public IdleStateB idleState = new();

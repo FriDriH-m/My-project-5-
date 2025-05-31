@@ -20,6 +20,7 @@ public class PlayerDamage : MonoBehaviour
     [SerializeField] private Image fadeOverlay; 
     [SerializeField] private float fadeInDuration = 2.0f;
     public GameObject DeathCanvas;
+    public BossSound BossSound;
     private void Start()
     {
         hitPoints = 200f;
@@ -27,7 +28,9 @@ public class PlayerDamage : MonoBehaviour
         if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
+
         }
+
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -179,6 +182,8 @@ public class PlayerDamage : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         Deaths+=1;
         hitPoints = 200;
+        BossSound.flagForSound = true;
+        FindObjectOfType<BossSound>().StartFadeOut();
         HealthBar();
         transform.parent.position = reviveCoordination;
     }
