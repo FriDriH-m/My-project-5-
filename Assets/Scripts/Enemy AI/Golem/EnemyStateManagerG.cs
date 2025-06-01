@@ -68,7 +68,7 @@ public class EnemyStateManagerG : MonoBehaviour
     public void RandomAttack() 
     {
         int randomInt = Random.Range(0, 2);
-        int chanceOfAttack = Random.Range(0, 3);
+        int chanceOfAttack = Random.Range(0, 2);
         if (chanceOfAttack == 1)
         {
             if (randomInt == 0)
