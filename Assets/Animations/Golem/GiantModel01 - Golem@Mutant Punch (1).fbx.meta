@@ -65,8 +65,22 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.14751203
+        functionName: CanHitPlayer
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 28247b4592794f54fa9f79280a6a717b, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 1
         functionName: EndAttackAnimation
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 28247b4592794f54fa9f79280a6a717b, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.50978917
+        functionName: CannotHitPlayer
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 28247b4592794f54fa9f79280a6a717b, type: 3}
         floatParameter: 0

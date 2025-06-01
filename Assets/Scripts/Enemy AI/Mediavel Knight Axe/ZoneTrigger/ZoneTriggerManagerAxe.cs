@@ -37,8 +37,7 @@ public class ZoneTriggerManagerAxe : MonoBehaviour
             if (chanceOfAttack == 1)
             {
                 animator.SetBool(attackZone[randAttackInteger], true);
-                manager.isAttacking = true;
-                manager.damageCount.attacking = true;
+                manager.isAttacking = true;                
             }
         }
         

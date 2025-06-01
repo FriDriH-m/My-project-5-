@@ -86,13 +86,19 @@ public class EnemyStateManager : MonoBehaviour
     {
         animator.SetBool("StrafeR", false);
         animator.SetBool("StrafeL", false);
-        isAttacking = true;
+        isAttacking = true;        
+    }
+    public void CanHitPlayer()
+    {
         damageCount.attacking = true;
+    }
+    public void CannotHitPlayer()
+    {
+        damageCount.attacking = false;
     }
     public void EndAttackAnimation()
     {
         isAttacking = false;
-        damageCount.attacking = true;
     }
     public void EndImpactAnimation()
     {

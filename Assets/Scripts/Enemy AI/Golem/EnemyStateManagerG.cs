@@ -82,13 +82,19 @@ public class EnemyStateManagerG : MonoBehaviour
         }
     }
     public void StartAttackAnimation()
+    {        
+        isAttacking = true;
+    }
+    public void CanHitPlayer()
     {
         damageCount.attacking = true;
-        isAttacking = true;
+    }
+    public void CannotHitPlayer()
+    {
+        damageCount.attacking = false;
     }
     public void EndAttackAnimation()
     {
-        damageCount.attacking = false;
         isAttacking = false;
     }
     private void Update()
