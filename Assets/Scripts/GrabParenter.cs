@@ -163,15 +163,19 @@ public class GrabParenter : MonoBehaviour
         }
         if (bossDoor.inZone)
         {
-            TwoHandGrab(true);
-            HandToStartPosition(_firstHand);
-            _firstHand = null;
-            grabInteractable._firstInteractor = null;
-            grabInteractable.handModel = null;
-            interactable.SetParent(null);
-            SetRigidbodyDumping(0f);
-            bossDoor.StartCoroutine(bossDoor.KeyActive());
-            interactable.gameObject.SetActive(false);
+            if (interactable.CompareTag("Key"))
+            {
+                TwoHandGrab(true);
+                HandToStartPosition(_firstHand);
+                _firstHand = null;
+                grabInteractable._firstInteractor = null;
+                grabInteractable.handModel = null;
+                interactable.SetParent(null);
+                SetRigidbodyDumping(0f);
+                bossDoor.StartCoroutine(bossDoor.KeyActive());
+                interactable.gameObject.SetActive(false);
+            }
+           
         }
         if (_firstHand != null && _secondaryHand != null) // если при отпускании оружие взято обеими руками
         {
