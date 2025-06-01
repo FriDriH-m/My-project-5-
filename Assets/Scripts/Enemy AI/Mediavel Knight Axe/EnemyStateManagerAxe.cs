@@ -78,6 +78,14 @@ public class EnemyStateManagerAxe : MonoBehaviour
         animator.SetBool("StrafeL", false);
         animator.SetBool("StrafeR", false);
     }
+    public void CanHitPlayer()
+    {
+        damageCount.attacking = true;
+    }
+    public void CannotHitPlayer()
+    {
+        damageCount.attacking = false;
+    }
     public void EndImpactAnimation()
     {
         animator.SetBool("HeadImpact", false);

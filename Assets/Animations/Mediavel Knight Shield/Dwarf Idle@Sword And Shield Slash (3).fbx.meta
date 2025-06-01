@@ -69,6 +69,20 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.3491905
+        functionName: CanHitPlayer
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: fd293cb5b36e64640baaa9d96545ba2f, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.52835125
+        functionName: CannotHitPlayer
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: fd293cb5b36e64640baaa9d96545ba2f, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
