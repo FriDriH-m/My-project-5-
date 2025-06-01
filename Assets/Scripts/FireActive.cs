@@ -5,6 +5,7 @@ public class FireActive : MonoBehaviour
 {
     PlayerDamage _playerDamage;
     Coroutine _coroutine;
+    public GameObject FireLearn;
     public bool Fire = false;
     private void Start()
     {
@@ -34,6 +35,7 @@ public class FireActive : MonoBehaviour
         transform.GetChild(0).gameObject.SetActive(true);
         transform.GetChild(1).gameObject.SetActive(true);
         _playerDamage.reviveCoordination = transform.position + new Vector3(1,0,0);
+        FireLearn.SetActive(false);
         _coroutine = null;
     }
 }

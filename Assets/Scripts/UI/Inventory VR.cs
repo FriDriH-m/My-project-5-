@@ -20,7 +20,7 @@ public class InventoryVR : MonoBehaviour
 
     private void Update()
     {
-        if (InputDevices.GetDeviceAtXRNode(XRNode.LeftHand).TryGetFeatureValue(CommonUsages.secondaryButton, out bool isPressed))
+        if (InputDevices.GetDeviceAtXRNode(XRNode.RightHand).TryGetFeatureValue(CommonUsages.secondaryButton, out bool isPressed))
         {
             if (isPressed && !_wasPressed)
             {
