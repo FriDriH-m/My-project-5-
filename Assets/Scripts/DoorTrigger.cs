@@ -9,8 +9,9 @@ public class DoorTrigger : MonoBehaviour {
     private bool wasMoved = false;
     public AudioSource audioSource;
     bool FlagForSound = false;
+    [SerializeField] Vector3 direction;
     public void Start() {
-        targetPosition = door.transform.position + new Vector3(0f, -8f, 0f); 
+        targetPosition = door.transform.position + direction; 
     }
     public void OnTriggerStay(Collider other) {
         if (PlitaTrigger.boxCount >= 5 && !wasMoved) { shouldMove = true; wasMoved = true; }
@@ -26,15 +27,15 @@ public class DoorTrigger : MonoBehaviour {
             shouldMove = false;
         }
 
-        if (shouldMove)
-        {
-            if (!FlagForSound)
-            {
-                audioSource.Play();
-                FlagForSound = true;
-            }
-        }
-        else
-            audioSource.Stop();
+        //if (shouldMove)
+        //{
+        //    if (!FlagForSound)
+        //    {
+        //        audioSource.Play();
+        //        FlagForSound = true;
+        //    }
+        //}
+        //else
+        //    audioSource.Stop();
     }
 }

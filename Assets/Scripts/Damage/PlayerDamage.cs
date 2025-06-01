@@ -21,8 +21,10 @@ public class PlayerDamage : MonoBehaviour
     [SerializeField] private float fadeInDuration = 2.0f;
     public GameObject DeathCanvas;
     public BossSound BossSound;
+    private BossStateManager bossState; 
     private void Start()
     {
+        bossState = FindFirstObjectByType<BossStateManager>();
         hitPoints = 200f;
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
@@ -140,6 +142,7 @@ public class PlayerDamage : MonoBehaviour
         HealthBar();
         if (hitPoints <= 0)
         {
+            bossState.SwitchState(bossState.idleState);
             if (other.gameObject.CompareTag("Axe") && (other.gameObject.transform.root.name == "Mediavel Knight Axe Variant (1)"))
             {
                 Icon16._unlocked = true;

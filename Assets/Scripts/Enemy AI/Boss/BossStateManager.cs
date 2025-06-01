@@ -76,7 +76,7 @@ public class BossStateManager : MonoBehaviour
     private void Update()
     {
         Debug.DrawRay(transform.position, transform.forward * agroDistance, Color.yellow);
-        if (_playerDamage.hitPoints <= 0) SwitchState(idleState);
+        //if (_playerDamage.hitPoints <= 0) SwitchState(idleState);
         SetTarget(player);
         navMeshAgent.destination = target.position;
         currentState.UpdateState(this);
