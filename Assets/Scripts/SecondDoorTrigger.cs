@@ -10,10 +10,10 @@ public class SecondDoorTrigger : MonoBehaviour
     private bool shouldMove = false;
     private Vector3 startPosition;
     private Vector3 targetPosition;
-    public AudioClip doorOpenSound;
     public AudioSource audioSource;
     private bool wasMoved = false;
     public bool toClose = false;
+    public bool FlagForSound;
 
     public void Start()
     {
@@ -50,13 +50,17 @@ public class SecondDoorTrigger : MonoBehaviour
             door.transform.position = Vector3.Lerp(door.transform.position, targetPosition, moveSpeed * Time.deltaTime);
         }
         if (shouldMove && Vector3.Distance(door.transform.position, targetPosition) < 0.3f) shouldMove = false;
-        
 
-        if (TargetScript.targetCount == 4)
+
         if (shouldMove)
-            audioSource.Play();
+        {
+            if (!FlagForSound)
+            {
+                audioSource.Play();
+                FlagForSound = true;
+            }
+        }
         else
             audioSource.Stop();
-
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class BossDoor : MonoBehaviour
 {
@@ -7,10 +8,11 @@ public class BossDoor : MonoBehaviour
     [SerializeField] private float moveSpeed;
     private bool shouldMove = false;
     private Vector3 targetPosition;
-
+    public bool FlagForSound;
     public GameObject keyModel;
     public bool inZone = false;
     public Material myMaterial;
+    public AudioSource audioSource;
     private void Start()
     {
         keyModel.SetActive(false);
@@ -39,6 +41,18 @@ public class BossDoor : MonoBehaviour
             door.transform.position = Vector3.Lerp(door.transform.position, targetPosition, moveSpeed * Time.deltaTime);
         }
         if (Vector3.Distance(door.transform.position, targetPosition) < 0.01f) shouldMove = false;
+
+        if (shouldMove)
+        {
+            if (!FlagForSound)
+            {
+                audioSource.Play();
+                FlagForSound = true;
+            }
+        }
+        else
+            audioSource.Stop();
+
     }
     public IEnumerator KeyActive()
     {

@@ -8,8 +8,7 @@ public class DoorTrigger : MonoBehaviour {
     private Vector3 targetPosition;
     private bool wasMoved = false;
     public AudioSource audioSource;
-    public AudioClip DoorOpenSound;
-    bool flag = false;
+    bool FlagForSound = false;
     public void Start() {
         targetPosition = door.transform.position + new Vector3(0f, -8f, 0f); 
     }
@@ -26,15 +25,15 @@ public class DoorTrigger : MonoBehaviour {
         {
             shouldMove = false;
         }
-            if (shouldMove)
+
+        if (shouldMove)
+        {
+            if (!FlagForSound)
             {
-                if (!flag)
-                {
-                    audioSource.Play();
-                flag = true;
-                }
-                
+                audioSource.Play();
+                FlagForSound = true;
             }
+        }
         else
             audioSource.Stop();
     }
