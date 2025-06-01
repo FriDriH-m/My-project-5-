@@ -10,6 +10,7 @@ public class DoorTrigger : MonoBehaviour {
     public AudioSource audioSource;
     bool FlagForSound = false;
     [SerializeField] Vector3 direction;
+    PreBossSound PreBossSound;
     public void Start() {
         targetPosition = door.transform.position + direction; 
     }
@@ -27,15 +28,16 @@ public class DoorTrigger : MonoBehaviour {
             shouldMove = false;
         }
 
-        //if (shouldMove)
-        //{
-        //    if (!FlagForSound)
-        //    {
-        //        audioSource.Play();
-        //        FlagForSound = true;
-        //    }
-        //}
-        //else
-        //    audioSource.Stop();
+        if (shouldMove)
+        {
+            if (!FlagForSound)
+            {
+                audioSource.Play();
+                FlagForSound = true;
+                PreBossSound.StartFadeOut();
+            }
+        }
+        else
+            audioSource.Stop();
     }
 }
