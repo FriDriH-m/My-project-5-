@@ -25,6 +25,7 @@ public class BossStateManager : MonoBehaviour
     public Coroutine _runCoroutine;
     public DamageCount damageCount;
     public BossSound BossSound;
+    private PlayerDamage _playerDamage;
 
     BaseStateBoss currentState;
     public IdleStateB idleState = new();
@@ -64,6 +65,7 @@ public class BossStateManager : MonoBehaviour
     }
     private void Start()
     {
+        _playerDamage = FindFirstObjectByType<PlayerDamage>();
         damageCount = GetComponent<DamageCount>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         enemy = transform;
@@ -73,6 +75,8 @@ public class BossStateManager : MonoBehaviour
     }
     private void Update()
     {
+        Debug.DrawRay(transform.position, transform.forward * agroDistance, Color.yellow);
+        if (_playerDamage.hitPoints <= 0) SwitchState(idleState);
         SetTarget(player);
         navMeshAgent.destination = target.position;
         currentState.UpdateState(this);

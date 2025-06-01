@@ -77,7 +77,7 @@ public class DamageCount : MonoBehaviour
         }
         if (_playerDamage.hitPoints <= 0)
         {
-            transform.position = startCoordination + new Vector3(0, 0, 0);
+            transform.position = startCoordination ;
             transform.rotation = startRotation;
             hitPoints = startHitPoints;
 

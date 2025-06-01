@@ -9,7 +9,7 @@ public class AgroStateB : BaseStateBoss
         manager.animator.SetBool("Walk", true);
         manager.SetSpeed(manager.walkSpeed);
         manager._runCoroutine = manager.StartCoroutine(Running(manager));
-        manager.BossSound.AgroStateActive();
+        //manager.BossSound.AgroStateActive();
         Debug.Log("Агро");
     }
     public override void ExitState(BossStateManager manager)
@@ -18,6 +18,7 @@ public class AgroStateB : BaseStateBoss
     }
     public override void UpdateState(BossStateManager manager)
     {
+        //Debug.Log(manager.CheckDistance() + " - " + manager.agroDistance);
         if (manager.CheckDistance() >= manager.agroDistance && manager.canSwitchState) manager.SwitchState(manager.idleState);
         if (manager.CheckDistance() <= manager.attackDistance && manager.canSwitchState) manager.SwitchState(manager.attackState);
 

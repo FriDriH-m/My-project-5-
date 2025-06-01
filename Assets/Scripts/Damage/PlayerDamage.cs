@@ -182,8 +182,8 @@ public class PlayerDamage : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         Deaths+=1;
         hitPoints = 200;
-        BossSound.flagForSound = true;
-        FindObjectOfType<BossSound>().StartFadeOut();
+        //BossSound.flagForSound = true;
+        //FindFirstObjectByType<BossSound>().StartFadeOut();
         HealthBar();
         transform.parent.position = reviveCoordination;
     }
