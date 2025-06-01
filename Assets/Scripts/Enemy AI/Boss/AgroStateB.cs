@@ -9,7 +9,7 @@ public class AgroStateB : BaseStateBoss
         manager.animator.SetBool("Walk", true);
         manager.SetSpeed(manager.walkSpeed);
         manager._runCoroutine = manager.StartCoroutine(Running(manager));
-        //manager.BossSound.AgroStateActive();
+        manager.BossSound.AgroStateActive();
         Debug.Log("Агро");
     }
     public override void ExitState(BossStateManager manager)
