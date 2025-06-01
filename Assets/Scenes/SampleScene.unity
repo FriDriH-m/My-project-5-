@@ -27430,6 +27430,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1200168978}
     - target: {fileID: 7422906500929392197, guid: 2d0a9dec34e0cac49a26c0650a971ccd, type: 3}
+      propertyPath: inZone
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422906500929392197, guid: 2d0a9dec34e0cac49a26c0650a971ccd, type: 3}
       propertyPath: moveSpeed
       value: 0.3
       objectReference: {fileID: 0}
