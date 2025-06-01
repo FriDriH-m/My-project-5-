@@ -30,7 +30,6 @@ public class GrabParenter : MonoBehaviour
     [SerializeField] protected AudioClip _selectItem;
     [SerializeField] protected AudioClip Grab;
     [SerializeField] protected AudioSource _audioSource;
-    BossDoor bossDoor;
 
     protected virtual void Awake()
     {
@@ -62,7 +61,6 @@ public class GrabParenter : MonoBehaviour
     //}
     protected virtual void Start()
     {
-        bossDoor = FindFirstObjectByType<BossDoor>();
         if (!_canHoldTwoHands)
         {
             grabInteractable.selectMode = InteractableSelectMode.Single;
@@ -160,22 +158,6 @@ public class GrabParenter : MonoBehaviour
         if (rb != null)
         {
             rb.isKinematic = false; // Включаем физику
-        }
-        if (bossDoor.inZone)
-        {
-            if (interactable.CompareTag("Key"))
-            {
-                TwoHandGrab(true);
-                HandToStartPosition(_firstHand);
-                _firstHand = null;
-                grabInteractable._firstInteractor = null;
-                grabInteractable.handModel = null;
-                interactable.SetParent(null);
-                SetRigidbodyDumping(0f);
-                bossDoor.StartCoroutine(bossDoor.KeyActive());
-                interactable.gameObject.SetActive(false);
-            }
-           
         }
         if (_firstHand != null && _secondaryHand != null) // если при отпускании оружие взято обеими руками
         {
