@@ -94,6 +94,7 @@ public class EnemyStateManagerAxe : MonoBehaviour
     {
         if (damageCount.revive)
         {
+            zoneManager.defenseSide = "";
             SwitchState(idleState);
             damageCount.revive = false;
         }

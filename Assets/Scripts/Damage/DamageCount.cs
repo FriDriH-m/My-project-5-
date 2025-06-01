@@ -17,6 +17,7 @@ public class DamageCount : MonoBehaviour
     private bool alreadyDead = false;
     public bool attacking = false;
     public bool revive = false;
+    Collider[] colls;
 
     private Vector3 startCoordination;
     private Quaternion startRotation;
@@ -24,6 +25,7 @@ public class DamageCount : MonoBehaviour
     
     private void Start()
     {
+        colls = GetComponentsInChildren<Collider>();
         startHitPoints = hitPoints;
         startCoordination = transform.position;
         startRotation = transform.rotation;
@@ -35,6 +37,10 @@ public class DamageCount : MonoBehaviour
     {
         if (hitPoints <= 0 && !alreadyDead )
         {
+            foreach (Collider coll in colls)
+            {
+                coll.enabled = false;
+            }
             if (_golemHand1 != null)
             {
                 _golemHand1.tag = "Untagged";
@@ -70,13 +76,14 @@ public class DamageCount : MonoBehaviour
                     }
                 }
             }
-
             if (_enemyStateManager != null) { _enemyStateManager.enabled = false; }
             if (_zoneTriggerManager != null) { _zoneTriggerManager.enabled = false; }
             alreadyDead = true;
+
         }
         if (_playerDamage.hitPoints <= 0)
         {
+            transform.gameObject.SetActive(true);
             transform.position = startCoordination ;
             transform.rotation = startRotation;
             hitPoints = startHitPoints;
@@ -109,6 +116,10 @@ public class DamageCount : MonoBehaviour
             animator.Play("Idle", 0);
 
             alreadyDead = false;
+            foreach (Collider coll in colls)
+            {
+                coll.enabled = true;
+            }
         }
     }
     public IEnumerator CanHit()
@@ -138,7 +149,6 @@ public class DamageCount : MonoBehaviour
             yield return new WaitForSeconds(timeNoAttaking);
             weapon.tag = _tag;
             weapon = null;
-        }
-        
+        }        
     }
 }
