@@ -1458,8 +1458,8 @@ MonoBehaviour:
   player: {fileID: 0}
   enemy: {fileID: 4718553843291987325}
   walkSpeed: 1.8
-  agroDistance: 20
-  attackDistance: 3
+  agroDistance: 9
+  attackDistance: 2.9
   angleSpeed: 28
   animator: {fileID: 3259185624867660188}
   retreatSpeed: 1
