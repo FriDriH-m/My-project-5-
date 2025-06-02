@@ -14379,6 +14379,10 @@ PrefabInstance:
       propertyPath: Icon15
       value: 
       objectReference: {fileID: 11400000, guid: d2370f286f285d74299fe650fb675fc3, type: 2}
+    - target: {fileID: 6707775800371181629, guid: ab8ac2017bc4c9e40b484324e5ee20e7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8653598041467451371, guid: ab8ac2017bc4c9e40b484324e5ee20e7, type: 3}
       propertyPath: m_Mass
       value: 13

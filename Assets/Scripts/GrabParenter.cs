@@ -260,7 +260,7 @@ public class GrabParenter : MonoBehaviour
         {            
             Vector3 midPoint = Vector3.Lerp(_firstHand.position, _secondaryHand.position, _trackPoint);           
           
-            rb.AddForce((midPoint - transform.position) * 5f, ForceMode.VelocityChange);
+            rb.AddForce((midPoint - transform.position) * 10f, ForceMode.VelocityChange);
         }
     }
 
