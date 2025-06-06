@@ -8,10 +8,7 @@ public class AttackStateG : BaseStateG
         manager.isAnimationIdle = true;
         manager.SetSpeed(0);
     }
-    public override void ExitState(EnemyStateManagerG manager)
-    {
-
-    }
+    public override void ExitState(EnemyStateManagerG manager) { }
     public override void UpdateState(EnemyStateManagerG manager)
     {
         time += Time.deltaTime;

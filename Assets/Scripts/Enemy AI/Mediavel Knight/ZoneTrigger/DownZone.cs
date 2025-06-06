@@ -14,8 +14,4 @@ public class DownZone : MonoBehaviour
             manager.defenseSide = "down";
         }        
     }
-    private void OnTriggerExit(Collider other)
-    {
-        
-    }
 }

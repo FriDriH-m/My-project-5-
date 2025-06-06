@@ -20,25 +20,21 @@ public class DoorTrigger : MonoBehaviour {
     }
     public void Update() 
     {
-        if (shouldMove) {
-            door.transform.position = Vector3.Lerp(door.transform.position, targetPosition, moveSpeed * Time.deltaTime);
-        }
-        if (Vector3.Distance(door.transform.position, targetPosition) < 0.5f)
-        {
-            shouldMove = false;
-        }
+        if (shouldMove) door.transform.position = Vector3.Lerp(door.transform.position, targetPosition, moveSpeed * Time.deltaTime);
+        if (Vector3.Distance(door.transform.position, targetPosition) < 0.5f) shouldMove = false;
         if (audioSource != null)
-        if (shouldMove)
         {
-            if (!FlagForSound)
+            if (shouldMove)
             {
-                audioSource.Play();
-                FlagForSound = true;
+                if (!FlagForSound)
+                {
+                    audioSource.Play();
+                    FlagForSound = true;
                     if (PreBossSound != null)
-                PreBossSound.StartFadeOut();
+                        PreBossSound.StartFadeOut();
+                }
             }
-        }
-        else
-            audioSource.Stop();
+        }        
+        else audioSource.Stop();
     }
 }
